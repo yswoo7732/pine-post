@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="27" viewBox="0 0 46 27">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="46" height="27" fill="#FFF" rx="13.5"/>
+        <text fill="#000" font-family="LIFEPLUS-Medium, LIFEPLUS" font-size="12" font-weight="400">
+            <tspan x="12.32" y="17">초급</tspan>
+        </text>
+    </g>
+</svg>
