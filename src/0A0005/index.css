@@ -38,7 +38,7 @@ body {
 .container {
   width: 100%;
   max-width: 750px;
-  height: 100%;
+  height: auto;
   align-items: center;
   margin: auto;
   border: 1px solid #666666;
