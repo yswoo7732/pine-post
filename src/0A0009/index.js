@@ -151,13 +151,13 @@ window.onload = function () {
             lottie4.goToAndPlay(0);
             break;
           case 5:
-            lottie5.goToAndPlay(0);
+            // lottie5.goToAndPlay(0);
             break;
           case 6:
             lottie6.goToAndPlay(0);
             break;
           case 7:
-            lottie7.goToAndPlay(0);
+            // lottie7.goToAndPlay(0);
             break;
           default:
             break;
