@@ -100,8 +100,8 @@ window.onload = function () {
   var lottie4 = lottie.loadAnimation({
     container: document.getElementById("lottie4"), // the dom element that will contain the animation
     renderer: "svg",
-    loop: false,
-    autoplay: true,
+    loop: 2,
+    autoplay: false,
     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
   });
   var lottie5 = lottie.loadAnimation({
@@ -114,8 +114,8 @@ window.onload = function () {
   var lottie6 = lottie.loadAnimation({
     container: document.getElementById("lottie6"), // the dom element that will contain the animation
     renderer: "svg",
-    loop: false,
-    autoplay: true,
+    loop: 2,
+    autoplay: false,
     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
   });
   var lottie7 = lottie.loadAnimation({
