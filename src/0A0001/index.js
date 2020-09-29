@@ -27,6 +27,7 @@ function fitScreeSize() {
     1 - window.screen.width / window.screen.height
   );
 
+  
   var r = gcd(window.screen.width, window.screen.height);
   console.log(
     "aspect-ratio",
