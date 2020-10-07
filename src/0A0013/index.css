@@ -5,20 +5,15 @@
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  color: #000000;
-  font-size: 20px;
 }
 
 @font-face {
   font-family: LIFEPLUS;
-  src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2),
-    url(assets/LIFEPLUS-Bold.woff);
+  src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2) format("woff2"),
+    url(assets/LIFEPLUS-Bold.woff) format("woff");
   font-weight: bold;
   font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
   font-stretch: normal;
-  font-size: 22px;
 }
 
 html,
@@ -29,18 +24,28 @@ body {
   overflow-x: hidden;
   margin: auto;
   background: #fff;
-  font-family: LIFEPLUS;
+}
+
+body {
+  background: #fff;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: auto;
+  padding: 0;
 }
 
 .container {
+  width: 100%;
+  max-width: 750px;
   height: auto;
+  align-items: center;
   margin: auto;
   border: 1px solid #666666;
 }
 
-.wrapper {
-  margin-left: 28px;
-  margin-right: 28px;
+.border_none {
+  border: none;
 }
 
 img {
@@ -49,33 +54,10 @@ img {
 
 .img_round {
   border-radius: 4px !important;
+  border-color: #eee;
 }
 
-.contents_1 {
-  width: 100%;
-  height: auto;
-  position: relative;
-}
-
-#contents_1_1 {
-  width: 327px;
-  height: 87px;
-  font-size: 22px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #ffffff;
-  position: absolute;
-  bottom: 0;
-}
-
-#contents_1_1 > p {
-  margin: 0;
-}
-
-#contents_1_2 {
+.contents_1_2 {
   width: 46px;
   height: 27px;
   position: absolute;
@@ -85,7 +67,7 @@ img {
   border-radius: 20px;
 }
 
-#contents_1_2 > p {
+.contents_1_2_1 {
   width: 22px;
   height: 16px;
   object-fit: contain;
@@ -101,23 +83,86 @@ img {
   margin: 5px 12px 6px 12px;
 }
 
-.title {
-  margin-top: 30px;
-  margin-bottom: 20px;
+.contents_1 {
+  width: 100%;
   height: auto;
+  position: relative;
+}
+.contents_1_1 {
+  width: 327px;
+  height: 87px;
+  font-family: LIFEPLUS;
+  font-size: 22px;
+  /* font-weight: bold; */
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.contents_1_1 > p {
+  margin: 0;
+}
+
+.contents_title_1 {
+  margin: 31px 28px 40px 28px;
+  width: 327px;
+  height: 26px;
   font-family: LIFEPLUS;
   font-size: 20px;
   font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
 }
 
-.banner {
-  margin-top: 60px;
-  margin-bottom: 30px;
+.contents_banner_1 {
+  margin: 0 28px 37px 28px;
+  height: auto;
+}
+.contents_banner_2 {
+  margin: 60px 28px 30px 28px;
+  height: auto;
+}
+.contents_banner_3 {
+  margin: 60px 28px 30px 28px;
+  height: auto;
+}
+.contents_banner_4 {
+  margin: 60px 28px 19px 28px;
+  height: auto;
+}
+.contents_banner_5 {
+  margin: 60px 28px 19px 28px;
+  height: auto;
+}
+.contents {
+  margin: 16px 28px 16px 28px;
   height: auto;
 }
 
-#banner1 {
- margin-top: 40px;
+.contents_title_2 {
+  margin: 10px 28px 20px 28px;
+  height: auto;
+}
+.contents_title_3 {
+  margin: 30px 28px 20px 28px;
+  height: auto;
+}
+.contents_title_4 {
+  margin: 19px 28px 18px 28px;
+  height: auto;
+}
+.contents_title_5 {
+  margin: 19px 28px 18px 28px;
+  height: auto;
 }
 
 .text_basic {
@@ -160,7 +205,7 @@ img {
 }
 
 .b_contents {
-  margin-top: 60px;
+  margin: 60px 28px 0 28px;
 }
 
 .box-shadow {
@@ -194,6 +239,55 @@ img {
     background: linear-gradient(to right, #fcfd54 100%, transparent 100%);
   }
 }
+.swiper-container {
+  width: auto;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+
+  border-radius: 4px;
+}
+
+.swiper-pagination {
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 4px;
+  height: 4px;
+  background-color: #000000;
+}
+
+.swiper-pagination-bullet-active {
+  width: 10px;
+  height: 4px;
+  background-color: #000000;
+  border-radius: 4px;
+}
 
 .basic_foot {
   position: relative;
@@ -208,7 +302,17 @@ img {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;
+  bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .heart_active {
   content: url("assets/basic_foot_heart_fill.png");
 }
-
