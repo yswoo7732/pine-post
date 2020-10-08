@@ -33,6 +33,7 @@ body {
 }
 
 .container {
+  max-width: 730px;
   height: auto;
   margin: auto;
   border: 1px solid #666666;
@@ -51,24 +52,22 @@ img {
   border-radius: 4px !important;
 }
 
-.contents_1 {
+#contents_1 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
 #contents_1_1 {
-  width: 327px;
-  height: 87px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  margin-top: 12px;
 }
 
 #contents_1_1 > p {
@@ -78,18 +77,12 @@ img {
 #contents_1_2 {
   width: 46px;
   height: 27px;
-  position: absolute;
-  left: 28px;
-  bottom: 100px;
+  position: relative;
   background-color: white;
   border-radius: 20px;
 }
 
 #contents_1_2 > p {
-  width: 22px;
-  height: 16px;
-  object-fit: contain;
-  font-family: LIFEPLUS;
   font-size: 12px;
   font-weight: 500;
   font-stretch: normal;
@@ -98,14 +91,19 @@ img {
   letter-spacing: normal;
   text-align: center;
   color: #000000;
-  margin: 5px 12px 6px 12px;
+  padding: 5px 12px 5px 12px;
+}
+
+#contents_title {
+  padding: 0 28px;
+  position: absolute;
+  bottom: 32px;
 }
 
 .title {
   margin-top: 30px;
   margin-bottom: 20px;
   height: auto;
-  font-family: LIFEPLUS;
   font-size: 20px;
   font-weight: 500;
 }
@@ -117,11 +115,10 @@ img {
 }
 
 #banner1 {
- margin-top: 40px;
+  margin-top: 40px;
 }
 
 .text_basic {
-  font-family: LIFEPLUS;
   font-size: 16px;
   font-weight: 500;
   font-stretch: normal;
@@ -131,7 +128,6 @@ img {
   color: #666666;
 }
 .text_bold {
-  font-family: LIFEPLUS;
   font-size: 19px;
   font-weight: bold;
   font-stretch: normal;
@@ -149,7 +145,6 @@ img {
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
-  font-family: LIFEPLUS;
   font-size: 14px;
   font-weight: bold;
   font-stretch: normal;
@@ -212,3 +207,8 @@ img {
   content: url("assets/basic_foot_heart_fill.png");
 }
 
+@media (max-width: 340px) {
+  #contents_1_1 {
+    font-size: 16px;
+  }
+}
