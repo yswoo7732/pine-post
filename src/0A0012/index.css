@@ -32,16 +32,15 @@ body {
   font-family: LIFEPLUS;
 }
 
-.container {
+.wrapper {
   max-width: 730px;
   height: auto;
   margin: auto;
   border: 1px solid #666666;
 }
 
-.wrapper {
-  margin-left: 28px;
-  margin-right: 28px;
+.container {
+  margin: 0px 28px 20px 28px;
 }
 
 img {
@@ -52,13 +51,13 @@ img {
   border-radius: 4px !important;
 }
 
-#contents_1 {
+#div_upper {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-#contents_1_1 {
+#upper_1_2 {
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -70,11 +69,11 @@ img {
   margin-top: 12px;
 }
 
-#contents_1_1 > p {
+#upper_1_2 > p {
   margin: 0;
 }
 
-#contents_1_2 {
+#upper_1_1 {
   width: 46px;
   height: 27px;
   position: relative;
@@ -82,7 +81,7 @@ img {
   border-radius: 20px;
 }
 
-#contents_1_2 > p {
+#upper_1_1 > p {
   font-size: 12px;
   font-weight: 500;
   font-stretch: normal;
@@ -94,7 +93,7 @@ img {
   padding: 5px 12px 5px 12px;
 }
 
-#contents_title {
+#title_upper {
   padding: 0 28px;
   position: absolute;
   bottom: 32px;
@@ -108,13 +107,17 @@ img {
   font-weight: 500;
 }
 
-.banner {
+#title_tag {
+  font-size: 20px;
+}
+
+.contents {
   margin-top: 60px;
   margin-bottom: 30px;
   height: auto;
 }
 
-#banner1 {
+#contents1 {
   margin-top: 40px;
 }
 
@@ -208,7 +211,15 @@ img {
 }
 
 @media (max-width: 340px) {
-  #contents_1_1 {
+  #upper_1_2, .text_bold {
     font-size: 16px;
+  }
+
+  #title_tag {
+    font-size: 18px;
+  }
+  
+  .text_basic {
+    font-size: 14px;
   }
 }

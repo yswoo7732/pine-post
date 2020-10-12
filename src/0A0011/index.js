@@ -3,28 +3,6 @@ window.onload = function () {
     document.getElementsByClassName("container")[0].classList.add("border_none");
   }
 
-  var swiper = new Swiper(".swiper-container", {
-    direction: "horizontal",
-    initialSlide: 0,
-    on: {
-      slideChange: function (sp) {
-        switch (sp.activeIndex) {
-          case 1:
-            break;
-          case 2:
-            break;
-          case 3:
-            break;
-          default:
-            console.log("switch default activeIndex:", sp.activeIndex);
-        }
-      },
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
-  
   var bContents = document.getElementsByClassName("b_contents")[0];
   var basicFoot = document.getElementsByClassName("basic_foot")[0];
   var boxShadows = document.getElementsByClassName("box-shadow");
@@ -41,26 +19,6 @@ window.onload = function () {
         element.classList.add("box-shadow-active");
       }
     });
-
-    if (bContents.offsetTop - window.innerHeight < document.body.scrollTop) {
-      if (basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.remove("sticky");
-      }
-    } else if (prevScrollTop > document.body.scrollTop) {
-      console.log("Up");
-      prevScrollTop = document.body.scrollTop;
-      if (!basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.add("sticky");
-      }
-    } else if (prevScrollTop <= document.body.scrollTop) {
-      console.log("Down");
-      prevScrollTop = document.body.scrollTop;
-      if (basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.remove("sticky");
-      }
-    } else {
-      basicFoot.classList.remove("sticky");
-    }
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
