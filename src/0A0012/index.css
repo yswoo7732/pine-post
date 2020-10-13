@@ -33,7 +33,7 @@ body {
 }
 
 .wrapper {
-  max-width: 730px;
+  max-width: 750px;
   height: auto;
   margin: auto;
   border-left: 1px solid #666666;
@@ -212,6 +212,18 @@ img {
 
 .basic_foot div {
   width: 50%;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;
+  bottom: 0;
+  margin: auto;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
 }
 
 .heart_active {

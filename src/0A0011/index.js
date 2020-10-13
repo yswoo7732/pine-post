@@ -6,7 +6,7 @@ window.onload = function () {
   var bContents = document.getElementsByClassName("b_contents")[0];
   var basicFoot = document.getElementsByClassName("basic_foot")[0];
   var boxShadows = document.getElementsByClassName("box-shadow");
-  var height = window.screen.height / 1.5;
+  var height = window.screen.height / 2;
   var prevScrollTop = 0;
   document.body.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
@@ -19,6 +19,26 @@ window.onload = function () {
         element.classList.add("box-shadow-active");
       }
     });
+
+    if (bContents.offsetTop - window.innerHeight < document.body.scrollTop) {
+      if (basicFoot.classList.contains("sticky")) {
+        basicFoot.classList.remove("sticky");
+      }
+    } else if (prevScrollTop > document.body.scrollTop) {
+      console.log("Up");
+      prevScrollTop = document.body.scrollTop;
+      if (!basicFoot.classList.contains("sticky")) {
+        basicFoot.classList.add("sticky");
+      }
+    } else if (prevScrollTop <= document.body.scrollTop) {
+      console.log("Down");
+      prevScrollTop = document.body.scrollTop;
+      if (basicFoot.classList.contains("sticky")) {
+        basicFoot.classList.remove("sticky");
+      }
+    } else {
+      basicFoot.classList.remove("sticky");
+    }
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
