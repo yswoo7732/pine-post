@@ -36,7 +36,8 @@ body {
   max-width: 730px;
   height: auto;
   margin: auto;
-  border: 1px solid #666666;
+  border-left: 1px solid #666666;
+  border-right: 1px solid #666666;
 }
 
 .container {
@@ -196,6 +197,7 @@ img {
 .basic_foot {
   position: relative;
   display: flex;
+  display: -webkit-flex;
   width: 100%;
   height: auto;
   margin: 10px 0 0 0;
@@ -206,6 +208,10 @@ img {
   padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
   /* ios 11.2 이상 */
   padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
+}
+
+.basic_foot div {
+  width: 50%;
 }
 
 .heart_active {
