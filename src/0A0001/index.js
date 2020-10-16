@@ -101,7 +101,6 @@ window.onload = function () {
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     initialSlide: 0,
-    updateOnWindowResize: true,
     on: {
       slideChange: function (sp) {
         document.getElementById("question1").classList.remove("q1");
@@ -170,7 +169,7 @@ window.onload = function () {
   lottie.loadAnimation({
     container: document.getElementsByClassName("scale_wrapper1")[0], // the dom element that will contain the animation
     renderer: "svg",
-    loop: false,
+    loop: true,
     autoplay: true,
     path: "assets/lottie/scale1.json", // the path to the animation json
   });
