@@ -153,7 +153,6 @@ window.onload = function () {
     pagination: {
       el: ".swiper-pagination",
       type: "custom",
-      effect: "fade",
       renderCustom: function (swiper, current, total) {
         return (
           '<div class="page-font-f">' +
