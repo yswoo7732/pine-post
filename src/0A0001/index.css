@@ -48,7 +48,7 @@ body {
   margin: 0 auto;
 }
 
-.swiper-slide-active > .content-wrapper:not(.first) {
+.content-wrapper:not(.first) {
   margin-top: -18%;
 }
 

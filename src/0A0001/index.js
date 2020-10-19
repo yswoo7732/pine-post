@@ -27,7 +27,6 @@ function fitScreeSize() {
     1 - window.screen.width / window.screen.height
   );
 
-  
   var r = gcd(window.screen.width, window.screen.height);
   console.log(
     "aspect-ratio",
@@ -154,6 +153,7 @@ window.onload = function () {
     pagination: {
       el: ".swiper-pagination",
       type: "custom",
+      effect: "fade",
       renderCustom: function (swiper, current, total) {
         return (
           '<div class="page-font-f">' +
