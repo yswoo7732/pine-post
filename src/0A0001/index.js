@@ -101,10 +101,7 @@ window.onload = function () {
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     initialSlide: 0,
-    grabCursor: true,
     watchSlidesProgress: true,
-    mousewheelControl: true,
-    // keyboardControl: true,
     on: {
       // progress: function () {
       //   var swiper = this;
@@ -150,8 +147,8 @@ window.onload = function () {
               .classList.add("d-none");
             break;
           case 1:
-            document.getElementById("question1").classList.add("q1");
-            document.getElementById("question2").classList.add("q2");
+            // document.getElementById("question1").classList.add("q1");
+            // document.getElementById("question2").classList.add("q2");
             break;
           case 2:
             break;
