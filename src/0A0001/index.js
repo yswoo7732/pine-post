@@ -106,30 +106,30 @@ window.onload = function () {
     mousewheelControl: true,
     // keyboardControl: true,
     on: {
-      progress: function () {
-        var swiper = this;
-        for (var i = 0; i < swiper.slides.length; i++) {
-          var slideProgress = swiper.slides[i].progress;
-          var innerOffset = swiper.width * interleaveOffset;
-          var innerTranslate = slideProgress * innerOffset;
-          swiper.slides[i].querySelector(".content-wrapper").style.transform =
-            "translate3d(" + innerTranslate + "px, 0, 0)";
-        }
-      },
-      touchStart: function () {
-        var swiper = this;
-        for (var i = 0; i < swiper.slides.length; i++) {
-          swiper.slides[i].style.transition = "";
-        }
-      },
-      setTransition: function (speed) {
-        var swiper = this;
-        for (var i = 0; i < swiper.slides.length; i++) {
-          swiper.slides[i].style.transition = speed + "ms";
-          swiper.slides[i].querySelector(".content-wrapper").style.transition =
-            speed + "ms";
-        }
-      },
+      // progress: function () {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     var slideProgress = swiper.slides[i].progress;
+      //     var innerOffset = swiper.width * interleaveOffset;
+      //     var innerTranslate = slideProgress * innerOffset;
+      //     swiper.slides[i].querySelector(".content-wrapper").style.transform =
+      //       "translate3d(" + innerTranslate + "px, 0, 0)";
+      //   }
+      // },
+      // touchStart: function () {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     swiper.slides[i].style.transition = "";
+      //   }
+      // },
+      // setTransition: function (speed) {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     swiper.slides[i].style.transition = speed + "ms";
+      //     swiper.slides[i].querySelector(".content-wrapper").style.transition =
+      //       speed + "ms";
+      //   }
+      // },
       slideChange: function (sp) {
         document.getElementById("question1").classList.remove("q1");
         document.getElementById("question2").classList.remove("q2");
