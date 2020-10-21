@@ -102,6 +102,7 @@ window.onload = function () {
     direction: "horizontal",
     initialSlide: 0,
     watchSlidesProgress: true,
+    cssMode: true,
     on: {
       // progress: function () {
       //   var swiper = this;
@@ -147,8 +148,8 @@ window.onload = function () {
               .classList.add("d-none");
             break;
           case 1:
-            // document.getElementById("question1").classList.add("q1");
-            // document.getElementById("question2").classList.add("q2");
+            document.getElementById("question1").classList.add("q1");
+            document.getElementById("question2").classList.add("q2");
             break;
           case 2:
             break;
@@ -191,29 +192,29 @@ window.onload = function () {
     },
   });
 
-  // lottie.loadAnimation({
-  //   container: document.getElementsByClassName("scale_wrapper1")[0], // the dom element that will contain the animation
-  //   renderer: "svg",
-  //   // loop: true,
-  //   // autoplay: true,
-  //   path: "assets/lottie/scale1.json", // the path to the animation json
-  // });
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper1")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale1.json", // the path to the animation json
+  });
 
-  // lottie.loadAnimation({
-  //   container: document.getElementsByClassName("scale_wrapper2")[0], // the dom element that will contain the animation
-  //   renderer: "svg",
-  //   // loop: true,
-  //   // autoplay: true,
-  //   path: "assets/lottie/scale2.json", // the path to the animation json
-  // });
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper2")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale2.json", // the path to the animation json
+  });
 
-  // lottie.loadAnimation({
-  //   container: document.getElementsByClassName("scale_wrapper3")[0], // the dom element that will contain the animation
-  //   renderer: "svg",
-  //   // loop: true,
-  //   // autoplay: true,
-  //   path: "assets/lottie/scale3.json", // the path to the animation json
-  // });
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper3")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale3.json", // the path to the animation json
+  });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
