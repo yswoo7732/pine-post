@@ -96,13 +96,15 @@ window.onload = function () {
   //       containerElement.offsetHeight * 0.4618 + "px";
   //   });
   // }
-  var interleaveOffset = 0.5;
 
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     initialSlide: 0,
     watchSlidesProgress: true,
-    cssMode: true,
+    resistanceRatio: 0,
+    
+    // width: 375,
+    // cssMode: true,
     on: {
       // progress: function () {
       //   var swiper = this;
