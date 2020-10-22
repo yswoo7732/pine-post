@@ -77,6 +77,11 @@ function fitScreeSize() {
 }
 
 window.onload = function () {
+  var el = document.querySelectorAll("div.content-wrapper > img");
+  el.forEach(function (img) {
+    img.style.visibility = "visible";
+  });
+  // document.getElementsByClassName("content-wrapper img")[0].style.visibility = "visible";
   fitScreeSize();
   // let isMobile = window.matchMedia("all and (max-width: 760px)").matches;
   // let isMobile = /Mobi|Android/i.test(navigator.userAgent);
@@ -102,7 +107,7 @@ window.onload = function () {
     initialSlide: 0,
     watchSlidesProgress: true,
     resistanceRatio: 0,
-    
+
     // width: 375,
     // cssMode: true,
     on: {
