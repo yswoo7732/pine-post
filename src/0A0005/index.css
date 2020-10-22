@@ -16,7 +16,7 @@
   font-stretch: normal;
 }
 
-html,
+/* html,
 body {
   position: relative;
   width: 100%;
@@ -46,6 +46,12 @@ body {
 
 .border_none {
   border: none;
+} */
+
+body, div {
+  margin: 0;
+  padding: 0;
+  backface-visibility: hidden;
 }
 
 img {
@@ -67,7 +73,60 @@ img {
   border-radius: 20px;
 }
 
-.contents_1_2_1 {
+.wrap_cover {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 0;
+}
+
+.cover_item {
+  position: relative;
+  max-height: none !important;
+}
+
+.cover_full .cover_image, .cover_full .cover_inner {
+  padding: 0 !important;
+}
+
+.cover_full .cover_image {
+  display: block;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.cover_inner {
+  padding: 0 !important;
+  display: block;
+  background-color: #000;
+  opacity: .3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.cover_cell.cover_direction_left {
+  transform: translate(50%, -96px);
+  -webkit-transform: translate(50%, -96px);
+  -ms-transform: translate(50%, -96px);
+}
+
+.cover_cell {
+  position: absolute;
+  z-index: 11;
+  width: 700px;
+  right: 50%;
+}
+
+.wrap_body_frame {
+  /* overflow: hidden; */
+  background: #fff;
+  /* z-index: 10; */
+  position: relative;
+}
+
+/* .contents_1_2_1 {
   width: 22px;
   height: 16px;
   object-fit: contain;
@@ -210,7 +269,7 @@ img {
 
 .box-shadow {
   animation-duration: 0.6s;
-  /* animation-iteration-count: infinite; */
+  animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
@@ -248,7 +307,7 @@ img {
   text-align: center;
   font-size: 18px;
 
-  /* Center slide text vertically */
+  Center slide text vertically
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -332,4 +391,4 @@ img {
   .text_basic {
     font-size: 14px;
   }
-}
+} */
