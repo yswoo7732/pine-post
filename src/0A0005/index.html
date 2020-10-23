@@ -6,9 +6,8 @@
     <!-- Link Swiper's CSS -->
     <meta
       name="viewport"
-      content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
-    <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
     <!-- Demo styles -->
@@ -17,24 +16,25 @@
 
   <body>
     <!-- Swiper -->
-    <div class="container">
-      <div class="wrap_cover">
-        <div class="cover_item cover_full">
-          <div
-            class="cover_image"
-            style="
-              background-image: url('assets/intro_image.png');
-              height: 2070px;
-            "
-          ></div>
-          <div class="cover_inner" style="height: 2070px"></div>
-          <div class="cover_cell cover_direction_left" style="opacity: 1">
-            <h1 class="cover_title">당신, 쉬운 여자였구나!</h1>
-            <p class="cover_sub_title empty"></p>
+    <!-- <div class="container"> -->
+    <div class="wrap_cover">
+      <div class="cover_item" id="cover_full">
+        <div
+          class="cover_image"
+          id="intro_img"
+          style="background-image: url('assets/intro_image.png'); height: 100%"
+        ></div>
+        <!-- <div class="cover_inner"></div>
+        <div class="cover_cell">
+          <div class="contents_1_1">
+            <p>펀드에도 클래스가 있다?</p>
           </div>
-        </div>
+
+          <p class="cover_sub_title empty"></p>
+        </div> -->
       </div>
-      <!-- <div class="contents_1">
+    </div>
+    <!-- <div class="contents_1">
         <img src="assets/drawable_image_upper.png" />
         <div class="contents_1_2">
           <p class="contents_1_2_1">초급</p>
@@ -44,20 +44,14 @@
           <p class="">수수료와 보수 알아보기</p>
         </div>
       </div> -->
-      <div class="wrap_body_frame" style="margin-top: 2070px">
+    <div class="wrap_body_frame" id="body_frame">
+      <div class="wrap_body">
         <div class="contents_title_1">
           <span><strong>#나만몰랐던</strong>_ 펀드 수수료/보수</span>
           <span></span>
         </div>
-
         <div class="contents_banner_1">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img class="img_round" src="assets/drawable_image_main1.png" />
-              </div>
-            </div>
-          </div>
+          <img class="img_round" src="assets/drawable_image_main1.png" />
         </div>
 
         <div class="contents text_basic">
@@ -185,24 +179,24 @@
             건지 꼼꼼하게 따져보고 투자합시다.</span
           >
         </div>
-
-        <div class="b_contents">
-          <button class="button_1">온라인 클래스 펀드 가입하기</button>
-        </div>
       </div>
-
-      <div class="basic_foot">
-        <div style="width: 50%">
-          <img id="imgHeart" src="assets/basic_foot_heart.png" />
-        </div>
-        <div style="width: 50%">
-          <img class="" src="assets/basic_foot_share.png" />
-        </div>
+      <div class="b_contents">
+        <button class="button_1">온라인 클래스 펀드 가입하기</button>
       </div>
     </div>
 
+    <div class="basic_foot">
+      <div style="width: 50%">
+        <img id="imgHeart" src="assets/basic_foot_heart.png" />
+      </div>
+      <div style="width: 50%">
+        <img class="" src="assets/basic_foot_share.png" />
+      </div>
+    </div>
+    <!-- </div> -->
+
     <!-- Swiper JS -->
-    <script src="vendor/swiper-bundle.min.js"></script>
+    <!-- <script src="vendor/swiper-bundle.min.js"></script> -->
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
