@@ -69,6 +69,8 @@ window.onload = function () {
       basicFoot.classList.remove("sticky");
     }
 
+    document.getElementsByClassName("contents_title_1")[0].style.color = "red";
+
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
     // document.getElementById("wrap_body").style.top = (document.body.scrollTop / 10) + 'px';
