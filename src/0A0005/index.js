@@ -1,8 +1,8 @@
 window.onload = function () {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    document
-      .getElementsByClassName("container")[0]
-      .classList.add("border_none");
+    // document
+    //   .getElementsByClassName("container")[0]
+    //   .classList.add("border_none");
   }
 
   // var swiper = new Swiper(".swiper-container", {
@@ -40,50 +40,61 @@ window.onload = function () {
         !element.classList.contains("box-shadow-active") &&
         document.documentElement.scrollTop < window.screen.height
       ) {
-        // console.log("document.body.scrollTop", document.body.scrollTop);
-        // console.log("element.offsetTop", index, element.offsetTop);
         element.classList.add("box-shadow-active");
       }
     });
+    console.log("ddd");
 
-    if (
-      bContents.offsetTop - window.innerHeight <
-      document.documentElement.scrollTop
-    ) {
-      if (basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.remove("sticky");
-      }
-    } else if (prevScrollTop > document.body.scrollTop) {
-      console.log("Up");
-      prevScrollTop = document.body.scrollTop;
-      if (!basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.add("sticky");
-      }
-    } else if (prevScrollTop <= document.body.scrollTop) {
-      console.log("Down");
-      prevScrollTop = document.body.scrollTop;
-      if (basicFoot.classList.contains("sticky")) {
-        basicFoot.classList.remove("sticky");
-      }
+    if (document.documentElement.scrollTop < window.screen.height) {
+      // basicFoot.classList.add("sticky");
     } else {
-      basicFoot.classList.remove("sticky");
     }
 
-    document.getElementsByClassName("contents_title_1")[0].style.color = "red";
+    console.log("document.body.scrollTop", document.documentElement.scrollTop);
+    console.log("element.offsetTop", window.screen.height);
+    // if (
+    //   bContents.offsetTop - window.innerHeight <
+    //   document.documentElement.scrollTop
+    // ) {
+    //   if (basicFoot.classList.contains("sticky")) {
+    //     basicFoot.classList.remove("sticky");
+    //   }
+    // } else if (prevScrollTop > document.body.scrollTop) {
+    //   console.log("Up");
+    //   prevScrollTop = document.body.scrollTop;
+    //   if (!basicFoot.classList.contains("sticky")) {
+    //     basicFoot.classList.add("sticky");
+    //   }
+    // } else if (prevScrollTop <= document.body.scrollTop) {
+    //   console.log("Down");
+    //   prevScrollTop = document.body.scrollTop;
+    //   if (basicFoot.classList.contains("sticky")) {
+    //     basicFoot.classList.remove("sticky");
+    //   }
+    // } else {
+    //   basicFoot.classList.remove("sticky");
+    // }
 
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
+
+    // document.getElementById("cover_full").innerHeight = window.innerHeight - document.documentElement.scrollTop + "px";
+
     // document.getElementById("wrap_body").style.top = (document.body.scrollTop / 10) + 'px';
     // document.getElementById("wrap_body").style.opacity = 1 - (document.body.scrollTop / 400);
     // document.getElementById("wrap_body").style.backgroundPosition = 'center' + (- document.body.scrollTop / 2) + 'px';
   });
 
-  document.addEventListener("scroll", function (event) {
-    console.log(document.documentElement.scrollTop);
-    console.log(window.innerHeight);
-
-    // console.log(wrap_body.getBoundingClientRect().top + 'px');
-  });
+  // document.addEventListener("touchEnd", function (event) {
+  //   console.log(document.documentElement.scrollTop);
+  //   console.log(window.innerHeight);
+  //   if (document.documentElement.scrollTop < window.screen.height) {
+  //     basicFoot.classList.add("sticky");
+  //   } else {
+  //     basicFoot.classList.remove("sticky");
+  //   }
+  //   // console.log(wrap_body.getBoundingClientRect().top + 'px');
+  // });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
