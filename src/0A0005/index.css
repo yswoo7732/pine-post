@@ -120,7 +120,7 @@ img {
 }
 
 .cover_cell {
-  position: absolute;
+  /* position: absolute; */
   z-index: 11;
   width: 700px;
   right: 50%;

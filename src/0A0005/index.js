@@ -36,12 +36,9 @@ window.onload = function () {
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
-      console.log("document.body.scrollTop", wrap_body.getBoundingClientRect().top);
-      console.log("element.offsetTop", window.screen.height);
-
       if (
         !element.classList.contains("box-shadow-active") &&
-        wrap_body.getBoundingClientRect().top < window.screen.height
+        document.documentElement.scrollTop < window.screen.height
       ) {
         // console.log("document.body.scrollTop", document.body.scrollTop);
         // console.log("element.offsetTop", index, element.offsetTop);
@@ -49,7 +46,10 @@ window.onload = function () {
       }
     });
 
-    if (bContents.offsetTop - window.innerHeight < document.body.scrollTop) {
+    if (
+      bContents.offsetTop - window.innerHeight <
+      document.documentElement.scrollTop
+    ) {
       if (basicFoot.classList.contains("sticky")) {
         basicFoot.classList.remove("sticky");
       }
@@ -69,6 +69,8 @@ window.onload = function () {
       basicFoot.classList.remove("sticky");
     }
 
+    document.getElementById("cover_full").style.height =
+      window.innerHeight - document.documentElement.scrollTop + "px";
     // document.getElementById("wrap_body").style.top = (document.body.scrollTop / 10) + 'px';
     // document.getElementById("wrap_body").style.opacity = 1 - (document.body.scrollTop / 400);
     // document.getElementById("wrap_body").style.backgroundPosition = 'center' + (- document.body.scrollTop / 2) + 'px';
@@ -77,9 +79,6 @@ window.onload = function () {
   document.addEventListener("scroll", function (event) {
     console.log(document.documentElement.scrollTop);
     console.log(window.innerHeight);
-
-    document.getElementById("cover_full").style.height =
-    window.innerHeight - document.documentElement.scrollTop + "px";
 
     // console.log(wrap_body.getBoundingClientRect().top + 'px');
   });
