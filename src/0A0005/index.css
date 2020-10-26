@@ -48,11 +48,12 @@ body {
   border: none;
 } */
 
-html, body {
+html,
+body {
   height: 100%;
   /* max-width: 750px; */
-   /* Center slide text vertically */
-   /* -webkit-box-pack: center;
+  /* Center slide text vertically */
+  /* -webkit-box-pack: center;
    -ms-flex-pack: center;
    -webkit-justify-content: center;
    justify-content: center;
@@ -62,7 +63,8 @@ html, body {
    align-items: center; */
 }
 
-body, div {
+body,
+div {
   margin: 0;
   padding: 0;
   backface-visibility: hidden;
@@ -116,7 +118,7 @@ img {
   padding: 0 !important;
   display: block;
   background-color: #000;
-  opacity: .3;
+  opacity: 0.3;
   position: absolute;
   top: 0;
   left: 0;
@@ -388,6 +390,24 @@ img {
   bottom: 0;
   padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
+}
+
+.progress-indicator {
+  position: absolute;
+  /* top:0;
+  left:0; */
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-bar {
+  -webkit-transition: width .2s ease-out;
+  -o-transition: width .2s ease-out;
+  transition: width 0.2s ease-out;
+  background: #333;
+  height: 2px;
+  max-width: 100%;
 }
 
 .heart_active {

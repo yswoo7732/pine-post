@@ -33,6 +33,7 @@ window.onload = function () {
   var height = window.screen.height / 2;
   var prevScrollTop = 0;
   var wrap_body = document.getElementById("body_frame");
+  console.log("touchsssend");
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
@@ -43,15 +44,22 @@ window.onload = function () {
         element.classList.add("box-shadow-active");
       }
     });
-    console.log("ddd");
 
-    if (document.documentElement.scrollTop < window.screen.height) {
-      // basicFoot.classList.add("sticky");
-    } else {
+    if (document.documentElement.scrollTop == 0) {
+      basicFoot.classList.remove("sticky");
+    } else if (document.documentElement.scrollTop < window.screen.height) {
+      basicFoot.classList.add("sticky");
     }
 
+    // var currentPercentage = (window.scrollY / (document.body.scrollHeight - window.screen.height)) * 100;
+    var currentPercentage =
+      (window.scrollY / (document.body.scrollHeight - window.screen.height)) *
+      100;
+
+    document.getElementsByClassName("progress-bar")[0].style.width =
+      currentPercentage + "%";
     console.log("document.body.scrollTop", document.documentElement.scrollTop);
-    console.log("element.offsetTop", window.screen.height);
+    console.log("element.offsetTop", document.body.scrollHeight);
     // if (
     //   bContents.offsetTop - window.innerHeight <
     //   document.documentElement.scrollTop
@@ -84,17 +92,6 @@ window.onload = function () {
     // document.getElementById("wrap_body").style.opacity = 1 - (document.body.scrollTop / 400);
     // document.getElementById("wrap_body").style.backgroundPosition = 'center' + (- document.body.scrollTop / 2) + 'px';
   });
-
-  // document.addEventListener("touchEnd", function (event) {
-  //   console.log(document.documentElement.scrollTop);
-  //   console.log(window.innerHeight);
-  //   if (document.documentElement.scrollTop < window.screen.height) {
-  //     basicFoot.classList.add("sticky");
-  //   } else {
-  //     basicFoot.classList.remove("sticky");
-  //   }
-  //   // console.log(wrap_body.getBoundingClientRect().top + 'px');
-  // });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
