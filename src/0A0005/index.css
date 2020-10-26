@@ -167,6 +167,7 @@ img {
   height: auto;
   position: relative;
 }
+
 .contents_1_1 {
   width: 327px;
   height: 87px;
@@ -178,10 +179,12 @@ img {
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 510px;
   margin-left: 28px;
   margin-right: 28px;
+  opacity: 1;
+  z-index: 11;
 }
 
 .contents_1_1 > p {
@@ -225,6 +228,10 @@ img {
 .contents {
   margin: 16px 28px 16px 28px;
   height: auto;
+}
+
+.contents:last-child {
+  margin-bottom: 30px;
 }
 
 .contents_title_2 {
@@ -373,7 +380,6 @@ img {
   display: flex;
   width: 100%;
   height: auto;
-  margin: 10px 0 0 0;
   object-fit: contain;
   background-color: white;
   z-index: 20;

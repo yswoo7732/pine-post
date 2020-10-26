@@ -45,9 +45,11 @@ window.onload = function () {
       }
     });
 
-    if (document.documentElement.scrollTop == 0) {
+    if (document.documentElement.scrollTop == 0 || document.documentElement.scrollTop > document.getElementById("body_frame").offsetHeight) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
+      basicFoot.classList.add("sticky");
+    } else {
       basicFoot.classList.add("sticky");
     }
 
