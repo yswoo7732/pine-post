@@ -32,15 +32,19 @@ window.onload = function () {
   var boxShadows = document.getElementsByClassName("box-shadow");
   var height = window.screen.height / 2;
   var prevScrollTop = 0;
+  var wrap_body = document.getElementById("body_frame");
 
-  document.body.addEventListener("scroll", function (event) {
+  document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
+      console.log("document.body.scrollTop", wrap_body.getBoundingClientRect().top);
+      console.log("element.offsetTop", window.screen.height);
+
       if (
         !element.classList.contains("box-shadow-active") &&
-        element.offsetTop < document.body.scrollTop + height
+        wrap_body.getBoundingClientRect().top < window.screen.height
       ) {
-        console.log("document.body.scrollTop", document.body.scrollTop);
-        console.log("element.offsetTop", index, element.offsetTop);
+        // console.log("document.body.scrollTop", document.body.scrollTop);
+        // console.log("element.offsetTop", index, element.offsetTop);
         element.classList.add("box-shadow-active");
       }
     });
@@ -70,19 +74,18 @@ window.onload = function () {
     // document.getElementById("wrap_body").style.backgroundPosition = 'center' + (- document.body.scrollTop / 2) + 'px';
   });
 
-  
-  window.addEventListener("scroll", function(event) {
-    console.log(window.innerHeight);
-    var wrap_body = document.getElementsByClassName('wrap_body_frame')[0];
+  document.addEventListener("scroll", function (event) {
+    // console.log(window.innerHeight);
 
-      document.getElementById("cover_full").style.height = wrap_body.getBoundingClientRect().top + 'px';
+    document.getElementById("cover_full").style.height =
+      wrap_body.getBoundingClientRect().top + "px";
 
-      console.log(wrap_body.getBoundingClientRect().top + 'px');
+    console.log(wrap_body.getBoundingClientRect().top + 'px');
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
-    console.log("heartClickEvent");
+    // console.log("heartClickEvent");
     this.classList.toggle("heart_active");
   });
 };
