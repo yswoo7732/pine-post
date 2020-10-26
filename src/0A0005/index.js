@@ -75,12 +75,13 @@ window.onload = function () {
   });
 
   document.addEventListener("scroll", function (event) {
-    // console.log(window.innerHeight);
+    console.log(document.documentElement.scrollTop);
+    console.log(window.innerHeight);
 
     document.getElementById("cover_full").style.height =
-      wrap_body.getBoundingClientRect().top + "px";
+    window.innerHeight - document.documentElement.scrollTop + "px";
 
-    console.log(wrap_body.getBoundingClientRect().top + 'px');
+    // console.log(wrap_body.getBoundingClientRect().top + 'px');
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
