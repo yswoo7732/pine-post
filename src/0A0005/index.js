@@ -51,10 +51,7 @@ window.onload = function () {
     document.getElementsByClassName("progress-bar")[0].style.width =
       currentPercentage + "%";
 
-    if (
-      document.documentElement.scrollTop == 0 ||
-      currentPercentage > 100
-    ) {
+    if (document.documentElement.scrollTop == 0 || currentPercentage > 100) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
       basicFoot.classList.add("sticky");
@@ -73,21 +70,37 @@ window.onload = function () {
       document.getElementById("body_frame").offsetHeight +
       "px";
 
+    document.getElementById("link_img").style.height =
+      window.scrollY -
+      document.getElementById("body_frame").clientHeight -
+      basicFoot.clientHeight +
+      "px";
+
+    document.getElementById("link_img").style.height =
+      window.innerHeight -
+      document.getElementById("link_img").getBoundingClientRect().top +
+      "px";
+
     if (!basicFoot.classList.contains("sticky")) {
       document.getElementById("progressBar").style.width = 0;
     }
-   
-    var title_opc = (document.getElementById("cover_full").offsetHeight - window.scrollY) / document.getElementById("cover_full").offsetHeight;
+
+    var title_opc =
+      (document.getElementById("cover_full").offsetHeight -
+        window.scrollY / 2) /
+      document.getElementById("cover_full").offsetHeight;
     document.getElementById("cover_title").style.opacity = title_opc;
-    // var link_opc = (window.scrollY - document.getElementById("link_img").offsetHeight) / window.scrollY;
-    // document.getElementById("link_title").style.opacity = link_opc;
+    var link_opc =
+      (document.getElementById("link_img").offsetHeight -
+        basicFoot.getBoundingClientRect().bottom) /
+      document.getElementById("link_img").offsetHeight;
 
-
+    console.log("opacity: ", link_opc);
+    document.getElementById("link_title").style.opacity = link_opc;
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
-    // console.log("heartClickEvent");
     this.classList.toggle("heart_active");
   });
 };
