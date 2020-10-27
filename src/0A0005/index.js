@@ -33,7 +33,6 @@ window.onload = function () {
   var height = window.screen.height / 2;
   var prevScrollTop = 0;
   var wrap_body = document.getElementById("body_frame");
-  console.log("touchsssend");
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
@@ -45,7 +44,17 @@ window.onload = function () {
       }
     });
 
-    if (document.documentElement.scrollTop == 0 || document.documentElement.scrollTop > document.getElementById("body_frame").offsetHeight) {
+    var currentPercentage =
+      (window.scrollY / (document.body.scrollHeight - window.screen.height)) *
+      100;
+
+    document.getElementsByClassName("progress-bar")[0].style.width =
+      currentPercentage + "%";
+
+    if (
+      document.documentElement.scrollTop == 0 ||
+      document.getElementById("link_img").offsetHeight > basicFoot.offsetHeight
+    ) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
       basicFoot.classList.add("sticky");
@@ -53,46 +62,27 @@ window.onload = function () {
       basicFoot.classList.add("sticky");
     }
 
-    // var currentPercentage = (window.scrollY / (document.body.scrollHeight - window.screen.height)) * 100;
-    var currentPercentage =
-      (window.scrollY / (document.body.scrollHeight - window.screen.height)) *
-      100;
-
-    document.getElementsByClassName("progress-bar")[0].style.width =
-      currentPercentage + "%";
     console.log("document.body.scrollTop", document.documentElement.scrollTop);
     console.log("element.offsetTop", document.body.scrollHeight);
-    // if (
-    //   bContents.offsetTop - window.innerHeight <
-    //   document.documentElement.scrollTop
-    // ) {
-    //   if (basicFoot.classList.contains("sticky")) {
-    //     basicFoot.classList.remove("sticky");
-    //   }
-    // } else if (prevScrollTop > document.body.scrollTop) {
-    //   console.log("Up");
-    //   prevScrollTop = document.body.scrollTop;
-    //   if (!basicFoot.classList.contains("sticky")) {
-    //     basicFoot.classList.add("sticky");
-    //   }
-    // } else if (prevScrollTop <= document.body.scrollTop) {
-    //   console.log("Down");
-    //   prevScrollTop = document.body.scrollTop;
-    //   if (basicFoot.classList.contains("sticky")) {
-    //     basicFoot.classList.remove("sticky");
-    //   }
-    // } else {
-    //   basicFoot.classList.remove("sticky");
-    // }
 
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
 
-    // document.getElementById("cover_full").innerHeight = window.innerHeight - document.documentElement.scrollTop + "px";
+    document.getElementById("link_img").style.height =
+      document.documentElement.scrollTop -
+      document.getElementById("body_frame").offsetHeight +
+      "px";
 
-    // document.getElementById("wrap_body").style.top = (document.body.scrollTop / 10) + 'px';
-    // document.getElementById("wrap_body").style.opacity = 1 - (document.body.scrollTop / 400);
-    // document.getElementById("wrap_body").style.backgroundPosition = 'center' + (- document.body.scrollTop / 2) + 'px';
+    if (!basicFoot.classList.contains("sticky")) {
+      document.getElementById("progressBar").style.width = 0;
+    }
+   
+    var title_opc = (document.getElementById("cover_full").offsetHeight - window.scrollY) / document.getElementById("cover_full").offsetHeight;
+    document.getElementById("cover_title").style.opacity = title_opc;
+    var link_opc = (window.scrollY - document.getElementById("link_img").offsetHeight) / window.scrollY;
+    document.getElementById("link_title").style.opacity = link_opc;
+
+
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");

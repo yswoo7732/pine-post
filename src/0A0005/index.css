@@ -114,6 +114,11 @@ img {
   height: 100vh;
 }
 
+#link_cover_full {
+  overflow: hidden;
+  width: 100%;
+}
+
 .cover_inner {
   padding: 0 !important;
   display: block;
@@ -180,7 +185,7 @@ img {
   letter-spacing: normal;
   color: #ffffff;
   position: fixed;
-  bottom: 510px;
+  bottom: 63%;
   margin-left: 28px;
   margin-right: 28px;
   opacity: 1;
@@ -392,7 +397,7 @@ img {
   position: -moz-sticky;
   position: -o-sticky;
   position: -ms-sticky;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
@@ -402,7 +407,7 @@ img {
   position: absolute;
   /* top:0;
   left:0; */
-  height: 2px;
+  height: 1px;
   width: 100%;
   overflow: hidden;
 }
