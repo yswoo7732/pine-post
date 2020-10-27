@@ -3,6 +3,12 @@ window.onload = function () {
     // document
     //   .getElementsByClassName("container")[0]
     //   .classList.add("border_none");
+  } else {
+    console.log("not mobile");
+    // var basicFoot = document.getElementsByClassName("basic_foot")[0];
+
+    // basicFoot.style.top = 0;
+    // basicFoot.style.position = 'absolute';
   }
 
   // var swiper = new Swiper(".swiper-container", {
@@ -38,8 +44,10 @@ window.onload = function () {
     Array.from(boxShadows).forEach(function (element, index, array) {
       if (
         !element.classList.contains("box-shadow-active") &&
-        document.documentElement.scrollTop < window.screen.height
+        element.offsetTop + basicFoot.offsetHeight < window.scrollY
       ) {
+        console.log("document.body.scrollTop", window.scrollY + height);
+        console.log("element.offsetTop", index, element.offsetTop);
         element.classList.add("box-shadow-active");
       }
     });
@@ -59,28 +67,31 @@ window.onload = function () {
       basicFoot.classList.add("sticky");
     }
 
-    console.log("document.body.scrollTop", document.documentElement.scrollTop);
-    console.log("element.offsetTop", document.body.scrollHeight);
+    // console.log("document.body.scrollTop", document.documentElement.scrollTop);
+    // console.log("element.offsetTop", document.body.scrollHeight);
 
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
 
-    document.getElementById("link_img").style.height =
-      document.documentElement.scrollTop -
-      document.getElementById("body_frame").offsetHeight +
-      "px";
+    // document.getElementById("link_img").style.height =
+    //   document.documentElement.scrollTop -
+    //   document.getElementById("body_frame").offsetHeight +
+    //   "px";
 
-    document.getElementById("link_img").style.height =
-      window.scrollY -
-      document.getElementById("body_frame").clientHeight -
-      basicFoot.clientHeight +
-      "px";
+    // document.getElementById("link_img").style.height =
+    //   window.scrollY -
+    //   document.getElementById("body_frame").clientHeight -
+    //   basicFoot.clientHeight +
+    //   "px";
 
-    document.getElementById("link_img").style.height =
-      window.innerHeight -
-      document.getElementById("link_img").getBoundingClientRect().top +
-      "px";
+    // document.getElementById("link_cover_full").style.height =
+    //   window.innerHeight -
+    //   document.getElementById("link_cover_full").getBoundingClientRect().top +
+    //   "px";
 
+    // console.log(document.documentElement.scrollTop -
+    //   document.getElementById("body_frame").offsetHeight +
+    //   "px")
     if (!basicFoot.classList.contains("sticky")) {
       document.getElementById("progressBar").style.width = 0;
     }
@@ -95,8 +106,8 @@ window.onload = function () {
         basicFoot.getBoundingClientRect().bottom) /
       document.getElementById("link_img").offsetHeight;
 
-    console.log("opacity: ", link_opc);
-    document.getElementById("link_title").style.opacity = link_opc;
+    // console.log("opacity: ", link_opc);
+    // document.getElementById("link_title").style.opacity = link_opc;
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
