@@ -53,7 +53,7 @@ window.onload = function () {
 
     if (
       document.documentElement.scrollTop == 0 ||
-      document.getElementById("link_img").offsetHeight > basicFoot.offsetHeight
+      currentPercentage > 100
     ) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
@@ -79,8 +79,8 @@ window.onload = function () {
    
     var title_opc = (document.getElementById("cover_full").offsetHeight - window.scrollY) / document.getElementById("cover_full").offsetHeight;
     document.getElementById("cover_title").style.opacity = title_opc;
-    var link_opc = (window.scrollY - document.getElementById("link_img").offsetHeight) / window.scrollY;
-    document.getElementById("link_title").style.opacity = link_opc;
+    // var link_opc = (window.scrollY - document.getElementById("link_img").offsetHeight) / window.scrollY;
+    // document.getElementById("link_title").style.opacity = link_opc;
 
 
   });
