@@ -94,7 +94,7 @@ window.onload = function () {
     //   document.getElementById("body_frame").offsetHeight +
     //   "px")
     if (!basicFoot.classList.contains("sticky")) {
-      document.getElementById("progressBar").style.width = 0;
+      // document.getElementById("progressBar").style.width = 0;
     }
 
     // var title_opc =

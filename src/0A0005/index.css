@@ -458,7 +458,7 @@ img {
   -webkit-transition: width .2s ease-out;
   -o-transition: width .2s ease-out;
   transition: width 0.2s ease-out;
-  background: #333;
+  background: #d3d3d3;
   height: 2px;
   max-width: 100%;
 }
