@@ -68,6 +68,7 @@ div {
   margin: 0;
   padding: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 img {
@@ -341,10 +342,10 @@ img {
 
 @keyframes ani-box-shadow {
   0% {
-    background: linear-gradient(to right, #fcfd54 50%, transparent 0%);
+    background: linear-gradient(to right, #fcfd54 20%, transparent 0%);
   }
   20% {
-    background: linear-gradient(to right, #fcfd54 60%, transparent 20%);
+    background: linear-gradient(to right, #fcfd54 50%, transparent 20%);
   }
   40% {
     background: linear-gradient(to right, #fcfd54 70%, transparent 40%);
