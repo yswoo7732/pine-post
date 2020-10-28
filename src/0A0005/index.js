@@ -42,12 +42,13 @@ window.onload = function () {
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
+      console.log("document.body.scrollTop", window.scrollY);
+      console.log("element.offsetTop", index, element.offsetTop);
       if (
         !element.classList.contains("box-shadow-active") &&
-        element.offsetTop + basicFoot.offsetHeight < window.scrollY
+        element.offsetTop + element.offsetWidth < window.scrollY
       ) {
-        console.log("document.body.scrollTop", window.scrollY + height);
-        console.log("element.offsetTop", index, element.offsetTop);
+
         element.classList.add("box-shadow-active");
       }
     });
@@ -84,10 +85,10 @@ window.onload = function () {
     //   basicFoot.clientHeight +
     //   "px";
 
-    // document.getElementById("link_cover_full").style.height =
-    //   window.innerHeight -
-    //   document.getElementById("link_cover_full").getBoundingClientRect().top +
-    //   "px";
+    document.getElementById("link_img").style.height =
+      window.innerHeight -
+      document.getElementById("link_img").getBoundingClientRect().top +
+      "px";
 
     // console.log(document.documentElement.scrollTop -
     //   document.getElementById("body_frame").offsetHeight +
@@ -96,11 +97,11 @@ window.onload = function () {
       document.getElementById("progressBar").style.width = 0;
     }
 
-    var title_opc =
-      (document.getElementById("cover_full").offsetHeight -
-        window.scrollY / 2) /
-      document.getElementById("cover_full").offsetHeight;
-    document.getElementById("cover_title").style.opacity = title_opc;
+    // var title_opc =
+    //   (document.getElementById("cover_full").offsetHeight -
+    //     window.scrollY / 2) /
+    //   document.getElementById("cover_full").offsetHeight;
+    // // document.getElementById("cover_title").style.opacity = title_opc;
     var link_opc =
       (document.getElementById("link_img").offsetHeight -
         basicFoot.getBoundingClientRect().bottom) /

@@ -116,6 +116,22 @@ img {
 
 #link_cover_full {
   overflow: hidden;
+  z-index: 20;
+}
+
+.stroke_link {
+  border: 1px solid white;
+  width: 200px !important;
+  height: 200px !important;
+  margin: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0 !important;
+  left: 0;
+  right: 0;
 }
 
 /* #link_img {
@@ -344,7 +360,7 @@ img {
   }
 }
 
-@keyframes scale {
+/* @keyframes scale {
   0% {
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(1.2, 1.2);
@@ -353,7 +369,7 @@ img {
     opacity: 1;
     transform: translate3d(-50%, -50%, 0) scale(1, 1);
   }
-}
+} */
 
 .swiper-container {
   width: auto;
