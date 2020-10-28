@@ -107,7 +107,7 @@ window.onload = function () {
       document.getElementById("link_img").offsetHeight;
 
     // console.log("opacity: ", link_opc);
-    // document.getElementById("link_title").style.opacity = link_opc;
+    document.getElementById("link_title").style.opacity = link_opc;
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");
