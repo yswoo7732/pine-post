@@ -74,6 +74,26 @@ window.onload = function () {
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
 
+      if (window.scrollY   >= 2662) {
+        console.log("ddd");
+        console.log(window.scrollY);
+        console.log(document.documentElement.scrollTop);
+    document.getElementById("link_cover_full").style.display = 'block';
+    document.getElementById("link_cover_full").classList.add('link_cover_full-active');
+    document.getElementsByClassName("link_cover_full-active")[0].style.top = document.documentElement.scrollTop + "px";
+    
+    // document.getElementsByClassName("link_cover_full-active")[0].animate({
+    //   transform: 'translateY(0%)'}, 5000, {
+    //     complete: function() {
+    //     console.log("dddsdffsdfd");
+    //     document.getElementsByClassName("link_cover_full-active")[0].style.transform = 'initial';
+    //     }
+    // });
+    // animation complete!!!!!!!
+    // $('#clickme').click(function() { $('#book').animate({ opacity: 0.25, left: '+=50', height: 'toggle' }, 5000, function() { // Animation complete. }); });
+
+
+      }
     // document.getElementById("link_img").style.height =
     //   document.documentElement.scrollTop -
     //   document.getElementById("body_frame").offsetHeight +
@@ -85,10 +105,10 @@ window.onload = function () {
     //   basicFoot.clientHeight +
     //   "px";
 
-    document.getElementById("link_img").style.height =
-      window.innerHeight -
-      document.getElementById("link_img").getBoundingClientRect().top +
-      "px";
+    // document.getElementById("link_img").style.height =
+    //   window.innerHeight -
+    //   document.getElementById("link_img").getBoundingClientRect().top +
+    //   "px";
 
     // console.log(document.documentElement.scrollTop -
     //   document.getElementById("body_frame").offsetHeight +
