@@ -42,13 +42,12 @@ window.onload = function () {
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
-      console.log("document.body.scrollTop", window.scrollY);
-      console.log("element.offsetTop", index, element.offsetTop);
+      // console.log("document.body.scrollTop", window.scrollY);
+      // console.log("element.offsetTop", index, element.offsetTop);
       if (
         !element.classList.contains("box-shadow-active") &&
         element.offsetTop + element.offsetWidth < window.scrollY
       ) {
-
         element.classList.add("box-shadow-active");
       }
     });
@@ -60,7 +59,10 @@ window.onload = function () {
     document.getElementsByClassName("progress-bar")[0].style.width =
       currentPercentage + "%";
 
-    if (document.documentElement.scrollTop == 0 || currentPercentage > 100) {
+    if (
+      document.documentElement.scrollTop == 0 ||
+      Math.round(window.scrollY) == document.body.scrollHeight
+    ) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
       basicFoot.classList.add("sticky");
@@ -74,30 +76,50 @@ window.onload = function () {
     document.getElementById("cover_full").style.height =
       window.innerHeight - document.documentElement.scrollTop + "px";
 
-      if (window.scrollY   >= 2662) {
-        console.log("ddd");
-        console.log(window.scrollY);
-        console.log(document.documentElement.scrollTop);
-    document.getElementById("link_cover_full").style.display = 'block';
-    document.getElementById("link_cover_full").classList.add('link_cover_full-active');
-    document.getElementsByClassName("link_cover_full-active")[0].style.top = document.documentElement.scrollTop + "px";
-    
-    // document.getElementsByClassName("link_cover_full-active")[0].animate({
-    //   transform: 'translateY(0%)'}, 5000, {
-    //     complete: function() {
-    //     console.log("dddsdffsdfd");
-    //     document.getElementsByClassName("link_cover_full-active")[0].style.transform = 'initial';
-    //     }
-    // });
-    // animation complete!!!!!!!
-    // $('#clickme').click(function() { $('#book').animate({ opacity: 0.25, left: '+=50', height: 'toggle' }, 5000, function() { // Animation complete. }); });
+    //   if (window.scrollY   >= 2662) {
+    //     console.log("ddd");
+    //     console.log(window.scrollY);
+    //     console.log(document.documentElement.scrollTop);
+    // document.getElementById("link_cover_full").style.display = 'block';
+    // document.getElementById("link_cover_full").classList.add('link_cover_full-active');
+    // document.getElementsByClassName("link_cover_full-active")[0].style.top = document.documentElement.scrollTop + "px";
 
+    // // document.getElementsByClassName("link_cover_full-active")[0].animate({
+    // //   transform: 'translateY(0%)'}, 5000, {
+    // //     complete: function() {
+    // //     console.log("dddsdffsdfd");
+    // //     document.getElementsByClassName("link_cover_full-active")[0].style.transform = 'initial';
+    // //     }
+    // // });
+    // // animation complete!!!!!!!
+    // // $('#clickme').click(function() { $('#book').animate({ opacity: 0.25, left: '+=50', height: 'toggle' }, 5000, function() { // Animation complete. }); });
 
-      }
+    //   }
     // document.getElementById("link_img").style.height =
     //   document.documentElement.scrollTop -
     //   document.getElementById("body_frame").offsetHeight +
     //   "px";
+    // console.log("window.scrollY + window.innerHeight", window.scrollY);
+    // console.log("document.body.scrollHeight", document.body.scrollHeight);
+    // if( window.scrollY >= document.body.scrollHeight - window.innerHeight ) {
+    if (Math.round(window.scrollY) >= document.body.scrollHeight) {
+      console.log("dddddasdfasdffd");
+      
+      document.getElementsByClassName("wrap_body_frame")[0].style.position =
+        "fixed";
+      document.getElementsByClassName("wrap_body_frame")[0].style.bottom = 0;
+      // // document.getElementsByClassName("wrap_body")[0].style.bottom = 0;
+      basicFoot.style.display = "none";
+      // // basicFoot.style.bottom = 0;
+      document.getElementById("link_cover_full").style.display = "block";
+      // document.getElementById("link_cover_full").style.height = 'auto';
+      document.getElementById("link_cover_full").style.position = "relative";
+      document.getElementById("link_cover_full").style.zIndex = 60;
+    }
+    // document.getElementById("link_cover_full").style.bottom = document.body.scrollHeight - Math.round(document.documentElement.scrollTop) + 'px';
+    document.getElementById("link_cover_full").style.top = window.innerHeight - document.documentElement.scrollTop +"px";
+
+    // if ()
 
     // document.getElementById("link_img").style.height =
     //   window.scrollY -
@@ -117,6 +139,16 @@ window.onload = function () {
       // document.getElementById("progressBar").style.width = 0;
     }
 
+    if (document.getElementById("link_img").getBoundingClientRect().top > window.innerHeight) {
+      console.log("ddddddddd: ", document.documentElement.offsetTop);
+
+      // document.getElementById("link_cover_full").style.display = 'none';
+      // document.getElementsByClassName("wrap_body_frame")[0].style.position =
+      //   "relative";
+      // document.getElementsByClassName("wrap_body_frame")[0].style.bottom = 0;
+      // // // document.getElementsByClassName("wrap_body")[0].style.bottom = 0;
+      // basicFoot.style.display = "none";
+    }
     // var title_opc =
     //   (document.getElementById("cover_full").offsetHeight -
     //     window.scrollY / 2) /
@@ -128,7 +160,7 @@ window.onload = function () {
       document.getElementById("link_img").offsetHeight;
 
     // console.log("opacity: ", link_opc);
-    document.getElementById("link_title").style.opacity = link_opc;
+    // document.getElementById("link_title").style.opacity = window.innerHeight - document.documentElement.scrollTop;
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");

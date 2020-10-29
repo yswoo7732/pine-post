@@ -104,7 +104,7 @@ img {
   max-height: none !important;
 }
 
-#link_cover_full {
+/* #link_cover_full {
   display: none;
 }
 .link_cover_full-active {
@@ -137,12 +137,12 @@ img {
   80% {
     transform: translateY(80%);
     opacity: 0.8;
-  } */
+  }
   100% {
     transform: translateY(0%);
     opacity: 1;
   }
-}
+} */
 /* .cover_full .cover_image, .cover_full .cover_inner {
   padding: 0 !important;
 } */
@@ -156,7 +156,7 @@ img {
 
 #link_cover_full {
   overflow: hidden;
-  z-index: 20;
+  /* display:none; */
 }
 
 .stroke_link {
