@@ -16,7 +16,7 @@ window.onload = function () {
   var cover_flag = false;
 
   document.addEventListener("scroll", function (event) {
-    console.log("스크롤: ", cover_flag)
+    console.log("메인상태")
     // box shadow
     Array.from(boxShadows).forEach(function (element, index, array) {
       if (
