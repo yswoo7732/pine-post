@@ -39,11 +39,10 @@ window.onload = function () {
   var height = window.screen.height / 2;
   var prevScrollTop = 0;
   var wrap_body = document.getElementById("body_frame");
+  var a = false;
 
   document.addEventListener("scroll", function (event) {
     Array.from(boxShadows).forEach(function (element, index, array) {
-      // console.log("document.body.scrollTop", window.scrollY);
-      // console.log("element.offsetTop", index, element.offsetTop);
       if (
         !element.classList.contains("box-shadow-active") &&
         element.offsetTop + element.offsetWidth < window.scrollY
@@ -64,6 +63,7 @@ window.onload = function () {
       Math.round(window.scrollY) == document.body.scrollHeight
     ) {
       basicFoot.classList.remove("sticky");
+      console.log("no sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
       basicFoot.classList.add("sticky");
     } else {
@@ -103,23 +103,66 @@ window.onload = function () {
     // console.log("document.body.scrollHeight", document.body.scrollHeight);
     // if( window.scrollY >= document.body.scrollHeight - window.innerHeight ) {
     if (Math.round(window.scrollY) >= document.body.scrollHeight) {
-      console.log("dddddasdfasdffd");
-      
-      document.getElementsByClassName("wrap_body_frame")[0].style.position =
-        "fixed";
-      document.getElementsByClassName("wrap_body_frame")[0].style.bottom = 0;
-      // // document.getElementsByClassName("wrap_body")[0].style.bottom = 0;
-      basicFoot.style.display = "none";
-      // // basicFoot.style.bottom = 0;
-      document.getElementById("link_cover_full").style.display = "block";
-      // document.getElementById("link_cover_full").style.height = 'auto';
-      document.getElementById("link_cover_full").style.position = "relative";
-      document.getElementById("link_cover_full").style.zIndex = 60;
+      console.log("@@a: ", a);
+      if (!a) {
+        document.getElementsByClassName("wrap_body_frame")[0].style.position =
+          "fixed";
+        document.getElementsByClassName("wrap_body_frame")[0].style.bottom = 0;
+        // // document.getElementsByClassName("wrap_body")[0].style.bottom = 0;
+        basicFoot.style.display = "none";
+        // // basicFoot.style.bottom = 0;
+        document.getElementById("link_cover_full").style.display = "block";
+        // document.getElementById("link_cover_full").style.height = 'auto';
+        document.getElementById("link_cover_full").style.position = "relative";
+        document.getElementById("link_cover_full").style.zIndex = 60;
+        document.getElementById("link_cover_full").style.top =
+          window.innerHeight - document.documentElement.scrollTop + "px";
+        document.getElementById("link_cover_full").style.height = 100 + "vh";
+
+       
+
+      }
     }
     // document.getElementById("link_cover_full").style.bottom = document.body.scrollHeight - Math.round(document.documentElement.scrollTop) + 'px';
-    document.getElementById("link_cover_full").style.top = window.innerHeight - document.documentElement.scrollTop +"px";
+    console.log("op", document.documentElement.scrollTop / window.innerHeight);
 
     // if ()
+    //  console.log(document.documentElement.scrollTop)
+
+    if (
+      document.getElementById("link_cover_full").style.zIndex == 60 &&
+      document.getElementById("link_cover_full").getBoundingClientRect().top ==
+        0
+    ) {
+      a = true;
+    }
+    if (
+      document.documentElement.scrollTop == 0 &&
+      a
+    ) {
+      if (a) {
+        console.log("down");
+        console.log(a);
+        // document.getElementsByClassName("wrap_body_frame")[0].style.bottom = '';
+        basicFoot.style.display = "";
+        // basicFoot.classList.add("sticky");
+        // //     // // basicFoot.style.bottom = 0;
+        document.getElementById("link_cover_full").style.position = "";
+        document.getElementById("link_cover_full").style.zIndex = 0;
+
+        document.getElementById("link_cover_full").style.height = 5 + "vh";
+        document.getElementsByClassName("wrap_cover")[0].style.position = "";
+        document.getElementsByClassName("wrap_body_frame")[0].style.position = "";
+        a = false;
+        // document.documentElement.scrollTop = prevScrollTop;
+      }
+
+      // document.getElementById("link_cover_full").style.height = 'auto';
+      // document.getElementById("link_cover_full").style.position = "relative";
+      // document.getElementById("link_cover_full").style.zIndex = 60;
+    } else {
+      //  console.log("up");
+    }
 
     // document.getElementById("link_img").style.height =
     //   window.scrollY -
@@ -139,8 +182,10 @@ window.onload = function () {
       // document.getElementById("progressBar").style.width = 0;
     }
 
-    if (document.getElementById("link_img").getBoundingClientRect().top > window.innerHeight) {
-      console.log("ddddddddd: ", document.documentElement.offsetTop);
+    if (
+      document.getElementById("link_img").getBoundingClientRect().top >
+      window.innerHeight
+    ) {
 
       // document.getElementById("link_cover_full").style.display = 'none';
       // document.getElementsByClassName("wrap_body_frame")[0].style.position =
@@ -156,11 +201,11 @@ window.onload = function () {
     // // document.getElementById("cover_title").style.opacity = title_opc;
     var link_opc =
       (document.getElementById("link_img").offsetHeight -
-        basicFoot.getBoundingClientRect().bottom) /
+      document.getElementsByClassName("wrap_cover")[0].getBoundingClientRect().bottom) /
       document.getElementById("link_img").offsetHeight;
 
-    // console.log("opacity: ", link_opc);
-    // document.getElementById("link_title").style.opacity = window.innerHeight - document.documentElement.scrollTop;
+    console.log("opacity: ", link_opc);
+    document.getElementById("link_title").style.opacity = link_opc;
   });
 
   var heartClickEvent = document.querySelector("#imgHeart");

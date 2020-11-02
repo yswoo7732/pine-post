@@ -67,8 +67,8 @@ body,
 div {
   margin: 0;
   padding: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  /* backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; */
 }
 
 img {
@@ -102,6 +102,13 @@ img {
   height: 100vh;
   position: relative;
   max-height: none !important;
+}
+
+.link_item {
+  width: 100%;
+  height: 5vh;
+  /* display: none; */
+
 }
 
 /* #link_cover_full {
@@ -207,7 +214,7 @@ img {
 
 .cover_cell {
   /* position: absolute; */
-  z-index: 11;
+  z-index: -1;
   width: 700px;
   right: 50%;
 }
