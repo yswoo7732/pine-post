@@ -13,51 +13,60 @@ window.onload = function () {
   var height = window.screen.height / 2;
   var prevScrollTop = 0;
   var wrap_body = document.getElementById("body_frame");
-  var cover_flag = true;
+  var cover_flag = false;
 
   document.addEventListener("scroll", function (event) {
     
     // scroll 맨마지막일때 - 하단 열기 준비
-    if (Math.round(window.scrollY) >= document.body.scrollHeight && cover_flag) {
-      cover_flag = false;
-
+    if (Math.round(window.scrollY) >= document.body.scrollHeight + document.getElementById("link_cover_full").scrollHeight && !cover_flag) {
       console.log("하단 열기 준비: ", cover_flag)
 
-      if (!cover_flag) {
+      // cover_flag = false;
+
+      // if (!cover_flag) {
+      //   console.log("하단 연 상태")
         basicFoot.style.display = "none";
 
         document.getElementsByClassName("wrap_body_frame")[0].style.position = "fixed";
         document.getElementsByClassName("wrap_body_frame")[0].style.bottom = 0;
         
         document.getElementById("link_cover_full").style.display = "block";
-        document.getElementById("link_cover_full").style.position = "relative";
+        document.getElementById("link_cover_full").style.position = "absolute";
         document.getElementById("link_cover_full").style.zIndex = 60;
+        cover_flag = true;
+
+      // }
+    } 
+    if(document.getElementById("link_cover_full").getBoundingClientRect().top < window.innerHeight && cover_flag) {
+      // 하단 연 상태
+        console.log("하단 연 상태: ", cover_flag)
         document.getElementById("link_cover_full").style.top = window.innerHeight - document.documentElement.scrollTop + "px";
         document.getElementById("link_cover_full").style.height = 100 + "vh";
-      }
-    } else if(document.getElementById("link_cover_full").style.zIndex == 60 && document.getElementById("link_cover_full").getBoundingClientRect().top == 0) {
-      // 하단 연 상태
-      console.log("하단 연 상태")
-      cover_flag = true;
-    }
 
+        // prevScrollTop = window.scrollY;
+    }
+    if (document.documentElement.scrollTop == 0 && document.getElementById("link_cover_full").getBoundingClientRect().top >= window.innerHeight && cover_flag) {
     // 하단 이미지가 내려갔을때
-    else if (document.documentElement.scrollTop == 0 && cover_flag && document.getElementById("link_cover_full").style.zIndex == 60) {
+     
       console.log("하단 이미지 내려갔을때: ", cover_flag);
       
-      basicFoot.style.display = "";
+      // basicFoot.style.display = "";
 
-      document.getElementById("link_cover_full").style.position = "";
-      document.getElementById("link_cover_full").style.top = "";
-      document.getElementById("link_cover_full").style.zIndex = 0;
-      document.getElementById("link_cover_full").style.height = 5 + "vh";
+      // document.getElementsByClassName("wrap_body_frame")[0].style.position = "";
+      // document.getElementsByClassName("wrap_body_frame")[0].style.bottom = "";
 
-      document.getElementsByClassName("wrap_body_frame")[0].style.position = "";
+      // document.getElementById("link_cover_full").style.position = "absolute";
+      // document.getElementById("link_cover_full").style.top = "";
+      // // document.getElementById("link_cover_full").style.zIndex = 0;
+      // document.getElementById("link_cover_full").style.height = 5 + "vh";
+
+      // window.scrollTo(0, prevScrollTop);
+    //  cover_flag = false;
      
-      // console.log("down: ", prevScrollTop);
-      // cover_flag = false;
-    } else {
+    } 
+    else {
       console.log("메인상태: ", cover_flag)
+      console.log("메인상태: ", document.getElementById("link_cover_full").getBoundingClientRect().top, window.innerHeight - document.documentElement.scrollTop)
       // box shadow
       Array.from(boxShadows).forEach(function (element, index, array) {
         // console.log("box shadow: ",element.offsetTop + element.offsetWidth)
