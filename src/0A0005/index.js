@@ -9,16 +9,87 @@ window.onload = function () {
 
   var bContents = document.getElementsByClassName("b_contents")[0];
   var basicFoot = document.getElementsByClassName("basic_foot")[0];
+  // var coverImg = document.getElementsByClassName("wrap_cover")[0];
   var boxShadows = document.getElementsByClassName("box-shadow");
   var prevScrollTop = 0;
   var height = window.screen.height / 2;
   var wrapBody = document.getElementById("body_frame");
-  var coverImg = document.getElementById("cover_full");
+  var coverFull = document.getElementById("cover_full");
+  var introImg = document.getElementById("intro_img");
   var linkImg = document.getElementById("link_cover_full");
   var body = document.body;
 
   var flag = false;
   var state = 0;
+
+  // pull to link event
+  const pStart = { x: 0, y: 0 };
+  const pCurrent = { x: 0, y: 0 };
+
+  const cards = document.querySelectorAll(".wrap_body_frame");
+  const main = document.querySelector("body > div");
+  let isLoading = false;
+
+  function loading() {
+    console.log("loading");
+
+    isLoading = true;
+    main.style.transform = "translateY(0px)";
+    setTimeout(() => {
+      main.style.transform = "translateY(-100px)";
+      isLoading = false;
+      for (const card of cards) {
+        card.style.transform = "rotateX(0deg)";
+      }
+    }, 500);
+  }
+
+  function swipeStart(e) {
+    console.log("swipeStart");
+
+    if (typeof e["targetTouches"] !== "undefined") {
+      let touch = e.targetTouches[0];
+      pStart.x = touch.screenX;
+      pStart.y = touch.screenY;
+    } else {
+      pStart.x = e.screenX;
+      pStart.y = e.screenY;
+    }
+  }
+
+  function swipeEnd(e) {
+    if (document.body.scrollTop === 0 && !isLoading) {
+      console.log("swipeEnd");
+      for (const card of cards) card.style.transform = "rotateX(0deg)";
+    }
+  }
+
+  function swipe(e) {
+    console.log("swipe");
+
+    if (typeof e["changedTouches"] !== "undefined") {
+      let touch = e.changedTouches[0];
+      pCurrent.x = touch.screenX;
+      pCurrent.y = touch.screenY;
+    } else {
+      pCurrent.x = e.screenX;
+      pCurrent.y = e.screenY;
+    }
+    let changeY = pStart.y < pCurrent.y ? Math.abs(pStart.y - pCurrent.y) : 0;
+    console.log("changeY: ", changeY);
+    const rotation = changeY < 100 ? (changeY * 30) / 100 : 30;
+    if (document.body.scrollTop === 0) {
+      if (changeY > 100) loading();
+      for (const card of cards) card.style.transform = "rotateX(${rotation}deg)";
+    }
+  }
+
+  document.addEventListener("touchstart", (e) => swipeStart(e), false);
+  document.addEventListener("touchmove", (e) => swipe(e), false);
+  document.addEventListener("touchend", (e) => swipeEnd(e), false);
+
+
+
 
   document.addEventListener("scroll", function (event) {
     var basicFootBottom = Math.round(basicFoot.getBoundingClientRect().bottom);
@@ -47,19 +118,22 @@ window.onload = function () {
         }
 
         // scroll에 따른 main cover image height
-        coverImg.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
-        coverImg.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
-
+        coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+        // coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
+        // coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
         break;
 
       case 1: // 하단이미지 활성
+        linkImg.style.display = "display";
         linkImg.style.bottom = window.innerHeight - Math.round(body.scrollHeight - window.scrollY - window.innerHeight) + "px";
+
         console.log("하단 높이: ", ((body.clientHeight - basicFootBottom) / body.clientHeight) * 100);
         flag = true;
         break;
       case 2: // 하단이미지 비활성
         console.log("state: ", state);
         linkImg.style.bottom = "";
+        linkImg.style.display = "none";
         break;
     }
 

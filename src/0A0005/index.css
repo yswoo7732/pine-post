@@ -1,7 +1,6 @@
 @font-face {
   font-family: LIFEPLUS;
-  src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-Medium.woff2) format("woff2"),
-    url(assets/LIFEPLUS-Medium.woff) format("woff");
+  src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-Medium.woff2) format("woff2"), url(assets/LIFEPLUS-Medium.woff) format("woff");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -9,8 +8,7 @@
 
 @font-face {
   font-family: LIFEPLUS;
-  src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2) format("woff2"),
-    url(assets/LIFEPLUS-Bold.woff) format("woff");
+  src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2) format("woff2"), url(assets/LIFEPLUS-Bold.woff) format("woff");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -19,16 +17,16 @@
 html,
 body {
   height: 100%;
-  max-width: 750px;
   /* Center slide text vertically */
   -webkit-box-pack: center;
-   -ms-flex-pack: center;
-   -webkit-justify-content: center;
-   justify-content: center;
-   -webkit-box-align: center;
-   -ms-flex-align: center;
-   -webkit-align-items: center;
-   align-items: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
 }
 
 body,
@@ -60,14 +58,15 @@ img {
 
 .wrap_cover {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   z-index: 0;
 }
 
 .cover_item {
   width: 100%;
   height: 100vh;
-  max-height: none!important;
+  max-height: none !important;
+  position: relative;
 }
 
 .link_item {
@@ -82,7 +81,6 @@ img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 #link_cover_full {
@@ -111,7 +109,6 @@ img {
   letter-spacing: normal;
   color: #ffffff;
 }
-
 
 .cover_inner {
   padding: 0 !important;
@@ -317,8 +314,10 @@ img {
   }
 }
 
-
 .basic_foot {
+  display: none;
+
+
   margin-top: 20px;
   position: relative;
   display: flex;
@@ -332,6 +331,8 @@ img {
 }
 
 .sticky {
+  display: none;
+
   position: -webkit-sticky;
   position: -moz-sticky;
   position: -o-sticky;
@@ -352,8 +353,8 @@ img {
 }
 
 .progress-bar {
-  -webkit-transition: width .2s ease-out;
-  -o-transition: width .2s ease-out;
+  -webkit-transition: width 0.2s ease-out;
+  -o-transition: width 0.2s ease-out;
   transition: width 0.2s ease-out;
   background: black;
   height: 1px;
@@ -379,4 +380,45 @@ img {
   .text_basic {
     font-size: 14px;
   }
+}
+
+.loading-container {
+  height: 100px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  box-sizing: border-box;
+}
+
+.loading-container .loading {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  animation: loading 0.5s infinite forwards;
+  box-sizing: border-box;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body > div {
+  transform: translateY(-100px);
+  transition: 0.4s 0.22s ease-in-out;
+}
+
+.d-none {
+  display: none !important;
 }
