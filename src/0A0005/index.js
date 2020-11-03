@@ -33,15 +33,15 @@ window.onload = function () {
   function loading() {
     console.log("loading");
 
-    isLoading = true;
-    main.style.transform = "translateY(0px)";
-    setTimeout(() => {
-      main.style.transform = "translateY(-100px)";
-      isLoading = false;
-      for (const card of cards) {
-        card.style.transform = "rotateX(0deg)";
-      }
-    }, 500);
+    // isLoading = true;
+    // main.style.transform = "translateY(0px)";
+    // setTimeout(() => {
+    //   main.style.transform = "translateY(-100px)";
+    //   isLoading = false;
+    //   for (const card of cards) {
+    //     card.style.transform = "rotateX(0deg)";
+    //   }
+    // }, 500);
   }
 
   function swipeStart(e) {
@@ -60,7 +60,22 @@ window.onload = function () {
   function swipeEnd(e) {
     if (document.body.scrollTop === 0 && !isLoading) {
       console.log("swipeEnd");
-      for (const card of cards) card.style.transform = "rotateX(0deg)";
+      // for (const card of cards) card.style.transform = "rotateX(0deg)";
+    }
+
+
+
+    if(linkImg.scrollHeight == window.innerHeight) {
+      console.log("하단 활성화 된 후", linkImg.style.scrollHeight, window.innerHeight);
+      
+      linkImg.style.transform = "translateY(0%)";
+      linkImg.style.display = "none";
+
+    } else {
+      linkImg.style.display = "block";
+      setTimeout(() => {
+        linkImg.style.transform = "translateY(-100%)";
+      }, 30);
     }
   }
 
@@ -79,16 +94,18 @@ window.onload = function () {
     console.log("changeY: ", changeY);
     const rotation = changeY < 100 ? (changeY * 30) / 100 : 30;
     if (document.body.scrollTop === 0) {
-      if (changeY > 100) loading();
-      for (const card of cards) card.style.transform = "rotateX(${rotation}deg)";
+      // if (changeY > 100) loading();
+      // for (const card of cards) card.style.transform = "rotateX(${rotation}deg)";
+    }
+
+    if(changeY > 0 && linkImg.style.scrollHeight == window.innerHeight) {
+      console.log("하단 활성화 된 후");
     }
   }
 
   document.addEventListener("touchstart", (e) => swipeStart(e), false);
   document.addEventListener("touchmove", (e) => swipe(e), false);
   document.addEventListener("touchend", (e) => swipeEnd(e), false);
-
-
 
 
   document.addEventListener("scroll", function (event) {
@@ -124,8 +141,8 @@ window.onload = function () {
         break;
 
       case 1: // 하단이미지 활성
-        linkImg.style.display = "display";
-        linkImg.style.bottom = window.innerHeight - Math.round(body.scrollHeight - window.scrollY - window.innerHeight) + "px";
+        linkImg.style.display = "none";
+        // linkImg.style.bottom = window.innerHeight - Math.round(body.scrollHeight - window.scrollY - window.innerHeight) + "px";
 
         console.log("하단 높이: ", ((body.clientHeight - basicFootBottom) / body.clientHeight) * 100);
         flag = true;
@@ -141,11 +158,12 @@ window.onload = function () {
     // var scrolledY = window.scrollY - basicFoot.scrollHeight - linkImg.scrollHeight;
 
     // 화면 하단 비활성화
-    if (flag && linkImg.style.bottom.split("px")[0] < 0) {
-      state = 2;
-    }
+    // if (flag && linkImg.style.bottom.split("px")[0] < 0) {
+    //   state = 2;
+    // }
     // 화면의 하단이 5% 보이면 하단 활성화
-    else if (((body.clientHeight - basicFootBottom) / body.clientHeight) * 100 > 5) {
+    // else if (((body.clientHeight - basicFootBottom) / body.clientHeight) * 100 > 5) {
+    if (linkImg.style.display == "block") {
       state = 1;
     } else if (linkImg.style.bottom == "") {
       state = 0;
