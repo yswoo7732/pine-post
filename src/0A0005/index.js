@@ -126,10 +126,10 @@ window.onload = function () {
 
   // document.addEventListener("touchstart", (e) => swipeStart(e), false);
   // document.addEventListener("touchmove", (e) => swipe(e), false);
-  document.addEventListener("touchend", (e) => swipeEnd(e), false);
+  document.addEventListener("touchend", (e) => swipeEnd(e), {passive: true});
 
   document.addEventListener("scroll", function (event) {
-    var basicFootBottom = Math.round(basicFoot.getBoundingClientRect().bottom);
+    // var basicFootBottom = Math.round(basicFoot.getBoundingClientRect().bottom);
     var currentPercentage =
       (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
 
@@ -156,6 +156,7 @@ window.onload = function () {
 
         // scroll에 따른 main cover image height
         coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+        console.log("메인이미지: ", coverFull.style.height);
         // coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
         // coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
         break;

@@ -26,7 +26,7 @@ body {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-
+  overscroll-behavior: contain;
 }
 
 body,
@@ -94,6 +94,7 @@ img {
   height: 100vh;
   max-height: none !important;
   position: relative;
+  overflow: hidden;
 }
 
 .link_item {
