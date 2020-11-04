@@ -56,6 +56,33 @@ img {
   border-radius: 20px;
 }
 
+.tip_cell {
+  width: 91px;
+  height: 27px;
+  position: fixed;
+  left: 28px;
+  bottom: 73%;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.tip_contents {
+  /* width: 22px;
+  height: 16px;
+  object-fit: contain; */
+  font-family: LIFEPLUS;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  margin: 5px 12px 6px 12px;
+}
+
 .wrap_cover {
   position: relative;
   /* width: 100%; */
