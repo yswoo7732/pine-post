@@ -63,12 +63,15 @@ window.onload = function () {
 
     var scrollPos = window.innerHeight - Math.round(document.body.scrollHeight - window.scrollY - window.innerHeight);
 
+    console.log("스크롤 위치: ",scrollPos);
+  
     if (linkImg.scrollHeight == window.innerHeight) {
-      console.log("하단 비활성화");
+      console.log("하단 활성화 된 후", linkImg.style.scrollHeight, window.innerHeight);
 
       linkImg.style.transform = "translateY(0%)";
       linkImg.style.display = "none";
       linkImg.style.height = "0";
+
     } else if (scrollPos == window.innerHeight) {
       console.log("swipeEnd - 하단 열림");
 
@@ -83,40 +86,36 @@ window.onload = function () {
 
   // 화면 하단 이미지 비/활성화
   function swipe(e) {
-    console.log("touchmove");
+    console.log("swipe");
 
     if (linkImg.style.scrollHeight == window.innerHeight) {
       console.log("하단 활성화 된 후");
       linkImg.style.bottom = "";
       linkImg.style.display = "none";
     } else {
-      // var linkImg = document.getElementsByClassName("loading-container")[0].scrollHeight;
+      // var currentPercentage =
+      // (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
 
-      var currentPercentage =
-        (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
-        // (window.scrollY/ window.scrollY - document.body.scrollHeight);
+      // Array.from(boxShadows).forEach(function (element, index, array) {
+      //   if (!element.classList.contains("box-shadow-active") && element.offsetTop < document.documentElement.scrollTop + height) {
+      //     element.classList.add("box-shadow-active");
+      //   }
+      // });
 
-      // console.log("퍼센티지", (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100);
-      Array.from(boxShadows).forEach(function (element, index, array) {
-        if (!element.classList.contains("box-shadow-active") && element.offsetTop < document.documentElement.scrollTop + height) {
-          element.classList.add("box-shadow-active");
-        }
-      });
+      // // scroll progress bar
+      // document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
 
-      // scroll progress bar
-      document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
+      // // 좋아요 공유버튼 이벤트 sticky
+      // if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
+      //   basicFoot.classList.remove("sticky");
+      // } else if (document.documentElement.scrollTop < window.screen.height) {
+      //   basicFoot.classList.add("sticky");
+      // } else {
+      //   basicFoot.classList.add("sticky");
+      // }
 
-      // 좋아요 공유버튼 이벤트 sticky
-      if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
-        basicFoot.classList.remove("sticky");
-      } else if (document.documentElement.scrollTop < window.screen.height) {
-        basicFoot.classList.add("sticky");
-      } else {
-        basicFoot.classList.add("sticky");
-      }
-
-      // scroll에 따른 main cover image height
-      coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+      // // scroll에 따른 main cover image height
+      // coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
     }
   }
 
@@ -124,67 +123,67 @@ window.onload = function () {
   document.addEventListener("touchmove", (e) => swipe(e), false);
   document.addEventListener("touchend", (e) => swipeEnd(e), false);
 
-  // document.addEventListener("scroll", function (event) {
-  //   // var basicFootBottom = Math.round(basicFoot.getBoundingClientRect().bottom);
-  //   // var currentPercentage =
-  //   //   (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
+  document.addEventListener("scroll", function (event) {
+    var basicFootBottom = Math.round(basicFoot.getBoundingClientRect().bottom);
+    var currentPercentage =
+      (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
 
-  //   console.log("state: ", state);
-  //   switch (state) {
-  //     case 0: // 하단 비활성
-  //       // Array.from(boxShadows).forEach(function (element, index, array) {
-  //       //   if (!element.classList.contains("box-shadow-active") && element.offsetTop < document.documentElement.scrollTop + height) {
-  //       //     element.classList.add("box-shadow-active");
-  //       //   }
-  //       // });
+    console.log("state: ", state);
+    switch (state) {
+      case 0: // 하단 비활성
+        Array.from(boxShadows).forEach(function (element, index, array) {
+          if (!element.classList.contains("box-shadow-active") && element.offsetTop < document.documentElement.scrollTop + height) {
+            element.classList.add("box-shadow-active");
+          }
+        });
 
-  //       // // scroll progress bar
-  //       // document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
+        // scroll progress bar
+        document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
 
-  //       // // 좋아요 공유버튼 이벤트 sticky
-  //       // if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
-  //       //   basicFoot.classList.remove("sticky");
-  //       // } else if (document.documentElement.scrollTop < window.screen.height) {
-  //       //   basicFoot.classList.add("sticky");
-  //       // } else {
-  //       //   basicFoot.classList.add("sticky");
-  //       // }
+        // 좋아요 공유버튼 이벤트 sticky
+        if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
+          basicFoot.classList.remove("sticky");
+        } else if (document.documentElement.scrollTop < window.screen.height) {
+          basicFoot.classList.add("sticky");
+        } else {
+          basicFoot.classList.add("sticky");
+        }
 
-  //       // // scroll에 따른 main cover image height
-  //       // coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
-  //       // coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
-  //       // coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
-  //       break;
+        // scroll에 따른 main cover image height
+        coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+        coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
+        coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
+        break;
 
-  //     case 1: // 하단이미지 활성
-  //       // linkImg.style.display = "none";
-  //       // linkImg.style.bottom = window.innerHeight - Math.round(body.scrollHeight - window.scrollY - window.innerHeight) + "px";
+      case 1: // 하단이미지 활성
+        // linkImg.style.display = "none";
+        // linkImg.style.bottom = window.innerHeight - Math.round(body.scrollHeight - window.scrollY - window.innerHeight) + "px";
 
-  //       // console.log("하단 높이: ", ((body.clientHeight - basicFootBottom) / body.clientHeight) * 100);
-  //       flag = true;
-  //       break;
-  //     case 2: // 하단이미지 비활성
-  //       console.log("state: ", state);
-  //       // linkImg.style.bottom = "";
-  //       // linkImg.style.display = "none";
-  //       break;
-  //   }
+        // console.log("하단 높이: ", ((body.clientHeight - basicFootBottom) / body.clientHeight) * 100);
+        flag = true;
+        break;
+      case 2: // 하단이미지 비활성
+        console.log("state: ", state);
+        // linkImg.style.bottom = "";
+        // linkImg.style.display = "none";
+        break;
+    }
 
-  //   // var bodyHeight = body.scrollHeight - basicFoot.scrollHeight - linkImg.scrollHeight;
-  //   // var scrolledY = window.scrollY - basicFoot.scrollHeight - linkImg.scrollHeight;
+    // var bodyHeight = body.scrollHeight - basicFoot.scrollHeight - linkImg.scrollHeight;
+    // var scrolledY = window.scrollY - basicFoot.scrollHeight - linkImg.scrollHeight;
 
-  //   // 화면 하단 비활성화
-  //   // if (flag && linkImg.style.bottom.split("px")[0] < 0) {
-  //   //   state = 2;
-  //   // }
-  //   // 화면의 하단이 5% 보이면 하단 활성화
-  //   // else if (((body.clientHeight - basicFootBottom) / body.clientHeight) * 100 > 5) {
-  //   if (linkImg.style.display == "block") {
-  //     state = 1;
-  //   } else if (linkImg.style.bottom == "") {
-  //     state = 0;
-  //   }
-  // });
+    // 화면 하단 비활성화
+    // if (flag && linkImg.style.bottom.split("px")[0] < 0) {
+    //   state = 2;
+    // }
+    // 화면의 하단이 5% 보이면 하단 활성화
+    // else if (((body.clientHeight - basicFootBottom) / body.clientHeight) * 100 > 5) {
+    if (linkImg.style.display == "block") {
+      state = 1;
+    } else if (linkImg.style.bottom == "") {
+      state = 0;
+    }
+  });
 
   // 좋아요 이벤트
   var heartClickEvent = document.querySelector("#imgHeart");
