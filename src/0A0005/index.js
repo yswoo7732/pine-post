@@ -29,46 +29,36 @@ window.onload = function () {
     // e.stopPropagation();
     linkImg.style.display = "none";
 
-    window.scrollTo({ top: document.documentElement.scrollHeight * 0.6, behavior: "smooth" });
-    e.stopPropagation();
-
     setTimeout(() => {
       basicFoot.style.backgroundColor = "white";
       document.getElementsByClassName("progress-bar")[0].style.display = "";
     }, 30);
+
+    flag = 2;
 
     console.log("swipeEnd");
   }
 
   // 화면 하단 이미지 활성화
   function swipe(e) {
-
     console.log("swipe");
 
-    // setTimeout(() => {
-    // }, 30);
     linkImg.style.display = "block";
 
     window.scrollTo({ top: document.getElementById("link_cover_full").offsetTop, behavior: "smooth" });
+    flag = 1;
     e.stopPropagation();
+    e.preventDefault();
 
     basicFoot.style.backgroundColor = "transparent";
     document.getElementsByClassName("progress-bar")[0].style.display = "none";
   }
 
-  // 이미지 크기 변화
-  function transformCover(e) {
-    // window.scrollTo(0, )
-    // coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
-    event.stopPropagation();
-    event.preventDefault();
-  }
-
   var prevCoverSize = 0;
 
   document.addEventListener("scroll", function (event) {
-
-
+    console.log("scroll!!!!!!!!");
+    // 스크롤 방향 감지
     if (prevScrollTop > document.documentElement.scrollTop) {
       console.log("Up");
       prevScrollTop = document.documentElement.scrollTop;
@@ -79,31 +69,26 @@ window.onload = function () {
       prevScrollTop = document.documentElement.scrollTop;
       isUp = false;
     } else {
-      console.log("what the fuck");
+      console.log("no up and down");
     }
     console.log("isUp: ", isUp);
 
-
-
-    var currentPercentage =
-      (window.scrollY / (body.scrollHeight - window.screen.height - linkImg.scrollHeight)) * 100;
+    var currentPercentage = window.scrollY / (body.scrollHeight - window.screen.height - linkImg.scrollHeight) * 100;
 
     console.log("currentPercentage: ", currentPercentage);
 
     // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
     if (flag == 1 && isUp) {
       state = 2;
-    }
-    else if ( // 활성화 시키기(활성화된 상태가 아닐때만)
+    } else if (
+      // 활성화 시키기(활성화된 상태가 아닐때만)
       !isUp &&
       flag != 1 &&
       currentPercentage >= 99
     ) {
       state = 1;
-      // event.preventDefault();
-      // event.stopPropagation();
     } else {
-      console.log("what the state: ", state)
+      console.log("what the state: ", state);
       state = 0;
     }
     switch (state) {
@@ -128,40 +113,30 @@ window.onload = function () {
         }
 
         // scroll에 따른 main cover image height
-        // transformCover(event);
         // if(coverFull.style.height != window.innerHeight - document.documentElement.scrollTop && window.innerHeight < document.documentElement.scrollTop){
-        console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
-        console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
+        // console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
+        // console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
         if (document.getElementById("body_frame").offsetTop > document.documentElement.scrollTop) {
           prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
           coverFull.style.height = prevCoverSize + "px";
-
         }
 
-
-        // }
-
-
         console.log("state: ", state);
-
         break;
 
       // 하단이미지 활성화시킬때
       case 1:
         console.log("state: ", state);
+        console.log("swipe");
 
         setTimeout(() => {
           swipe(event);
         }, 1000);
 
-        flag = 1;
         break;
       case 2: // 하단이미지 비활성
-        flag = 2;
         console.log("state: ", state);
-
         swipeEnd(event);
-        // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         break;
     }
 
@@ -170,8 +145,6 @@ window.onload = function () {
     // console.log("state 기준: ", window.innerHeight - Math.round(linkImg.getBoundingClientRect().top));
     // console.log("state : ", state);
     console.log("flag: ", flag);
-
-
   });
 
   // 좋아요 이벤트
