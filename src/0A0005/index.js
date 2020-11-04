@@ -124,8 +124,8 @@ window.onload = function () {
     }
   }
 
-  document.addEventListener("touchstart", (e) => swipeStart(e), false);
-  document.addEventListener("touchmove", (e) => swipe(e), false);
+  // document.addEventListener("touchstart", (e) => swipeStart(e), false);
+  // document.addEventListener("touchmove", (e) => swipe(e), false);
   document.addEventListener("touchend", (e) => swipeEnd(e), false);
 
   document.addEventListener("scroll", function (event) {
@@ -156,8 +156,8 @@ window.onload = function () {
 
         // scroll에 따른 main cover image height
         coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
-        coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
-        coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
+        // coverFull.style.height = wrapBody.getBoundingClientRect().top + "px";
+        // coverFull.style.filter = window.innerHeight - document.documentElement.scrollTop + "px";
         break;
 
        // 하단이미지 활성화상태일때
