@@ -97,7 +97,7 @@ window.onload = function () {
     else if ( // 활성화 시키기(활성화된 상태가 아닐때만)
       !isUp &&
       flag != 1 &&
-      currentPercentage == 100
+      currentPercentage >= 99
     ) {
       state = 1;
       // event.preventDefault();
