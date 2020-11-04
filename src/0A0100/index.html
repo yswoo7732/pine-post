@@ -135,6 +135,7 @@ function swipe(e) {
   console.log("swipe");
 
   if (typeof e["changedTouches"] !== "undefined") {
+    console.log("ddddd");
     let touch = e.changedTouches[0];
     pCurrent.x = touch.screenX;
     pCurrent.y = touch.screenY;
