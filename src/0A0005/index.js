@@ -21,17 +21,21 @@ window.onload = function () {
 
   var flag = "";
   var state = 0;
+  var prevCurrent = 0;
+  var isUp = true;
 
   // 화면 하단 비활성화
   function swipeEnd(e) {
     // e.stopPropagation();
-    window.scrollTo({ top: document.documentElement.scrollHeight * 0.5, behavior: "smooth" });
+    linkImg.style.display = "none";
+
+    window.scrollTo({ top: document.documentElement.scrollHeight * 0.6, behavior: "smooth" });
     e.stopPropagation();
 
     setTimeout(() => {
       basicFoot.style.backgroundColor = "white";
       document.getElementsByClassName("progress-bar")[0].style.display = "";
-    }, 3000);
+    }, 30);
 
     console.log("swipeEnd");
   }
@@ -41,22 +45,65 @@ window.onload = function () {
 
     console.log("swipe");
 
-    e.stopPropagation();
+    // setTimeout(() => {
+    // }, 30);
+    linkImg.style.display = "block";
+
     window.scrollTo({ top: document.getElementById("link_cover_full").offsetTop, behavior: "smooth" });
     e.stopPropagation();
-    // document.documentElement.scrollTop = document.getElementById("link_cover_full").offsetTop;
+
     basicFoot.style.backgroundColor = "transparent";
     document.getElementsByClassName("progress-bar")[0].style.display = "none";
   }
 
-
-  // if(window.scrollY - document.getElementById("link_cover_full").offsetTop == Math.round(basicFoot.height)) {
-    
+  // 이미지 크기 변화
+  function transformCover(e) {
+    // window.scrollTo(0, )
+    // coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
   document.addEventListener("scroll", function (event) {
-    var currentPercentage =
-      (window.scrollY / (body.scrollHeight - window.screen.height - basicFoot.scrollHeight - linkImg.scrollHeight)) * 100;
 
+
+    if (prevScrollTop > document.documentElement.scrollTop) {
+      console.log("Up");
+      prevScrollTop = document.documentElement.scrollTop;
+
+      isUp = true;
+    } else if (prevScrollTop <= document.documentElement.scrollTop) {
+      console.log("Down");
+      prevScrollTop = document.documentElement.scrollTop;
+      isUp = false;
+    } else {
+      console.log("what the fuck");
+    }
+    console.log("isUp: ", isUp);
+
+
+
+    var currentPercentage =
+      (window.scrollY / (body.scrollHeight - window.screen.height - linkImg.scrollHeight)) * 100;
+
+    console.log("currentPercentage: ", currentPercentage);
+
+    // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
+    if (flag == 1 && isUp) {
+      state = 2;
+    }
+    else if ( // 활성화 시키기(활성화된 상태가 아닐때만)
+      !isUp &&
+      flag != 1 &&
+      currentPercentage == 100
+    ) {
+      state = 1;
+      // event.preventDefault();
+      // event.stopPropagation();
+    } else {
+      console.log("what the state: ", state)
+      state = 0;
+    }
     switch (state) {
       // 하단 비활성일때 - 메인상태
       case 0:
@@ -79,53 +126,42 @@ window.onload = function () {
         }
 
         // scroll에 따른 main cover image height
-        coverFull.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
-        flag = "";
+        // transformCover(event);
+        // if(coverFull.style.height != window.innerHeight - document.documentElement.scrollTop && window.innerHeight < document.documentElement.scrollTop){
+          coverFull.style.height = Math.round(window.innerHeight - document.documentElement.scrollTop) + "px";
+        // }
+
+
+        console.log("state: ", state);
+
         break;
 
       // 하단이미지 활성화시킬때
       case 1:
         console.log("state: ", state);
-        // setTimeout(() => {
-        swipe(event);
-        // }, 300);
-        flag = true;
+
+        setTimeout(() => {
+          swipe(event);
+        }, 1000);
+
+        flag = 1;
         break;
       case 2: // 하단이미지 비활성
+        flag = 2;
         console.log("state: ", state);
-        flag = false;
 
         swipeEnd(event);
         // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         break;
     }
 
-    console.log("currentPercentage: ", currentPercentage, wrapBody.getBoundingClientRect().bottom + basicFoot.scrollHeight);
-    // console.log("link img offsetTop: ", document.getElementById("link_cover_full").offsetTop);
-    console.log("state 기준: ", window.innerHeight - Math.round(linkImg.getBoundingClientRect().top));
-    console.log("state : ", state);
+    // console.log("currentPercentage: ", currentPercentage, wrapBody.getBoundingClientRect().bottom + basicFoot.scrollHeight);
+    // // console.log("link img offsetTop: ", document.getElementById("link_cover_full").offsetTop);
+    // console.log("state 기준: ", window.innerHeight - Math.round(linkImg.getBoundingClientRect().top));
+    // console.log("state : ", state);
     console.log("flag: ", flag);
 
-    // 하단 활성화시키기
 
-    // else if(flag && Math.round(linkImg.getBoundingClientRect().top) <= 40 && Math.round(linkImg.getBoundingClientRect().top) >= 10) {
-    if (document.getElementsByClassName("progress-bar")[0].style.display == "none" && flag == true) {
-      console.log("state22 : ", state);
-
-      state = 2;
-      // event.preventDefault();
-      // event.stopPropagation();
-    } 
-    else if (
-      !flag &&
-      window.innerHeight - Math.round(linkImg.getBoundingClientRect().top) >= 100 &&
-      window.innerHeight - Math.round(linkImg.getBoundingClientRect().top) <= 300 &&
-      document.getElementsByClassName("progress-bar")[0].style.display != "none"
-    ) {
-      // state = 1;
-      // event.preventDefault();
-      // event.stopPropagation();
-    } 
   });
 
   // 좋아요 이벤트
