@@ -64,6 +64,8 @@ window.onload = function () {
     event.preventDefault();
   }
 
+  var prevCoverSize = 0;
+
   document.addEventListener("scroll", function (event) {
 
 
@@ -128,7 +130,15 @@ window.onload = function () {
         // scroll에 따른 main cover image height
         // transformCover(event);
         // if(coverFull.style.height != window.innerHeight - document.documentElement.scrollTop && window.innerHeight < document.documentElement.scrollTop){
-          coverFull.style.height = Math.round(window.innerHeight - document.documentElement.scrollTop) + "px";
+        console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
+        console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
+        if (document.getElementById("body_frame").offsetTop > document.documentElement.scrollTop) {
+          prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
+          coverFull.style.height = prevCoverSize + "px";
+
+        }
+
+
         // }
 
 
