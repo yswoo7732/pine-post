@@ -26,7 +26,6 @@ window.onload = function () {
 
   // 화면 하단 비활성화
   function swipeEnd(e) {
-    // e.stopPropagation();
     linkImg.style.display = "none";
 
     setTimeout(() => {
@@ -57,7 +56,6 @@ window.onload = function () {
   var prevCoverSize = 0;
 
   document.addEventListener("scroll", function (event) {
-    console.log("scroll!!!!!!!!");
     // 스크롤 방향 감지
     if (prevScrollTop > document.documentElement.scrollTop) {
       console.log("Up");
@@ -75,7 +73,7 @@ window.onload = function () {
 
     var currentPercentage = window.scrollY / (body.scrollHeight - window.screen.height - linkImg.scrollHeight) * 100;
 
-    console.log("currentPercentage: ", currentPercentage);
+    // console.log("currentPercentage: ", currentPercentage);
 
     // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
     if (flag == 1 && isUp) {
@@ -88,7 +86,6 @@ window.onload = function () {
     ) {
       state = 1;
     } else {
-      console.log("what the state: ", state);
       state = 0;
     }
     switch (state) {
@@ -114,8 +111,9 @@ window.onload = function () {
 
         // scroll에 따른 main cover image height
         // if(coverFull.style.height != window.innerHeight - document.documentElement.scrollTop && window.innerHeight < document.documentElement.scrollTop){
-        // console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
-        // console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
+        console.log("document.getElementById(intro_img).style.backgroundSize ", document.getElementById("intro_img").style.backgroundSize);
+        console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
+        console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
         if (document.getElementById("body_frame").offsetTop > document.documentElement.scrollTop) {
           prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
           coverFull.style.height = prevCoverSize + "px";

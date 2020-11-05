@@ -68,9 +68,6 @@ img {
 }
 
 .tip_contents {
-  /* width: 22px;
-  height: 16px;
-  object-fit: contain; */
   font-family: LIFEPLUS;
   font-size: 13px;
   font-weight: bold;
@@ -79,8 +76,45 @@ img {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-  color: white;
+  color: #ffffff;
   margin: 5px 12px 6px 12px;
+}
+
+.sub-tag-cell {
+  display: flex;
+  position: fixed;
+  left: 28px;
+  bottom: 10%;
+}
+
+.sub-tag-contents {
+  font-family: LIFEPLUS;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-right: 12px;
+}
+
+.sub-date-cell {
+  display: flex;
+  position: fixed;
+  right: 28px;
+  bottom: 10%;
+}
+
+.sub-date-contents {
+  font-family: LIFEPLUS;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .wrap_cover {
@@ -107,6 +141,8 @@ img {
 }
 
 .cover_image {
+  width: 100%;
+  height: 100%;
   display: block;
   background-size: cover;
   background-position: center;
@@ -138,6 +174,11 @@ img {
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
+}
+
+.stroke_link:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333;
 }
 
 .cover_inner {
@@ -404,45 +445,4 @@ img {
   .text_basic {
     font-size: 14px;
   }
-}
-
-.loading-container {
-  height: 50px;
-  padding: 10px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #d3d3d3;
-  box-sizing: border-box;
-}
-
-.loading-container .loading {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  /* border: 4px solid transparent; */
-  border-top-color: #fff;
-  border-right-color: #fff;
-  /* animation: loading 0.5s infinite forwards; */
-  box-sizing: border-box;
-}
-
-@keyframes loading {
-  /* from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  } */
-}
-
-body > div {
-  /* transform: translateY(-100px);
-  transition: 0.4s 0.22s ease-in-out; */
-}
-
-.d-none {
-  display: none !important;
 }
