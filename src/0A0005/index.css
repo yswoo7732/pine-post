@@ -125,8 +125,8 @@ img {
 }
 
 .cover_item {
-  /* width: 100%;
-  height: 100vh; */
+  width: 100%;
+  height: 100vh;
   max-height: none !important;
   position: relative;
   overflow: hidden;
