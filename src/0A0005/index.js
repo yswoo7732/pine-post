@@ -12,7 +12,7 @@ window.onload = function () {
   // var coverImg = document.getElementsByClassName("wrap_cover")[0];
   var boxShadows = document.getElementsByClassName("box-shadow");
   var prevScrollTop = 0;
-  var height = window.screen.height / 2;
+  var height = window.screen.height / 4;
   var wrapBody = document.getElementById("body_frame");
   var coverFull = document.getElementById("cover_full");
   var introImg = document.getElementById("intro_img");
@@ -71,8 +71,10 @@ window.onload = function () {
     }
     console.log("isUp: ", isUp);
 
-    var currentPercentage = window.scrollY / (body.scrollHeight - window.screen.height - linkImg.scrollHeight) * 100;
+    var currentPercentage = window.scrollY / (body.scrollHeight - basicFoot.scrollHeight) * 100;
 
+    // console.log("window.scrollY: ", window.scrollY);
+    // console.log("body.scrollHeight: ", body.scrollHeight);
     // console.log("currentPercentage: ", currentPercentage);
 
     // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
@@ -92,7 +94,10 @@ window.onload = function () {
       // 하단 비활성일때 - 메인상태
       case 0:
         Array.from(boxShadows).forEach(function (element, index, array) {
-          if (!element.classList.contains("box-shadow-active") && element.offsetTop < document.documentElement.scrollTop + height) {
+          // console.log("element.offsetTop", element.offsetTop);
+          // console.log("document.documentElement.scrollTop", document.documentElement.scrollTop);
+
+          if (!element.classList.contains("box-shadow-active") && element.offsetTop + height < document.documentElement.scrollTop) {
             element.classList.add("box-shadow-active");
           }
         });
@@ -110,10 +115,8 @@ window.onload = function () {
         }
 
         // scroll에 따른 main cover image height
-        // if(coverFull.style.height != window.innerHeight - document.documentElement.scrollTop && window.innerHeight < document.documentElement.scrollTop){
-        console.log("document.getElementById(intro_img).style.backgroundSize ", document.getElementById("intro_img").style.backgroundSize);
-        console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
-        console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
+        // console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
+        // console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
         if (document.getElementById("body_frame").offsetTop > document.documentElement.scrollTop) {
           prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
           coverFull.style.height = prevCoverSize + "px";
@@ -124,7 +127,7 @@ window.onload = function () {
 
       // 하단이미지 활성화시킬때
       case 1:
-        console.log("state: ", state);
+        // console.log("state: ", state);
         console.log("swipe");
 
         setTimeout(() => {
@@ -133,7 +136,7 @@ window.onload = function () {
 
         break;
       case 2: // 하단이미지 비활성
-        console.log("state: ", state);
+        // console.log("state: ", state);
         swipeEnd(event);
         break;
     }
