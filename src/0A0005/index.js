@@ -28,15 +28,19 @@ window.onload = function () {
 
   // 화면 하단 비활성화
   function swipeEnd(e) {
-    basicLinkFoot.style.display = "none";
+    if (!onSwipe) return;
 
-    linkImg.style.display = "none";
+    console.log("swipeEnd: ");
+    basicLinkFoot.style.display = "none";
     basicFoot.style.display = "flex";
+    linkImg.style.display = "none";
     document.getElementsByClassName("progress-bar")[0].style.display = "";
+    onSwipe = false;
   }
 
   // 화면 하단 이미지 활성화
   function swipe(e) {
+    if (onSwipe) return;
     console.log("swipe: ", document.getElementById("link_cover_full").offsetTop);
     linkImg.style.display = "block";
 
@@ -55,7 +59,7 @@ window.onload = function () {
         basicFoot.style.display = "none";
         basicLinkFoot.style.display = "flex";
         clearInterval(int);
-        // coverFull.style.zIndex = 0;
+        onSwipe = true;
       }
       i += 5;
     }, 5);
@@ -88,7 +92,7 @@ window.onload = function () {
     // console.log("currentPercentage: ", currentPercentage);
 
     // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
-    if (flag == 1 && isUp) {
+    if (onSwipe && isUp) {
       state = 2;
     }
     // 활성화 시키기(활성화된 상태가 아닐때만)
@@ -123,38 +127,27 @@ window.onload = function () {
         }
 
         // scroll에 따른 main cover image height
-        // console.log("document.getElementById(body_frame).offsetTop ", document.getElementById("body_frame").offsetTop);
-        // console.log("document.documentElement.scrollTop ", document.documentElement.scrollTop);
         if (document.getElementById("body_frame").offsetTop > document.documentElement.scrollTop) {
           prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
           coverFull.style.height = prevCoverSize + "px";
         }
-
-        // console.log("state: ", state);
         break;
 
       // 하단이미지 활성화시킬때
       case 1:
-        // console.log("state: ", state);
-        console.log("swipe");
-
         setTimeout(() => {
           swipe(event);
-        }, 1500);
-
+        }, 1000);
         flag = 1;
         break;
       case 2: // 하단이미지 비활성
         // console.log("state: ", state);
-        swipeEnd(event);
+        setTimeout(() => {
+          swipeEnd(event);
+        }, 10);
         flag = 2;
         break;
     }
-
-    // console.log("currentPercentage: ", currentPercentage, wrapBody.getBoundingClientRect().bottom + basicFoot.scrollHeight);
-    // // console.log("link img offsetTop: ", document.getElementById("link_cover_full").offsetTop);
-    // console.log("state 기준: ", window.innerHeight - Math.round(linkImg.getBoundingClientRect().top));
-    // console.log("state : ", state);
     console.log("flag: ", flag);
   });
 
@@ -177,6 +170,6 @@ window.onload = function () {
 
   var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
   whiteHeartClickEvent.addEventListener("click", function () {
-    this.classList.toggleheart_white_active("heart_white_active");
+    this.classList.toggle("heart_white_active");
   });
 };

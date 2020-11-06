@@ -65,6 +65,8 @@ img {
   border: 1px solid white;
   border-radius: 20px;
   margin-bottom: 20px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .tip_contents {
@@ -84,7 +86,10 @@ img {
   display: flex;
   position: fixed;
   left: 28px;
-  bottom: 10%;
+  /* bottom: 10%; */
+  top: 722px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .sub-tag-contents {
@@ -103,7 +108,8 @@ img {
   display: flex;
   position: fixed;
   right: 28px;
-  bottom: 10%;
+  /* bottom: 10%; */
+  top: 722px;
 }
 
 .sub-date-contents {
@@ -272,7 +278,9 @@ img {
   margin-left: 28px;
   margin-right: 28px;
   opacity: 1;
-  z-index: 11;
+  z-index: 11;  
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .contents_1_1 > p {
