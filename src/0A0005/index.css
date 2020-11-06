@@ -27,14 +27,14 @@ body {
   -webkit-align-items: center;
   align-items: center;
   overscroll-behavior: contain;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 body,
 div {
   margin: 0;
   padding: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 img {
@@ -61,7 +61,7 @@ img {
   height: 27px;
   position: fixed;
   left: 28px;
-  bottom: 73%;
+  top: 171px;
   border: 1px solid white;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -122,6 +122,9 @@ img {
   width: 100%;
   z-index: 0;
   top: 0;
+  /* position fixed시  */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .cover_item {
@@ -174,8 +177,13 @@ img {
     transform: scale(0.99, 0.99);
   }
   100% {
-    transform: scale(1.0, 1.0);
+    transform: scale(1, 1);
   }
+}
+
+.stroke_link-active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333 !important;
 }
 
 .stroke_link {
@@ -260,7 +268,7 @@ img {
   letter-spacing: normal;
   color: #ffffff;
   position: fixed;
-  bottom: 63%;
+  top: 218px;
   margin-left: 28px;
   margin-right: 28px;
   opacity: 1;
@@ -462,6 +470,10 @@ img {
 
 .heart_active {
   content: url("assets/basic_foot_heart_fill.png");
+}
+
+.heart_white_active {
+  content: url("assets/card_foot_heart_fill.png");
 }
 
 @media (max-width: 340px) {

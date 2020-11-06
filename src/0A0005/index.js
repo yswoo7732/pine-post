@@ -33,12 +33,6 @@ window.onload = function () {
     linkImg.style.display = "none";
     basicFoot.style.display = "flex";
     document.getElementsByClassName("progress-bar")[0].style.display = "";
-
-    setTimeout(() => {
-      basicFoot.style.backgroundColor = "white";
-    }, 30);
-
-    console.log("swipeEnd");
   }
 
   // 화면 하단 이미지 활성화
@@ -67,7 +61,6 @@ window.onload = function () {
     }, 5);
 
     document.getElementsByClassName("progress-bar")[0].style.display = "none";
-    console.log("yyyyyyyyyyyyyyyyyyyyyyyyy");
   }
 
   var prevCoverSize = 0;
@@ -165,16 +158,25 @@ window.onload = function () {
     console.log("flag: ", flag);
   });
 
-  
-  link_title.addEventListener("touchstart", function(event) {
+  // 링크 터치 이벤트
+  link_title.addEventListener("touchstart", function (event) {
     console.log("touch!!!");
-    // background-color: rgba(255, 255, 255, 0.8);
-    // color: #333333;
+    this.classList.add("stroke_link-active");
   });
-  
+
+  link_title.addEventListener("touchend", function (event) {
+    console.log("touchend!!!");
+    this.classList.remove("stroke_link-active");
+  });
+
   // 좋아요 이벤트
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
     this.classList.toggle("heart_active");
+  });
+
+  var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
+  whiteHeartClickEvent.addEventListener("click", function () {
+    this.classList.toggleheart_white_active("heart_white_active");
   });
 };
