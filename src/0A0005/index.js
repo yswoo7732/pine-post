@@ -168,8 +168,8 @@ window.onload = function () {
   
   link_title.addEventListener("touchstart", function(event) {
     console.log("touch!!!");
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333333;
+    // background-color: rgba(255, 255, 255, 0.8);
+    // color: #333333;
   });
   
   // 좋아요 이벤트
