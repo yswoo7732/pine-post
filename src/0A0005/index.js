@@ -9,13 +9,14 @@ window.onload = function () {
 
   var bContents = document.getElementsByClassName("b_contents")[0];
   var basicFoot = document.getElementsByClassName("basic_foot")[0];
-  // var coverImg = document.getElementsByClassName("wrap_cover")[0];
+  var basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
+  var wrapCover = document.getElementsByClassName("wrap_cover")[0];
   var boxShadows = document.getElementsByClassName("box-shadow");
   var prevScrollTop = 0;
   var height = window.screen.height / 4;
   var wrapBody = document.getElementById("body_frame");
   var coverFull = document.getElementById("cover_full");
-  var introImg = document.getElementById("intro_img");
+  var link_title = document.getElementById("link_title");
   var linkImg = document.getElementById("link_cover_full");
   var body = document.body;
 
@@ -23,34 +24,50 @@ window.onload = function () {
   var state = 0;
   var prevCurrent = 0;
   var isUp = true;
+  var onSwipe = false;
 
   // 화면 하단 비활성화
   function swipeEnd(e) {
+    basicLinkFoot.style.display = "none";
+
     linkImg.style.display = "none";
+    basicFoot.style.display = "flex";
+    document.getElementsByClassName("progress-bar")[0].style.display = "";
 
     setTimeout(() => {
       basicFoot.style.backgroundColor = "white";
-      document.getElementsByClassName("progress-bar")[0].style.display = "";
     }, 30);
-
-    flag = 2;
 
     console.log("swipeEnd");
   }
 
   // 화면 하단 이미지 활성화
   function swipe(e) {
-    console.log("swipe");
-
+    console.log("swipe: ", document.getElementById("link_cover_full").offsetTop);
     linkImg.style.display = "block";
 
-    window.scrollTo({ top: document.getElementById("link_cover_full").offsetTop, behavior: "smooth" });
-    flag = 1;
-    e.stopPropagation();
-    e.preventDefault();
+    console.log(document.getElementById("link_cover_full").offsetTop);
+    // window.scrollTo({ top: document.getElementById("link_cover_full").offsetTop, behavior: "smooth" });
 
-    basicFoot.style.backgroundColor = "transparent";
+    var i = window.scrollY + 200;
+    var int = setInterval(function () {
+      console.log("i: ", i);
+      window.scrollTo(0, i);
+
+      if (i >= linkImg.offsetTop) {
+        // linkImg.classList.add("ani-img");
+
+        window.scrollTo(0, linkImg.offsetTop);
+        basicFoot.style.display = "none";
+        basicLinkFoot.style.display = "flex";
+        clearInterval(int);
+        // coverFull.style.zIndex = 0;
+      }
+      i += 5;
+    }, 5);
+
     document.getElementsByClassName("progress-bar")[0].style.display = "none";
+    console.log("yyyyyyyyyyyyyyyyyyyyyyyyy");
   }
 
   var prevCoverSize = 0;
@@ -71,7 +88,7 @@ window.onload = function () {
     }
     console.log("isUp: ", isUp);
 
-    var currentPercentage = window.scrollY / (body.scrollHeight - basicFoot.scrollHeight) * 100;
+    var currentPercentage = Math.round((window.scrollY / (body.scrollHeight - basicFoot.scrollHeight)) * 100) - 3;
 
     // console.log("window.scrollY: ", window.scrollY);
     // console.log("body.scrollHeight: ", body.scrollHeight);
@@ -80,16 +97,14 @@ window.onload = function () {
     // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
     if (flag == 1 && isUp) {
       state = 2;
-    } else if (
-      // 활성화 시키기(활성화된 상태가 아닐때만)
-      !isUp &&
-      flag != 1 &&
-      currentPercentage >= 99
-    ) {
+    }
+    // 활성화 시키기(활성화된 상태가 아닐때만)
+    else if (!isUp && flag != 1 && currentPercentage == 100) {
       state = 1;
     } else {
       state = 0;
     }
+
     switch (state) {
       // 하단 비활성일때 - 메인상태
       case 0:
@@ -122,7 +137,7 @@ window.onload = function () {
           coverFull.style.height = prevCoverSize + "px";
         }
 
-        console.log("state: ", state);
+        // console.log("state: ", state);
         break;
 
       // 하단이미지 활성화시킬때
@@ -132,12 +147,14 @@ window.onload = function () {
 
         setTimeout(() => {
           swipe(event);
-        }, 1000);
+        }, 1500);
 
+        flag = 1;
         break;
       case 2: // 하단이미지 비활성
         // console.log("state: ", state);
         swipeEnd(event);
+        flag = 2;
         break;
     }
 
@@ -148,6 +165,13 @@ window.onload = function () {
     console.log("flag: ", flag);
   });
 
+  
+  link_title.addEventListener("touchstart", function(event) {
+    console.log("touch!!!");
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333333;
+  });
+  
   // 좋아요 이벤트
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
