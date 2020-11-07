@@ -17,7 +17,8 @@ window.onload = function () {
     var wrapBody = document.getElementById("body_frame");
     var coverFull = document.getElementById("cover_full");
     var link_title = document.getElementById("link_title");
-    var linkImg = document.getElementById("link_cover_full");
+    var linkCoverFull = document.getElementById("link_cover_full");
+    var linkImg = document.getElementById("link_img");
     var body = document.body;
     var halfBody = window.innerHeight / 2;
     var heartDiv = document.getElementById("heartDiv");
@@ -34,55 +35,10 @@ window.onload = function () {
     var isUp = true;
     var onSwipe = false;
 
-    // 화면 하단 비활성화
-    function swipeEnd(e) {
-        if (!onSwipe) return;
-
-        console.log("swipeEnd: ");
-        basicLinkFoot.style.display = "none";
-        basicFoot.style.display = "flex";
-        linkImg.style.height = "100px";
-        link_title.style.display = "none";
-        document.getElementsByClassName("progress-bar")[0].style.display = "";
-        onSwipe = false;
-    }
-
-    // 화면 하단 이미지 활성화
-    function swipe(e) {
-        if (onSwipe) return;
-        console.log("swipe: ", document.getElementById("link_cover_full").offsetTop);
-        linkImg.style.display = "block";
-
-        console.log(document.getElementById("link_cover_full").offsetTop);
-        // window.scrollTo({ top: document.getElementById("link_cover_full").offsetTop, behavior: "smooth" });
-
-        var i = window.scrollY + 200;
-        linkImg.style.height = "100vh";
-        link_title.style.display = "flex";
-
-
-        var int = setInterval(function () {
-            console.log("i: ", i);
-            window.scrollTo(0, i);
-
-            if (i >= linkImg.offsetTop) {
-                // linkImg.classList.add("ani-img");
-
-                window.scrollTo(0, linkImg.offsetTop);
-                basicFoot.style.display = "none";
-                basicLinkFoot.style.display = "flex";
-                clearInterval(int);
-                onSwipe = true;
-            }
-            i += 5;
-        }, 5);
-
-        document.getElementsByClassName("progress-bar")[0].style.display = "none";
-    }
-
     var prevCoverSize = 0;
 
     document.addEventListener("scroll", function (event) {
+        event.preventDefault();
         // 스크롤 방향 감지
         if (prevScrollTop > document.documentElement.scrollTop) {
             console.log("Up");
@@ -101,11 +57,16 @@ window.onload = function () {
         var currentPercentage = Math.round((window.scrollY / (body.scrollHeight - basicFoot.scrollHeight)) * 100) - 3;
 
         // 하단 이미지 시작점(2px는 progress-bar)
-        var openLinkImgPos = linkImg.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
-        var closeLinkImgPos = linkImg.offsetTop - window.scrollY;
+        var openLinkImgPos = linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
+        var closeLinkImgPos = linkCoverFull.offsetTop - window.scrollY;
 
         var basicFootOpacity = 1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
-        console.log("basicFootOpacity", basicFootOpacity);
+
+        if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
+            var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10);
+            console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
+            linkImg.style.transform = `scale(${linkImgScale})`;
+        }
 
         if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= halfBody) {
             basicLinkFoot.style.display = "none";
@@ -117,9 +78,8 @@ window.onload = function () {
             imgHeart.style.opacity = basicFootOpacity;
             shareDiv.style.opacity = basicFootOpacity;
             shareImg.style.opacity = basicFootOpacity;
-        } else if (window.innerHeight - openLinkImgPos > halfBody && linkImg.offsetTop - window.scrollY >= 0) {
+        } else if (window.innerHeight - openLinkImgPos > halfBody && linkCoverFull.offsetTop - window.scrollY >= 0) {
             var basicLinkFootOpacity = (window.innerHeight - closeLinkImgPos) / window.innerHeight;
-            console.log("basicLinkFootOpacity", basicFootOpacity);
 
             basicFoot.style.display = "none";
             basicLinkFoot.classList.add("sticky");
