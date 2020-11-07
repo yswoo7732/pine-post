@@ -35,6 +35,8 @@ body,
 div {
   margin: 0;
   padding: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 img {
