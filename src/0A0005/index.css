@@ -144,7 +144,7 @@ img {
 .link_item {
   display: "block";
   width: 100%;
-  height: 100px;
+  height: 100vh;
   position: relative;
   z-index: 20;
   overflow: hidden;
@@ -163,30 +163,6 @@ img {
   overflow: hidden;
 }
 
-.ani-img {
-  animation-name: ani-img;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-  animation-iteration-count: 1;
-}
-
-@keyframes ani-img {
-  /* 0% {
-    transform: scale(0, 0);
-  }
-  25% {
-    transform: scale(0.5, 0.5);
-  } */
-  90% {
-    transform: scale(0.99, 0.99);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
 .stroke_link-active {
   background-color: rgba(255, 255, 255, 0.8);
   color: #333333 !important;
@@ -197,7 +173,7 @@ img {
   width: 200px !important;
   height: 200px !important;
   margin: auto !important;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -439,6 +415,7 @@ img {
   bottom: 0;
   display: none;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
   height: auto;
   object-fit: contain;
   background-color: "transparent";
@@ -452,7 +429,7 @@ img {
   position: -moz-sticky;
   position: -o-sticky;
   position: -ms-sticky;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 20px);

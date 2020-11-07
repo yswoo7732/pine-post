@@ -19,7 +19,15 @@ window.onload = function () {
     var link_title = document.getElementById("link_title");
     var linkImg = document.getElementById("link_cover_full");
     var body = document.body;
-
+    var halfBody = window.innerHeight / 2;
+    var heartDiv = document.getElementById("heartDiv");
+    var shareDiv = document.getElementById("shareDiv");
+    var imgHeart = document.getElementById("imgHeart");
+    var shareImg = document.getElementById("shareImg");
+    var whiteHeartDiv = document.getElementById("whiteHeartDiv");
+    var whiteShareDiv = document.getElementById("whiteShareDiv");
+    var imgWhiteHeart = document.getElementById("imgWhiteHeart");
+    var whiteShareImg = document.getElementById("whiteShareImg");
     var flag = "";
     var state = 0;
     var prevCurrent = 0;
@@ -92,16 +100,50 @@ window.onload = function () {
 
         var currentPercentage = Math.round((window.scrollY / (body.scrollHeight - basicFoot.scrollHeight)) * 100) - 3;
 
-        // console.log("window.scrollY: ", window.scrollY);
-        // console.log("body.scrollHeight: ", body.scrollHeight);
-        // console.log("currentPercentage: ", currentPercentage);
+        // 하단 이미지 시작점(2px는 progress-bar)
+        var openLinkImgPos = linkImg.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
+        var closeLinkImgPos = linkImg.offsetTop - window.scrollY;
 
+        var basicFootOpacity = 1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
+        console.log("basicFootOpacity", basicFootOpacity);
+
+        if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= halfBody) {
+            basicLinkFoot.style.display = "none";
+            basicFoot.style.display = "flex";
+            basicFoot.classList.add("sticky");
+
+            basicFoot.style.opacity = basicFootOpacity;
+            heartDiv.style.opacity = basicFootOpacity;
+            imgHeart.style.opacity = basicFootOpacity;
+            shareDiv.style.opacity = basicFootOpacity;
+            shareImg.style.opacity = basicFootOpacity;
+        } else if (window.innerHeight - openLinkImgPos > halfBody && linkImg.offsetTop - window.scrollY >= 0) {
+            var basicLinkFootOpacity = (window.innerHeight - closeLinkImgPos) / window.innerHeight;
+            console.log("basicLinkFootOpacity", basicFootOpacity);
+
+            basicFoot.style.display = "none";
+            basicLinkFoot.classList.add("sticky");
+            basicLinkFoot.style.display = "flex";
+            basicLinkFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
+            whiteHeartDiv.style.opacity = basicLinkFootOpacity;
+            imgWhiteHeart.style.opacity = basicLinkFootOpacity;
+            whiteShareDiv.style.opacity = basicLinkFootOpacity;
+            whiteShareImg.style.opacity = basicLinkFootOpacity;
+        } else {
+            basicFoot.style.opacity = 1;
+            heartDiv.style.opacity = 1;
+            imgHeart.style.opacity = 1;
+            shareDiv.style.opacity = 1;
+            shareImg.style.opacity = 1;
+            basicFoot.classList.add("sticky");
+        }
         // 하단 비활성화시키기(활성화된 상태에서 스크롤링 될때만)
-        if (onSwipe && isUp) {
+        if (flag == 1 && isUp) {
             state = 2;
         }
         // 활성화 시키기(활성화된 상태가 아닐때만)
-        else if (!isUp && flag != 1 && body.scrollHeight - window.scrollY == 0) {
+        else if (!isUp && flag != 1) {
+            console.log("elseif state 1");
             state = 1;
         } else {
             state = 0;
@@ -143,16 +185,18 @@ window.onload = function () {
 
             // 하단이미지 활성화시킬때
             case 1:
-                setTimeout(() => {
-                    swipe(event);
-                }, 1000);
+                // linkImg.style.height = window.innerHeight - document.documentElement.scrollTop + "px";
+
+                // setTimeout(() => {
+                //     swipe(event);
+                // }, 1000);
                 flag = 1;
                 break;
             case 2: // 하단이미지 비활성
                 // console.log("state: ", state);
-                setTimeout(() => {
-                    swipeEnd(event);
-                }, 10);
+                // setTimeout(() => {
+                //     swipeEnd(event);
+                // }, 10);
                 flag = 2;
                 break;
         }
@@ -174,10 +218,12 @@ window.onload = function () {
     var heartClickEvent = document.querySelector("#imgHeart");
     heartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_active");
+        document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
     });
 
     var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
     whiteHeartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_white_active");
+        document.querySelector("#imgHeart").classList.toggle("heart_active");
     });
 };
