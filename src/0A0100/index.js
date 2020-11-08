@@ -38,7 +38,7 @@ window.onload = function () {
   var upToWrapBodyScroll =
     body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
   var prevCoverSize = 0;
-  var stopper = false;
+  var stopper = true;
   document.addEventListener("scroll", function (event) {
     if (document.documentElement.scrollTop < 0) return;
 
@@ -82,15 +82,6 @@ window.onload = function () {
     var speed = checkScrollSpeed();
 
     if (isUp) {
-      if (window.innerHeight - openLinkImgPos > 0 && speed < 30) {
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
-          600,
-          speed
-        );
-       
-      }
     } else {
       if (window.innerHeight - openLinkImgPos > 0 && stopper) {
         stopper = false;
