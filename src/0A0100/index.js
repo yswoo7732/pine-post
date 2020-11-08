@@ -45,18 +45,16 @@ window.onload = function () {
     event.preventDefault();
 
     // 스크롤 방향 감지
-    if (prevScrollTop >= document.documentElement.scrollTop) {
+    if (prevScrollTop > document.documentElement.scrollTop && !isUp) {
       // console.log("Up");
-      prevScrollTop = document.documentElement.scrollTop;
-
       isUp = true;
-    } else if (prevScrollTop < document.documentElement.scrollTop) {
+    } else if (prevScrollTop < document.documentElement.scrollTop && isUp) {
       // console.log("Down");
-      prevScrollTop = document.documentElement.scrollTop;
       isUp = false;
     } else {
-      console.log("no up and down");
+      // console.log("no up and down");
     }
+    prevScrollTop = document.documentElement.scrollTop;
     // console.log("isUp: ", isUp);
 
     // 하단 이미지 시작점과 끝점(2px는 progress-bar)
@@ -78,31 +76,6 @@ window.onload = function () {
     // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
     var basicFootOpacity =
       1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
-
-    var speed = checkScrollSpeed();
-
-    if (isUp) {
-      if (window.innerHeight - openLinkImgPos > 0 && !stopper) {
-        stopper = true;
-      }
-    } else {
-      if (window.innerHeight - openLinkImgPos > 0 && stopper) {
-        stopper = false;
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
-          600,
-          speed
-        );
-      } else if (window.innerHeight - openLinkImgPos > 0 && speed < 30) {
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop + 10,
-          600,
-          speed
-        );
-      }
-    }
 
     if (
       window.innerHeight - openLinkImgPos >= 0 &&
@@ -188,6 +161,43 @@ window.onload = function () {
         coverFull.style.height = prevCoverSize + "px";
       }, 3);
     }
+
+    var speed = checkScrollSpeed();
+    if (isUp && speed < 20) {
+      if (window.innerHeight - openLinkImgPos > 100) {
+        console.log("move to up step1");
+        stopper = true;
+        scrollTo(
+          document.documentElement,
+          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
+          100,
+          1
+        );
+      }
+    } else if (speed < 20) {
+      if (
+        window.innerHeight - openLinkImgPos > 0 &&
+        window.innerHeight - openLinkImgPos * 1.3 < 0 &&
+        stopper
+      ) {
+        console.log("move to down step1");
+        stopper = false;
+        scrollTo(
+          document.documentElement,
+          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
+          100,
+          1
+        );
+      } else if (window.innerHeight - openLinkImgPos > 0) {
+        console.log("move to down step2");
+        scrollTo(
+          document.documentElement,
+          linkCoverFull.offsetTop + 10,
+          100,
+          1
+        );
+      }
+    }
   });
 
   // 링크 터치 이벤트
@@ -225,12 +235,9 @@ window.onload = function () {
   var prevScrollTo = 0;
   function scrollTo(element, to, duration, speed) {
     if (!isScrollToDone) return;
-    if (prevScrollTo == to) return;
-
     isScrollToDone = false;
-    prevScrollTo = to;
 
-    console.log("scrollTo", to, duration, speed);
+    console.log("scrollTo", to, duration, speed, isUp);
     var start = element.scrollTop,
       change = to - start,
       currentTime = 0,
@@ -245,7 +252,9 @@ window.onload = function () {
         clearTimeout(timer);
         timer = setTimeout(animateScroll, increment);
       } else {
-        isScrollToDone = true;
+        setTimeout(function () {
+          isScrollToDone = true;
+        }, 100);
       }
     };
     animateScroll();
