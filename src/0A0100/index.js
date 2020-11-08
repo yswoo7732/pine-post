@@ -253,8 +253,9 @@ window.onload = function () {
         timer = setTimeout(animateScroll, increment);
       } else {
         setTimeout(function () {
+          element.scrollTop = val;
           isScrollToDone = true;
-        }, 100);
+        }, 10);
       }
     };
     animateScroll();
