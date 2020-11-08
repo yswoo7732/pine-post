@@ -82,6 +82,9 @@ window.onload = function () {
     var speed = checkScrollSpeed();
 
     if (isUp) {
+      if (window.innerHeight - openLinkImgPos > -100 && !stopper) {
+        stopper = true;
+      }
     } else {
       if (window.innerHeight - openLinkImgPos > 0 && stopper) {
         stopper = false;
