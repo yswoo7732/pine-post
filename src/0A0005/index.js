@@ -39,7 +39,10 @@ window.onload = function () {
     var prevCoverSize = 0;
 
     document.addEventListener("scroll", function (event) {
+        if (document.documentElement.scrollTop < 0) return;
+
         event.preventDefault();
+        
         // 스크롤 방향 감지
         if (prevScrollTop > document.documentElement.scrollTop) {
             // console.log("Up");
