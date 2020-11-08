@@ -29,6 +29,8 @@ body {
   overscroll-behavior: none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* transform: translateZ(0);
+  -webkit-transform: translateZ(0); */
 }
 
 body,
@@ -67,8 +69,7 @@ img {
   border: 1px solid white;
   border-radius: 20px;
   margin-bottom: 20px;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+
 }
 
 .tip_contents {
@@ -90,8 +91,6 @@ img {
   left: 28px;
   /* bottom: 10%; */
   top: 722px;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }
 
 .sub-tag-contents {
@@ -126,13 +125,11 @@ img {
 }
 
 .wrap_cover {
+  overflow: hidden;
   position: fixed;
   width: 100%;
   z-index: 0;
   top: 0;
-  /* position fixed시  */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }
 
 .cover_item {
@@ -257,8 +254,6 @@ img {
   margin-right: 28px;
   opacity: 1;
   z-index: 11;  
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }
 
 .contents_1_1 > p {
@@ -477,5 +472,14 @@ img {
 
   .text_basic {
     font-size: 14px;
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
   }
 }
