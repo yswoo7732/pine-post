@@ -122,7 +122,7 @@ window.onload = function () {
         }
 
         // 좋아요 공유버튼 이벤트 sticky
-        if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
+        if (document.documentElement.scrollTop <= basicFoot.scrollHeight * 2) {
             basicFoot.classList.remove("sticky");
         } else if (document.documentElement.scrollTop < window.screen.height) {
             basicFoot.classList.add("sticky");
