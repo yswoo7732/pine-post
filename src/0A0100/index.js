@@ -45,7 +45,7 @@ window.onload = function () {
     event.preventDefault();
 
     // 스크롤 방향 감지
-    if (prevScrollTop > document.documentElement.scrollTop) {
+    if (prevScrollTop >= document.documentElement.scrollTop) {
       // console.log("Up");
       prevScrollTop = document.documentElement.scrollTop;
 
@@ -82,7 +82,7 @@ window.onload = function () {
     var speed = checkScrollSpeed();
 
     if (isUp) {
-      if (window.innerHeight - openLinkImgPos > -100 && !stopper) {
+      if (window.innerHeight - openLinkImgPos > 0 && !stopper) {
         stopper = true;
       }
     } else {
