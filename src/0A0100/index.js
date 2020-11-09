@@ -198,7 +198,7 @@ window.onload = function () {
         );
       }
     }
-  });
+  }, {passive: false});
 
   // 링크 터치 이벤트
   link_title.addEventListener("touchstart", function (event) {
