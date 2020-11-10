@@ -65,7 +65,7 @@ window.onload = function () {
 
         // 하단 이미지 시작시 이미지 scale 변화
         if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
-            var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10);
+            var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
             // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
             linkImg.style.transform = `scale(${linkImgScale})`;
         }
