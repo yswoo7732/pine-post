@@ -35,8 +35,7 @@ window.onload = function () {
   var isUp = true;
   var onSwipe = false;
 
-  var upToWrapBodyScroll =
-    body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
+  var upToWrapBodyScroll = body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
   var prevCoverSize = 0;
   var stopper = true;
   document.addEventListener("scroll", function (event) {
@@ -58,29 +57,20 @@ window.onload = function () {
     // console.log("isUp: ", isUp);
 
     // 하단 이미지 시작점과 끝점(2px는 progress-bar)
-    var openLinkImgPos =
-      linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
+    var openLinkImgPos = linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
     var closeLinkImgPos = linkCoverFull.offsetTop - window.scrollY;
 
     // 하단 이미지 시작시 이미지 scale 변화
-    if (
-      window.innerHeight - openLinkImgPos >= 0 &&
-      window.innerHeight - openLinkImgPos <= window.innerHeight
-    ) {
-      var linkImgScale =
-        1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10);
+    if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
+      var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
       // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
       linkImg.style.transform = `scale(${linkImgScale})`;
     }
 
     // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
-    var basicFootOpacity =
-      1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
+    var basicFootOpacity = 1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
 
-    if (
-      window.innerHeight - openLinkImgPos >= 0 &&
-      window.innerHeight - openLinkImgPos <= halfBody
-    ) {
+    if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= halfBody) {
       basicLinkFoot.style.display = "none";
       basicFoot.style.display = "flex";
       basicFoot.classList.add("sticky");
@@ -90,18 +80,13 @@ window.onload = function () {
       imgHeart.style.opacity = basicFootOpacity;
       shareDiv.style.opacity = basicFootOpacity;
       shareImg.style.opacity = basicFootOpacity;
-    } else if (
-      window.innerHeight - openLinkImgPos > halfBody &&
-      linkCoverFull.offsetTop - window.scrollY >= 0
-    ) {
-      var basicLinkFootOpacity =
-        (window.innerHeight - closeLinkImgPos) / window.innerHeight;
+    } else if (window.innerHeight - openLinkImgPos > halfBody && linkCoverFull.offsetTop - window.scrollY >= 0) {
+      var basicLinkFootOpacity = (window.innerHeight - closeLinkImgPos) / window.innerHeight;
 
       basicFoot.style.display = "none";
       basicLinkFoot.classList.add("sticky");
       basicLinkFoot.style.display = "flex";
-      basicLinkFoot.style.backgroundColor =
-        "rgba(255, 255, 255, " + basicFootOpacity + ")";
+      basicLinkFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
       whiteHeartDiv.style.opacity = basicLinkFootOpacity;
       imgWhiteHeart.style.opacity = basicLinkFootOpacity;
       whiteShareDiv.style.opacity = basicLinkFootOpacity;
@@ -116,10 +101,7 @@ window.onload = function () {
     }
 
     Array.from(boxShadows).forEach(function (element, index, array) {
-      if (
-        !element.classList.contains("box-shadow-active") &&
-        element.offsetTop + height < document.documentElement.scrollTop
-      ) {
+      if (!element.classList.contains("box-shadow-active") && element.offsetTop + height < document.documentElement.scrollTop) {
         element.classList.add("box-shadow-active");
       }
     });
@@ -127,23 +109,17 @@ window.onload = function () {
     // scroll progress bar
     if (window.scrollY >= 0 && upToWrapBodyScroll >= window.scrollY) {
       if (basicFoot.classList.contains("sticky")) {
-        var currentPercentage =
-          ((window.scrollY + basicFoot.scrollHeight) / upToWrapBodyScroll) *
-          100;
+        var currentPercentage = ((window.scrollY + basicFoot.scrollHeight) / upToWrapBodyScroll) * 100;
       } else {
         var currentPercentage = (window.scrollY / upToWrapBodyScroll) * 100;
       }
       // console.log("currentPercentage ", currentPercentage);
 
-      document.getElementsByClassName("progress-bar")[0].style.width =
-        currentPercentage + "%";
+      document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
     }
 
     // 좋아요 공유버튼 이벤트 sticky
-    if (
-      document.documentElement.scrollTop == 0 ||
-      Math.round(window.scrollY) == document.body.scrollHeight
-    ) {
+    if (document.documentElement.scrollTop == 0 || Math.round(window.scrollY) == document.body.scrollHeight) {
       basicFoot.classList.remove("sticky");
     } else if (document.documentElement.scrollTop < window.screen.height) {
       basicFoot.classList.add("sticky");
@@ -152,10 +128,7 @@ window.onload = function () {
     }
 
     // scroll에 따른 main cover image height
-    if (
-      document.getElementById("body_frame").offsetTop >=
-      document.documentElement.scrollTop
-    ) {
+    if (document.getElementById("body_frame").offsetTop >= document.documentElement.scrollTop) {
       setTimeout(() => {
         prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
         coverFull.style.height = prevCoverSize + "px";
@@ -164,39 +137,25 @@ window.onload = function () {
 
     var speed = checkScrollSpeed();
     if (isUp && speed < 20) {
-      if (window.innerHeight - openLinkImgPos > 100) {
-        console.log("move to up step1");
-        stopper = true;
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
-          100,
-          1
-        );
-      }
+      // if (window.innerHeight - openLinkImgPos > 100) {
+      //   console.log("move to up step1");
+      //   stopper = true;
+      //   scrollTo(document.documentElement, linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50, 100, 1);
+      // }
     } else if (speed < 20) {
-      if (
-        window.innerHeight - openLinkImgPos > 0 &&
-        window.innerHeight - openLinkImgPos * 1.3 < 0 &&
-        stopper
-      ) {
+      // console.log("openLinkImgPos", openLinkImgPos);
+      // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
+      if ( window.innerHeight - openLinkImgPos >= halfBody - 100 && window.innerHeight - openLinkImgPos < window.innerHeight) {
         console.log("move to down step1");
         stopper = false;
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50,
-          100,
-          1
-        );
-      } else if (window.innerHeight - openLinkImgPos > 0) {
-        console.log("move to down step2");
-        scrollTo(
-          document.documentElement,
-          linkCoverFull.offsetTop + 10,
-          100,
-          1
-        );
-      }
+        // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
+
+        scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 1);
+      } 
+      // else if (window.innerHeight - openLinkImgPos > 0) {
+      //   console.log("move to down step2");
+      //   // scrollTo(document.documentElement, linkCoverFull.offsetTop + 10, 100, 1);
+      // }
     }
   });
 
@@ -213,9 +172,7 @@ window.onload = function () {
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
     this.classList.toggle("heart_active");
-    document
-      .querySelector("#imgWhiteHeart")
-      .classList.toggle("heart_white_active");
+    document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
   });
 
   var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
