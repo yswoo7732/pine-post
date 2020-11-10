@@ -157,7 +157,7 @@ window.onload = function () {
       //   // scrollTo(document.documentElement, linkCoverFull.offsetTop + 10, 100, 1);
       // }
     }
-  });
+  }, {passive: false});
 
   // 링크 터치 이벤트
   link_title.addEventListener("touchstart", function (event) {
