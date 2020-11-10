@@ -6,7 +6,7 @@ window.onload = function () {
     } else {
         console.log("not mobile");
     }
-
+  
     var bContents = document.getElementsByClassName("b_contents")[0];
     var basicFoot = document.getElementsByClassName("basic_foot")[0];
     var basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
@@ -34,130 +34,222 @@ window.onload = function () {
     var prevCurrent = 0;
     var isUp = true;
     var onSwipe = false;
-
+  
     var upToWrapBodyScroll = body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
     var prevCoverSize = 0;
-
-    document.addEventListener("scroll", function (event) {
-        if (document.documentElement.scrollTop < 0) return;
-
-        event.preventDefault();
-        
-        // 스크롤 방향 감지
-        if (prevScrollTop > document.documentElement.scrollTop) {
-            // console.log("Up");
-            prevScrollTop = document.documentElement.scrollTop;
-
-            isUp = true;
-        } else if (prevScrollTop <= document.documentElement.scrollTop) {
-            // console.log("Down");
-            prevScrollTop = document.documentElement.scrollTop;
-            isUp = false;
-        } else {
-            // console.log("no up and down");
-        }
-        // console.log("isUp: ", isUp);
-
-
-        // 하단 이미지 시작점과 끝점(2px는 progress-bar)
-        var openLinkImgPos = linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
-        var closeLinkImgPos = linkCoverFull.offsetTop - window.scrollY;
-
-        // 하단 이미지 시작시 이미지 scale 변화
-        if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
-            var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
-            // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
-            linkImg.style.transform = `scale(${linkImgScale})`;
-        }
-
-        // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
-        var basicFootOpacity = 1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
-
-        if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= halfBody) {
-            basicLinkFoot.style.display = "none";
-            basicFoot.style.display = "flex";
-            basicFoot.classList.add("sticky");
-
-            basicFoot.style.opacity = basicFootOpacity;
-            heartDiv.style.opacity = basicFootOpacity;
-            imgHeart.style.opacity = basicFootOpacity;
-            shareDiv.style.opacity = basicFootOpacity;
-            shareImg.style.opacity = basicFootOpacity;
-        } else if (window.innerHeight - openLinkImgPos > halfBody && linkCoverFull.offsetTop - window.scrollY >= 0) {
-            var basicLinkFootOpacity = (window.innerHeight - closeLinkImgPos) / window.innerHeight;
-
-            basicFoot.style.display = "none";
-            basicLinkFoot.classList.add("sticky");
-            basicLinkFoot.style.display = "flex";
-            basicLinkFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
-            whiteHeartDiv.style.opacity = basicLinkFootOpacity;
-            imgWhiteHeart.style.opacity = basicLinkFootOpacity;
-            whiteShareDiv.style.opacity = basicLinkFootOpacity;
-            whiteShareImg.style.opacity = basicLinkFootOpacity;
-        } else {
-            basicFoot.style.opacity = 1;
-            heartDiv.style.opacity = 1;
-            imgHeart.style.opacity = 1;
-            shareDiv.style.opacity = 1;
-            shareImg.style.opacity = 1;
-            basicFoot.classList.add("sticky");
-        }
-
-        Array.from(boxShadows).forEach(function (element, index, array) {
-            if (!element.classList.contains("box-shadow-active") && element.offsetTop + height < document.documentElement.scrollTop) {
-                element.classList.add("box-shadow-active");
-            }
-        });
-
-        // scroll progress bar
-        if (window.scrollY >= 0 && upToWrapBodyScroll >= window.scrollY) {
-            if (basicFoot.classList.contains("sticky")) {
-                var currentPercentage = ((window.scrollY + basicFoot.scrollHeight) / upToWrapBodyScroll) * 100;
+    var stopper = true;
+    document.addEventListener(
+        "scroll",
+        function (event) {
+            if (document.documentElement.scrollTop < 0) return;
+  
+            event.preventDefault();
+  
+            // 스크롤 방향 감지
+            if (prevScrollTop > document.documentElement.scrollTop && !isUp) {
+                // console.log("Up");
+                isUp = true;
+            } else if (prevScrollTop < document.documentElement.scrollTop && isUp) {
+                // console.log("Down");
+                isUp = false;
             } else {
-                var currentPercentage = (window.scrollY / upToWrapBodyScroll) * 100;
+                // console.log("no up and down");
             }
-            // console.log("currentPercentage ", currentPercentage);
-
-            document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
-        }
-
-        // 좋아요 공유버튼 이벤트 sticky
-        if (document.documentElement.scrollTop <= basicFoot.scrollHeight * 2) {
-            basicFoot.classList.remove("sticky");
-        } else if (document.documentElement.scrollTop < window.screen.height) {
-            basicFoot.classList.add("sticky");
-        } else {
-            basicFoot.classList.add("sticky");
-        }
-
-        // scroll에 따른 main cover image height
-        if (document.getElementById("body_frame").offsetTop >= document.documentElement.scrollTop) {
-            setTimeout(() => {
-                prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
-                coverFull.style.height = prevCoverSize + "px";
-            }, 3);
-        }
-    });
-
+            prevScrollTop = document.documentElement.scrollTop;
+            // console.log("isUp: ", isUp);
+  
+            // 하단 이미지 시작점과 끝점(2px는 progress-bar)
+            var openLinkImgPos = linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
+            var closeLinkImgPos = linkCoverFull.offsetTop - window.scrollY;
+  
+            // 하단 이미지 시작시 이미지 scale 변화
+            if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
+                var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
+                // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
+                linkImg.style.transform = `scale(${linkImgScale})`;
+            }
+  
+            // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
+            var basicFootOpacity = 1 - (window.innerHeight - openLinkImgPos) / window.innerHeight;
+  
+            if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= halfBody) {
+                basicLinkFoot.style.display = "none";
+                basicFoot.style.display = "flex";
+                basicFoot.classList.add("sticky");
+  
+                basicFoot.style.opacity = basicFootOpacity;
+                heartDiv.style.opacity = basicFootOpacity;
+                imgHeart.style.opacity = basicFootOpacity;
+                shareDiv.style.opacity = basicFootOpacity;
+                shareImg.style.opacity = basicFootOpacity;
+            } else if (window.innerHeight - openLinkImgPos > halfBody && linkCoverFull.offsetTop - window.scrollY >= 0) {
+                var basicLinkFootOpacity = (window.innerHeight - closeLinkImgPos) / window.innerHeight;
+  
+                basicFoot.style.display = "none";
+                basicLinkFoot.classList.add("sticky");
+                basicLinkFoot.style.display = "flex";
+                basicLinkFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
+                whiteHeartDiv.style.opacity = basicLinkFootOpacity;
+                imgWhiteHeart.style.opacity = basicLinkFootOpacity;
+                whiteShareDiv.style.opacity = basicLinkFootOpacity;
+                whiteShareImg.style.opacity = basicLinkFootOpacity;
+            } else {
+                basicFoot.style.opacity = 1;
+                heartDiv.style.opacity = 1;
+                imgHeart.style.opacity = 1;
+                shareDiv.style.opacity = 1;
+                shareImg.style.opacity = 1;
+                basicFoot.classList.add("sticky");
+            }
+  
+            Array.from(boxShadows).forEach(function (element, index, array) {
+                if (!element.classList.contains("box-shadow-active") && element.offsetTop + height < document.documentElement.scrollTop) {
+                    element.classList.add("box-shadow-active");
+                }
+            });
+  
+            // scroll progress bar
+            if (window.scrollY >= 0 && upToWrapBodyScroll >= window.scrollY) {
+                if (basicFoot.classList.contains("sticky")) {
+                    var currentPercentage = ((window.scrollY + basicFoot.scrollHeight) / upToWrapBodyScroll) * 100;
+                } else {
+                    var currentPercentage = (window.scrollY / upToWrapBodyScroll) * 100;
+                }
+                // console.log("currentPercentage ", currentPercentage);
+  
+                document.getElementsByClassName("progress-bar")[0].style.width = currentPercentage + "%";
+            }
+  
+            // 좋아요 공유버튼 이벤트 sticky
+            if (document.documentElement.scrollTop <= basicFoot.scrollHeight * 2) {
+                basicFoot.classList.remove("sticky");
+            } else if (document.documentElement.scrollTop < window.screen.height) {
+                basicFoot.classList.add("sticky");
+            } else {
+                basicFoot.classList.add("sticky");
+            }
+  
+            // scroll에 따른 main cover image height
+            if (document.getElementById("body_frame").offsetTop >= document.documentElement.scrollTop) {
+                setTimeout(() => {
+                    prevCoverSize = window.innerHeight - document.documentElement.scrollTop;
+                    coverFull.style.height = prevCoverSize + "px";
+                }, 3);
+            }
+  
+            var speed = checkScrollSpeed();
+            if (isUp && speed < 20) {
+                // if (window.innerHeight - openLinkImgPos > 100) {
+                //   console.log("move to up step1");
+                //   stopper = true;
+                //   scrollTo(document.documentElement, linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50, 100, 1);
+                // }
+            } else if (speed < 20) {
+                // console.log("openLinkImgPos", openLinkImgPos);
+                // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
+                if (window.innerHeight - openLinkImgPos >= halfBody - 100 && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                    console.log("move to down step1");
+                    stopper = false;
+                    // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
+  
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 1);
+                }
+                // else if (window.innerHeight - openLinkImgPos > 0) {
+                //   console.log("move to down step2");
+                //   // scrollTo(document.documentElement, linkCoverFull.offsetTop + 10, 100, 1);
+                // }
+            }
+        },
+        { passive: false }
+    );
+  
     // 링크 터치 이벤트
     link_title.addEventListener("touchstart", function (event) {
         this.classList.add("stroke_link-active");
     });
-
+  
     link_title.addEventListener("touchend", function (event) {
         this.classList.remove("stroke_link-active");
     });
-
+  
     // 좋아요 이벤트
     var heartClickEvent = document.querySelector("#imgHeart");
     heartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_active");
         document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
     });
-
+  
     var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
     whiteHeartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_white_active");
         document.querySelector("#imgHeart").classList.toggle("heart_active");
     });
-};
+    //t = current time
+    //b = start value
+    //c = change in value
+    //d = duration
+    Math.easeOutQuad = function (t, b, c, d) {
+        t /= d;
+        return -c * t * (t - 2) + b;
+    };
+    var isScrollToDone = true;
+    var prevScrollTo = 0;
+    function scrollTo(element, to, duration, speed) {
+        if (!isScrollToDone) return;
+        isScrollToDone = false;
+  
+        console.log("scrollTo", to, duration, speed, isUp);
+        var start = element.scrollTop,
+            change = to - start,
+            currentTime = 0,
+            increment = speed,
+            timer;
+  
+        var animateScroll = function () {
+            currentTime += increment;
+            var val = Math.easeOutQuad(currentTime, start, change, duration);
+            element.scrollTop = val;
+            if (currentTime < duration) {
+                clearTimeout(timer);
+                timer = setTimeout(animateScroll, increment);
+            } else {
+                setTimeout(function () {
+                    element.scrollTop = val;
+                    isScrollToDone = true;
+                }, 10);
+            }
+        };
+        animateScroll();
+    }
+  
+    var checkScrollSpeed = (function (settings) {
+        settings = settings || {};
+  
+        var lastPos,
+            newPos,
+            timer,
+            delta,
+            delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+  
+        function clear() {
+            lastPos = null;
+            delta = 0;
+        }
+  
+        clear();
+  
+        return function () {
+            newPos = window.scrollY;
+            if (lastPos != null) {
+                // && newPos < maxScroll
+                delta = newPos - lastPos;
+            }
+            lastPos = newPos;
+            clearTimeout(timer);
+            timer = setTimeout(clear, delay);
+            delta = Math.abs(delta);
+            return delta < 10 ? 10 : delta;
+        };
+    })();
+  };
+  
