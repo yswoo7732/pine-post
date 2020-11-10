@@ -211,12 +211,15 @@ window.onload = function () {
             element.scrollTop = val;
             if (currentTime < duration) {
                 clearTimeout(timer);
+                // console.log("increment ", increment);
+
                 timer = setTimeout(animateScroll, increment);
             } else {
                 setTimeout(function () {
                     element.scrollTop = val;
                     isScrollToDone = true;
-                }, 10);
+                    // console.log("setTimeout");
+                }, 1);
             }
         };
         animateScroll();
