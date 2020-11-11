@@ -150,6 +150,7 @@ img {
     position: relative;
     z-index: 20;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .cover_image {
