@@ -165,10 +165,7 @@ img {
   overflow: hidden;
 } */
 
-#link_img {
-    /* overflow: auto; */
-    -webkit-overflow-scrolling: touch; /* 추가 */
-}
+
 
 .stroke_link-active {
     background-color: rgba(255, 255, 255, 0.8);
