@@ -396,8 +396,6 @@ img {
     object-fit: contain;
     background-color: "transparent";
     z-index: 50;
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
 }
 
 .sticky {
@@ -454,11 +452,10 @@ img {
     }
 }
 
-@keyframes glow {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-    }
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  .basic_link_foot {
+      padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
+      padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
+  }
 }
