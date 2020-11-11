@@ -183,11 +183,11 @@ window.onload = function () {
           // console.log("move to down step1");
           stopper = false;
           // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
-
+          event.preventDefault();
           scrollTo(
             document.documentElement,
             linkCoverFull.offsetTop,
-            480,
+            200,
             speed
           );
         }
@@ -233,6 +233,10 @@ window.onload = function () {
     return -c * t * (t - 2) + b;
   };
 
+  Math.linearTween = function (t, b, c, d) {
+    return (c * t) / d + b;
+  };
+
   var isScrollToDone = true;
   var prevScrollTo = 0;
   // scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
@@ -244,12 +248,12 @@ window.onload = function () {
     var start = element.scrollTop,
       change = to - start,
       currentTime = 0,
-      increment = 2,
+      increment = 10,
       timer;
 
     var animateScroll = function () {
       currentTime += increment;
-      var val = Math.easeOutQuad(currentTime, start, change, duration);
+      var val = Math.linearTween(currentTime, start, change, duration);
       // console.log("val1: ", val);
       element.scrollTop = val;
 
