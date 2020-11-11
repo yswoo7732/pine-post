@@ -155,7 +155,7 @@ window.onload = function () {
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
 
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 300, speed);
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 3);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
@@ -214,8 +214,11 @@ window.onload = function () {
         var animateScroll = function () {
             currentTime += increment;
             var val = Math.easeOutQuad(currentTime, start, change, duration);
-            element.scrollTop = val;
+            console.log("val1: ", val);
+
             if (currentTime < duration) {
+                element.scrollTop = val;
+
                 clearTimeout(timer);
                 console.log("increment ", increment);
 
@@ -223,6 +226,7 @@ window.onload = function () {
             } else {
                 setTimeout(function () {
                     element.scrollTop = val;
+
                     isScrollToDone = true;
                     console.log("setTimeout");
                 }, 1);
