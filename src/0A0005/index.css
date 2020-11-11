@@ -147,7 +147,8 @@ img {
   height: 100vh;
   position: relative;
   z-index: 20;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow:auto;
   -webkit-overflow-scrolling: touch; /* 추가 */
 }
 
