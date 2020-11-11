@@ -157,8 +157,12 @@ img {
     background-repeat: no-repeat;
 }
 
+/* #link_cover_full {
+  overflow: hidden;
+} */
+
 #link_img {
-    overflow: auto;
+    /* overflow: auto; */
     -webkit-overflow-scrolling: touch; /* 추가 */
 }
 
@@ -450,12 +454,4 @@ img {
     .text_basic {
         font-size: 14px;
     }
-}
-
-@supports (-webkit-touch-callout: none) {
-  /* CSS specific to iOS devices */
-  .basic_link_foot {
-      padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-      padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
-  }
 }

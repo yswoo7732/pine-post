@@ -1,8 +1,9 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        // document
-        //   .getElementsByClassName("container")[0]
-        //   .classList.add("border_none");
+        if (/iPhone/i.test(navigator.userAgent)) {
+            document.getElementsByClassName("basic_foot")[0].style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
+            document.getElementsByClassName("basic_foot")[0].style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
+        }
     } else {
         console.log("not mobile");
     }
@@ -66,7 +67,7 @@ window.onload = function () {
             if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
                 var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
                 // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
-                linkImg.style.transform = `scale(${linkImgScale})`; 
+                linkImg.style.transform = `scale(${linkImgScale})`;
             }
 
             // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
