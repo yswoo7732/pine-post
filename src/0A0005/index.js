@@ -139,7 +139,7 @@ window.onload = function () {
 
             var speed = checkScrollSpeed();
 
-            console.log("speed: ", speed);
+            // console.log("speed: ", speed);
 
             if (isUp && speed < 20) {
                 // if (window.innerHeight - openLinkImgPos > 100) {
@@ -148,14 +148,14 @@ window.onload = function () {
                 //   scrollTo(document.documentElement, linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50, 100, 1);
                 // }
             } else if (!isUp && speed < 20) {
-                console.log("isUp", isUp);
+                // console.log("isUp", isUp);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
                 if (window.innerHeight - openLinkImgPos >= halfBody - 100 && window.innerHeight - openLinkImgPos < window.innerHeight) {
-                    console.log("move to down step1");
+                    // console.log("move to down step1");
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
 
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 5);
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 10);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
@@ -214,13 +214,13 @@ window.onload = function () {
         var animateScroll = function () {
             currentTime += increment;
             var val = Math.easeOutQuad(currentTime, start, change, duration);
-            console.log("val1: ", val);
+            // console.log("val1: ", val);
 
             if (currentTime < duration) {
                 element.scrollTop = val;
 
                 clearTimeout(timer);
-                console.log("increment ", increment);
+                // console.log("increment ", increment);
 
                 timer = setTimeout(animateScroll, increment);
             } else {
@@ -228,7 +228,7 @@ window.onload = function () {
                     element.scrollTop = val;
 
                     isScrollToDone = true;
-                    console.log("setTimeout");
+                    // console.log("setTimeout");
                 }, 1);
             }
         };
