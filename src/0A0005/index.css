@@ -131,8 +131,8 @@ img {
     width: 100%;
     z-index: 0;
     top: 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; /* 추가 */
+    /* overflow: auto;
+    -webkit-overflow-scrolling: touch; */
 }
 
 .cover_item {
