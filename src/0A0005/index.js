@@ -229,7 +229,7 @@ window.onload = function () {
 
                     isScrollToDone = true;
                     // console.log("setTimeout");
-                }, 1);
+                }, 100);
             }
         };
         animateScroll();
