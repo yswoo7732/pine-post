@@ -1,9 +1,9 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.getElementsByClassName("basic_foot")[0].style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.getElementsByClassName("basic_foot")[0].style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
-        }
+        // if (/iPhone/i.test(navigator.userAgent)) {
+        //     document.getElementsByClassName("basic_foot")[0].style.paddingBottom = calc(constant(safe-area-inset-bottom) + 20px);
+        //     document.getElementsByClassName("basic_foot")[0].style.paddingBottom = calc(env(safe-area-inset-bottom) + 20px);
+        // }
     } else {
         console.log("not mobile");
     }
@@ -156,7 +156,7 @@ window.onload = function () {
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
 
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 1);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
