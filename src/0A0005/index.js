@@ -155,7 +155,7 @@ window.onload = function () {
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
 
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 3);
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, 5);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
