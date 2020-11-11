@@ -148,6 +148,7 @@ img {
   position: relative;
   z-index: 20;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch; /* 추가 */
 }
 
 .cover_image {
@@ -365,10 +366,6 @@ img {
 }
 
 .box-shadow {
-  /* animation-duration: 1.5s; */
-  /* animation-iteration-count: infinite; */
-  /* animation-timing-function: linear; */
-  /* animation-fill-mode: forwards; */
   background-image: linear-gradient(transparent 0%, #fcfd54 0%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -377,44 +374,7 @@ img {
 
 .box-shadow-active {
   background-size: 100% 100%;
-  /* animation-name: ani-box-shadow; */
 }
-
-/* @keyframes ani-box-shadow {
-  0% {
-    background: linear-gradient(to right, #fcfd54 0%, transparent 0%);
-  }
-  10% {
-    background: linear-gradient(to right, #fcfd54 10%, transparent 90%);
-  }
-  20% {
-    background: linear-gradient(to right, #fcfd54 20%, transparent 80%);
-  }
-  30% {
-    background: linear-gradient(to right, #fcfd54 30%, transparent 70%);
-  }
-  40% {
-    background: linear-gradient(to right, #fcfd54 40%, transparent 60%);
-  }
-  50% {
-    background: linear-gradient(to right, #fcfd54 50%, transparent 50%);
-  }
-  60% {
-    background: linear-gradient(to right, #fcfd54 60%, transparent 40%);
-  }
-  70% {
-    background: linear-gradient(to right, #fcfd54 70%, transparent 30%);
-  }
-  80% {
-    background: linear-gradient(to right, #fcfd54 80%, transparent 20%);
-  }
-  90% {
-    background: linear-gradient(to right, #fcfd54 90%, transparent 10%);
-  }
-  100% {
-    background: linear-gradient(to right, #fcfd54 100%, transparent 100%);
-  }
-} */
 
 .basic_foot {
   position: relative;
@@ -422,7 +382,7 @@ img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  background-color: white;
+  background-color: rgba(255, 255, 255);
   z-index: 20;
   padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
   padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
@@ -433,7 +393,7 @@ img {
   bottom: 0;
   display: none;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255);
   height: auto;
   object-fit: contain;
   background-color: "transparent";
