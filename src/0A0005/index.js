@@ -187,7 +187,7 @@ window.onload = function () {
           scrollTo(
             document.documentElement,
             linkCoverFull.offsetTop,
-            240,
+            480,
             speed
           );
         }
