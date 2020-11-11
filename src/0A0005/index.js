@@ -156,7 +156,7 @@ window.onload = function () {
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
                     event.preventDefault();
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 240, speed);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
@@ -199,6 +199,7 @@ window.onload = function () {
     };
 
     Math.linearTween = function (t, b, c, d) {
+        // console.log("linear: ", (c * t) / d + b);
         return (c * t) / d + b;
     };
 
@@ -218,6 +219,7 @@ window.onload = function () {
 
         var animateScroll = function () {
             currentTime += increment;
+            // console.log("currentTime, start, change, duration", currentTime, start, change, duration);
             var val = Math.linearTween(currentTime, start, change, duration);
 
             element.scrollTop = val;
