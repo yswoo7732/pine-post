@@ -66,7 +66,7 @@ window.onload = function () {
             if (window.innerHeight - openLinkImgPos >= 0 && window.innerHeight - openLinkImgPos <= window.innerHeight) {
                 var linkImgScale = 1 + (window.innerHeight - openLinkImgPos) / (window.innerHeight * 3);
                 // console.log("openLinkImgPos", (window.innerHeight - openLinkImgPos) / (window.innerHeight * 10));
-                linkImg.style.transform = `scale(${linkImgScale})`;
+                linkImg.style.transform = `scale(${linkImgScale})`; 
             }
 
             // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
