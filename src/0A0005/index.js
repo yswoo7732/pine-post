@@ -1,9 +1,11 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        // if (/iPhone/i.test(navigator.userAgent)) {
-        //     document.getElementsByClassName("basic_foot")[0].style.paddingBottom = calc(constant(safe-area-inset-bottom) + 20px);
-        //     document.getElementsByClassName("basic_foot")[0].style.paddingBottom = calc(env(safe-area-inset-bottom) + 20px);
-        // }
+        if (/iPhone/i.test(navigator.userAgent)) {
+            document.querySelector(".contents_1_1 > p").style.color = "red";
+
+            document.querySelector.style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
+            document.querySelector.style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
+        }
     } else {
         console.log("not mobile");
     }
@@ -151,7 +153,7 @@ window.onload = function () {
             } else if (!isUp && speed < 20) {
                 // console.log("isUp", isUp);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
-                if (window.innerHeight - openLinkImgPos >= halfBody - 100 && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                if (window.innerHeight - openLinkImgPos >= height && window.innerHeight - openLinkImgPos < window.innerHeight) {
                     // console.log("move to down step1");
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
@@ -205,7 +207,6 @@ window.onload = function () {
 
     var isScrollToDone = true;
     var prevScrollTo = 0;
-    // scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
     function scrollTo(element, to, duration, speed) {
         if (!isScrollToDone) return;
         isScrollToDone = false;
