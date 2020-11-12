@@ -1,10 +1,8 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".contents_1_1 > p").style.color = "red";
-
-            document.querySelector.style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.querySelector.style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
+            document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
+            document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
         }
     } else {
         console.log("not mobile");
