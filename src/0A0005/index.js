@@ -157,7 +157,7 @@ window.onload = function () {
                 // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
                 if (
-                    window.innerHeight - openLinkImgPos >= halfBody &&
+                    window.innerHeight - openLinkImgPos >= halfBody - 100 &&
                     window.innerHeight - openLinkImgPos < window.innerHeight
                 ) {
                     // console.log("move to down step1");
