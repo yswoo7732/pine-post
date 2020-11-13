@@ -153,7 +153,7 @@ window.onload = function () {
             } else if (!isUp && speed < 20) {
                 // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
-                if (window.innerHeight - openLinkImgPos >= basicFoot.scrollHeight * 2 && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                if (window.innerHeight - openLinkImgPos >= basicFoot.scrollHeight && window.innerHeight - openLinkImgPos < window.innerHeight) {
                     // console.log("move to down step1");
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
@@ -161,7 +161,7 @@ window.onload = function () {
                     if (/iPhone/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
