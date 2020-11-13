@@ -164,7 +164,12 @@ window.onload = function () {
                     if (/iPhone/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
+                        // var myScroll = new IScroll(linkCoverFull, {
+                        //     momentum: false,
+                        //     bounce: false,
+                        // });
+                        // myScroll.scrollTo(0, linkCoverFull.offsetTop, 100);
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
@@ -222,7 +227,7 @@ window.onload = function () {
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
-            increment = speed,
+            increment = 20,
             timer;
 
         if (/iPhone/i.test(navigator.userAgent)) {
