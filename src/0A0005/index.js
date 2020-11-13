@@ -169,7 +169,8 @@ window.onload = function () {
                         //     bounce: false,
                         // });
                         // myScroll.scrollTo(0, linkCoverFull.offsetTop, 100);
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                        // scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                        window.scrollTo(0, linkCoverFull.offsetTop);
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
