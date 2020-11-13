@@ -153,7 +153,10 @@ window.onload = function () {
             } else if (!isUp && speed < 20) {
                 // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
-                if (window.innerHeight - openLinkImgPos >= basicFoot.scrollHeight && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                if (
+                    window.innerHeight - openLinkImgPos >= basicFoot.scrollHeight &&
+                    window.innerHeight - openLinkImgPos < window.innerHeight
+                ) {
                     // console.log("move to down step1");
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
@@ -162,6 +165,10 @@ window.onload = function () {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
+
+                        // TweenMax.to("#link_cover_full", 2, {
+                        //     bottom: 200,
+                        // });
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
@@ -219,7 +226,7 @@ window.onload = function () {
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
-            increment = 2,
+            increment = 1,
             timer;
 
         var animateScroll = function () {
