@@ -146,10 +146,10 @@ window.onload = function () {
 
             if (isUp && speed < 20) {
                 if (window.innerHeight - openLinkImgPos > 100) {
-                    console.log("body.scrollHeigh ", body.scrollHeight);
-                    console.log("window.innerHeight ", window.innerHeight);
-                    console.log("basicFoot.scrollHeight ", basicFoot.clientHeight);
-                    console.log("move to up step1 ", body.scrollHeight - window.innerHeight + basicFoot.scrollHeight);
+                    // console.log("body.scrollHeigh ", body.scrollHeight);
+                    // console.log("window.innerHeight ", window.innerHeight);
+                    // console.log("basicFoot.scrollHeight ", basicFoot.clientHeight);
+                    // console.log("move to up step1 ", body.scrollHeight - window.innerHeight + basicFoot.scrollHeight);
                     stopper = true;
                     scrollTo(document.documentElement, body.scrollHeight * 0.8, 240, speed);
                 }
@@ -162,19 +162,10 @@ window.onload = function () {
                 ) {
                     // console.log("move to down step1");
                     stopper = false;
+
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
                     event.preventDefault();
-                    if (!/Android/i.test(navigator.userAgent)) {
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
-                    } else {
-                        // var myScroll = new IScroll(linkCoverFull, {
-                        //     momentum: false,
-                        //     bounce: false,
-                        // });
-                        // myScroll.scrollTo(0, linkCoverFull.offsetTop, 100);
-                        // scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
-                        window.scrollTo(0, linkCoverFull.offsetTop);
-                    }
+                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
