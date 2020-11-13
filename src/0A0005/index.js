@@ -3,6 +3,8 @@ window.onload = function () {
         if (/iPhone/i.test(navigator.userAgent)) {
             document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
             document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
+            document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
+            document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
         }
     } else {
         console.log("not mobile");
@@ -149,14 +151,18 @@ window.onload = function () {
                 //   scrollTo(document.documentElement, linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50, 100, 1);
                 // }
             } else if (!isUp && speed < 20) {
-                // console.log("isUp", isUp);
+                // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
-                if (window.innerHeight - openLinkImgPos >= height && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                if (window.innerHeight - openLinkImgPos >= basicFoot.scrollHeight * 2 && window.innerHeight - openLinkImgPos < window.innerHeight) {
                     // console.log("move to down step1");
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
                     event.preventDefault();
-                    scrollTo(document.documentElement, linkCoverFull.offsetTop, 240, speed);
+                    if (/iPhone/i.test(navigator.userAgent)) {
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                    } else {
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                    }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
                 //   console.log("move to down step2");
