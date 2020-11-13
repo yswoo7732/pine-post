@@ -222,7 +222,7 @@ window.onload = function () {
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
-            increment = 10,
+            increment = 20,
             timer;
 
         if (/iPhone/i.test(navigator.userAgent)) {
