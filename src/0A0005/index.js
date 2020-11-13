@@ -164,7 +164,7 @@ window.onload = function () {
                     if (/iPhone/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 100, speed);
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
@@ -222,7 +222,7 @@ window.onload = function () {
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
-            increment = 20,
+            increment = speed,
             timer;
 
         if (/iPhone/i.test(navigator.userAgent)) {
