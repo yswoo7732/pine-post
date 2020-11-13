@@ -145,11 +145,14 @@ window.onload = function () {
             // console.log("speed: ", speed);
 
             if (isUp && speed < 20) {
-                // if (window.innerHeight - openLinkImgPos > 100) {
-                //   console.log("move to up step1");
-                //   stopper = true;
-                //   scrollTo(document.documentElement, linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50, 100, 1);
-                // }
+                if (window.innerHeight - openLinkImgPos > 100) {
+                    console.log("body.scrollHeigh ", body.scrollHeight);
+                    console.log("window.innerHeight ", window.innerHeight);
+                    console.log("basicFoot.scrollHeight ", basicFoot.clientHeight);
+                    console.log("move to up step1 ", body.scrollHeight - window.innerHeight + basicFoot.scrollHeight);
+                    stopper = true;
+                    scrollTo(document.documentElement, body.scrollHeight * 0.8, 240, speed);
+                }
             } else if (!isUp && speed < 20) {
                 // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
                 // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
@@ -161,7 +164,7 @@ window.onload = function () {
                     stopper = false;
                     // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
                     event.preventDefault();
-                    if (/iPhone/i.test(navigator.userAgent)) {
+                    if (!/Android/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
                         // var myScroll = new IScroll(linkCoverFull, {
