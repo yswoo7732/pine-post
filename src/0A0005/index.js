@@ -164,7 +164,7 @@ window.onload = function () {
                     if (/iPhone/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
-                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 60, speed);
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 40, speed);
 
                         // TweenMax.to("#link_cover_full", 2, {
                         //     bottom: 200,
