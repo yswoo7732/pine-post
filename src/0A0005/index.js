@@ -164,12 +164,7 @@ window.onload = function () {
                     if (/iPhone/i.test(navigator.userAgent)) {
                         scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     } else {
-                        zenscroll.center(linkCoverFull, 50);
-                        // scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
-
-                        // TweenMax.to("#link_cover_full", 2, {
-                        //     bottom: 200,
-                        // });
+                        scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                     }
                 }
                 // else if (window.innerHeight - openLinkImgPos > 0) {
@@ -227,7 +222,7 @@ window.onload = function () {
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
-            increment = 2,
+            increment = 10,
             timer;
 
         if (/iPhone/i.test(navigator.userAgent)) {
@@ -240,9 +235,8 @@ window.onload = function () {
             var val = Math.linearTween(currentTime, start, change, duration);
 
             element.scrollTop = val;
-            element.animate({scrollTop: element.scrollHeight});
             // console.log("duration: ", duration);
-            console.log("scrollTop: ", val);
+            // console.log("scrollTop: ", val);
             // console.log("currentTime: ", currentTime);
 
             if (currentTime < duration) {
