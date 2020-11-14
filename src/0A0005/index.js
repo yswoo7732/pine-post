@@ -225,18 +225,18 @@ window.onload = function () {
       // if (!stopper) return;
       // isScrollToDone = false;
       stopper = false;
-      var domScroll = linkCoverFull.offsetTop;
+      var domScroll = linkCoverFull.offsetTop + 10;
     
     //   var tweenScroll = function() {
         // if(window.scrollY < domScroll) {
             // console.log("ddd");
-            TweenMax.to(window, 0.5, {
+            TweenMax.to(window, 1, {
                 // bottom: "10%"
                 scrollTo: {
                     y: domScroll,
                     autoKill: true
                 },
-                ease: Power1.easeOut,
+                ease: Power3.easeOut,
                 autoKill: true
               });
         //   } else {
