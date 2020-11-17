@@ -106,7 +106,7 @@ window.onload = function () {
             }
 
             Array.from(boxShadows).forEach(function (element, index, array) {
-                if (!element.classList.contains("box-shadow-active") && element.offsetTop + height < document.documentElement.scrollTop) {
+                if (!element.classList.contains("box-shadow-active") && element.offsetTop + halfBody < document.documentElement.scrollTop) {
                     element.classList.add("box-shadow-active");
                 }
             });

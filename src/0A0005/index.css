@@ -92,7 +92,7 @@ img {
     position: fixed;
     left: 28px;
     /* bottom: 10%; */
-    top: 722px;
+    top: 690px;
 }
 
 .sub-tag-contents {
@@ -111,7 +111,7 @@ img {
     display: flex;
     position: fixed;
     right: 28px;
-    top: 722px;
+    top: 690px;
 }
 
 .sub-date-contents {
