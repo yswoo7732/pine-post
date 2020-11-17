@@ -456,10 +456,36 @@ img {
     }
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.7) {
+@media (aspect-ratio: 320/568) {
     .sub-tag-cell,
     .sub-date-cell {
-        top: 85%;
+        top: 473px;
+    }
+    .tip_cell {
+        top: 100px;
+    }
+    .contents_1_1 {
+        top: 146px;
+    }
+}
+
+@media (aspect-ratio: 375/667) {
+    .sub-tag-cell,
+    .sub-date-cell {
+        top: 568px;
+    }
+    .tip_cell {
+        top: 120px;
+    }
+    .contents_1_1 {
+        top: 165px;
+    }
+}
+
+@media (aspect-ratio: 414/736) {
+    .sub-tag-cell,
+    .sub-date-cell {
+        top: 629px;
     }
     .tip_cell {
         top: 120px;
