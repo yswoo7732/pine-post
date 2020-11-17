@@ -1,6 +1,6 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
+        if (/iPhone|!like Gecko/i.test(navigator.userAgent)) {
             document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
             document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
             document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
@@ -142,36 +142,17 @@ window.onload = function () {
 
             var speed = checkScrollSpeed();
 
-            // console.log("speed: ", speed);
-
             if (isUp && speed < 20) {
                 if (window.innerHeight - openLinkImgPos > 100) {
-                    // console.log("body.scrollHeigh ", body.scrollHeight);
-                    // console.log("window.innerHeight ", window.innerHeight);
-                    // console.log("basicFoot.scrollHeight ", basicFoot.clientHeight);
-                    // console.log("move to up step1 ", body.scrollHeight - window.innerHeight + basicFoot.scrollHeight);
                     stopper = true;
                     // scrollTo(document.documentElement, body.scrollHeight * 0.8, 240, speed);
                 }
             } else if (!isUp && speed < 20) {
-                // console.log("window.innerHeight - openLinkImgPos", window.innerHeight - openLinkImgPos);
-                // if (window.innerHeight - openLinkImgPos > 0 && window.innerHeight - openLinkImgPos * 1.3 < 0 && stopper) {
-                if (
-                    window.innerHeight - openLinkImgPos >= halfBody - 100 &&
-                    window.innerHeight - openLinkImgPos < window.innerHeight
-                ) {
-                    // console.log("move to down step1");
+                // if (window.innerHeight - openLinkImgPos >= halfBody - 100 && window.innerHeight - openLinkImgPos < window.innerHeight) {
+                if (window.innerHeight - openLinkImgPos >= halfBody - 100 && 0 < openLinkImgPos) {
                     stopper = false;
-
-                    // console.log("linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50",  linkCoverFull.offsetTop - linkCoverFull.offsetHeight + 50);
-                    // event.preventDefault();
                     tweenScrollTo();
-                    // scrollTo(document.documentElement, linkCoverFull.offsetTop, 200, speed);
                 }
-                // else if (window.innerHeight - openLinkImgPos > 0) {
-                //   console.log("move to down step2");
-                //   // scrollTo(document.documentElement, linkCoverFull.offsetTop + 10, 100, 1);
-                // }
             }
         },
         { passive: false }
@@ -209,7 +190,6 @@ window.onload = function () {
     };
 
     Math.linearTween = function (t, b, c, d) {
-        // console.log("linear: ", (c * t) / d + b);
         return (c * t) / d + b;
     };
 
@@ -217,44 +197,23 @@ window.onload = function () {
     var prevScrollTo = 0;
 
     function tweenScrollTo() {
-        // console.log("isScrollToDone", isScrollToDone);
+        stopper = false;
+        var domScroll = linkCoverFull.offsetTop + 10;
 
-        // if (!isScrollToDone) return;
-        // isScrollToDone = false;
-        // console.log("stopper", stopper);
-      // if (!stopper) return;
-      // isScrollToDone = false;
-      stopper = false;
-      var domScroll = linkCoverFull.offsetTop + 10;
-    
-    //   var tweenScroll = function() {
-        // if(window.scrollY < domScroll) {
-            // console.log("ddd");
-            TweenMax.to(window, 1, {
-                // bottom: "10%"
-                scrollTo: {
-                    y: domScroll,
-                    autoKill: true
-                },
-                ease: Power3.easeOut,
-                autoKill: true
-              });
-        //   } else {
-        //       isScrollToDone = true;
-        //   }
-    //   };
-    //   tweenScroll();
-
-  
+        TweenMax.to(window, 1, {
+            scrollTo: {
+                y: domScroll,
+                autoKill: true,
+            },
+            ease: Power2.easeOut,
+            autoKill: true,
+        });
     }
 
     function scrollTo(element, to, duration, speed) {
-        console.log("isScrollToDone", isScrollToDone);
-
         if (!isScrollToDone) return;
         isScrollToDone = false;
 
-        // console.log("scrollTo", to, duration, speed, isUp);
         var start = element.scrollTop,
             change = to - start,
             currentTime = 0,
@@ -267,20 +226,13 @@ window.onload = function () {
 
         var animateScroll = function () {
             currentTime += increment;
-            // console.log("currentTime, start, change, duration", currentTime, start, change, duration);
             var val = Math.linearTween(currentTime, start, change, duration);
 
             element.scrollTop = val;
-            // console.log("duration: ", duration);
-            // console.log("scrollTop: ", val);
-            // console.log("currentTime: ", currentTime);
 
             if (currentTime < duration) {
                 clearTimeout(timer);
-                // console.log("increment ", increment);
-
                 timer = setTimeout(animateScroll, increment);
-                // console.log("timer: ", timer);
             } else {
                 isScrollToDone = true;
             }
