@@ -41,6 +41,9 @@ window.onload = function () {
     var upToWrapBodyScroll = body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
     var prevCoverSize = 0;
     var stopper = true;
+
+    // document.querySelector(".box-shadow").addEventListener("transitionend", getTiming);
+
     document.addEventListener(
         "scroll",
         function (event) {
@@ -105,11 +108,30 @@ window.onload = function () {
                 basicFoot.classList.add("sticky");
             }
 
+            var chkTmp = new Array();
+
             Array.from(boxShadows).forEach(function (element, index, array) {
-                if (!element.classList.contains("box-shadow-active") && element.offsetTop + halfBody < document.documentElement.scrollTop) {
-                    element.classList.add("box-shadow-active");
+                if (
+                    element.getBoundingClientRect().top > basicFoot.scrollHeight &&
+                    element.getBoundingClientRect().top < window.innerHeight
+                ) {
+                    chkTmp.push(element);
                 }
             });
+
+
+            if (chkTmp.length >= 1) {
+                for (var i = 0; i < chkTmp.length; i++) {
+                    chkTmp[i].style.transitionDelay = i + "s";
+                }
+
+                for (var i = 0; i < chkTmp.length; i++) {
+                    if (chkTmp[i].offsetTop + halfBody < document.documentElement.scrollTop) {
+                        chkTmp[i].classList.add("box-shadow-active");
+                    }
+                }
+                chkTmp = [];
+            } 
 
             // scroll progress bar
             if (window.scrollY >= 0 && upToWrapBodyScroll >= window.scrollY) {
@@ -157,6 +179,7 @@ window.onload = function () {
         },
         { passive: false }
     );
+
 
     // 링크 터치 이벤트
     link_title.addEventListener("touchstart", function (event) {
