@@ -89,10 +89,10 @@ img {
 
 .sub-tag-cell {
     display: flex;
-    position: fixed;
-    left: 28px;
-    /* bottom: 10%; */
-    top: 690px;
+    position: sticky;
+    margin-left: 28px;
+    bottom: 9%;
+    /* top: 690px; */
 }
 
 .sub-tag-contents {
@@ -109,9 +109,11 @@ img {
 
 .sub-date-cell {
     display: flex;
-    position: fixed;
-    right: 28px;
-    top: 690px;
+    float: right;
+    position: sticky;
+    margin-right: 28px;
+    bottom: 9%;
+    /* top: 690px; */
 }
 
 .sub-date-contents {
@@ -457,10 +459,6 @@ img {
 }
 
 @media (aspect-ratio: 320/568) {
-    .sub-tag-cell,
-    .sub-date-cell {
-        top: 473px;
-    }
     .tip_cell {
         top: 100px;
     }
@@ -470,10 +468,6 @@ img {
 }
 
 @media (aspect-ratio: 375/667) {
-    .sub-tag-cell,
-    .sub-date-cell {
-        top: 568px;
-    }
     .tip_cell {
         top: 120px;
     }
@@ -483,10 +477,6 @@ img {
 }
 
 @media (aspect-ratio: 414/736) {
-    .sub-tag-cell,
-    .sub-date-cell {
-        top: 629px;
-    }
     .tip_cell {
         top: 120px;
     }
