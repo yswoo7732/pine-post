@@ -176,8 +176,7 @@ window.onload = function () {
                     tweenScrollTo();
                 }
             }
-        },
-        { passive: false }
+        }
     );
 
 

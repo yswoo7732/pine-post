@@ -174,8 +174,7 @@ window.onload = function () {
                   tweenScrollTo();
               }
           }
-      },
-      { passive: false }
+      }
   );
 
   // 링크 터치 이벤트
