@@ -453,7 +453,7 @@ left:0; */
       font-size: 18px;
   }
 
-  .text_basic {
+  .text_basic, .sub-tag-contents, .sub-date-contents {
       font-size: 14px;
   }
 }
