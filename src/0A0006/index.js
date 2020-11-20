@@ -21,8 +21,8 @@ function fitScreeSize() {
     console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
+            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
+            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
         }
         // var wh =
         //   window.outerHeight < window.screen.availHeight
