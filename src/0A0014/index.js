@@ -77,6 +77,7 @@ function fitScreeSize() {
 }
 
 window.onload = function () {
+  // document.getElementsByClassName("content-wrapper img")[0].style.visibility = "visible";
   fitScreeSize();
   // let isMobile = window.matchMedia("all and (max-width: 760px)").matches;
   // let isMobile = /Mobi|Android/i.test(navigator.userAgent);
@@ -97,42 +98,41 @@ window.onload = function () {
   //   });
   // }
 
-  var lottie4 = lottie.loadAnimation({
-    container: document.getElementById("lottie4"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: 2,
-    autoplay: false,
-    path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
-  });
-  var lottie5 = lottie.loadAnimation({
-    container: document.getElementById("lottie5"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: false,
-    autoplay: true,
-    path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
-  });
-  var lottie6 = lottie.loadAnimation({
-    container: document.getElementById("lottie6"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: 2,
-    autoplay: false,
-    path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
-  });
-  var lottie7 = lottie.loadAnimation({
-    container: document.getElementById("lottie7"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: false,
-    autoplay: true,
-    path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
-  });
-
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     initialSlide: 0,
     watchSlidesProgress: true,
     resistanceRatio: 0,
+    // width: 375,
+    // cssMode: true,
     on: {
+      // progress: function () {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     var slideProgress = swiper.slides[i].progress;
+      //     var innerOffset = swiper.width * interleaveOffset;
+      //     var innerTranslate = slideProgress * innerOffset;
+      //     swiper.slides[i].querySelector(".content-wrapper").style.transform =
+      //       "translate3d(" + innerTranslate + "px, 0, 0)";
+      //   }
+      // },
+      // touchStart: function () {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     swiper.slides[i].style.transition = "";
+      //   }
+      // },
+      // setTransition: function (speed) {
+      //   var swiper = this;
+      //   for (var i = 0; i < swiper.slides.length; i++) {
+      //     swiper.slides[i].style.transition = speed + "ms";
+      //     swiper.slides[i].querySelector(".content-wrapper").style.transition =
+      //       speed + "ms";
+      //   }
+      // },
       slideChange: function (sp) {
+        document.getElementById("question1").classList.remove("q1");
+        document.getElementById("question2").classList.remove("q2");
 
         document.getElementsByClassName("footer")[0].classList.remove("d-none");
         document
@@ -149,22 +149,20 @@ window.onload = function () {
               .getElementsByClassName("footer")[0]
               .classList.add("d-none");
             break;
-          case 4:
-            lottie4.goToAndPlay(0);
+          case 1:
+            document.getElementById("question1").classList.add("q1");
+            document.getElementById("question2").classList.add("q2");
             break;
-          case 5:
-            // lottie5.goToAndPlay(0);
-            break;
-          case 6:
-            lottie6.goToAndPlay(0);
-            break;
-          case 7:
-            // lottie7.goToAndPlay(0);
+          case 2:
             break;
           default:
             break;
         }
       },
+      // onSlideChangeEnd: function (s) {
+      //   s.fixLoop();
+      // },
+
       // slideChangeTransitionStart: function (sp) {
       //   console.log("slideChangeTransitionStart:", sp.activeIndex);
       //   document
@@ -200,7 +198,29 @@ window.onload = function () {
     },
   });
 
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper1")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale1.json", // the path to the animation json
+  });
 
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper2")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale2.json", // the path to the animation json
+  });
+
+  lottie.loadAnimation({
+    container: document.getElementsByClassName("scale_wrapper3")[0], // the dom element that will contain the animation
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "assets/lottie/scale3.json", // the path to the animation json
+  });
 
   var heartClickEvent = document.querySelector("#imgHeart");
   heartClickEvent.addEventListener("click", function () {
