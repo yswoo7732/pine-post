@@ -191,8 +191,6 @@ div[class*="scale_wrapper"] {
   text-align: center;
   align-items: center;
   margin: auto;
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
 }
 
 .heart_active {
