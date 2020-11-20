@@ -49,11 +49,17 @@ body {
     position: absolute;
     width: 100%;
     height: auto;
-    top: 0;
-    left: 0;
     right: 0;
     margin: auto;
     margin-top: 0;
+}
+
+.first {
+    margin: 0 auto !important;
+}
+
+.content-wrapper:not(.first) {
+    top: 0;
 }
 
 div,
@@ -98,7 +104,6 @@ img {
     position: absolute;
     display: flex;
     z-index: 3;
-
     width: 29.3%;
     height: auto;
     bottom: 12%;
