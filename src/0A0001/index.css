@@ -243,7 +243,7 @@ div[class*="scale_wrapper"] {
 }
 
 @media (min-aspect-ratio: 9/17) {
-    .content-wrapper {
+    .content-wrapper:not(.first) {
         width: 77%;
         margin-top: -18%;
     }
