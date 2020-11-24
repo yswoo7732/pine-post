@@ -27,8 +27,9 @@ body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #252629;
-    margin: 0;
+    margin: auto;
     padding: 0;
+    max-width: 450px;
 }
 
 img {
@@ -77,11 +78,11 @@ img {
 
 /* .first {
   margin: 0 auto;
-}
+}*/
 
 .content-wrapper:not(.first) {
-  margin: -18% auto 0 auto;
-} */
+  margin-top: -10%;
+} 
 
 div,
 img {
@@ -202,7 +203,7 @@ div[class*="scale_wrapper"] {
 }
 
 .btn-link {
-    width: 100%;
+    width: 93%;
     height: 60px;
     background-color: #ffffff;
     color: #000000;
@@ -218,7 +219,8 @@ div[class*="scale_wrapper"] {
     border-radius: 0;
     -webkit-appearance: none;
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform:translateX(-50%);
     bottom: 25%;
 }
 
@@ -242,7 +244,8 @@ div[class*="scale_wrapper"] {
 
 @media (min-aspect-ratio: 9/17) {
     .content-wrapper {
-        width: 90%;
+        width: 77%;
+        margin-top: -18%;
     }
 }
 
