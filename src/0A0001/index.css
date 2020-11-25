@@ -214,7 +214,7 @@ div[class*="scale_wrapper"] {
 }
 
 .btn-link {
-    width: 93%;
+    width: 100%;
     height: 60px;
     background-color: #ffffff;
     color: #000000;
@@ -232,14 +232,14 @@ div[class*="scale_wrapper"] {
     position: absolute;
     left: 50%;
     transform:translateX(-50%);
-    bottom: 23%;
+    bottom: 21%;
 }
 
 .footer {
     position: absolute;
     display: flex;
     width: auto;
-    height: 10%;
+    height: 60px;
     z-index: 3;
     bottom: 0;
     left: 0;
