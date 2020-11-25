@@ -41,7 +41,7 @@ body {
 }
 
 img {
-    width: auto;
+    width: 100%;
     height: 100%;
 }
 
@@ -77,11 +77,11 @@ img {
 
 .content-wrapper {
     position: absolute;
-    width: auto;
-    height: 100%;
-    left: 0;
-    right: 0;
-    /* margin: 0 28px; */
+    /* width: auto; */
+    height: auto;
+    /* left: 0;
+    right: 0; */
+    margin: 0 28px;
 }
 
 /* .first {
@@ -148,7 +148,7 @@ div[class*="scale_wrapper"] {
     z-index: 3;
     width: 29.3%;
     height: auto;
-    top: 676px;
+    top: 83.2%;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -157,9 +157,10 @@ div[class*="scale_wrapper"] {
 
 .page-font-f {
     z-index: 3;
-    width: 18px;
-    height: 18px;
-    margin: 0 11px 45px 0;
+    width: 16%;
+    height: 16%;
+    margin-right: 10%;
+    /* margin: 0 11px 45px 0; */
     font-family: LIFEPLUS;
     font-size: 14px;
     font-weight: bold;
@@ -171,9 +172,10 @@ div[class*="scale_wrapper"] {
 }
 
 .page-font-b {
-    width: 16px;
-    height: 18px;
-    margin: 0 0 45px 12px;
+    width: 16%;
+    height: 16%;
+    margin-left: 10%;
+    /* margin: 0 0 45px 12px; */
     font-family: LIFEPLUS;
     font-size: 14px;
     font-weight: 300;
@@ -201,18 +203,19 @@ div[class*="scale_wrapper"] {
 }
 
 .rectangle {
-    width: 52px;
+    width: 47%;
     height: 1px;
-    margin: 9px 0 53px 0;
+    margin-top: 9%;
+    /* margin: 9px 0 53px 0; */
     border-radius: 0.5px;
     background-color: #88888a;
 }
 
 .btn-link {
-    width: 319px;
-    height: 60px;
+    width: 85%;
+    height: 7.5%;
     /* margin: 474px 28px 25px; */
-    padding: 16px 76.5px 16px 77.5px;
+    /* padding: 16px 76.5px 16px 77.5px; */
     background-color: #ffffff;
     font-family: LIFEPLUS;
     font-size: 18px;
@@ -226,8 +229,8 @@ div[class*="scale_wrapper"] {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 570px;
-    margin-bottom: 25px;
+    top: 70.2%;
+    /* margin-bottom: 25px; */
     border: 0;
 }
 
@@ -243,13 +246,13 @@ div[class*="scale_wrapper"] {
     text-align: center;
     align-items: center;
     margin: auto;
-    padding-bottom: calc(env(safe-area-inset-bottom) + 34px);
-    padding-bottom: calc(constant(safe-area-inset-bottom) + 34px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
 }
 
 .footer > div {
-    width: 187px;
-    height: 60px;
+    width: 50%;
+    height: 10%;
 }
 
 .heart_active {
