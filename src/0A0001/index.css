@@ -1,6 +1,6 @@
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-Medium.woff2) format("woff2"), url(assets/LIFEPLUS-Medium.woff) format("woff");
+    src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -8,10 +8,18 @@
 
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2) format("woff2"), url(assets/LIFEPLUS-Bold.woff) format("woff");
+    src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-OTF-Bold.otf), url(assets/LIFEPLUS-Bold.ttf);
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS-Light), url(assets/LIFEPLUS-OTF-Light.otf), url(assets/LIFEPLUS-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
 }
 
 html,
@@ -151,7 +159,7 @@ div[class*="scale_wrapper"] {
     z-index: 3;
     color: white;
     font-family: LIFEPLUS;
-    font-size: 2vh;
+    font-size: 1.5vh;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -159,13 +167,14 @@ div[class*="scale_wrapper"] {
     letter-spacing: normal;
     color: #ffffff;
     align-items: center;
+    margin-bottom: 45px;
 }
 
 .page-font-b {
     z-index: 3;
     color: white;
     font-family: LIFEPLUS;
-    font-size: 2vh;
+    font-size: 1.5vh;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
@@ -174,6 +183,7 @@ div[class*="scale_wrapper"] {
     text-align: right;
     color: #cecece;
     align-items: center;
+    margin-bottom: 45px;
 }
 
 .d-none {
@@ -200,6 +210,7 @@ div[class*="scale_wrapper"] {
     margin-bottom: auto;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 53px;
 }
 
 .btn-link {
@@ -214,14 +225,14 @@ div[class*="scale_wrapper"] {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    font-size: 14px;
+    font-size: 18px;
     border: 0;
     border-radius: 0;
     -webkit-appearance: none;
     position: absolute;
     left: 50%;
     transform:translateX(-50%);
-    bottom: 25%;
+    bottom: 23%;
 }
 
 .footer {
