@@ -1,6 +1,6 @@
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
+    src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-OTF-Bold.otf), url(assets/LIFEPLUS-Bold.ttf);
+    src: local(LIFEPLUS OTF Bold), url(assets/LIFEPLUS-OTF-Bold.otf), url(assets/LIFEPLUS-Bold.ttf);
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -18,6 +18,14 @@
     font-family: LIFEPLUS;
     src: local(LIFEPLUS-Light), url(assets/LIFEPLUS-OTF-Light.otf), url(assets/LIFEPLUS-Light.ttf);
     font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: LIFEPLUSOTF;
+    src: local(LIFEPLUS OTF Bold), url(assets/LIFEPLUS-OTF-Bold.otf);
+    font-weight: bold;
     font-style: normal;
     font-stretch: normal;
 }
@@ -81,6 +89,7 @@ img {
     position: absolute;
     width: 100%;
     height: auto;
+    margin-top: 6px;
     /* left: 0;
     right: 0; */
     /* margin: 0 28px; */
@@ -136,7 +145,7 @@ img {
 
 div[class*="scale_wrapper"] {
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: auto;
     z-index: 1;
     margin: 0 auto;
@@ -161,8 +170,8 @@ div[class*="scale_wrapper"] {
 
 .page-font-f {
     z-index: 3;
-    width: 16%;
-    height: 16%;
+    width: 19px;
+    height: 19px;
     margin-right: 10%;
     /* margin: 0 11px 45px 0; */
     font-family: LIFEPLUS;
@@ -176,13 +185,13 @@ div[class*="scale_wrapper"] {
 }
 
 .page-font-b {
-    width: 16%;
-    height: 16%;
+    width: 19px;
+    height: 19px;
     margin-left: 10%;
     /* margin: 0 0 45px 12px; */
     font-family: LIFEPLUS;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -226,7 +235,7 @@ div[class*="scale_wrapper"] {
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    /* line-height: 2; */
+    line-height: 1.56;
     letter-spacing: normal;
     text-align: center;
     color: #000000;
