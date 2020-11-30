@@ -112,11 +112,19 @@ window.onload = function () {
             navArray.push(
                 new Swiper(element, {
                     slidesPerView: 1,
-                    spaceBetween: 20,
-                    effect: "cube",
-                    cubeEffect: {
-                        shadow: false,
+                    centeredSlides: true,
+                    effect: "coverflow",
+                    coverflowEffect: {
+                        rotate: 60,
+                        stretch: 5,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
                     },
+                    // parallax: true,
+                    // cubeEffect: {
+                    //     shadow: false,
+                    // },
                     on: {
                         slideChange: function (sp) {
                             console.log("switch nav activeIndex:", sp.realIndex);
