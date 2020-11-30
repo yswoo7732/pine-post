@@ -194,15 +194,18 @@ window.onload = function () {
             navArray.push(
                 new Swiper(element, {
                     slidesPerView: 1,
-                    loopedSlides: 1,
                     spaceBetween: 20,
+                    effect: "cube",
+                    cubeEffect: {
+                        shadow: false, // 슬라이더 밑의 그림자 표시 여부
+                    },
                     on: {
                         slideChange: function (sp) {
                             // if (sp.activeIndex == 0) {
                             //     document.getElementsByClassName("page-slide")[0].classList.add("d-none");
                             // }
 
-                            console.log("switch nav activeIndex:", sp.activeIndex);
+                            console.log("switch nav activeIndex:", sp.realIndex);
                         },
                     },
                 })
