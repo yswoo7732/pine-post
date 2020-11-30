@@ -161,6 +161,8 @@ window.onload = function () {
                             document.getElementById("question1").classList.remove("q1");
                             document.getElementById("question2").classList.remove("q2");
 
+                            document.querySelector(".page-slide").style.opacity = 1;
+
                             document.getElementsByClassName("footer")[0].classList.remove("d-none");
                             document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
 
@@ -168,6 +170,8 @@ window.onload = function () {
 
                             switch (sp.activeIndex) {
                                 case 0:
+                                    document.querySelector(".page-slide").style.opacity = 0;
+
                                     document.getElementsByClassName("footer")[0].classList.add("d-none");
                                     document.getElementsByClassName("page-slide")[0].classList.add("d-none");
                                     break;
