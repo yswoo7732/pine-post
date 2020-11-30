@@ -69,7 +69,6 @@ img {
     height: 20%;
     box-sizing: border-box;
     color: #ffffff;
-
 }
 
 .swiper-slide {
@@ -182,7 +181,10 @@ div[class*="scale_wrapper"] {
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+}
 
+.nav-slide {
+    background-color: transparent;
 }
 
 .js-slider--nav {
@@ -201,7 +203,6 @@ div[class*="scale_wrapper"] {
     color: #ffffff;
     background-color: transparent;
     box-sizing: border-box;
-
 }
 
 .page-font-b {
