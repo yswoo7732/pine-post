@@ -96,99 +96,141 @@ window.onload = function () {
     //   });
     // }
 
-    var swiper = new Swiper(".swiper-container", {
-        direction: "horizontal",
-        initialSlide: 0,
-        watchSlidesProgress: true,
-        resistanceRatio: 0,
-        // width: 375,
-        // cssMode: true,
-        on: {
-            // progress: function () {
-            //   var swiper = this;
-            //   for (var i = 0; i < swiper.slides.length; i++) {
-            //     var slideProgress = swiper.slides[i].progress;
-            //     var innerOffset = swiper.width * interleaveOffset;
-            //     var innerTranslate = slideProgress * innerOffset;
-            //     swiper.slides[i].querySelector(".content-wrapper").style.transform =
-            //       "translate3d(" + innerTranslate + "px, 0, 0)";
-            //   }
-            // },
-            // touchStart: function () {
-            //   var swiper = this;
-            //   for (var i = 0; i < swiper.slides.length; i++) {
-            //     swiper.slides[i].style.transition = "";
-            //   }
-            // },
-            // setTransition: function (speed) {
-            //   var swiper = this;
-            //   for (var i = 0; i < swiper.slides.length; i++) {
-            //     swiper.slides[i].style.transition = speed + "ms";
-            //     swiper.slides[i].querySelector(".content-wrapper").style.transition =
-            //       speed + "ms";
-            //   }
-            // },
-            slideChange: function (sp) {
-                document.getElementById("question1").classList.remove("q1");
-                document.getElementById("question2").classList.remove("q2");
+    // var swiper = new Swiper(".swiper-container", {
+    //     direction: "horizontal",
+    //     initialSlide: 0,
+    //     watchSlidesProgress: true,
+    //     resistanceRatio: 0,
+    //     on: {
+    //         slideChange: function (sp) {
+    //             document.getElementById("question1").classList.remove("q1");
+    //             document.getElementById("question2").classList.remove("q2");
 
-                document.getElementsByClassName("footer")[0].classList.remove("d-none");
-                document.getElementsByClassName("swiper-pagination")[0].classList.remove("d-none");
-                console.log("switch default activeIndex:", sp.activeIndex);
+    //             document.getElementsByClassName("footer")[0].classList.remove("d-none");
+    //             document.getElementsByClassName("swiper-pagination")[0].classList.remove("d-none");
+    //             console.log("switch default activeIndex:", sp.activeIndex);
 
-                switch (sp.activeIndex) {
-                    case 0:
-                        document.getElementsByClassName("swiper-pagination")[0].classList.add("d-none");
-                        document.getElementsByClassName("footer")[0].classList.add("d-none");
-                        break;
-                    case 1:
-                        document.getElementById("question1").classList.add("q1");
-                        document.getElementById("question2").classList.add("q2");
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
+    //             switch (sp.activeIndex) {
+    //                 case 0:
+    //                     document.getElementsByClassName("swiper-pagination")[0].classList.add("d-none");
+    //                     document.getElementsByClassName("footer")[0].classList.add("d-none");
+    //                     break;
+    //                 case 1:
+    //                     document.getElementById("question1").classList.add("q1");
+    //                     document.getElementById("question2").classList.add("q2");
+    //                     break;
+    //                 case 2:
+    //                     break;
+    //                 default:
+    //                     break;
+    //             }
+    //         },
+    //     },
+    //     pagination: {
+    //         el: ".swiper-pagination",
+    //         type: "custom",
+    //         renderCustom: function (swiper, current, total) {
+    //             return (
+    //                 '<div class="page-font-f">' +
+    //                 ("0" + current).slice(-2) +
+    //                 '</div><div class="rectangle"></div><div class="page-font-b">' +
+    //                 ("0" + total).slice(-2) +
+    //                 "</div>"
+    //             );
+    //         },
+    //     },
+    // });
+
+    const multipleSwiperSlides = function () {
+        let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
+        let sliderNav = document.querySelectorAll(".swiper-container.js-slider--nav");
+
+        // Arrays to hold swiper instances
+        let mainArray = [];
+        let navArray = [];
+        // Slider Main
+        sliderMain.forEach(function (element, i) {
+            // Push swiper instance to array
+            mainArray.push(
+                new Swiper(element, {
+                    initialSlide: 0,
+                    watchSlidesProgress: true,
+                    resistanceRatio: 0,
+                    on: {
+                        slideChange: function (sp) {
+                            document.getElementById("question1").classList.remove("q1");
+                            document.getElementById("question2").classList.remove("q2");
+
+                            document.getElementsByClassName("footer")[0].classList.remove("d-none");
+                            document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
+
+                            console.log("switch default activeIndex:", sp.activeIndex);
+
+                            switch (sp.activeIndex) {
+                                case 0:
+                                    document.getElementsByClassName("footer")[0].classList.add("d-none");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                                    break;
+                                case 1:
+                                    document.getElementById("question1").classList.add("q1");
+                                    document.getElementById("question2").classList.add("q2");
+                                    break;
+                                case 2:
+                                    break;
+                                default:
+                                    break;
+                            }
+                        },
+                    },
+                })
+            );
+        });
+
+        // Slider Nav
+        sliderNav.forEach(function (element, i) {
+            var self = sliderNav;
+
+            // Push swiper instance to array
+            navArray.push(
+                new Swiper(element, {
+                    slidesPerView: 1,
+                    loopedSlides: 1,
+                    spaceBetween: 20,
+                    on: {
+                        slideChange: function (sp) {
+                            // if (sp.activeIndex == 0) {
+                            //     document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                            // }
+
+                            console.log("switch nav activeIndex:", sp.activeIndex);
+                        },
+                    },
+                })
+            );
+        });
+
+        const checkOnPage = function () {
+            if (sliderMain.length > 0 && sliderNav.length > 0) {
+                let numberOfSlides = mainArray.length || navArray.length || 0;
+
+                if (mainArray.length !== navArray.length) {
+                    console.warn("multipleSwiperSlides: Number of main slides and nav slides is different. Expect incorrect behaviour.");
                 }
-            },
-            // onSlideChangeEnd: function (s) {
-            //   s.fixLoop();
-            // },
 
-            // slideChangeTransitionStart: function (sp) {
-            //   console.log("slideChangeTransitionStart:", sp.activeIndex);
-            //   document
-            //     .getElementsByClassName("swiper-pagination")[0]
-            //     .classList.add("d-none");
-            // },
-            // slideChangeTransitionEnd: function (sp) {
-            //   console.log("slideChangeTransitionEnd:", sp.activeIndex);
-            //   switch (sp.activeIndex) {
-            //     case 0:
-            //       break;
-            //     default:
-            //       document
-            //         .getElementsByClassName("swiper-pagination")[0]
-            //         .classList.remove("d-none");
-            //       console.log("switch default activeIndex:", sp.activeIndex);
-            //       break;
-            //   }
-            // },
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            type: "custom",
-            renderCustom: function (swiper, current, total) {
-                return (
-                    '<div class="page-font-f">' +
-                    ("0" + current).slice(-2) +
-                    '</div><div class="rectangle"></div><div class="page-font-b">' +
-                    ("0" + total).slice(-2) +
-                    "</div>"
-                );
-            },
-        },
-    });
+                for (let i = 0; i < numberOfSlides; i++) {
+                    mainArray[i].controller.control = navArray[i];
+                    navArray[i].controller.control = mainArray[i];
+                }
+
+                document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                console.log("multipleSwiperSlides: Things should be working fine. B)");
+            }
+        };
+
+        checkOnPage();
+    };
+
+    multipleSwiperSlides();
 
     lottie.loadAnimation({
         container: document.getElementsByClassName("scale_wrapper1")[0], // the dom element that will contain the animation
