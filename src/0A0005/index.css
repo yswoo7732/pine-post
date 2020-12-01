@@ -92,6 +92,9 @@ img {
     border: 1px solid white;
     border-radius: 20px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tip_contents {
@@ -104,7 +107,6 @@ img {
     letter-spacing: normal;
     text-align: center;
     color: #ffffff;
-    margin: 5px 12px 6px 12px;
 }
 
 .sub-tag-cell {
@@ -488,7 +490,7 @@ img {
 
 @media (max-width: 340px) {
     .contents_1_1 > p {
-        font-size: 20px;
+        font-size: 20px !important;
     }
     .text_bold {
         font-size: 16px;
@@ -498,7 +500,9 @@ img {
         font-size: 18px;
     }
 
-    .text_basic {
+    .text_basic,
+    .sub-tag-contents,
+    .sub-date-contents {
         font-size: 14px;
     }
 }
