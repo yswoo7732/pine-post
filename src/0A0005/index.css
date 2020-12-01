@@ -168,17 +168,6 @@ img {
     overflow: hidden;
 }
 
-.body-title {
-    font-family: LIFEPLUS;
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000000;
-}
-
 .link_item {
     display: block;
     width: 100%;
@@ -319,7 +308,7 @@ img {
     height: 26px;
     font-family: LIFEPLUS;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;

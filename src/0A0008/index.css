@@ -1,6 +1,6 @@
 @font-face {
   font-family: LIFEPLUS;
-  src: local(LIFEPLUS-Medium), url(assets/LIFEPLUS-Medium.woff2) format("woff2"), url(assets/LIFEPLUS-Medium.woff) format("woff");
+  src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -8,14 +8,34 @@
 
 @font-face {
   font-family: LIFEPLUS;
-  src: local(LIFEPLUS-Bold), url(assets/LIFEPLUS-Bold.woff2) format("woff2"), url(assets/LIFEPLUS-Bold.woff) format("woff");
+  src: local(LIFEPLUS OTF Bold), url(assets/LIFEPLUS-OTF-Bold.otf);
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
 }
 
-::-webkit-scrollbar {
-  display: none;
+@font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS OTF Light), url(assets/LIFEPLUS-OTF-Light.otf), url(assets/LIFEPLUS-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS-BODY;
+  src: local(LIFEPLUS-BODY-OTF-Light), url(assets/LIFEPLUS-BODY-OTF-Light.otf), url(assets/LIFEPLUS-BODY-Light_Hinted.ttf);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS-BODY;
+  src: local(LIFEPLUS-BODY-OTF-Medium), url(assets/LIFEPLUS-BODY-OTF-Medium.otf), url(assets/LIFEPLUS-BODY-Medium_Hinted.ttf);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
 }
 
 html,
@@ -72,6 +92,9 @@ img {
   border: 1px solid white;
   border-radius: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tip_contents {
@@ -84,7 +107,6 @@ img {
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
-  margin: 5px 12px 6px 12px;
 }
 
 .sub-tag-cell {
@@ -246,20 +268,34 @@ overflow: hidden;
 .contents_1_1 {
   width: 327px;
   height: 87px;
-  font-family: LIFEPLUS;
-  font-size: 22px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #ffffff;
   position: fixed;
   top: 218px;
   margin-left: 28px;
   margin-right: 28px;
   opacity: 1;
   z-index: 11;
+}
+
+.contents_1_1 > p:first-child {
+  font-family: LIFEPLUS;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.contents_1_1 > p:last-child {
+  font-family: LIFEPLUS;
+  font-size: 25px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  color: #ffffff;
 }
 
 .contents_1_1 > p {
@@ -272,7 +308,7 @@ overflow: hidden;
   height: 26px;
   font-family: LIFEPLUS;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -327,7 +363,7 @@ overflow: hidden;
 }
 
 .text_basic {
-  font-family: LIFEPLUS;
+  font-family: LIFEPLUS-BODY;
   font-size: 16px;
   font-weight: 500;
   font-stretch: normal;
@@ -443,7 +479,7 @@ left:0; */
 
 @media (max-width: 340px) {
   .contents_1_1 > p {
-      font-size: 20px;
+      font-size: 20px !important;
   }
   .text_bold {
       font-size: 16px;
@@ -453,7 +489,9 @@ left:0; */
       font-size: 18px;
   }
 
-  .text_basic, .sub-tag-contents, .sub-date-contents {
+  .text_basic,
+  .sub-tag-contents,
+  .sub-date-contents {
       font-size: 14px;
   }
 }
@@ -486,7 +524,10 @@ left:0; */
 }
 
 @media (min-width: 750px) {
-  body, .wrap_cover, .basic_foot, .basic_link_foot {
+  body,
+  .wrap_cover,
+  .basic_foot,
+  .basic_link_foot {
       max-width: 750px;
       margin: 0 auto;
   }

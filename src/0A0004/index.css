@@ -157,7 +157,7 @@ img {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     /* overflow: auto;
-  -webkit-overflow-scrolling: touch; */
+    -webkit-overflow-scrolling: touch; */
 }
 
 .cover_item {
@@ -166,17 +166,6 @@ img {
     max-height: none !important;
     position: relative;
     overflow: hidden;
-}
-
-.body-title {
-    font-family: LIFEPLUS;
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000000;
 }
 
 .link_item {
@@ -198,7 +187,7 @@ img {
 }
 
 /* #link_cover_full {
-overflow: hidden;
+  overflow: hidden;
 } */
 
 .stroke_link-active {
@@ -319,7 +308,7 @@ overflow: hidden;
     height: 26px;
     font-family: LIFEPLUS;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -436,7 +425,7 @@ overflow: hidden;
     background-color: rgba(255, 255, 255);
     z-index: 20;
     /* padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
+    padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
 }
 
 .basic_link_foot {
@@ -459,13 +448,13 @@ overflow: hidden;
     position: fixed;
     bottom: 0;
     /* padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
+    padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
 }
 
 .progress-indicator {
     position: absolute;
     /* top:0;
-left:0; */
+  left:0; */
     height: 1px;
     width: 100%;
     overflow: hidden;
