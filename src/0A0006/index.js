@@ -117,9 +117,9 @@ window.onload = function () {
                     coverflowEffect: {
                         rotate: 60,
                         stretch: 3,
-                        depth: 100,
+                        depth: 300,
                         modifier: 1,
-                        slideShadows: true,
+                        slideShadows: false,
                     },
                     // parallax: true,
                     // cubeEffect: {
