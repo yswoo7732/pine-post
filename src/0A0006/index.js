@@ -121,10 +121,6 @@ window.onload = function () {
                         modifier: 1,
                         slideShadows: false,
                     },
-                    // parallax: true,
-                    // cubeEffect: {
-                    //     shadow: false,
-                    // },
                     on: {
                         slideChange: function (sp) {
                             console.log("switch nav activeIndex:", sp.realIndex);

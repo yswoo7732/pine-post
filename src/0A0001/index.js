@@ -198,11 +198,14 @@ window.onload = function () {
             navArray.push(
                 new Swiper(element, {
                     slidesPerView: 1,
-                    spaceBetween: 20,
-                    effect: "cube",
-                    cubeEffect: {
+                    centeredSlides: true,
+                    effect: "coverflow",
+                    coverflowEffect: {
+                        rotate: 60,
+                        stretch: 0,
+                        depth: 300,
+                        modifier: 1,
                         slideShadows: false,
-                        shadow: false, // 슬라이더 밑의 그림자 표시 여부
                     },
                     on: {
                         slideChange: function (sp) {
