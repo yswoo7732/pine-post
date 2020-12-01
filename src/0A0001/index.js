@@ -201,6 +201,7 @@ window.onload = function () {
                     spaceBetween: 20,
                     effect: "cube",
                     cubeEffect: {
+                        slideShadows: false,
                         shadow: false, // 슬라이더 밑의 그림자 표시 여부
                     },
                     on: {
