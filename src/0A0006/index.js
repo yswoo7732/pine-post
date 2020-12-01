@@ -116,7 +116,7 @@ window.onload = function () {
                     effect: "coverflow",
                     coverflowEffect: {
                         rotate: 60,
-                        stretch: 3,
+                        stretch: 0,
                         depth: 300,
                         modifier: 1,
                         slideShadows: false,
