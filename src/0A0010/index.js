@@ -65,13 +65,12 @@ window.onload = function () {
 
     mmfArrow.addEventListener("animationend", () => {
         player2.classList.add("blinking");
-        // startBlink();
         console.log("Transition ended");
     });
 
     player2.addEventListener("animationend", () => {
         setTimeout(() => {
-            swiper_h.slideTo(2);
+            swiper_h.slideTo(2).behavior = 'smooth';
         }, 1000);
     });
 
@@ -102,13 +101,3 @@ window.onload = function () {
         behavior: "smooth",
     });
 };
-
-function doBlink() {
-    var blink = document.getElementsByTagName("BLINK");
-    console.log(blink.length);
-    // for (var i = 0; i < blink.length; i++)
-    // blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "";
-}
-function startBlink() {
-    // setInterval("doBlink()", 300);
-}
