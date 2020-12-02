@@ -255,7 +255,7 @@ img {
 @media (min-aspect-ratio: 200/500) {
   .content-wrapper {
     width: 100%;
-    margin-top: 20%;
+    /* margin-top: 20%; */
   }
 } 
 

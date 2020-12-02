@@ -112,7 +112,6 @@ img {
 .fund1_img_bg {
     animation-name: ani_fund1_img_bg;
     animation-duration: 3s;
-    animation-delay: 0.5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
