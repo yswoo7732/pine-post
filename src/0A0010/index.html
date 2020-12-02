@@ -1,94 +1,83 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <title>주식형과채권형3</title>
-    <!-- Link Swiper's CSS -->
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, target-densitydpi=device-dpi"
-    />
+<head>
+  <meta charset="utf-8" />
+  <title>주식형과채권형3</title>
+  <!-- Link Swiper's CSS -->
 
-    <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />
 
-    <!-- Demo styles -->
-    <style></style>
-  </head>
+  <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
 
-  <body>
-    <!-- Swiper -->
-    <audio id="bgmAudio" autoplay muted loop>
-      <!-- <source src="assets/bgm_bradinsky.mp3" type="audio/mpeg" /> -->
-    </audio>
+  <!-- Demo styles -->
+  <style></style>
+</head>
 
-    <audio id="buttonSound" muted>
-      <!-- <source src="assets/button_sound.mp3" type="audio/mpeg" /> -->
-    </audio>
+<body>
+  <!-- Swiper -->
+  <audio id="bgmAudio" autoplay muted loop>
+    <!-- <source src="assets/bgm_bradinsky.mp3" type="audio/mpeg" /> -->
+  </audio>
 
-    <div class="swiper-container swiper-container-v">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <!-- v-0 -->
-          <div class="content-wrapper">
-            <img
-              src="assets/cast_special_mmf_1_2_bg.png"
-              style="width: auto; height: 100%; margin-top: 0%"
-            />
-          </div>
+  <audio id="buttonSound" muted>
+    <!-- <source src="assets/button_sound.mp3" type="audio/mpeg" /> -->
+  </audio>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <!-- v-0 -->
+        <!-- <img src="assets/cast_special_mmf_1.png" style="width: auto; height: 100%; z-index: 3; opacity: 0.5;" /> -->
+        <div class="content-wrapper">
+          <img src="assets/cast_special_mmf_1_2_bg.png" class="mmf-bg" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 16%; right: 15%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 19%; left: 11%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 28%; right: 5%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 34%; left: 56%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 43%; left: 7%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 52%; right: 12%;" />
+          <img src="assets/cast_special_mmf_1_button.png" class="mmf-start-btn" />
         </div>
-        <div class="swiper-slide">
-          <!-- v-1 -->
-          <div class="content-wrapper">
-            <img
-              src="assets/cast_special_mmf_1_2_bg.png"
-              style="width: auto; height: 100%; margin-top: 0%"
-            />
-          </div>
+      </div>
+      <div class="swiper-slide">
+        <!-- v-1 -->
+        <!-- <img src="assets/cast_special_mmf_2.png" style="width: auto; height: 100%; z-index: 3; opacity: 0.5;" /> -->
+        <div class="content-wrapper">
+          <img src="assets/cast_special_mmf_1_2_bg.png" class="mmf-bg" id="secondImg" style="position: absolute;" />
+          <img src="assets/cast_special_mmf_2_text1.png" class="start-game-txt" />
+          <img src="assets/cast_special_mmf_2_text2.png" class="player1" />
+          <img src="assets/cast_special_mmf_2_text3.png" class="player2" />
+          <img src="assets/cast_special_mmf_2_arrow.png" class="mmf-arrow" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 83%; left: 20%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 77%; left: 39%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 78%; left: 59%;" />
+          <img src="assets/cast_special_mmf_1_2_coin.png" class="mmf-coin" style="top: 83%; right: 17%;" />
         </div>
-        <div class="swiper-slide">
-          <!-- v-2 -->
-          <div class="content-wrapper">
-            <img
-              src="assets/cast_special_mmf_3.png"
-              style="width: auto; height: 100%; margin-top: 0%"
-            />
-          </div>
+      </div>
+      <div class="swiper-slide">
+        <!-- v-2 -->
+        <div class="content-wrapper">
+          <video id="mmf_video" class="mmf_bg" playsinline
+            style="width: auto; height: 100%; padding: 0; margin: 0; z-index: 3;">
+            <source src="assets/cast_special_mmf_3.mp4" type="video/mp4" />
+          </video>
         </div>
-        <div class="swiper-slide">
-          <!-- v-3 -->
-          <div class="content-wrapper">
-            <img
-              src="assets/cast_special_mmf_4.png"
-              style="width: auto; height: 100%; margin-top: 0%"
-            />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <!-- v-1 -->
-          <div class="swiper-container swiper-container-h">
-            <div class="swiper-wrapper">
-              <!-- h-0 -->
-              <div class="swiper-slide"></div>
-              <!-- h-1-->
-              <div class="swiper-slide"></div>
-              <!-- h-2 -->
-              <div class="swiper-slide"></div>
-              <!-- h-3 -->
-              <div class="swiper-slide"></div>
-              <!-- h-4 -->
-              <div class="swiper-slide"></div>
-            </div>
-          </div>
+      </div>
+      <div class="swiper-slide">
+        <!-- v-3 -->
+        <div class="content-wrapper">
+          <img src="assets/cast_special_mmf_4.png" class="mmf-bg" />
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Swiper JS -->
-    <script src="vendor/lottie.min.js"></script>
-    <script src="vendor/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-  </body>
+  <!-- Swiper JS -->
+  <script src="vendor/lottie.min.js"></script>
+  <script src="vendor/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
 </html>
