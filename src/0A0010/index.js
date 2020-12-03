@@ -30,16 +30,9 @@ window.onload = function () {
         allowTouchMove: false,
         on: {
             slideChange: function (sp) {
-                // secondImg.style.left = "0";
                 console.log("switch activeIndex:", sp.activeIndex);
 
                 switch (sp.activeIndex) {
-                    case 0:
-                        secondImg.style.left = "0";
-                        break;
-                    case 1:
-                        secondImg.style.left = "-100%";
-                        break;
                     case 2:
                         setTimeout(function () {
                             document.getElementById("mmf_video").play();

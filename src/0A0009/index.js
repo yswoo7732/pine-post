@@ -44,13 +44,13 @@ let lottie4 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
 });
-let lottie5 = lottie.loadAnimation({
-    container: document.getElementById("lottie5"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: false,
-    autoplay: true,
-    path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
-});
+// let lottie5 = lottie.loadAnimation({
+//     container: document.getElementById("lottie5"), // the dom element that will contain the animation
+//     renderer: "svg",
+//     loop: false,
+//     autoplay: true,
+//     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
+// });
 let lottie6 = lottie.loadAnimation({
     container: document.getElementById("lottie6"), // the dom element that will contain the animation
     renderer: "svg",
@@ -58,13 +58,13 @@ let lottie6 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
 });
-let lottie7 = lottie.loadAnimation({
-    container: document.getElementById("lottie7"), // the dom element that will contain the animation
-    renderer: "svg",
-    loop: false,
-    autoplay: true,
-    path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
-});
+// let lottie7 = lottie.loadAnimation({
+//     container: document.getElementById("lottie7"), // the dom element that will contain the animation
+//     renderer: "svg",
+//     loop: false,
+//     autoplay: true,
+//     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
+// });
 
 window.onload = function () {
     fitScreeSize();
@@ -166,13 +166,13 @@ window.onload = function () {
                                     lottie4.goToAndPlay(0);
                                     break;
                                 case 5:
-                                    lottie5.goToAndPlay(0);
+                                    lottie4.goToAndPlay(0);
                                     break;
                                 case 6:
                                     lottie6.goToAndPlay(0);
                                     break;
                                 case 7:
-                                    lottie7.goToAndPlay(0);
+                                    lottie6.goToAndPlay(0);
                                     break;
                                 default:
                                     document.querySelector(".page-slide").style.opacity = 1;
