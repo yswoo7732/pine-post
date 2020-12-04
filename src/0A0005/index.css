@@ -1,6 +1,13 @@
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
+    src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf),
+        url(assets/LIFEPLUS-Medium.ttf);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -16,7 +23,8 @@
 
 @font-face {
     font-family: LIFEPLUS;
-    src: local(LIFEPLUS OTF Light), url(assets/LIFEPLUS-OTF-Light.otf), url(assets/LIFEPLUS-Light.ttf);
+    src: local(LIFEPLUS OTF Light), url(assets/LIFEPLUS-OTF-Light.otf),
+        url(assets/LIFEPLUS-Light.ttf);
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -24,7 +32,8 @@
 
 @font-face {
     font-family: LIFEPLUS-BODY;
-    src: local(LIFEPLUS-BODY-OTF-Light), url(assets/LIFEPLUS-BODY-OTF-Light.otf), url(assets/LIFEPLUS-BODY-Light_Hinted.ttf);
+    src: local(LIFEPLUS-BODY-OTF-Light), url(assets/LIFEPLUS-BODY-OTF-Light.otf),
+        url(assets/LIFEPLUS-BODY-Light_Hinted.ttf);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -32,7 +41,8 @@
 
 @font-face {
     font-family: LIFEPLUS-BODY;
-    src: local(LIFEPLUS-BODY-OTF-Medium), url(assets/LIFEPLUS-BODY-OTF-Medium.otf), url(assets/LIFEPLUS-BODY-Medium_Hinted.ttf);
+    src: local(LIFEPLUS-BODY-OTF-Medium), url(assets/LIFEPLUS-BODY-OTF-Medium.otf),
+        url(assets/LIFEPLUS-BODY-Medium_Hinted.ttf);
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -186,11 +196,18 @@ img {
     background-repeat: no-repeat;
 }
 
-/* #link_cover_full {
-  overflow: hidden;
-} */
+@keyframes hvr-back-pulse {
+    50% {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
 
 .stroke_link-active {
+    animation-name: hvr-back-pulse;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     background-color: rgba(255, 255, 255, 0.8);
     color: #333333 !important;
 }
@@ -216,6 +233,11 @@ img {
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    transition-duration: 0.5s;
+    transition-property: color, background-color;
 }
 
 .cover_inner {

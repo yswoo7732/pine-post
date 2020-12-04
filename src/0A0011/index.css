@@ -1,3 +1,9 @@
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
 @font-face {
   font-family: LIFEPLUS;
   src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
@@ -186,11 +192,18 @@ img {
   background-repeat: no-repeat;
 }
 
-/* #link_cover_full {
-overflow: hidden;
-} */
+@keyframes hvr-back-pulse {
+  50% {
+      background-color: rgba(255, 255, 255, 0.8);
+  }
+}
 
 .stroke_link-active {
+  animation-name: hvr-back-pulse;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   background-color: rgba(255, 255, 255, 0.8);
   color: #333333 !important;
 }
@@ -216,6 +229,11 @@ overflow: hidden;
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transition-property: color, background-color;
 }
 
 .cover_inner {
