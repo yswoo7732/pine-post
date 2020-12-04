@@ -36,7 +36,7 @@ window.onload = function () {
         on: {
             slideChange: function (sp) {
                 console.log("switch activeIndex:", sp.activeIndex);
-                
+
                 switch (sp.activeIndex) {
                     case 1:
                         for (i = 0; i < secondCoin.length; i++) {
@@ -69,15 +69,15 @@ window.onload = function () {
 
     mmfArrow.addEventListener("animationend", () => {
         player2.classList.add("blinking");
-        
     });
 
     player2.addEventListener("animationend", () => {
-        swiper_h.slideTo(2);
+        setTimeout(function () {
+            swiper_h.slideTo(2);
+        }, 500);
     });
 
-    secondCoin[3].addEventListener("animationend", () => {
-    });
+    secondCoin[3].addEventListener("animationend", () => {});
 
     console.log("document.body.clientWidth", document.body.clientWidth);
     console.log("document.body.clientWidth", document.body.clientWidth);
