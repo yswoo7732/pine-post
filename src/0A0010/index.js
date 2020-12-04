@@ -46,7 +46,7 @@ window.onload = function () {
                     case 2:
                         setTimeout(function () {
                             document.getElementById("mmf_video").play();
-                        }, 300);
+                        }, 100);
                         break;
                     default:
                         console.log("switch default activeIndex:", sp.activeIndex);
