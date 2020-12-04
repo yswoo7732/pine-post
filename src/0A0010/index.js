@@ -28,7 +28,7 @@ const mmfVideo = document.getElementById("mmf_video");
 
 window.onload = function () {
     fitScreeSize();
-    
+
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
         allowTouchMove: false,
@@ -38,9 +38,11 @@ window.onload = function () {
 
                 switch (sp.activeIndex) {
                     case 1:
-                        for (i = 0; i < secondCoin.length; i++) {
-                            secondCoin[i].classList.add("second-coin-active");
-                        }
+                        setTimeout(function () {
+                            for (i = 0; i < secondCoin.length; i++) {
+                                secondCoin[i].classList.add("second-coin-active");
+                            }
+                        }, 700);
                         break;
                     case 2:
                         setTimeout(function () {
@@ -78,7 +80,7 @@ window.onload = function () {
     player2.addEventListener("animationend", () => {
         setTimeout(function () {
             swiper_h.slideTo(2);
-        }, 500);
+        }, 800);
     });
 
     mmfVideo.addEventListener("ended", () => {
