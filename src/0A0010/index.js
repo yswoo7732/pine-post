@@ -28,9 +28,7 @@ const mmfVideo = document.getElementById("mmf_video");
 
 window.onload = function () {
     fitScreeSize();
-    // for (i = 0; i < firstCoin.length; i++) {
-    //     firstCoin[i].classList.add("first-coin-active");
-    // }
+    
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
         allowTouchMove: false,
@@ -81,6 +79,10 @@ window.onload = function () {
         setTimeout(function () {
             swiper_h.slideTo(2);
         }, 500);
+    });
+
+    mmfVideo.addEventListener("ended", () => {
+        swiper_h.slideTo(3);
     });
 
     document.getElementById("mmf_video").addEventListener;
