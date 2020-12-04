@@ -49,7 +49,7 @@ window.onload = function () {
                         }, 100);
                         break;
                     default:
-                        document.getElementById("mmf_video").pause();
+                        document.getElementById("mmf_video").stop();
                         console.log("switch default activeIndex:", sp.activeIndex);
                         break;
                 }
