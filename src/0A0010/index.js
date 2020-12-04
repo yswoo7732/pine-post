@@ -44,9 +44,9 @@ window.onload = function () {
                         }
                         break;
                     case 2:
-                        // setTimeout(function () {
-                        //     document.getElementById("mmf_video").play();
-                        // }, 300);
+                        setTimeout(function () {
+                            document.getElementById("mmf_video").play();
+                        }, 300);
                         break;
                     default:
                         console.log("switch default activeIndex:", sp.activeIndex);
@@ -72,7 +72,7 @@ window.onload = function () {
     });
 
     player2.addEventListener("animationend", () => {
-        // swiper_h.slideTo(2);
+        swiper_h.slideTo(2);
     });
 
     secondCoin[3].addEventListener("animationend", () => {
