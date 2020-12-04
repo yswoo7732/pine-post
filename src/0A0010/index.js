@@ -22,24 +22,32 @@ function fitScreeSize() {
 const secondImg = document.getElementById("secondImg");
 const mmfArrow = document.querySelector(".mmf-arrow");
 const player2 = document.querySelector(".player2");
-const secondPageCoin = document.getElementsByClassName("second-coin");
+const firstCoin = document.getElementsByClassName("first-coin");
+const secondCoin = document.getElementsByClassName("second-coin");
 
 window.onload = function () {
     fitScreeSize();
+    for (i = 0; i < firstCoin.length; i++) {
+        firstCoin[i].classList.add("first-coin-active");
+    }
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
         allowTouchMove: false,
         on: {
             slideChange: function (sp) {
                 console.log("switch activeIndex:", sp.activeIndex);
-
+                
                 switch (sp.activeIndex) {
-                        
+                    case 1:
+                        for (i = 0; i < secondCoin.length; i++) {
+                            secondCoin[i].classList.add("second-coin-active");
+                        }
+                        break;
                     case 2:
-                        setTimeout(function () {
-                            document.getElementById("mmf_video").play();
-                        }, 300);
-
+                        // setTimeout(function () {
+                        //     document.getElementById("mmf_video").play();
+                        // }, 300);
+                        break;
                     default:
                         console.log("switch default activeIndex:", sp.activeIndex);
                 }
@@ -64,13 +72,10 @@ window.onload = function () {
     });
 
     player2.addEventListener("animationend", () => {
-        for (i = 0; i < secondPageCoin.length; i++) {
-            secondPageCoin[i].classList.add("second-coin-active");
-        }
+        // swiper_h.slideTo(2);
     });
 
-    secondPageCoin[3].addEventListener("animationend", () => {
-        swiper_h.slideTo(2);
+    secondCoin[3].addEventListener("animationend", () => {
     });
 
     console.log("document.body.clientWidth", document.body.clientWidth);
