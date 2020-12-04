@@ -1,18 +1,18 @@
 function fitScreeSize() {
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
-    console.log("window.screen.availWidth", window.screen.availWidth);
-    console.log("window.screen.availHeight", window.screen.availHeight);
-    console.log("window.outerHeight", window.outerHeight);
-    console.log("window.devicePixelRatio", window.devicePixelRatio);
-    console.log("navigator.userAgent", navigator.userAgent);
+    // console.log("document.body.clientWidth", document.body.clientWidth);
+    // console.log("document.body.clientWidth", document.body.clientWidth);
+    // console.log("document.body.scrollWidth", document.body.scrollWidth);
+    // console.log("document.body.clientHeight", document.body.clientHeight);
+    // console.log("document.body.scrollHeight", document.body.scrollHeight);
+    // console.log("window.innerWidth", window.innerWidth);
+    // console.log("window.innerHeight", window.innerHeight);
+    // console.log("window.screen.width", window.screen.width);
+    // console.log("window.screen.height", window.screen.height);
+    // console.log("window.screen.availWidth", window.screen.availWidth);
+    // console.log("window.screen.availHeight", window.screen.availHeight);
+    // console.log("window.outerHeight", window.outerHeight);
+    // console.log("window.devicePixelRatio", window.devicePixelRatio);
+    // console.log("navigator.userAgent", navigator.userAgent);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
     } else {
         console.log("not mobile");
@@ -51,6 +51,7 @@ window.onload = function () {
                     default:
                         document.getElementById("mmf_video").pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
+                        break;
                 }
             },
         },
@@ -61,6 +62,9 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("page1StartBtn Click!", event);
+            for (i = 0; i < firstCoin.length; i++) {
+                firstCoin[i].classList.remove("first-coin-active");
+            }
             swiper_h.slideTo(1);
             mmfArrow.classList.add("mmf-arrow-move");
         },
@@ -76,6 +80,8 @@ window.onload = function () {
             swiper_h.slideTo(2);
         }, 500);
     });
+
+    document.getElementById("mmf_video").addEventListener;
 
     secondCoin[3].addEventListener("animationend", () => {});
 
