@@ -24,6 +24,7 @@ const mmfArrow = document.querySelector(".mmf-arrow");
 const player2 = document.querySelector(".player2");
 const firstCoin = document.getElementsByClassName("first-coin");
 const secondCoin = document.getElementsByClassName("second-coin");
+const mmfVideo = document.getElementById("mmf_video");
 
 window.onload = function () {
     fitScreeSize();
@@ -45,11 +46,12 @@ window.onload = function () {
                         break;
                     case 2:
                         setTimeout(function () {
-                            document.getElementById("mmf_video").play();
+                            mmfVideo.currentTime = 0;
+                            mmfVideo.play();
                         }, 100);
                         break;
                     default:
-                        document.getElementById("mmf_video").stop();
+                        mmfVideo.pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
                         break;
                 }
