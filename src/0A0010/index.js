@@ -22,6 +22,7 @@ function fitScreeSize() {
 const secondImg = document.getElementById("secondImg");
 const mmfArrow = document.querySelector(".mmf-arrow");
 const player2 = document.querySelector(".player2");
+const secondPageCoin = document.getElementsByClassName("second-coin");
 
 window.onload = function () {
     fitScreeSize();
@@ -33,6 +34,7 @@ window.onload = function () {
                 console.log("switch activeIndex:", sp.activeIndex);
 
                 switch (sp.activeIndex) {
+                        
                     case 2:
                         setTimeout(function () {
                             document.getElementById("mmf_video").play();
@@ -58,13 +60,17 @@ window.onload = function () {
 
     mmfArrow.addEventListener("animationend", () => {
         player2.classList.add("blinking");
-        console.log("Transition ended");
+        
     });
 
     player2.addEventListener("animationend", () => {
-        setTimeout(() => {
-            swiper_h.slideTo(2).behavior = 'smooth';
-        }, 1000);
+        for (i = 0; i < secondPageCoin.length; i++) {
+            secondPageCoin[i].classList.add("second-coin-active");
+        }
+    });
+
+    secondPageCoin[3].addEventListener("animationend", () => {
+        swiper_h.slideTo(2);
     });
 
     console.log("document.body.clientWidth", document.body.clientWidth);

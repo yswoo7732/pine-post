@@ -62,11 +62,95 @@ img {
     height: 100%;
 }
 
-.mmf-coin {
+.cloud {
     position: absolute;
-    width: 8%;
+    top: 27%;
+    left: -7%;
+    width: 185%;
+    opacity: 0.7;
+    animation: ani-cloud 7s infinite ease-in-out;  
 }
 
+@keyframes ani-cloud {
+    0% {
+        transform: translate(1%, 0);
+    }
+    50% {
+        transform: translate(-1%, 0);
+    }
+    100% {
+        transform: translate(1%, 0);
+    }
+} 
+
+.mmf-coin, .second-coin{
+    position: absolute;
+    width: 8%;
+    /* transform-style: preserve-3d;
+    animation: ani-coin 1.3s ease-in-out infinite; */
+
+    /* transform: rotateZ(0deg); */
+}
+
+.second-coin-active {
+    animation: ani-coin 0.5s linear both;
+    /* animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+
+.second-coin-active:nth-of-type(7) {
+    animation-delay: 0.2s;
+}
+
+.second-coin-active:nth-of-type(8) {
+    animation-delay: 0.4s;
+}
+
+.second-coin-active:nth-of-type(9) {
+    animation-delay: 0.6s;
+}
+
+
+
+@keyframes rotate-in-ver {
+    0% {
+      -webkit-transform: rotateY(-360deg);
+              transform: rotateY(-360deg);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+
+@keyframes ani-coin {
+    100% {
+        transform: rotateY(360deg);
+    }
+    60% {
+        transform: rotateY(90deg);
+        filter: brightness(0.8);
+    }
+    /* 50% {
+        transform: rotateZ(0deg);
+    }
+    40% {
+        transform: rotateZ(-10deg);
+    }
+    30% {
+        transform: rotateZ(10deg);
+    }
+    20% {
+        transform: rotateZ(-10deg);
+    }
+    10% {
+        transform: rotateZ(10deg);
+    }
+    0% {
+        transform: rotateZ(0deg);
+    } */
+}
 .mmf-start-btn {
     width: 58%;
     height: auto;
@@ -109,9 +193,9 @@ img {
 
 .mmf-arrow-move {
     animation-name: ani-mmf-arrow;
-    animation-timing-function: linear;
-    animation-delay: 0.5s;
-    animation-duration: 1.3s;
+    animation-timing-function: ease;
+    animation-delay: 0.2s;
+    animation-duration: 0.8s;
     animation-fill-mode: forwards;
 }
 
@@ -125,17 +209,19 @@ img {
 }
 
 .blinking {
-    animation: name duration timing-function delay iteration-count direction fill-mode;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.5s;
+    /* animation-delay: 0.5s; */
     animation-iteration-count: 2;
 }
 
 @keyframes blink {
     0% {
         opacity: 0;
+    }
+    50% {
+        filter: brightness(0.5);
     }
     100% {
         opacity: 1;
