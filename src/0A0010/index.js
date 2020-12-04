@@ -79,12 +79,12 @@ window.onload = function () {
 
     player2.addEventListener("animationend", () => {
         setTimeout(function () {
-            // swiper_h.slideTo(2);
+            swiper_h.slideTo(2);
         }, 800);
     });
 
     mmfVideo.addEventListener("ended", () => {
-        // swiper_h.slideTo(3);
+        swiper_h.slideTo(3);
     });
 
     document.getElementById("mmf_video").addEventListener;
