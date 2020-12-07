@@ -39,8 +39,8 @@ window.onload = function () {
 
                 switch (sp.activeIndex) {
                     case 1:
-                        document.getElementsByClassName("cloud")[0].style.display = "none";
-                        document.getElementsByClassName("cloud")[1].style.display = "block";
+                        // document.getElementsByClassName("cloud")[0].style.display = "none";
+                        // document.getElementsByClassName("cloud")[1].style.display = "block";
                         setTimeout(function () {
                             for (i = 0; i < secondCoin.length; i++) {
                                 secondCoin[i].classList.add("second-coin-active");
@@ -48,14 +48,14 @@ window.onload = function () {
                         }, 300);
                         break;
                     case 2:
-                        document.getElementsByClassName("cloud")[1].style.display = "none";
+                        // document.getElementsByClassName("cloud")[1].style.display = "none";
                         setTimeout(function () {
                             mmfVideo.currentTime = 0;
                             mmfVideo.play();
                         }, 100);
                         break;
                     case 3:
-                        document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
+                        // document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
                         setTimeout(function () {
                             for (i = 0; i < thirdCoin.length; i++) {
                                 thirdCoin[i].classList.add("third-coin-active");
