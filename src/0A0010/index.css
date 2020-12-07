@@ -71,26 +71,61 @@ img {
 .cloud {
     position: absolute;
     top: 27%;
-    left: -7%;
+    left: 0;
     width: 185%;
-    opacity: 0.7;
-    animation: ani-cloud 7s infinite ease-in-out;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
 }
 
-@keyframes ani-cloud {
+.page4-cloud1 {
+    top: 10%;
+    position: absolute;
+    left: 9%;
+    width: 86%;
+    opacity: 0.8;
+    animation: ani-cloud1 7s infinite ease-in-out;
+}
+
+.page4-cloud2-active {
+    animation: ani-cloud2 7s infinite ease-in-out;
+}
+
+@keyframes ani-cloud1 {
     0% {
-        transform: translate(1%, 0);
+        transform: translate(2%, 0);
     }
     50% {
-        transform: translate(-1%, 0);
+        transform: translate(-4%, 0);
     }
     100% {
-        transform: translate(1%, 0);
+        transform: translate(2%, 0);
+    }
+}
+
+@keyframes ani-cloud2 {
+    0% {
+        transform: translate(3%, 0);
+    }
+    50% {
+        transform: translate(-9%, 0);
+    }
+    100% {
+        transform: translate(3%, 0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -85%;
     }
 }
 
 .first-coin,
-.second-coin {
+.second-coin,
+.third-coin {
     position: absolute;
     width: 8%;
 }
@@ -140,23 +175,28 @@ img {
     animation-delay: 0.2s;
 }
 
-.second-coin-active {
+.second-coin-active,
+.third-coin-active {
     animation: ani-coin 0.5s ease-out both;
 }
 
-.second-coin-active:nth-of-type(7) {
+.second-coin-active:nth-of-type(7),
+.third-coin-active:nth-of-type(4) {
     animation-delay: 0.1s;
 }
 
-.second-coin-active:nth-of-type(7) {
+.second-coin-active:nth-of-type(8),
+.third-coin-active:nth-of-type(5) {
     animation-delay: 0.3s;
 }
 
-.second-coin-active:nth-of-type(8) {
+.second-coin-active:nth-of-type(9),
+.third-coin-active:nth-of-type(6) {
     animation-delay: 0.6s;
 }
 
-.second-coin-active:nth-of-type(9) {
+.second-coin-active:nth-of-type(10),
+.third-coin-active:nth-of-type(7) {
     animation-delay: 0.9s;
 }
 
@@ -178,16 +218,8 @@ img {
     }
 }
 
-/* @keyframes ani-coin {
-    100% {
-        transform: rotateY(360deg);
-    }
-    60% {
-        transform: rotateY(90deg);
-        filter: brightness(0.8);
-    }
-} */
-.mmf-start-btn {
+.mmf-start-btn,
+.mmf-finish-btn {
     width: 58%;
     height: auto;
     position: absolute;
@@ -198,9 +230,25 @@ img {
     border-radius: 6px;
 }
 
+.mmf-finish-btn {
+    animation: pulse 1.3s infinite ease;
+}
+
 @keyframes pulseAnim {
     0% {
         box-shadow: 0 0 0 0 #26262766;
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(88, 120, 243, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(88, 120, 243, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 237, 255, 0.7);
     }
     70% {
         box-shadow: 0 0 0 10px rgba(88, 120, 243, 0);

@@ -24,6 +24,7 @@ const mmfArrow = document.querySelector(".mmf-arrow");
 const player2 = document.querySelector(".player2");
 const firstCoin = document.getElementsByClassName("first-coin");
 const secondCoin = document.getElementsByClassName("second-coin");
+const thirdCoin = document.getElementsByClassName("third-coin");
 const mmfVideo = document.getElementById("mmf_video");
 
 window.onload = function () {
@@ -38,6 +39,7 @@ window.onload = function () {
 
                 switch (sp.activeIndex) {
                     case 1:
+                        document.getElementsByClassName("cloud")[1].style.display = "block";
                         setTimeout(function () {
                             for (i = 0; i < secondCoin.length; i++) {
                                 secondCoin[i].classList.add("second-coin-active");
@@ -49,6 +51,14 @@ window.onload = function () {
                             mmfVideo.currentTime = 0;
                             mmfVideo.play();
                         }, 100);
+                        break;
+                    case 3:
+                        document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
+                        setTimeout(function () {
+                            for (i = 0; i < thirdCoin.length; i++) {
+                                thirdCoin[i].classList.add("third-coin-active");
+                            }
+                        }, 300);
                         break;
                     default:
                         mmfVideo.pause();
