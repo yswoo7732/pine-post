@@ -39,6 +39,7 @@ window.onload = function () {
 
                 switch (sp.activeIndex) {
                     case 1:
+                        document.getElementsByClassName("cloud")[0].style.display = "none";
                         document.getElementsByClassName("cloud")[1].style.display = "block";
                         setTimeout(function () {
                             for (i = 0; i < secondCoin.length; i++) {

@@ -90,6 +90,7 @@ img {
 }
 
 .fund1_startBtn {
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     animation-name: ani-fund1_startBtn;

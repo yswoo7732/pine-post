@@ -145,7 +145,7 @@ img {
 }
 .first-coin-active {
     /* animation: slide-in-fwd-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
-    animation: ani-coin 0.5s linear both;
+    animation: ani-coin 0.5s linear both 0.5s;
 }
 
 .first-coin-active:nth-of-type(2) {
