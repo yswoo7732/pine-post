@@ -55,7 +55,7 @@ window.onload = function () {
                         }, 100);
                         break;
                     case 3:
-                        // document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
+                        document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
                         setTimeout(function () {
                             for (i = 0; i < thirdCoin.length; i++) {
                                 thirdCoin[i].classList.add("third-coin-active");

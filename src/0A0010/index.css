@@ -78,11 +78,11 @@ img {
 }
 
 #cloud1 {
-    background: url('assets/cast_special_mmf_4_cloud2.png');
+    background: url("assets/cast_special_mmf_4_cloud2.png");
 }
 
 #cloud2 {
-    background: url('assets/cast_special_mmf_4_cloud1.png');
+    background: url("assets/cast_special_mmf_4_cloud1.png");
 }
 
 .cloud {
@@ -108,7 +108,8 @@ img {
         margin-left: -416px;
     }
 }
-/* .page4-cloud1 {
+
+.page4-cloud1 {
     top: 10%;
     position: absolute;
     left: 9%;
@@ -143,9 +144,7 @@ img {
     100% {
         transform: translate(3%, 0);
     }
-} */
-
-
+}
 
 .first-coin,
 .second-coin,
