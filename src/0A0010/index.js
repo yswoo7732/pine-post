@@ -48,6 +48,7 @@ window.onload = function () {
                         }, 300);
                         break;
                     case 2:
+                        document.getElementsByClassName("cloud")[1].style.display = "none";
                         setTimeout(function () {
                             mmfVideo.currentTime = 0;
                             mmfVideo.play();
