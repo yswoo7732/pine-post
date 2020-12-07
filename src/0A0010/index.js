@@ -84,7 +84,9 @@ window.onload = function () {
     });
 
     mmfVideo.addEventListener("ended", () => {
-        swiper_h.slideTo(3);
+        if (swiper_h.activeIndex == 2) {
+            swiper_h.slideTo(3);
+        }
     });
 
     document.getElementById("mmf_video").addEventListener;
