@@ -93,6 +93,10 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
     animation-name: ani-fund1_startBtn;
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
