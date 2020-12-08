@@ -79,7 +79,7 @@ window.onload = function () {
             for (i = 0; i < firstCoin.length; i++) {
                 firstCoin[i].classList.remove("first-coin-active");
             }
-            swiper_h.slideTo(2);
+            swiper_h.slideTo(1);
             mmfArrow.classList.add("mmf-arrow-move");
         },
         false

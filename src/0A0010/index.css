@@ -195,16 +195,18 @@ img {
 }
 
 .first-coin-active:nth-of-type(3) {
-    animation-delay: 0.2s;
-}
-
-.first-coin-active:nth-of-type(4) {
+    /* animation-delay: 0.2s; */
     animation-delay: 0.3s;
 }
 
-.first-coin-active:nth-of-type(5) {
-    /* animation-delay: 0.8s; */
+.first-coin-active:nth-of-type(4) {
+    /* animation-delay: 0.3s; */
     animation-delay: 0.4s;
+}
+
+.first-coin-active:nth-of-type(5) {
+    /* animation-delay: 0.4s; */
+    animation-delay: 0.5s;
 }
 
 .first-coin-active:nth-of-type(6) {
@@ -213,8 +215,8 @@ img {
 }
 
 .first-coin-active:nth-of-type(7) {
-    /* animation-delay: 1.2s; */
-    animation-delay: 0.2s;
+    /* animation-delay: 0.2s; */
+    animation-delay: 0.3s;
 }
 
 .second-coin-active,
