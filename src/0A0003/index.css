@@ -275,6 +275,10 @@ img {
     .fund3_result {
         margin-top: 130% !important;
     }
+
+    .fund4_replay {
+        top: 65% !important;
+    }
 }
 
 @media (min-aspect-ratio: 300/500) {
@@ -319,7 +323,7 @@ img {
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 600px) {
     .swiper-container {
         width: 375px;
         height: 812px;
@@ -327,5 +331,9 @@ img {
     .content-wrapper {
         width: 100%;
         margin-top: 20%;
+    }
+
+    .samo-wrapper, .gongmo-wrapper {
+        margin-top: 30%;
     }
 }
