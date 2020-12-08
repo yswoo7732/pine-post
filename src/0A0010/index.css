@@ -88,11 +88,9 @@ img {
 .cloud1 {
     background: url("assets/cast_special_mmf_4_cloud2.png") repeat-x left center;
     background-size: 416px 84px;
-
     top: 26%;
     left: 0;
     position: absolute;
-    z-index: 3;
     background-repeat: repeat-x;
     display: inline-block;
     animation: ani-cloud 15s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
