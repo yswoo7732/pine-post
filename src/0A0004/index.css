@@ -63,6 +63,7 @@ body {
     overscroll-behavior: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 body,
@@ -158,38 +159,15 @@ img {
     color: rgba(255, 255, 255, 0.5);
 }
 
-:root {
-    --scroll: 0;
-    --content: 0;
-}
-
-/* html::after,
-body::after {
-    content: "";
-    height: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: calc((var(--content)) * 1%);
-} */
-
 .wrap_cover {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     z-index: 0;
     top: 0;
     -webkit-transform: translateZ(0);
-    transform: translate3d(0, 0, 0);
-    -webkit-overflow-scrolling: touch;
-}
-
-#cover_full {
-    height: calc((100 - var(--scroll)) * 1vh);
-    width: 100vw;
-    height: calc((100 - var(--scroll)) * 1vh);
-    -o-object-fit: cover;
-    object-fit: cover;
-    min-height: 0;
+    transform: translateZ(0);
+    /* overflow: auto;
+    -webkit-overflow-scrolling: touch; */
 }
 
 .cover_item {
@@ -495,23 +473,22 @@ body::after {
     padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
 }
 
-progress {
+.progress-indicator {
     position: absolute;
+    /* top:0;
+  left:0; */
     height: 1px;
     width: 100%;
     overflow: hidden;
+}
+
+.progress-bar {
+    -webkit-transition: width 0.2s ease-out;
+    -o-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+    background: black;
+    height: 1px;
     max-width: 100%;
-    background: transparent;
-    border: none;
-}
-progress::-webkit-progress-bar {
-    background: transparent;
-}
-progress::-webkit-progress-value {
-    background: black;
-}
-progress::-moz-progress-bar {
-    background: black;
 }
 
 .heart_active {
