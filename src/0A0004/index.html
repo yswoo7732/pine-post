@@ -35,12 +35,13 @@
       <p class="sub-date-contents">Nov.2020</p>
     </div>
   </div>
-  
+
 
   <div class="wrap_body_frame" id="body_frame">
     <div class="basic_foot">
-      <div class="progress-indicator">
-        <div class="progress-bar" id="progressBar"></div>
+      <div>
+        <progress max="100" value="0" class="progress-indicator progress-bar"></progress>
+        <!-- <div class="progress-indicator" id="progressBar"></div> -->
       </div>
       <div style="width: 50%" id="heartDiv">
         <img id="imgHeart" src="assets/basic_foot_heart.png" />
@@ -138,14 +139,15 @@
   </div>
 
   <div class="link_item" id="link_cover_full">
-    <div class="cover_image" id="link_img" style="background-image: url('assets/1_fund_definition_end.png'); height: 100%">
+    <div class="cover_image" id="link_img"
+      style="background-image: url('assets/1_fund_definition_end.png'); height: 100%">
     </div>
     <div class="stroke_link" id="link_title">
       <p style="text-align: center">온라인 클래스<br />펀드 가입하기</p>
     </div>
   </div>
 
-  
+
   <div class="basic_link_foot sticky">
     <div style="width: 50%" id="whiteHeartDiv">
       <img id="imgWhiteHeart" src="assets/card_foot_heart.png" />
@@ -156,8 +158,12 @@
   </div>
   <!-- </div> -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
   <script type="text/javascript" src="index.js"></script>
 
 </body>
