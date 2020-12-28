@@ -160,13 +160,13 @@ window.onload = function () {
     });
 
     // 링크 터치 이벤트
-    // link_title.addEventListener("touchstart", function (event) {
-    //     this.classList.add("stroke_link-active");
-    // });
+    link_title.addEventListener("touchstart", function (event) {
+        this.classList.add("stroke_link-active");
+    });
 
-    // link_title.addEventListener("touchend", function (event) {
-    //     this.classList.remove("stroke_link-active");
-    // });
+    link_title.addEventListener("touchend", function (event) {
+        this.classList.remove("stroke_link-active");
+    });
 
     // 좋아요 이벤트
     let heartClickEvent = document.querySelector("#imgHeart");
