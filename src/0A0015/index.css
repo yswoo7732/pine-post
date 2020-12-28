@@ -202,7 +202,7 @@ img {
     }
 }
 
-.stroke_link-active {
+.stroke_link:active {
     animation-name: hvr-back-pulse;
     animation-duration: 1s;
     animation-delay: 0.5s;
