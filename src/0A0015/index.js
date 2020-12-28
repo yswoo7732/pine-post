@@ -159,14 +159,23 @@ window.onload = function () {
         }
     });
 
+    // 링크 터치 이벤트
+    link_title.addEventListener("touchstart", function (event) {
+        this.classList.add("stroke_link-active");
+    });
+
+    link_title.addEventListener("touchend", function (event) {
+        this.classList.remove("stroke_link-active");
+    });
+
     // 좋아요 이벤트
-    var heartClickEvent = document.querySelector("#imgHeart");
+    let heartClickEvent = document.querySelector("#imgHeart");
     heartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_active");
         document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
     });
 
-    var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
+    let whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
     whiteHeartClickEvent.addEventListener("click", function () {
         this.classList.toggle("heart_white_active");
         document.querySelector("#imgHeart").classList.toggle("heart_active");
@@ -186,10 +195,10 @@ window.onload = function () {
         });
     }
 
-    var checkScrollSpeed = (function (settings) {
+    let checkScrollSpeed = (function (settings) {
         settings = settings || {};
 
-        var lastPos,
+        let lastPos,
             newPos,
             timer,
             delta,
