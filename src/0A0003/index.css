@@ -90,13 +90,6 @@ img {
 }
 
 .fund1_startBtn {
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    z-index: 3;
-    left: 50%;
-    transform: translateX(-50%); */
     animation-name: ani-fund1_startBtn;
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
@@ -105,10 +98,16 @@ img {
 
 @keyframes ani-fund1_startBtn {
     0% {
-        content: url("assets/cast_special_fund1_start1.png");
+        background: url("assets/cast_special_fund1_start1.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     100% {
-        content: url("assets/cast_special_fund1_start2.png");
+        background: url("assets/cast_special_fund1_start2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
 }
 
