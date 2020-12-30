@@ -63,7 +63,6 @@ body {
     overscroll-behavior: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    -webkit-overflow-scrolling: touch;
 }
 
 body,
@@ -166,8 +165,6 @@ img {
     top: 0;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    /* overflow: auto;
-    -webkit-overflow-scrolling: touch; */
 }
 
 .cover_item {
@@ -176,6 +173,8 @@ img {
     max-height: none !important;
     position: relative;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
 }
 
 .link_item {
