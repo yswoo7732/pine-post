@@ -6,7 +6,7 @@ window.onload = function () {
         console.log("not mobile");
     }
 
-    const btnOK = document.getElementsByClassName("btn_confirm")[0];
+    const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
 
     btnOK.addEventListener("click", () => {
@@ -167,8 +167,13 @@ function handleSalarySliderValuePosition(input) {
     const slider = document.getElementsByClassName("slider")[0];
     const max = parseInt(input.max);
     const value = parseInt(input.value);
+    const thumbSize = 20;
 
-    rangeTip.style.left = slider.getBoundingClientRect().left + value + "px";
+    const multiplier = value / max;
+    const thumbOffset = thumbSize * multiplier;
+    const priceInputOffset = (thumbSize - document.body.clientWidth) / 2;
+    
+    rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
 
     if (value == 0) {
         rangeTip.style.width = "50px";
@@ -179,14 +184,19 @@ function handleSalarySliderValuePosition(input) {
     } else if (value > 100 && value <= 200) {
         rangeTip.style.width = "122px";
         rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
-        rangeTip.style.left = slider.getBoundingClientRect().left + value - 13 + "px";
+        // rangeTip.style.left = slider.getBoundingClientRect().left + value - 13 + "px";
     } else {
         rangeTip.style.width = "88px";
         rangeTip.innerText = "1억 2천만원 초과";
-        rangeTip.style.left = slider.getBoundingClientRect().left + value - 36 + "px";
+        // rangeTip.style.left = slider.getBoundingClientRect().left + value - 36 + "px";
     }
 
-    console.log(input.value);
+    // console.log("value", input.value);
+    // console.log(input.clientWidth);
+    // console.log(multiplier);
+    // console.log(thumbOffset);
+    // console.log(priceInputOffset);
+    // console.log(input.clientWidth * multiplier - thumbOffset);
 }
 
 function handleDepositSliderValuePosition(input) {
@@ -218,19 +228,28 @@ function drawChart() {
     var chartDiv = document.getElementById("chart_div");
 
     var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn("string", "Year");
-    dataTable.addColumn("number", "추천 펀드");
+    dataTable.addColumn("string", "Month");
+    dataTable.addColumn("number", "시가");
+    // dataTable.addColumn('number', 'UK');
     // A column for custom tooltip content
-    dataTable.addColumn({ type: "string", role: "tooltip", 'p': {'html': true} });
+    dataTable.addColumn({ type: "string", role: "tooltip", p: { html: true } });
     dataTable.addRows([
-        ["2010", 600, createCustomHTMLContent("assets/pine_banner1.png")],
-        ["2011", 1500, createCustomHTMLContent("assets/pine_banner2.png")],
-        ["2012", 800, createCustomHTMLContent("assets/pine_banner1.png")],
-        ["2013", 1000, createCustomHTMLContent("assets/pine_banner2.png")],
+        ["1월", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["2월", 1000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["3월", 150, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["4월", 1500, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["5월", 2000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["6월", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["7월", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["8월", 500, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["9월", 3000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["10월", 600, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["11월", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["12월", 1160, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
     ]);
 
     var options = {
-        title: "Company Performance",
+        title: "코스피 지수",
         colors: ["#d62a56"],
         // This line makes the entire category's tooltip active.
         // focusTarget: "category",
@@ -277,15 +296,18 @@ function drawChart() {
     // };
 
     function drawClassicChart() {
-        var classicChart = new google.visualization.LineChart(chartDiv);
+        var classicChart = new google.visualization.AreaChart(chartDiv);
         classicChart.draw(dataTable, options);
     }
 
     drawClassicChart();
 }
 
-function createCustomHTMLContent(flagURL) {
+function createCustomHTMLContent(flagURL, flag) {
     return (
+        '<p style="text-align:center;">' +
+        flag +
+        "</p>" +
         '<div style="padding:5px 5px 5px 5px;">' +
         '<img src="' +
         flagURL +
