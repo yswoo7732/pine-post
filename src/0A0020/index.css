@@ -62,16 +62,18 @@ body {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    /* backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; */
+    overscroll-behavior: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 body,
 div {
     margin: 0;
     padding: 0;
-    /* backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 img {
@@ -84,7 +86,7 @@ img {
 }
 
 .title_wrap {
-    padding: 15% 0 0;
+    padding: 20% 0 0;
     margin: 0 auto;
 }
 
@@ -103,7 +105,7 @@ img {
 
 .section {
     font-family: LIFEPLUS;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -113,19 +115,23 @@ img {
 }
 
 .main_section {
-    padding: 30px 20px 0 20px;
+    padding: 30px 20px 50px 20px;
     margin: auto;
+}
+
+.range_container {
+    padding: 6% 0;
 }
 
 .range_title {
     font-family: LIFEPLUS;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #000000;
+    color: #666;
 }
 
 .slider_container {
@@ -138,7 +144,7 @@ img {
 .mark_tip {
     display: inline-block;
     font-family: LIFEPLUS;
-    font-size: 4px;
+    font-size: 11px;
     font-weight: 200;
     font-stretch: normal;
     font-style: normal;
@@ -159,12 +165,12 @@ img {
 
 .depositmarks_tips .mark_tip:nth-of-type(1) {
     position: absolute;
-    left: 14%;
+    left: 7%;
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(2) {
     position: absolute;
-    left: 28%;
+    left: 24%;
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(3) {
@@ -179,7 +185,7 @@ img {
 
 .depositmarks_tips .mark_tip:nth-of-type(5) {
     position: absolute;
-    left: 81%;
+    left: 86%;
 }
 
 .__range-output-square {
@@ -252,8 +258,8 @@ img {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background: #fff;
     border: 2px solid #737373;
     -webkit-border-radius: 50%;
@@ -268,8 +274,8 @@ img {
     margin-top: -8px;
 }
 .slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background: #fff;
     border: 2px solid #737373;
     -webkit-border-radius: 50%;
@@ -285,7 +291,7 @@ img {
 }
 .slider::-webkit-slider-runnable-track {
     width: 100%;
-    height: 3px;
+    height: 10px;
     background: #6dceac;
     border: none;
     border-radius: 3px;
@@ -293,7 +299,7 @@ img {
 
 .slider::-moz-track {
     width: 100%;
-    height: 3px;
+    height: 10px;
     background: #6dceac;
     border: none;
     border-radius: 3px;
@@ -330,22 +336,15 @@ img {
     justify-content: center;
     text-align: center;
     width: 1px;
-    background: #d3d3d3;
-    height: 10px;
+    background: #666;
+    height: 16px;
     line-height: 40px;
-    margin: 0 0 20px 0;
-}
-
-.tickmarks p span {
-    font-family: LIFEPLUS-BODY;
-    font-size: 4px;
-    line-height: normal;
-    margin-top: 20px;
+    margin: 2px 0 20px 0;
 }
 
 .result_wrapper {
     padding: 15% 0;
-    padding: 30px 20px 0 20px;
+    padding: 60px 20px 0 20px;
 }
 
 .result_container {
@@ -353,8 +352,8 @@ img {
     border-radius: 6px;
     padding: 20px;
     font-family: LIFEPLUS;
-    font-size: 13px;
-    font-weight: 200;
+    font-size: 15px;
+    font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.56;
@@ -376,7 +375,7 @@ img {
 
 .result_section_tip {
     font-family: LIFEPLUS;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 200;
     font-stretch: normal;
     font-style: normal;
@@ -416,7 +415,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 33% auto;
+    margin: 0 auto;
     padding: 3% 0;
     border: 0;
 }
@@ -429,8 +428,8 @@ img {
 
 .result_txt {
     font-family: LIFEPLUS;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.56;
@@ -444,8 +443,8 @@ table {
     margin: 0 auto;
     border-collapse: collapse;
     font-family: LIFEPLUS;
-    font-size: 10px;
-    font-weight: 200;
+    font-size: 12px;
+    font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.56;
@@ -456,17 +455,17 @@ td,
 th {
     padding: 6px 16px;
     text-align: center;
-    font-weight: 200;
     border-bottom: 1px solid #d9d9d9;
 }
 
 th {
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .table_caution {
     font-family: LIFEPLUS;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 200;
     font-stretch: normal;
     font-style: normal;
@@ -488,8 +487,8 @@ th {
 .benefit_section {
     padding: 50px 20px 50px 20px;
     font-family: LIFEPLUS;
-    font-size: 13px;
-    font-weight: 200;
+    font-size: 15px;
+    font-weight: 500;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.56;
@@ -499,7 +498,7 @@ th {
 
 .benefit_section p:nth-of-type(1) {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .benefit_section span {
@@ -610,7 +609,7 @@ th {
 .pine_section {
     padding: 50px 20px 50px 20px;
     font-family: LIFEPLUS;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -620,7 +619,7 @@ th {
 }
 
 .pine_section p:nth-of-type(1) {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -667,9 +666,8 @@ th {
 }
 
 .graph_section {
-    padding: 50px 20px 50px 20px;
     font-family: LIFEPLUS;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -678,12 +676,16 @@ th {
     color: #000000;
 }
 
+.graph_description {
+    padding: 50px 20px 37px 20px;
+}
+
 .graph_description p:not(:nth-of-type(1)) {
     margin: 0;
 }
 
 .graph_description p:nth-of-type(1) {
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bold;
 }
 
@@ -691,4 +693,9 @@ th {
     padding: 20px 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
 }

@@ -15,7 +15,7 @@ window.onload = function () {
             return false;
         }
 
-        if(document.getElementsByClassName("slider")[1].value == 0) {
+        if (document.getElementsByClassName("slider")[1].value == 0) {
             alert("연금저축액을 선택해주세요.");
             return false;
         }
@@ -28,12 +28,14 @@ window.onload = function () {
         ScrollTrigger.create({
             trigger: ".add_square",
             start: "top center",
+            once: true,
             toggleClass: { targets: ".add_square", className: "add_square_active" },
         });
 
         ScrollTrigger.create({
             trigger: ".add_square",
             start: "top center",
+            once: true,
             toggleClass: { targets: ".square_tip", className: "square_tip_active" },
         });
 
@@ -155,7 +157,7 @@ window.onload = function () {
         });
     });
 
-    google.charts.load("current", { packages: ["line", "corechart"] });
+    google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
 };
 
@@ -191,7 +193,8 @@ function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
     const thumbSize = 20;
 
-    rangeTip.innerText = input.value + "만원";
+    rangeTip.innerText = input.value;
+    rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
     rangeTip.style.left = document.getElementById("__mark-" + input.value).getBoundingClientRect().left - thumbSize + "px";
 
@@ -212,69 +215,81 @@ function animateValue(obj, start, end, duration) {
 }
 
 function drawChart() {
-    var button = document.getElementById("change-chart");
     var chartDiv = document.getElementById("chart_div");
 
-    var data = new google.visualization.DataTable();
-    data.addColumn("date", "Month");
-    data.addColumn("number", "Average Temperature");
-    data.addColumn("number", "Average Hours of Daylight");
-
-    data.addRows([
-        [new Date(2014, 0), -0.5, 5.7],
-        [new Date(2014, 1), 0.4, 8.7],
-        [new Date(2014, 2), 0.5, 12],
-        [new Date(2014, 3), 2.9, 15.3],
-        [new Date(2014, 4), 6.3, 18.6],
-        [new Date(2014, 5), 9, 20.9],
-        [new Date(2014, 6), 10.6, 19.8],
-        [new Date(2014, 7), 10.3, 16.6],
-        [new Date(2014, 8), 7.4, 13.3],
-        [new Date(2014, 9), 4.4, 9.9],
-        [new Date(2014, 10), 1.1, 6.6],
-        [new Date(2014, 11), -0.2, 4.5],
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn("string", "Year");
+    dataTable.addColumn("number", "추천 펀드");
+    // A column for custom tooltip content
+    dataTable.addColumn({ type: "string", role: "tooltip", 'p': {'html': true} });
+    dataTable.addRows([
+        ["2010", 600, createCustomHTMLContent("assets/pine_banner1.png")],
+        ["2011", 1500, createCustomHTMLContent("assets/pine_banner2.png")],
+        ["2012", 800, createCustomHTMLContent("assets/pine_banner1.png")],
+        ["2013", 1000, createCustomHTMLContent("assets/pine_banner2.png")],
     ]);
 
-    var classicOptions = {
-        width: "100%",
-        height: 500,
-        // Gives each series an axis that matches the vAxes number below.
-        series: {
-            0: { targetAxisIndex: 0 },
-            1: { targetAxisIndex: 1 },
-        },
-        // vAxes: {
-        //     // Adds titles to each axis.
-        //     0: { title: "Temps (Celsius)" },
-        //     1: { title: "Daylight" },
-        // },
-        hAxis: {
-            ticks: [
-                new Date(2014, 0),
-                new Date(2014, 1),
-                new Date(2014, 2),
-                new Date(2014, 3),
-                new Date(2014, 4),
-                new Date(2014, 5),
-                new Date(2014, 6),
-                new Date(2014, 7),
-                new Date(2014, 8),
-                new Date(2014, 9),
-                new Date(2014, 10),
-                new Date(2014, 11),
-            ],
-        },
-        vAxis: {
-            viewWindow: {
-                max: 30,
-            },
-        },
+    var options = {
+        title: "Company Performance",
+        colors: ["#d62a56"],
+        // This line makes the entire category's tooltip active.
+        // focusTarget: "category",
+        // Use an HTML tooltip.
+        tooltip: { isHtml: true },
+        legend: "none",
     };
+
+    // var classicOptions = {
+    //     width: "100%",
+    //     height: "auto",
+    //     legend: { position: 'bottom' },
+    //     // Gives each series an axis that matches the vAxes number below.
+    //     series: {
+    //         0: { targetAxisIndex: 0 },
+    //         1: { targetAxisIndex: 1 },
+    //     },
+    //     // vAxes: {
+    //     //     // Adds titles to each axis.
+    //     //     0: { title: "Temps (Celsius)" },
+    //     //     1: { title: "Daylight" },
+    //     // },
+    //     hAxis: {
+    //         ticks: [
+    //             new Date(2014, 0),
+    //             new Date(2014, 1),
+    //             new Date(2014, 2),
+    //             new Date(2014, 3),
+    //             new Date(2014, 4),
+    //             new Date(2014, 5),
+    //             new Date(2014, 6),
+    //             new Date(2014, 7),
+    //             new Date(2014, 8),
+    //             new Date(2014, 9),
+    //             new Date(2014, 10),
+    //             new Date(2014, 11),
+    //         ],
+    //     },
+    //     vAxis: {
+    //         viewWindow: {
+    //             max: 30,
+    //         },
+    //     },
+    // };
 
     function drawClassicChart() {
         var classicChart = new google.visualization.LineChart(chartDiv);
-        classicChart.draw(data, classicOptions);
+        classicChart.draw(dataTable, options);
     }
 
     drawClassicChart();
+}
+
+function createCustomHTMLContent(flagURL) {
+    return (
+        '<div style="padding:5px 5px 5px 5px;">' +
+        '<img src="' +
+        flagURL +
+        '" style="width:100px;height:200px"><br/>' +
+        "</div>"
+    );
 }
