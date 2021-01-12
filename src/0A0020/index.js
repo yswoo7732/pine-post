@@ -1,6 +1,12 @@
+document.body.addEventListener('ready', function() {
+    console.log("not dddd");
+
+});
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/iPhone/i.test(navigator.userAgent)) {
+        console.log("not dddmobile");
+
         }
     } else {
         console.log("not mobile");
@@ -20,10 +26,11 @@ window.onload = function () {
             return false;
         }
 
-        contentsContainer.style.display = "block";
+        contentsContainer.style.display = "";
         gsap.to(window, { scrollTo: { y: ".result_wrapper" } });
 
         document.querySelector(".result_container").classList.add("result_container_active");
+        document.querySelector(".result_section_tip").classList.add("result_container_active");
 
         ScrollTrigger.create({
             trigger: ".add_square",
@@ -157,7 +164,8 @@ window.onload = function () {
         });
     });
 
-    google.charts.load("current", { packages: ["corechart"] });
+    // 구글차트
+    google.charts.load("45", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
 };
 
@@ -172,7 +180,7 @@ function handleSalarySliderValuePosition(input) {
     const multiplier = value / max;
     const thumbOffset = thumbSize * multiplier;
     const priceInputOffset = (thumbSize - document.body.clientWidth) / 2;
-    
+
     rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
 
     if (value == 0) {
@@ -184,11 +192,9 @@ function handleSalarySliderValuePosition(input) {
     } else if (value > 100 && value <= 200) {
         rangeTip.style.width = "122px";
         rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
-        // rangeTip.style.left = slider.getBoundingClientRect().left + value - 13 + "px";
     } else {
         rangeTip.style.width = "88px";
         rangeTip.innerText = "1억 2천만원 초과";
-        // rangeTip.style.left = slider.getBoundingClientRect().left + value - 36 + "px";
     }
 
     // console.log("value", input.value);
@@ -199,18 +205,24 @@ function handleSalarySliderValuePosition(input) {
     // console.log(input.clientWidth * multiplier - thumbOffset);
 }
 
+// 연금 저축액 범위에 따른 tooltip 텍스트 및 위치조정
 function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
     const thumbSize = 20;
+    const max = parseInt(input.max);
+    const value = parseInt(input.value);
+
+    const multiplier = value / max;
+    const thumbOffset = thumbSize * multiplier;
 
     rangeTip.innerText = input.value;
     rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
-    rangeTip.style.left = document.getElementById("__mark-" + input.value).getBoundingClientRect().left - thumbSize + "px";
-
-    console.log(input.value);
+    rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
+    // console.log(input.value);
 }
 
+// 연봉/연금저축액 결과 세액 공제율 countUp animation
 function animateValue(obj, start, end, duration) {
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -230,27 +242,30 @@ function drawChart() {
     var dataTable = new google.visualization.DataTable();
     dataTable.addColumn("string", "Month");
     dataTable.addColumn("number", "시가");
-    // dataTable.addColumn('number', 'UK');
     // A column for custom tooltip content
     dataTable.addColumn({ type: "string", role: "tooltip", p: { html: true } });
     dataTable.addRows([
-        ["1월", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["2월", 1000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 1000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
         ["3월", 150, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["4월", 1500, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["5월", 2000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["6월", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["7월", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["8월", 500, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 1500, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["", 800, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+        ["6월", 2000, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 500, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
         ["9월", 3000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["10월", 600, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["11월", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 600, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+        ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
         ["12월", 1160, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
     ]);
 
     var options = {
         title: "코스피 지수",
         colors: ["#d62a56"],
+        vAxis: {
+            minValue: 0,
+            ticks: [0, 1000, 1500, 2000, 2500, 3000],
+        },
         // This line makes the entire category's tooltip active.
         // focusTarget: "category",
         // Use an HTML tooltip.
@@ -258,49 +273,8 @@ function drawChart() {
         legend: "none",
     };
 
-    // var classicOptions = {
-    //     width: "100%",
-    //     height: "auto",
-    //     legend: { position: 'bottom' },
-    //     // Gives each series an axis that matches the vAxes number below.
-    //     series: {
-    //         0: { targetAxisIndex: 0 },
-    //         1: { targetAxisIndex: 1 },
-    //     },
-    //     // vAxes: {
-    //     //     // Adds titles to each axis.
-    //     //     0: { title: "Temps (Celsius)" },
-    //     //     1: { title: "Daylight" },
-    //     // },
-    //     hAxis: {
-    //         ticks: [
-    //             new Date(2014, 0),
-    //             new Date(2014, 1),
-    //             new Date(2014, 2),
-    //             new Date(2014, 3),
-    //             new Date(2014, 4),
-    //             new Date(2014, 5),
-    //             new Date(2014, 6),
-    //             new Date(2014, 7),
-    //             new Date(2014, 8),
-    //             new Date(2014, 9),
-    //             new Date(2014, 10),
-    //             new Date(2014, 11),
-    //         ],
-    //     },
-    //     vAxis: {
-    //         viewWindow: {
-    //             max: 30,
-    //         },
-    //     },
-    // };
-
-    function drawClassicChart() {
-        var classicChart = new google.visualization.AreaChart(chartDiv);
-        classicChart.draw(dataTable, options);
-    }
-
-    drawClassicChart();
+    var classicChart = new google.visualization.AreaChart(chartDiv);
+    classicChart.draw(dataTable, options);
 }
 
 function createCustomHTMLContent(flagURL, flag) {
