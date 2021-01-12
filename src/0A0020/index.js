@@ -1,12 +1,6 @@
-document.body.addEventListener('ready', function() {
-    console.log("not dddd");
-
-});
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/iPhone/i.test(navigator.userAgent)) {
-        console.log("not dddmobile");
-
         }
     } else {
         console.log("not mobile");
@@ -149,19 +143,46 @@ window.onload = function () {
             taxCreditLimit.innerText = taxCreditLimitTxt;
             maxDeductionAmt.innerText = maxDeductionAmtTxt;
         }
+    });
 
-        let bannerSwiper = new Swiper("#banner_swiper", {
-            direction: "horizontal",
-            loop: true,
-            paginationClickable: true,
-            centeredSlides: true,
-            slidesPerView: 3,
-            spaceBetween: 5,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
+    let bannerSwiper = new Swiper("#banner_swiper", {
+        direction: "horizontal",
+        loop: true,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+        paginationClickable: false,
+        centeredSlides: true,
+        slidesPerView: 3,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }
+    });
+
+    let resultSwiper = new Swiper("#result_swiper", {
+        direction: "horizontal",
+        navigation: {
+            nextEl: ".swipe-direction",
+            prevEl: ".swipe-direction",
+        },
+        on: {
+            slideChangeTransitionStart: function slideChangeTransitionStart() {
+                var idx = this.realIndex + 1;
+                gsap.set("#result_swiper", { x: "0" });
+                if (idx == 2) {
+                    gsap.to("#result_swiper", 0.8, { x: "6vw", delay: 0.8 });
+                } else {
+                    gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.8 });
+                }
             },
-        });
+        },
+    });
+
+    document.getElementsByClassName("swipe-direction")[0].addEventListener("click", function () {
+        resultSwiper.slideNext();
     });
 
     // 구글차트
@@ -196,13 +217,6 @@ function handleSalarySliderValuePosition(input) {
         rangeTip.style.width = "88px";
         rangeTip.innerText = "1억 2천만원 초과";
     }
-
-    // console.log("value", input.value);
-    // console.log(input.clientWidth);
-    // console.log(multiplier);
-    // console.log(thumbOffset);
-    // console.log(priceInputOffset);
-    // console.log(input.clientWidth * multiplier - thumbOffset);
 }
 
 // 연금 저축액 범위에 따른 tooltip 텍스트 및 위치조정
@@ -231,6 +245,10 @@ function animateValue(obj, start, end, duration) {
         obj.innerText = (progress * (end - start) + start).toFixed(1);
         if (progress < 1) {
             window.requestAnimationFrame(step);
+        }
+
+        if (progress == 1) {
+            gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.3 });
         }
     };
     window.requestAnimationFrame(step);
@@ -273,8 +291,8 @@ function drawChart() {
         legend: "none",
     };
 
-    var classicChart = new google.visualization.AreaChart(chartDiv);
-    classicChart.draw(dataTable, options);
+    // var classicChart = new google.visualization.AreaChart(chartDiv);
+    // classicChart.draw(dataTable, options);
 }
 
 function createCustomHTMLContent(flagURL, flag) {
@@ -288,4 +306,212 @@ function createCustomHTMLContent(flagURL, flag) {
         '" style="width:100px;height:200px"><br/>' +
         "</div>"
     );
+}
+
+var LineChart = function (options) {
+    var data = options.data;
+    var canvas = document.getElementById("chart_div").appendChild(document.createElement("canvas"));
+    var context = canvas.getContext("2d");
+    console.log(options.width);
+    console.log(window.innerWidth);
+    var rendering = false,
+        paddingX = 80,
+        paddingY = 80,
+        width = (options.width || window.innerWidth) * 1.2,
+        height = 400,
+        progress = 0;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    var maxValue, minValue;
+
+    var y1 = paddingY + 0.05 * (height - paddingY * 2),
+        y2 = paddingY + 0.5 * (height - paddingY * 2),
+        y3 = paddingY + 0.95 * (height - paddingY * 2);
+
+    format();
+    render();
+
+    function format(force) {
+        maxValue = 0;
+        minValue = Number.MAX_VALUE;
+
+        data.forEach(function (point, i) {
+            maxValue = Math.max(maxValue, point.value);
+            minValue = Math.min(minValue, point.value);
+        });
+
+        data.forEach(function (point, i) {
+            point.targetX = paddingX + (i / (data.length - 1)) * (width - paddingX * 2);
+            point.targetY = paddingY + ((point.value - minValue) / (maxValue - minValue)) * (height - paddingY * 2);
+            point.targetY = height - point.targetY;
+
+            if (force || (!point.x && !point.y)) {
+                point.x = point.targetX + 30;
+                point.y = point.targetY;
+                point.speed = 0.04 + (1 - i / data.length) * 0.05;
+            }
+        });
+    }
+
+    function render() {
+        if (!rendering) {
+            requestAnimationFrame(render);
+            return;
+        }
+
+        context.font = "20px sans-serif";
+        context.clearRect(0, 0, width, height);
+
+        context.fillStyle = "#222";
+        context.fillRect(paddingX, y1, width - paddingX * 2, 1);
+        context.fillRect(paddingX, y2, width - paddingX * 2, 1);
+        context.fillRect(paddingX, y3, width - paddingX * 2, 1);
+
+        if (options.yAxisLabel) {
+            context.save();
+            context.globalAlpha = progress;
+            context.translate(paddingX - 15, height - paddingY - 10);
+            context.rotate(-Math.PI / 2);
+            context.fillStyle = "#fff";
+            context.fillText(options.yAxisLabel, 0, 0);
+            context.restore();
+        }
+
+        var progressDots = Math.floor(progress * data.length);
+        var progressFragment = progress * data.length - Math.floor(progress * data.length);
+
+        data.forEach(function (point, i) {
+            if (i <= progressDots) {
+                point.x += (point.targetX - point.x) * point.speed;
+                point.y += (point.targetY - point.y) * point.speed;
+
+                context.save();
+
+                var wordWidth = context.measureText(point.label).width;
+                context.globalAlpha = i === progressDots ? progressFragment : 1;
+                context.fillStyle = point.future ? "#aaa" : "#fff";
+                context.fillText(point.label, point.x - wordWidth / 2, height - 22);
+
+                if (i < progressDots && !point.future) {
+                    context.beginPath();
+                    context.arc(point.x, point.y, 8, 0, Math.PI * 2);
+                    context.fillStyle = "#1baee1";
+                    context.fill();
+                }
+
+                context.restore();
+            }
+        });
+
+        context.save();
+        context.beginPath();
+        context.strokeStyle = "#1baee1";
+        context.lineWidth = 4;
+
+        var futureStarted = false;
+
+        data.forEach(function (point, i) {
+            if (i <= progressDots) {
+                var px = i === 0 ? data[0].x : data[i - 1].x,
+                    py = i === 0 ? data[0].y : data[i - 1].y;
+
+                var x = point.x,
+                    y = point.y;
+
+                if (i === progressDots) {
+                    x = px + (x - px) * progressFragment;
+                    y = py + (y - py) * progressFragment;
+                }
+
+                if (point.future && !futureStarted) {
+                    futureStarted = true;
+                    context.lineWidth = 4;
+
+                    context.stroke();
+                    context.beginPath();
+                    context.moveTo(px, py);
+                    context.strokeStyle = "#aaa";
+
+                    if (typeof context.setLineDash === "function") {
+                        context.setLineDash([4, 8]);
+                    }
+                }
+
+                if (i === 0) {
+                    context.moveTo(x, y);
+                } else {
+                    context.lineTo(x, y);
+                }
+            }
+        });
+
+        context.stroke();
+        context.restore();
+
+        progress += (1 - progress) * 0.02;
+
+        requestAnimationFrame(render);
+    }
+
+    this.start = function () {
+        rendering = true;
+    };
+
+    this.stop = function () {
+        rendering = false;
+        progress = 0;
+        format(true);
+    };
+
+    this.restart = function () {
+        this.stop();
+        this.start();
+    };
+
+    this.append = function (points) {
+        progress -= points.length / data.length;
+        data = data.concat(points);
+
+        format();
+    };
+
+    this.populate = function (points) {
+        progress = 0;
+        data = points;
+
+        format();
+    };
+};
+
+var chart = new LineChart({ data: [] });
+
+reset();
+
+chart.start();
+
+function append() {
+    chart.append([{ label: "Rnd", value: 1300 + Math.random() * 1500, future: true }]);
+}
+
+function restart() {
+    chart.restart();
+}
+
+function reset() {
+    chart.populate([
+        { label: "One", value: 0 },
+        { label: "Two", value: 100 },
+        { label: "Three", value: 200 },
+        { label: "Four", value: 840 },
+        { label: "Five", value: 620 },
+        { label: "Six", value: 500 },
+        { label: "Seven", value: 600 },
+        { label: "Eight", value: 1100 },
+        { label: "Nine", value: 800 },
+        { label: "Ten", value: 900 },
+        { label: "Eleven", value: 1200, future: true },
+        { label: "Twelve", value: 1400, future: true },
+    ]);
 }
