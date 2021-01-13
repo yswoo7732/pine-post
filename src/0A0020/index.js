@@ -26,6 +26,7 @@ window.onload = function () {
         document.querySelector(".result_container").classList.add("result_container_active");
         document.querySelector(".result_section_tip").classList.add("result_container_active");
 
+        // 확인 클릭시 animation
         ScrollTrigger.create({
             trigger: ".add_square",
             start: "top center",
@@ -143,52 +144,66 @@ window.onload = function () {
             taxCreditLimit.innerText = taxCreditLimitTxt;
             maxDeductionAmt.innerText = maxDeductionAmtTxt;
         }
-    });
 
-    let bannerSwiper = new Swiper("#banner_swiper", {
-        direction: "horizontal",
-        loop: true,
-        autoplay: {
-            delay: 1000,
-            disableOnInteraction: false,
-        },
-        paginationClickable: false,
-        centeredSlides: true,
-        slidesPerView: 3,
-        spaceBetween: 20,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        }
-    });
-
-    let resultSwiper = new Swiper("#result_swiper", {
-        direction: "horizontal",
-        navigation: {
-            nextEl: ".swipe-direction",
-            prevEl: ".swipe-direction",
-        },
-        on: {
-            slideChangeTransitionStart: function slideChangeTransitionStart() {
-                var idx = this.realIndex + 1;
-                gsap.set("#result_swiper", { x: "0" });
-                if (idx == 2) {
-                    gsap.to("#result_swiper", 0.8, { x: "6vw", delay: 0.8 });
-                } else {
-                    gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.8 });
-                }
+        let resultSwiper = new Swiper("#result_swiper", {
+            direction: "horizontal",
+            on: {
+                slideChangeTransitionStart: function slideChangeTransitionStart() {
+                    var idx = this.realIndex + 1;
+                    gsap.set("#result_swiper", { x: "0" });
+                    if (idx == 2) {
+                        gsap.to("#result_swiper", 0.8, { x: "6vw", delay: 0.8 });
+                    } else {
+                        gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.8 });
+                    }
+                },
             },
-        },
+        });
+    
+    
+        let bannerSwiper = new Swiper("#banner_swiper", {
+            direction: "horizontal",
+            loop: true,
+            autoplay: {
+                delay: 1000,
+                disableOnInteraction: false,
+            },
+            paginationClickable: false,
+            centeredSlides: true,
+            slidesPerView: 3,
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            }
+        });
+
+        document.querySelector(".left-direction").addEventListener("click", function () {
+            resultSwiper.slideTo(0);
+        });
+
+        document.querySelector(".right-direction").addEventListener("click", function () {
+            resultSwiper.slideTo(1);
+        });
+
+
+        ScrollTrigger.create({
+            trigger: ".graph_section",
+            start: "top center",
+            once: true,
+            // markers: true,
+            onEnter:() => createLineChart(),
+        });
     });
 
-    document.getElementsByClassName("swipe-direction")[0].addEventListener("click", function () {
-        resultSwiper.slideNext();
-    });
 
     // 구글차트
-    google.charts.load("45", { packages: ["corechart"] });
-    google.charts.setOnLoadCallback(drawChart);
+    // google.charts.load("45", { packages: ["corechart"] });
+    // google.charts.setOnLoadCallback(drawChart);
+
+
 };
+createLineChart();
 
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
 function handleSalarySliderValuePosition(input) {
@@ -254,264 +269,201 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-function drawChart() {
-    var chartDiv = document.getElementById("chart_div");
+// function drawChart() {
+//     var chartDiv = document.getElementById("chart_div");
 
-    var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn("string", "Month");
-    dataTable.addColumn("number", "시가");
-    // A column for custom tooltip content
-    dataTable.addColumn({ type: "string", role: "tooltip", p: { html: true } });
-    dataTable.addRows([
-        ["", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["", 1000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["3월", 150, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["", 1500, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["", 800, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["6월", 2000, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["", 500, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["9월", 3000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-        ["", 600, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
-        ["12월", 1160, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
-    ]);
+//     var dataTable = new google.visualization.DataTable();
+//     dataTable.addColumn("string", "Month");
+//     dataTable.addColumn("number", "시가");
+//     // A column for custom tooltip content
+//     dataTable.addColumn({ type: "string", role: "tooltip", p: { html: true } });
+//     dataTable.addRows([
+//         ["", 300, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["", 1000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+//         ["3월", 150, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["", 1500, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+//         ["", 800, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+//         ["6월", 2000, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["", 500, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["9월", 3000, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+//         ["", 600, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["", 800, createCustomHTMLContent("assets/pine_banner1.png", "채권형 펀드")],
+//         ["12월", 1160, createCustomHTMLContent("assets/pine_banner2.png", "주식형 펀드")],
+//     ]);
 
-    var options = {
-        title: "코스피 지수",
-        colors: ["#d62a56"],
-        vAxis: {
-            minValue: 0,
-            ticks: [0, 1000, 1500, 2000, 2500, 3000],
-        },
-        // This line makes the entire category's tooltip active.
-        // focusTarget: "category",
-        // Use an HTML tooltip.
-        tooltip: { isHtml: true },
-        legend: "none",
-    };
+//     var options = {
+//         title: "코스피 지수",
+//         colors: ["#d62a56"],
+//         vAxis: {
+//             minValue: 0,
+//             ticks: [0, 1000, 1500, 2000, 2500, 3000],
+//         },
+//         // This line makes the entire category's tooltip active.
+//         // focusTarget: "category",
+//         // Use an HTML tooltip.
+//         tooltip: { isHtml: true },
+//         legend: "none",
+//     };
 
-    // var classicChart = new google.visualization.AreaChart(chartDiv);
-    // classicChart.draw(dataTable, options);
-}
+//     // var classicChart = new google.visualization.AreaChart(chartDiv);
+//     // classicChart.draw(dataTable, options);
+// }
 
-function createCustomHTMLContent(flagURL, flag) {
-    return (
-        '<p style="text-align:center;">' +
-        flag +
-        "</p>" +
-        '<div style="padding:5px 5px 5px 5px;">' +
-        '<img src="' +
-        flagURL +
-        '" style="width:100px;height:200px"><br/>' +
-        "</div>"
-    );
-}
+// function createCustomHTMLContent(flagURL, flag) {
+//     return (
+//         '<p style="text-align:center;">' +
+//         flag +
+//         "</p>" +
+//         '<div style="padding:5px 5px 5px 5px;">' +
+//         '<img src="' +
+//         flagURL +
+//         '" style="width:100px;height:200px"><br/>' +
+//         "</div>"
+//     );
+// }
+// createLineChart()
+function createLineChart() {
+    google.charts.load("45", {
+        callback: function () {
+            var rawData = [
+                [1, 500, null],
+                [2, 600, null],
+                [3, 400, null],
+                [4, 550, null],
+                [5, 800, null],
+                [6, 1700, "주식형 펀드"],
+                [7, 3500, null],
+                [8, 1000, null],
+                [9, 800, null],
+                [10, 400, "채권형 펀드"],
+                [11, 300, null],
+                [12, 200, null],
+            ];
 
-var LineChart = function (options) {
-    var data = options.data;
-    var canvas = document.getElementById("chart_div").appendChild(document.createElement("canvas"));
-    var context = canvas.getContext("2d");
-    console.log(options.width);
-    console.log(window.innerWidth);
-    var rendering = false,
-        paddingX = 80,
-        paddingY = 80,
-        width = (options.width || window.innerWidth) * 1.2,
-        height = 400,
-        progress = 0;
+            var data = new google.visualization.DataTable({
+                cols: [
+                    { id: "", label: "X", type: "number" },
+                    { id: "", label: "Y", type: "number" },
+                    { id: "", role: "annotation", type: "string" },
+                ],
+            });
 
-    canvas.width = width;
-    canvas.height = height;
+            // data.addColumn({ type: "string", role: "annotation" });
+            var options = {
+                // title: "코스피 지수",
+                colors: ["#d62a56"],
+                width: 400,
+                height: 300,
+                pointSize: 4,
+                animation: {
+                    startup: true,
+                    //   duration: 6,
+                    easing: "in",
+                },
+                legend: "none",
+                hAxis: {
+                    viewWindow: {
+                        min: 1,
+                        max: 12,
+                    },
+                    // ticks: [3, 6, 9, 12],
+                    title: "월별",
+                },
+                vAxis: {
+                    viewWindow: {
+                        min: 0,
+                        max: 3500,
+                    },
+                },
+                annotations: {
+                    textStyle: {
+                        // fontName: 'LIFEPLUS',
+                        // fontSize: 15,
+                        // bold: true,
+                        // The color of the text.
+                        color: '#000000',
+                        // The color of the text outline.
+                        // auraColor: '#d799ae',
+                        // The transparency of the text.
+                        // opacity: 0.8
+                    }
+                  }
+            };
 
-    var maxValue, minValue;
+            var chart = new google.visualization.LineChart(document.getElementById("line_chart"));
+            
+            google.visualization.events.addListener(chart, "ready", function () {
+                
+            });
 
-    var y1 = paddingY + 0.05 * (height - paddingY * 2),
-        y2 = paddingY + 0.5 * (height - paddingY * 2),
-        y3 = paddingY + 0.95 * (height - paddingY * 2);
+            drawChart();
+            setInterval(drawChart, 100);
+            // google.visualization.events.addListener(chart, "ready", selectHandler);
 
-    format();
-    render();
+            var rowIndex = 0;
+            function drawChart() {
+                if (rowIndex < rawData.length) {
 
-    function format(force) {
-        maxValue = 0;
-        minValue = Number.MAX_VALUE;
+                    data.addRow(rawData[rowIndex++]);
+                    chart.draw(data, options);
+                    // chart.setSelection([
+                    //     { row: [5], column: null },
+                    //     { row: [6], column: null },
+                    // ]);
 
-        data.forEach(function (point, i) {
-            maxValue = Math.max(maxValue, point.value);
-            minValue = Math.min(minValue, point.value);
-        });
+                    console.log(rawData.length);
+                    if (rowIndex == 7) {
+                        console.log("Aaa");
 
-        data.forEach(function (point, i) {
-            point.targetX = paddingX + (i / (data.length - 1)) * (width - paddingX * 2);
-            point.targetY = paddingY + ((point.value - minValue) / (maxValue - minValue)) * (height - paddingY * 2);
-            point.targetY = height - point.targetY;
+                        Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
+                            // console.log(rect, i);
+                            if (rect.getAttribute('fill') === '#999999') {
+                                var xPos = parseFloat(rect.getAttribute("x"));
+                                var yPos = parseFloat(rect.getAttribute("y"));
+                                console.log("xPos", xPos);
+                                console.log("yPos", yPos);
+        
+                                // var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
+                                // stockCard.innerText = "주식형 펀드";
+                                // stockCard.style.background = "url('assets/pine_banner1.png')";
+                                // stockCard.className = "stock_card";
 
-            if (force || (!point.x && !point.y)) {
-                point.x = point.targetX + 30;
-                point.y = point.targetY;
-                point.speed = 0.04 + (1 - i / data.length) * 0.05;
-            }
-        });
-    }
+                                var stockCard = document.getElementById("line_chart").appendChild(document.createElement("img"));
+                                stockCard.src = "assets/pine_banner1.png";
+                                stockCard.className = "stock_card";
+                                
+                                // 16x16 (image size in this example)
+                                stockCard.style.bottom = xPos + 80 + "px";
+                                stockCard.style.left = yPos + "px";
+                            }
+                        });
 
-    function render() {
-        if (!rendering) {
-            requestAnimationFrame(render);
-            return;
-        }
+                        
+                    }
+                    if (rowIndex == 12) {
+                        Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
+                            console.log(rect, i);
 
-        context.font = "20px sans-serif";
-        context.clearRect(0, 0, width, height);
+                            if (rect.getAttribute('fill') === '#999999' && i == 15) {
+                                var xPos = parseFloat(rect.getAttribute("x"));
+                                var yPos = parseFloat(rect.getAttribute("y"));
+        
+                                console.log("xPos", xPos);
+                                console.log("yPos", yPos);
 
-        context.fillStyle = "#222";
-        context.fillRect(paddingX, y1, width - paddingX * 2, 1);
-        context.fillRect(paddingX, y2, width - paddingX * 2, 1);
-        context.fillRect(paddingX, y3, width - paddingX * 2, 1);
-
-        if (options.yAxisLabel) {
-            context.save();
-            context.globalAlpha = progress;
-            context.translate(paddingX - 15, height - paddingY - 10);
-            context.rotate(-Math.PI / 2);
-            context.fillStyle = "#fff";
-            context.fillText(options.yAxisLabel, 0, 0);
-            context.restore();
-        }
-
-        var progressDots = Math.floor(progress * data.length);
-        var progressFragment = progress * data.length - Math.floor(progress * data.length);
-
-        data.forEach(function (point, i) {
-            if (i <= progressDots) {
-                point.x += (point.targetX - point.x) * point.speed;
-                point.y += (point.targetY - point.y) * point.speed;
-
-                context.save();
-
-                var wordWidth = context.measureText(point.label).width;
-                context.globalAlpha = i === progressDots ? progressFragment : 1;
-                context.fillStyle = point.future ? "#aaa" : "#fff";
-                context.fillText(point.label, point.x - wordWidth / 2, height - 22);
-
-                if (i < progressDots && !point.future) {
-                    context.beginPath();
-                    context.arc(point.x, point.y, 8, 0, Math.PI * 2);
-                    context.fillStyle = "#1baee1";
-                    context.fill();
-                }
-
-                context.restore();
-            }
-        });
-
-        context.save();
-        context.beginPath();
-        context.strokeStyle = "#1baee1";
-        context.lineWidth = 4;
-
-        var futureStarted = false;
-
-        data.forEach(function (point, i) {
-            if (i <= progressDots) {
-                var px = i === 0 ? data[0].x : data[i - 1].x,
-                    py = i === 0 ? data[0].y : data[i - 1].y;
-
-                var x = point.x,
-                    y = point.y;
-
-                if (i === progressDots) {
-                    x = px + (x - px) * progressFragment;
-                    y = py + (y - py) * progressFragment;
-                }
-
-                if (point.future && !futureStarted) {
-                    futureStarted = true;
-                    context.lineWidth = 4;
-
-                    context.stroke();
-                    context.beginPath();
-                    context.moveTo(px, py);
-                    context.strokeStyle = "#aaa";
-
-                    if (typeof context.setLineDash === "function") {
-                        context.setLineDash([4, 8]);
+                                var bondCard = document.getElementById("line_chart").appendChild(document.createElement("img"));
+                                bondCard.src = "assets/pine_banner2.png";
+                                bondCard.className = "bond_card";
+                                // 16x16 (image size in this example)
+                                bondCard.style.bottom = xPos - 60 + "px";
+                                bondCard.style.left = yPos + "px";
+                            }
+                        });
                     }
                 }
-
-                if (i === 0) {
-                    context.moveTo(x, y);
-                } else {
-                    context.lineTo(x, y);
-                }
             }
-        });
-
-        context.stroke();
-        context.restore();
-
-        progress += (1 - progress) * 0.02;
-
-        requestAnimationFrame(render);
-    }
-
-    this.start = function () {
-        rendering = true;
-    };
-
-    this.stop = function () {
-        rendering = false;
-        progress = 0;
-        format(true);
-    };
-
-    this.restart = function () {
-        this.stop();
-        this.start();
-    };
-
-    this.append = function (points) {
-        progress -= points.length / data.length;
-        data = data.concat(points);
-
-        format();
-    };
-
-    this.populate = function (points) {
-        progress = 0;
-        data = points;
-
-        format();
-    };
-};
-
-var chart = new LineChart({ data: [] });
-
-reset();
-
-chart.start();
-
-function append() {
-    chart.append([{ label: "Rnd", value: 1300 + Math.random() * 1500, future: true }]);
-}
-
-function restart() {
-    chart.restart();
-}
-
-function reset() {
-    chart.populate([
-        { label: "One", value: 0 },
-        { label: "Two", value: 100 },
-        { label: "Three", value: 200 },
-        { label: "Four", value: 840 },
-        { label: "Five", value: 620 },
-        { label: "Six", value: 500 },
-        { label: "Seven", value: 600 },
-        { label: "Eight", value: 1100 },
-        { label: "Nine", value: 800 },
-        { label: "Ten", value: 900 },
-        { label: "Eleven", value: 1200, future: true },
-        { label: "Twelve", value: 1400, future: true },
-    ]);
+        },
+        packages: ["corechart"],
+    });
 }

@@ -439,7 +439,7 @@ img {
 
 .swiper-plus-slide {
     background: #f7f7f7;
-
+    z-index: 2;
 }
 
 .plus_tip_container {
@@ -459,6 +459,18 @@ img {
     line-height: 1.56;
     letter-spacing: normal;
     color: #000000;
+    position: relative;
+}
+
+.right-direction {
+    bottom: 3px;
+    float: right;
+}
+
+.left-direction {
+    bottom: -37px;
+    padding-left: 20px;
+    float: left;
 }
 
 .result_txt {
@@ -666,7 +678,6 @@ th {
 .swiper-container {
     width: 100%;
     height: 100%;
-    overflow: visible;
 }
 
 #banner_swiper {
@@ -679,7 +690,12 @@ th {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 75px 0;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+.swiper-banner-container {
+    overflow: visible;
 }
 
 .swiper-banner-container .swiper-slide {
@@ -705,6 +721,8 @@ th {
 
 .swiper-slide-active .background {
     background-color: transparent;
+    transform: scale(1.2);
+
 }
 
 :root {
@@ -723,7 +741,7 @@ th {
 }
 
 .graph_description {
-    padding: 50px 20px 37px 20px;
+    padding: 50px 20px 20px 20px;
 }
 
 .graph_description p:not(:nth-of-type(1)) {
@@ -743,8 +761,58 @@ th {
     align-items: center;
     align-content: center;
     margin: 0 auto;
+    /* padding: 50px 0; */
 }
 
+#line_chart {
+    position: relative;
+}
+
+.stock_card {
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    /* bottom: 290px; */
+    /* left: 95px; */
+    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.bond_card {
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    /* left: 161px;
+    bottom: 251px; */
+    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+}
+
+@keyframes slide-tr {
+    0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+      }
+      100% {
+        -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+      }
+  }
+  @keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(10px);
+              transform: translateY(10px);
+    }
+  }
+
+  
 .final_section {
     padding: 100px 0;
 }
