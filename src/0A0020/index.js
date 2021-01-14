@@ -147,6 +147,10 @@ window.onload = function () {
 
         let resultSwiper = new Swiper("#result_swiper", {
             direction: "horizontal",
+            slidesPerView: 1,
+            spaceBetween: 0,
+            initialSlide: 0,
+            centeredSlides: true,
             on: {
                 slideChangeTransitionStart: function slideChangeTransitionStart() {
                     var idx = this.realIndex + 1;
@@ -159,8 +163,7 @@ window.onload = function () {
                 },
             },
         });
-    
-    
+
         let bannerSwiper = new Swiper("#banner_swiper", {
             direction: "horizontal",
             loop: true,
@@ -175,7 +178,7 @@ window.onload = function () {
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
-            }
+            },
         });
 
         document.querySelector(".left-direction").addEventListener("click", function () {
@@ -186,22 +189,18 @@ window.onload = function () {
             resultSwiper.slideTo(1);
         });
 
-
         ScrollTrigger.create({
             trigger: ".graph_section",
             start: "top center",
             once: true,
             // markers: true,
-            onEnter:() => createLineChart(),
+            onEnter: () => createLineChart(),
         });
     });
-
 
     // 구글차트
     // google.charts.load("45", { packages: ["corechart"] });
     // google.charts.setOnLoadCallback(drawChart);
-
-
 };
 createLineChart();
 
@@ -378,24 +377,22 @@ function createLineChart() {
                 },
                 annotations: {
                     textStyle: {
-                        // fontName: 'LIFEPLUS',
+                        fontName: 'LIFEPLUS',
                         // fontSize: 15,
                         // bold: true,
                         // The color of the text.
-                        color: '#000000',
+                        color: "#000000",
                         // The color of the text outline.
                         // auraColor: '#d799ae',
                         // The transparency of the text.
                         // opacity: 0.8
-                    }
-                  }
+                    },
+                },
             };
 
             var chart = new google.visualization.LineChart(document.getElementById("line_chart"));
-            
-            google.visualization.events.addListener(chart, "ready", function () {
-                
-            });
+
+            google.visualization.events.addListener(chart, "ready", function () {});
 
             drawChart();
             setInterval(drawChart, 100);
@@ -404,7 +401,6 @@ function createLineChart() {
             var rowIndex = 0;
             function drawChart() {
                 if (rowIndex < rawData.length) {
-
                     data.addRow(rawData[rowIndex++]);
                     chart.draw(data, options);
                     // chart.setSelection([
@@ -418,12 +414,12 @@ function createLineChart() {
 
                         Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
                             // console.log(rect, i);
-                            if (rect.getAttribute('fill') === '#999999') {
+                            if (rect.getAttribute("fill") === "#999999") {
                                 var xPos = parseFloat(rect.getAttribute("x"));
                                 var yPos = parseFloat(rect.getAttribute("y"));
                                 console.log("xPos", xPos);
                                 console.log("yPos", yPos);
-        
+
                                 // var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
                                 // stockCard.innerText = "주식형 펀드";
                                 // stockCard.style.background = "url('assets/pine_banner1.png')";
@@ -432,23 +428,21 @@ function createLineChart() {
                                 var stockCard = document.getElementById("line_chart").appendChild(document.createElement("img"));
                                 stockCard.src = "assets/pine_banner1.png";
                                 stockCard.className = "stock_card";
-                                
+
                                 // 16x16 (image size in this example)
                                 stockCard.style.bottom = xPos + 80 + "px";
                                 stockCard.style.left = yPos + "px";
                             }
                         });
-
-                        
                     }
                     if (rowIndex == 12) {
                         Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
                             console.log(rect, i);
 
-                            if (rect.getAttribute('fill') === '#999999' && i == 15) {
+                            if (rect.getAttribute("fill") === "#999999" && i == 15) {
                                 var xPos = parseFloat(rect.getAttribute("x"));
                                 var yPos = parseFloat(rect.getAttribute("y"));
-        
+
                                 console.log("xPos", xPos);
                                 console.log("yPos", yPos);
 

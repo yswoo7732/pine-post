@@ -350,6 +350,10 @@ img {
     margin: 2px 0 20px 0;
 }
 
+.contents_container {
+    overflow: hidden;
+}
+
 .result_wrapper {
     padding: 15% 0;
     padding: 85px 20px 0 39px;
@@ -447,7 +451,12 @@ img {
     padding: 85px 0;
 }
 
-
+.swiper-result-container {
+    width: 100%;
+    height: 100%;
+    /* background: #fff; */
+    z-index: 2;
+}
 .swipe-direction {
     border: 0;
     background: transparent;
@@ -557,6 +566,7 @@ th {
     margin: 35px auto;
     margin-top: 50px;
     margin-bottom: 20px;
+    justify-items: center;
 }
 
 .square_wrapper .basic_square {
@@ -722,7 +732,6 @@ th {
 .swiper-slide-active .background {
     background-color: transparent;
     transform: scale(1.2);
-
 }
 
 :root {
@@ -776,7 +785,7 @@ th {
     height: 100px;
     /* bottom: 290px; */
     /* left: 95px; */
-    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tr 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .bond_card {
@@ -787,32 +796,30 @@ th {
     height: 100px;
     /* left: 161px;
     bottom: 251px; */
-    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
+    animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-tr {
     0% {
         -webkit-transform: translateY(0);
-                transform: translateY(0);
-      }
-      100% {
-        -webkit-transform: translateY(-10px);
-                transform: translateY(-10px);
-      }
-  }
-  @keyframes slide-bottom {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
+        transform: translateY(0);
     }
     100% {
-      -webkit-transform: translateY(10px);
-              transform: translateY(10px);
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
     }
-  }
+}
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+}
 
-  
 .final_section {
     padding: 100px 0;
 }
@@ -848,4 +855,11 @@ th {
     overflow: hidden;
     transition-duration: 0.5s;
     transition-property: color, background-color; */
+}
+
+@media (min-width: 750px) {
+    body {
+        max-width: 450px;
+        margin: 0 auto;
+    }
 }
