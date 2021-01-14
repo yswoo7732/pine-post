@@ -559,6 +559,7 @@ th {
     line-height: 1.56;
     letter-spacing: normal;
     color: #000000;
+    overflow: hidden;
 }
 
 .benefit_section p:nth-of-type(1) {
@@ -683,6 +684,7 @@ th {
     line-height: 1.56;
     letter-spacing: normal;
     color: #000000;
+    overflow: hidden;
 }
 
 .pine_section p:nth-of-type(1) {
@@ -756,6 +758,7 @@ th {
     line-height: 1.56;
     letter-spacing: normal;
     color: #000000;
+    overflow: hidden;
 }
 
 .graph_description {
@@ -831,6 +834,7 @@ th {
 
 .final_section {
     padding: 100px 0;
+    overflow: hidden;
 }
 
 .stroke_link-active {
