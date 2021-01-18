@@ -452,7 +452,7 @@ function createLineChart() {
             var chart = new google.visualization.LineChart(document.getElementById("line_chart"));
 
             drawChart();
-            setInterval(drawChart, 100);
+            setInterval(drawChart, 70);
             var rowIndex = 0;
 
             function drawChart() {
