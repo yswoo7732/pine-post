@@ -208,7 +208,7 @@ img {
     z-index: 1;
     transform: translate(-50%, -50%);
     bottom: 100%;
-    left: 10%;
+    left: 9%;
     font-family: LIFEPLUS;
     font-size: 11px;
     font-weight: bold;
@@ -777,35 +777,82 @@ th {
 #chart_div {
     width: 100%;
     height: 100%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
+    align-content: center; */
     margin: 0 auto;
     /* padding: 50px 0; */
 }
 
 #line_chart {
     position: relative;
+    height: 300px;
 }
 
+.commend-fund {
+    position: absolute;
+    border: 1px solid #000;
+    width: 44px;
+    height: 37px;
+    text-align: center;
+    left: 56px;
+    bottom: 215px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: #fff;
+    background: #000;
+    font-weight: bold;
+}
+
+.commend-fund:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid #000000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 105%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+.commend-fund-active {
+    animation: blink-2 0.3s 3 both;
+}
+
+@keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
 .stock_card {
-    border-radius: 10px;
-    border: none;
+    /* border-radius: 10px; */
+    border: 1px solid #666666;
     position: relative;
     width: 50px;
-    height: 100px;
+    height: atuo;
+    text-align: center;
     /* bottom: 290px; */
     /* left: 95px; */
     animation: slide-tr 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .bond_card {
-    border-radius: 10px;
+    /* border-radius: 10px;
     border: none;
     position: relative;
     width: 50px;
-    height: 100px;
+    height: 100px; */
     /* left: 161px;
     bottom: 251px; */
     animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -833,7 +880,7 @@ th {
 }
 
 .final_section {
-    padding: 100px 0;
+    padding: 200px 0;
     overflow: hidden;
 }
 
