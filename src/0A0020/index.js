@@ -199,7 +199,7 @@ window.onload = function () {
         });
 
         ScrollTrigger.create({
-            trigger: ".graph_description",
+            trigger: ".graph_start",
             start: "top center",
             once: true,
             // markers: true,
