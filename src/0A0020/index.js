@@ -41,6 +41,15 @@ window.onload = function () {
             toggleClass: { targets: ".square_tip", className: "square_tip_active" },
         });
 
+        ScrollTrigger.create({
+            trigger: ".benefit_section",
+            start: "top top",
+            end: "top top",
+            // markers: true,
+            onEnter: () => showBtn("onEnter"),
+            onEnterBack: () => showBtn("onEnterBack"),
+        });
+
         const salaryInput = document.getElementsByClassName("slider")[0].value;
         const depositInput = document.getElementsByClassName("slider")[1].value;
 
@@ -190,7 +199,7 @@ window.onload = function () {
         });
 
         ScrollTrigger.create({
-            trigger: ".graph_section",
+            trigger: ".graph_description",
             start: "top center",
             once: true,
             // markers: true,
@@ -198,11 +207,25 @@ window.onload = function () {
         });
     });
 
+
     // 구글차트
     // google.charts.load("45", { packages: ["corechart"] });
     // google.charts.setOnLoadCallback(drawChart);
 };
 // createLineChart();
+
+function showBtn(flag) {
+    const productLink = document.querySelector(".product_link");
+
+    if(flag == "onEnter") {
+        productLink.style.bottom = "64px";
+    }
+
+    if(flag == "onEnterBack") {
+        productLink.style.bottom = "-64px";
+    }
+    
+}
 
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
 function handleSalarySliderValuePosition(input) {
@@ -491,16 +514,14 @@ function createLineChart() {
                                 [8.6, 2910, 2990, ""],
                                 [8.8, 2890, 2930, ""],
                                 [9, 2880, 2870, ""],
-                                [9.2, 2780, 2810, ""],
-                                
+                                [9.2, 2780, 2810, ""]
                             );
                         }, 1000);
 
-                        document.getElementsByClassName("commend-fund")[0].innerText = "주식형 펀드";
-                        
+                        document.getElementsByClassName("commend-fund")[0].innerText = "주식형 펀드\n구매";
+                        document.getElementsByClassName("commend-fund")[0].style.width = "63px";
                     } else if (rowIndex == 46) {
-
-                        document.getElementsByClassName("commend-fund")[0].classList.add("commend-fund-active");
+                        document.getElementsByClassName("bond_card")[0].classList.add("commend-fund-active");
 
                         setTimeout(() => {
                             rawData.push(
@@ -521,15 +542,14 @@ function createLineChart() {
                             );
                         }, 1000);
 
-                        document.getElementsByClassName("commend-fund")[0].innerText = "채권형 펀드";
-
-
+                        document.getElementsByClassName("bond_card")[0].innerText = "채권형 펀드\n구매";
+                        document.getElementsByClassName("bond_card")[0].style.width = "63px";
+                        document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
                     } else {
-                        if(document.getElementsByClassName("commend-fund")[0]) {
+                        if (document.getElementsByClassName("commend-fund")[0]) {
                             document.getElementsByClassName("commend-fund")[0].classList.remove("commend-fund-active");
                         }
                         chart.draw(data, options);
-
                     }
                     // console.log(rowIndex);
 
@@ -559,25 +579,36 @@ function createLineChart() {
                             } else {
                                 var stockCard = document.getElementsByClassName("commend-fund")[0];
                             }
+
+                            if (!document.getElementsByClassName("bond_card")[0]) {
+                                var bondCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
+                                bondCard.className = "bond_card";
+                            } else {
+                                var bondCard = document.getElementsByClassName("bond_card")[0];
+                            }
                             // stockCard.style.background = "url('assets/pine_banner1.png')";
 
                             if (rowIndex > 0 && rowIndex < 18) {
                                 stockCard.innerText = "연금\n계좌";
                                 stockCard.style.opacity = 1;
-                            } 
-                            // else if (rowIndex >= 18 && rowIndex < 48) {
-                            //     stockCard.style.opacity = 1;
-                            //     // stockCard.innerText = "주식형 펀드";
-                            // } else if (rowIndex >= 48 && rowIndex < 58) {
-                            //     stockCard.style.opacity = 1;
-                            //     // stockCard.innerText = "채권형 펀드";
-                            // } else {
-                            //     // stockCard.style.opacity = 0;
-                            //     // console.log("else", rawData[rowIndex], rowIndex);
-                            // }
 
-                            stockCard.style.top = yPos - 55 + "px";
-                            stockCard.style.left = xPos - 30 + "px";
+                                stockCard.style.top = yPos - 55 + "px";
+                                stockCard.style.left = xPos - 30 + "px";
+                            } else if (rowIndex == 18) {
+                                stockCard.style.opacity = 0.6;
+                                // stockCard.innerText = "주식형 펀드";
+                                stockCard.style.top = yPos - 55 + "px";
+                                stockCard.style.left = xPos - 30 + "px";
+                            } else if (rowIndex == 46) {
+                                bondCard.style.top = yPos - 35 + "px";
+                                bondCard.style.left = xPos + "px";
+                                document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
+
+                                // stockCard.innerText = "채권형 펀드";
+                            } else {
+                                // stockCard.style.opacity = 0;
+                                // console.log("else", rawData[rowIndex], rowIndex);
+                            }
 
                             // console.log(rowIndex,document.getElementById("line_chart").getElementsByTagName("path")[0].getPointAtLength(xPos));
 
