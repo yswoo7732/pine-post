@@ -434,7 +434,7 @@ img {
     margin: 3px;
 }
 .btn_confirm {
-    width: 85%;
+    width: 95%;
     background-color: #000000;
     font-family: LIFEPLUS;
     font-size: 18px;
@@ -678,7 +678,7 @@ th {
 }
 
 .pine_section {
-    padding: 50px 20px 0 20px;
+    padding: 50px 20px 50px 20px;
     font-family: LIFEPLUS;
     font-size: 15px;
     font-weight: 500;
@@ -766,6 +766,10 @@ th {
 
 .graph_description {
     padding: 50px 20px 20px 20px;
+}
+
+.graph_description span {
+    font-weight: bold;
 }
 
 .graph_description p:not(:nth-of-type(1)) {
@@ -945,7 +949,7 @@ th {
     left: 0;
     right: 0;
     transition: bottom .25s;
-    width: 76%;
+    width: 85%;
     background-color: #000000;
     font-family: LIFEPLUS;
     font-size: 18px;

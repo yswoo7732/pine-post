@@ -42,9 +42,9 @@ window.onload = function () {
         });
 
         ScrollTrigger.create({
-            trigger: ".benefit_section",
-            start: "top top",
-            end: "top top",
+            trigger: ".square_wrapper",
+            start: "top center",
+            end: "top center",
             // markers: true,
             onEnter: () => showBtn("onEnter"),
             onEnterBack: () => showBtn("onEnterBack"),
@@ -445,7 +445,7 @@ function createLineChart() {
                 width: 400,
                 height: 300,
                 // pointSize: 4,
-                // tooltip: { trigger: "none" },
+                tooltip: { trigger: "none" },
                 animation: {
                     startup: true,
                     //   duration: 6,
@@ -600,8 +600,8 @@ function createLineChart() {
                                 stockCard.style.top = yPos - 55 + "px";
                                 stockCard.style.left = xPos - 30 + "px";
                             } else if (rowIndex == 46) {
-                                bondCard.style.top = yPos - 35 + "px";
-                                bondCard.style.left = xPos + "px";
+                                bondCard.style.top = yPos - 55 + "px";
+                                bondCard.style.left = xPos - 30 + "px";
                                 document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
 
                                 // stockCard.innerText = "채권형 펀드";
