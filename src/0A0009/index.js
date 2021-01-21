@@ -44,13 +44,13 @@ let lottie4 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
 });
-// let lottie5 = lottie.loadAnimation({
-//     container: document.getElementById("lottie5"), // the dom element that will contain the animation
-//     renderer: "svg",
-//     loop: false,
-//     autoplay: true,
-//     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
-// });
+let lottie5 = lottie.loadAnimation({
+    container: document.getElementById("lottie5"), // the dom element that will contain the animation
+    renderer: "svg",
+    loop: false,
+    autoplay: true,
+    path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
+});
 let lottie6 = lottie.loadAnimation({
     container: document.getElementById("lottie6"), // the dom element that will contain the animation
     renderer: "svg",
@@ -58,13 +58,13 @@ let lottie6 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
 });
-// let lottie7 = lottie.loadAnimation({
-//     container: document.getElementById("lottie7"), // the dom element that will contain the animation
-//     renderer: "svg",
-//     loop: false,
-//     autoplay: true,
-//     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
-// });
+let lottie7 = lottie.loadAnimation({
+    container: document.getElementById("lottie7"), // the dom element that will contain the animation
+    renderer: "svg",
+    loop: false,
+    autoplay: true,
+    path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
+});
 
 window.onload = function () {
     fitScreeSize();
@@ -159,26 +159,26 @@ window.onload = function () {
                                 case 0:
                                     document.querySelector(".page-slide").style.opacity = 0;
 
-                                    document.getElementsByClassName("footer")[0].classList.add("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                                    document.getElementsByClassName("footer")[0].style.opacity = 0;
+                                    document.getElementsByClassName("page-slide")[0].style.opacity = 0;
                                     break;
                                 case 4:
                                     lottie4.goToAndPlay(0);
                                     break;
                                 case 5:
-                                    lottie4.goToAndPlay(0);
+                                    lottie5.goToAndPlay(0);
                                     break;
                                 case 6:
                                     lottie6.goToAndPlay(0);
                                     break;
                                 case 7:
-                                    lottie6.goToAndPlay(0);
+                                    lottie7.goToAndPlay(0);
                                     break;
                                 default:
                                     document.querySelector(".page-slide").style.opacity = 1;
 
-                                    document.getElementsByClassName("footer")[0].classList.remove("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
+                                    document.getElementsByClassName("footer")[0].style.opacity = 1;
+                                    document.getElementsByClassName("page-slide")[0].style.opacity = 1;
                                     break;
                             }
                         },
@@ -226,7 +226,7 @@ window.onload = function () {
                     navArray[i].controller.control = mainArray[i];
                 }
 
-                document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                document.getElementsByClassName("page-slide")[0].style.opacity = 0;
                 console.log("multipleSwiperSlides: Things should be working fine. B)");
             }
         };

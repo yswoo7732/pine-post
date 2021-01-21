@@ -162,7 +162,7 @@ img {
 .wrap_cover {
     position: fixed;
     width: 100%;
-    z-index: -1;
+    z-index: 0;
     top: 0;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
