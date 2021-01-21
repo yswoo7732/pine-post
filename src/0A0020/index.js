@@ -65,25 +65,25 @@ window.onload = function () {
         // 연봉 5500만원 이하
         if (salaryInput > 0 && salaryInput <= 100) {
             let taxDeductionRate = "16.5";
-            let taxCreditLimitTxt = "400만 원";
-            let maxDeductionAmtTxt = "66만 원";
+            let taxCreditLimitTxt = "400만원";
+            let maxDeductionAmtTxt = "66만원";
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
             if (depositInput == 100) {
-                taxDeductionAmtTxt = "16만 5천 원";
+                taxDeductionAmtTxt = "16만 5천원";
             }
             // 연금저축액 200만원일때
             else if (depositInput == 200) {
-                taxDeductionAmtTxt = "33만 원";
+                taxDeductionAmtTxt = "33만원";
             }
             // 연금저축액 300만원일때
             else if (depositInput == 300) {
-                taxDeductionAmtTxt = "49만 5천 원";
+                taxDeductionAmtTxt = "49만 5천원";
             }
             // 연금저축액 400만원일때
             else if (depositInput == 400) {
-                taxDeductionAmtTxt = "66만 원";
+                taxDeductionAmtTxt = "66만원";
             }
 
             // perTax.innerText = taxDeductionRate;
@@ -95,25 +95,25 @@ window.onload = function () {
         } else if (salaryInput > 100 && salaryInput <= 200) {
             // 연봉 5500만원 ~ 1억2천만원
             let taxDeductionRate = "13.2";
-            let taxCreditLimitTxt = "400만 원";
-            let maxDeductionAmtTxt = "52만 8천 원";
+            let taxCreditLimitTxt = "400만원";
+            let maxDeductionAmtTxt = "52만 8천원";
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
             if (depositInput == 100) {
-                taxDeductionAmtTxt = "13만 2천 원";
+                taxDeductionAmtTxt = "13만 2천원";
             }
             // 연금저축액 200만원일때
             else if (depositInput == 200) {
-                taxDeductionAmtTxt = "26만 4천 원";
+                taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
             else if (depositInput == 300) {
-                taxDeductionAmtTxt = "39만 6천 원";
+                taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
             else if (depositInput == 400) {
-                taxDeductionAmtTxt = "52만 8천 원";
+                taxDeductionAmtTxt = "52만 8천원";
             }
 
             // perTax.innerText = taxDeductionRate;
@@ -125,25 +125,25 @@ window.onload = function () {
         } else {
             // 1억 2천만원 초과
             let taxDeductionRate = "13.2";
-            let taxCreditLimitTxt = "300만 원";
-            let maxDeductionAmtTxt = "39만 6천 원";
+            let taxCreditLimitTxt = "300만원";
+            let maxDeductionAmtTxt = "39만 6천원";
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
             if (depositInput == 100) {
-                taxDeductionAmtTxt = "26만 4천 원";
+                taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 200만원일때
             else if (depositInput == 200) {
-                taxDeductionAmtTxt = "26만 4천 원";
+                taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
             else if (depositInput == 300) {
-                taxDeductionAmtTxt = "39만 6천 원";
+                taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
             else if (depositInput == 400) {
-                taxDeductionAmtTxt = "39만 6천 원";
+                taxDeductionAmtTxt = "39만 6천원";
             }
 
             // perTax.innerText = taxDeductionRate;
