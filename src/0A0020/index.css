@@ -97,6 +97,45 @@ img {
     border-color: #eee;
 }
 
+#main_modal {
+    display: none;
+    width: 250px;
+    height: 150px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 3px;
+    font-family: LIFEPLUS;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #000000;
+    text-align: center;
+}
+
+#main_modal .modal_txt {
+    width: 100%;
+    height: 105px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#main_modal .modal_close_btn {
+    position: relative;
+    background: #000;
+    color: #fff;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+}
+
 .title_wrap {
     padding: 18% 0 0;
     margin: 0 auto;
@@ -369,7 +408,7 @@ img {
 
 .result_wrapper {
     padding: 15% 0;
-    padding: 95px 20px 0 39px;
+    padding: 110px 20px 0 39px;
 }
 
 .result_container {
@@ -461,7 +500,7 @@ img {
 
 .plus_tip_container {
     width: 96%;
-    padding: 95px 0;
+    padding: 110px 0;
 }
 
 .swiper-result-container {
@@ -539,7 +578,9 @@ th {
     font-style: normal;
     line-height: 1.56;
     letter-spacing: normal;
-    padding: 0 20px;
+    padding: 10px 20px;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 .table_caution .caution_title {
@@ -989,6 +1030,37 @@ th {
     border: 0;
 }
 
+.tip-375, .tip-360, .tip-412 {
+    display: none;
+}
+
+@media (device-width: 375px) {
+    .tip-375 {
+        display: inline;
+    }
+    .basic-tip {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .tip-360 {
+        display: inline;
+    }
+    .basic-tip, .tip-375 {
+        display: none;
+    }
+}
+
+@media (max-width: 414px) and (min-width: 412px) {
+    .tip-412 {
+        display: inline;
+    }
+    .basic-tip, .tip-375 {
+        display: none;
+    }
+}
+
 @media (min-width: 750px) {
     body {
         max-width: 450px;
@@ -1014,6 +1086,39 @@ th {
     }
     .slider_container {
         margin: 17% auto;
+    }
+}
+
+@media (aspect-ratio: 360/718) {
+    .title_wrap {
+        padding: 11% 0 0;
+    }
+    .range_container {
+        padding: 2% 0;
+    }
+    .slider_container {
+        margin: 17% auto;
+    }
+}
+
+@media (aspect-ratio: 375/667) {
+    .title_wrap {
+        padding: 11% 0 0;
+    }
+    .range_container {
+        padding: 2% 0;
+    }
+    .slider_container {
+        margin: 17% auto;
+    }
+    .btn_confirm, .btn_link {
+        height: 50px;
+    }
+    .main_section {
+        padding-top: 23px;
+    }
+    #chart_div {
+        padding-bottom: 100px;
     }
 }
 

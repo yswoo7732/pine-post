@@ -13,6 +13,10 @@
     </head>
 
     <body>
+        <div id="main_modal">
+            <div class="modal_txt"></div>
+            <div class="modal_close_btn">확인</div>
+        </div>
         <div class="title_wrap">
             <p class="title">연금저축펀드</p>
             <p class="title">연말 정산 미리보기</p>
@@ -45,11 +49,6 @@
                         <span class="mark_tip">5,500만원</span>
                         <span class="mark_tip">1억 2천만원</span>
                     </div>
-                    <!-- <div style="margin-top: 20px;">
-                <div class="range_section first"></div>
-                <div class="range_section second"></div>
-                <div class="range_section third"></div>
-            </div> -->
                 </div>
                 <p class="range_title">연금저축액 (1년 기준)</p>
                 <div class="slider_container">
@@ -91,21 +90,33 @@
                                 <div class="result_container">
                                     <div class="result_section">
                                         <p>
-                                            당신의 연금저축펀드 세액공제율은 <span id="per_tax"></span> <strong>%</strong>로 돌려받을 수 있는 공제
-                                            금액은 <span id="tax_deduction_amt"></span> 입니다.
+                                            당신의 연금저축펀드 세액공제율은 <span id="per_tax"></span><strong style="color: #6dceac">%</strong>로
+                                            돌려받을 수 있는 공제 금액은 <span id="tax_deduction_amt"></span> 입니다.
                                         </p>
                                     </div>
                                     <div class="result_section">
                                         <p>
-                                            최대 공제 한도는 <span id="tax_credit_limit"></span>으로,<br>최대 <span id="max_deduction_amt"></span>을
+                                            최대 공제 한도는 <span id="tax_credit_limit"></span>으로,<br />최대 <span id="max_deduction_amt"></span>을
                                             공제받을 수 있어요!
                                         </p>
                                     </div>
                                 </div>
                                 <div class="result_section_tip">
-                                    <p>
+                                    <p class="basic-tip">
                                         연간 소득에 따라 세액 공제율과 공제 대상 저축액이 정해집니다. 그에 따라 환급 세액 한도가 달라지니 미리
                                         체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
+                                    </p>
+                                    <p class="tip-375">
+                                        연간 소득에 따라 세액 공제율과 공제 대상 저축액이 정해집니다. 그에 따라 환급 세액 한도가<br> 달라지니
+                                        미리 체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
+                                    </p>
+                                    <p class="tip-360">
+                                        연간 소득에 따라 세액 공제율과 공제 대상<br />저축액이 정해집니다. 그에 따라 환급 세액<br />한도가 달라지니
+                                        미리 체크해서 똑똑하게<br />연금저축펀드 가입 계획을 세우는 게 좋겠죠?
+                                    </p>
+                                    <p class="tip-412">
+                                        연간 소득에 따라 세액 공제율과 공제 대상 저축액이<br>정해집니다. 그에 따라 환급 세액 한도가 달라지니
+                                        미리 체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
                                     </p>
                                 </div>
                             </div>
@@ -164,7 +175,8 @@
             <div class="benefit_section">
                 <p>연금저축펀드는<br />400만원까지만 넣을 수 있을까?</p>
                 <p>
-                    <span>아니요!</span> 400만원을 이미 채웠더라도 <br>연금저축펀드에 추가로 투자할 수 있어요.<br> 추가로 납입하는 1400만원에 대해서도<br>
+                    <span>아니요!</span> 400만원을 이미 채웠더라도 <br />연금저축펀드에 추가로 투자할 수 있어요.<br />
+                    추가로 납입하는 1400만원에 대해서도<br />
                     자유롭게 납입하고 또다른 혜택을 누려보세요.
                 </p>
                 <div class="square_wrapper">
@@ -195,7 +207,7 @@
                     <p class="graph_start">시장 상황에 따라 펀드를 바꾸고 싶다면<br />PINE 연금 계좌에서 자유롭게!</p>
                     <p><span>주가 지수가 상승</span>하는 시장에서는</p>
                     <p><span>주식형 펀드</span>를 연금 펀드로 선택하는 게 좋겠죠?</p>
-                    <br>
+                    <br />
                     <p>이후 <span>주가 지수가 하락</span>해서 <span>채권형 펀드로 바꾸더라도</span></p>
                     <p>PINE 연금 계좌 안에서는 세금이 없어요</p>
                     <!-- <p>계좌 안에서 펀드 구매와 환매는</p>
@@ -206,12 +218,6 @@
                     <div id="line_chart"></div>
                 </div>
             </div>
-            <!-- <button onclick="createLineChart()">test</button> -->
-            <!-- <div class="final_section">
-                <a class="stroke_link" id="link_title">
-                    <p style="text-align: center">연금저축펀드<br />투자하기</p>
-                </a>
-            </div> -->
         </div>
         <div class="product_link">
             <a href="#" class="btn_link">연금저축펀드 투자하기</a>

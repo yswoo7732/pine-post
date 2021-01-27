@@ -1,4 +1,5 @@
 const mql = window.matchMedia("(max-width: 340px)");
+const mql375 = window.matchMedia("(max-width: 375px)");
 
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -11,14 +12,19 @@ window.onload = function () {
     const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
 
+    const salaryInput = document.getElementsByClassName("slider")[0];
+    const depositInput = document.getElementsByClassName("slider")[1];
+
     btnOK.addEventListener("click", () => {
-        if (document.getElementsByClassName("slider")[0].value == 0) {
-            alert("연봉을 선택해주세요.");
+        if (salaryInput.value == 0) {
+            modal("main_modal", "연봉을 선택해주세요.");
             return false;
         }
 
-        if (document.getElementsByClassName("slider")[1].value == 0) {
-            alert("연금저축액을 선택해주세요.");
+        if (depositInput.value == 0) {
+            console.log(depositInput);
+
+            modal("main_modal", "연금저축액을 선택해주세요.");
             return false;
         }
 
@@ -52,9 +58,6 @@ window.onload = function () {
             onEnterBack: () => showBtn("onEnterBack"),
         });
 
-        const salaryInput = document.getElementsByClassName("slider")[0].value;
-        const depositInput = document.getElementsByClassName("slider")[1].value;
-
         // 세액공제율
         const perTax = document.getElementById("per_tax");
         // 공제 금액
@@ -64,37 +67,41 @@ window.onload = function () {
         // 최대 공제 금액
         const maxDeductionAmt = document.getElementById("max_deduction_amt");
 
+        let newLine = "";
+
         // 연봉 5500만원 이하
-        if (salaryInput > 0 && salaryInput <= 100) {
+        if (salaryInput.value > 0 && salaryInput.value <= 100) {
             let taxDeductionRate = "16.5";
             let taxCreditLimitTxt = "400만원";
             let maxDeductionAmtTxt = "66만원";
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
-            if (depositInput == 100) {
+            if (depositInput.value == 100) {
                 taxDeductionAmtTxt = "16만 5천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput == 200) {
+            else if (depositInput.value == 200) {
                 taxDeductionAmtTxt = "33만원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput == 300) {
+            else if (depositInput.value == 300) {
                 taxDeductionAmtTxt = "49만 5천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput == 400) {
+            else if (depositInput.value == 400) {
                 taxDeductionAmtTxt = "66만원";
             }
 
             // perTax.innerText = taxDeductionRate;
             animateValue(perTax, 0, taxDeductionRate, 1500);
 
-            taxDeductionAmt.innerText = taxDeductionAmtTxt;
+            newLine = mql375.matches ? "\n" : "";
+
+            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
             taxCreditLimit.innerText = taxCreditLimitTxt;
             maxDeductionAmt.innerText = maxDeductionAmtTxt;
-        } else if (salaryInput > 100 && salaryInput <= 200) {
+        } else if (salaryInput.value > 100 && salaryInput.value <= 200) {
             // 연봉 5500만원 ~ 1억2천만원
             let taxDeductionRate = "13.2";
             let taxCreditLimitTxt = "400만원";
@@ -102,26 +109,27 @@ window.onload = function () {
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
-            if (depositInput == 100) {
+            if (depositInput.value == 100) {
                 taxDeductionAmtTxt = "13만 2천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput == 200) {
+            else if (depositInput.value == 200) {
                 taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput == 300) {
+            else if (depositInput.value == 300) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput == 400) {
+            else if (depositInput.value == 400) {
                 taxDeductionAmtTxt = "52만 8천원";
             }
 
-            // perTax.innerText = taxDeductionRate;
             animateValue(perTax, 0, taxDeductionRate, 1500);
 
-            taxDeductionAmt.innerText = taxDeductionAmtTxt;
+            newLine = mql375.matches ? "\n" : "";
+
+            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
             taxCreditLimit.innerText = taxCreditLimitTxt;
             maxDeductionAmt.innerText = maxDeductionAmtTxt;
         } else {
@@ -132,26 +140,28 @@ window.onload = function () {
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
-            if (depositInput == 100) {
+            if (depositInput.value == 100) {
                 taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput == 200) {
+            else if (depositInput.value == 200) {
                 taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput == 300) {
+            else if (depositInput.value == 300) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput == 400) {
+            else if (depositInput.value == 400) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
 
             // perTax.innerText = taxDeductionRate;
             animateValue(perTax, 0, taxDeductionRate, 1500);
 
-            taxDeductionAmt.innerText = taxDeductionAmtTxt;
+            newLine = mql375.matches ? "\n" : "";
+
+            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
             taxCreditLimit.innerText = taxCreditLimitTxt;
             maxDeductionAmt.innerText = maxDeductionAmtTxt;
         }
@@ -215,6 +225,57 @@ window.onload = function () {
 };
 // createLineChart();
 
+function modal(id, modalTxt) {
+    var zIndex = 9999;
+    var modal = document.getElementById(id);
+
+    // 모달 div 뒤에 희끄무레한 레이어
+    var bg = document.createElement("div");
+    bg.setStyle({
+        position: "fixed",
+        zIndex: zIndex,
+        left: "0px",
+        top: "0px",
+        width: "100%",
+        height: "100%",
+        overflow: "auto",
+        // 레이어 색갈은 여기서 바꾸면 됨
+        backgroundColor: "rgba(0,0,0,0.4)",
+    });
+    document.body.append(bg);
+
+    // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+    modal.querySelector(".modal_close_btn").addEventListener("click", function () {
+        bg.remove();
+        modal.style.display = "none";
+    });
+
+    modal.setStyle({
+        position: "fixed",
+        display: "block",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+
+        // 시꺼먼 레이어 보다 한칸 위에 보이기
+        zIndex: zIndex + 1,
+
+        // div center 정렬
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        msTransform: "translate(-50%, -50%)",
+        webkitTransform: "translate(-50%, -50%)",
+    });
+
+    document.querySelector(".modal_txt").innerText = modalTxt;
+}
+
+// Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+Element.prototype.setStyle = function (styles) {
+    for (var k in styles) this.style[k] = styles[k];
+    return this;
+};
+
+// 연금저축펀드 투자하기 버튼 보이기
 function showBtn(flag) {
     const productLink = document.querySelector(".product_link");
 
