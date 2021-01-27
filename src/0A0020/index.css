@@ -362,15 +362,14 @@ img {
 
 .result-section-wrapper {
     width: 100%;
-    height: 100%;
+    height: 570px;
     position: relative;
     padding: 0;
-
 }
-    
+
 .result_wrapper {
     padding: 15% 0;
-    padding: 85px 20px 0 39px;
+    padding: 95px 20px 0 39px;
 }
 
 .result_container {
@@ -417,7 +416,7 @@ img {
     color: #000000;
     border-top: 1px solid #f5f5f5;
     margin: 37px 0 50px 0;
-    padding: 16px;
+    padding: 16px 10px;
 }
 
 @keyframes slide-top {
@@ -434,8 +433,10 @@ img {
 #per_tax {
     margin: 3px;
 }
+
 .btn_confirm {
-    width: 95%;
+    width: 320px;
+    height: 60px;
     background-color: #000000;
     font-family: LIFEPLUS;
     font-size: 18px;
@@ -450,7 +451,6 @@ img {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 4% 0;
     border: 0;
 }
 
@@ -461,7 +461,7 @@ img {
 
 .plus_tip_container {
     width: 96%;
-    padding: 85px 0;
+    padding: 95px 0;
 }
 
 .swiper-result-container {
@@ -481,23 +481,22 @@ img {
     line-height: 1.56;
     letter-spacing: normal;
     color: #000000;
-    position: relative;
+    position: absolute;
+    bottom: 30px;
 }
 
 .right-direction {
-    bottom: 3px;
-    float: right;
+    right: 20px;
 }
 
 .left-direction {
-    bottom: -39px;
     padding-left: 20px;
     float: left;
 }
 
 .result_txt {
     font-family: LIFEPLUS;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -568,7 +567,7 @@ th {
 
 .benefit_section p:nth-of-type(1) {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .benefit_section span {
@@ -692,7 +691,7 @@ th {
 }
 
 .pine_section p:nth-of-type(1) {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: bold;
 }
 
@@ -799,6 +798,14 @@ th {
     height: 300px;
 }
 
+#line_chart div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
 .commend-fund {
     position: absolute;
     border: 1px solid #000;
@@ -833,16 +840,15 @@ th {
 
 @keyframes blink-2 {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
     50% {
-      opacity: 0.2;
+        opacity: 0.2;
     }
     100% {
-      opacity: 0.6;
+        opacity: 0.6;
     }
-  }
-  
+}
 
 .stock_card {
     /* border-radius: 10px; */
@@ -946,11 +952,26 @@ th {
 .product_link {
     position: fixed;
     z-index: 9999;
-    bottom: -60px;
+    bottom: -100px;
     left: 0;
     right: 0;
-    transition: bottom .25s;
-    width: 85%;
+    transition: bottom 0.25s;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: 0;
+}
+
+.btn_link {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 0;
+    width: 320px;
+    height: 60px;
     background-color: #000000;
     font-family: LIFEPLUS;
     font-size: 18px;
@@ -965,21 +986,177 @@ th {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 4% 0;
     border: 0;
-}
-
-.product_link a {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
 }
 
 @media (min-width: 750px) {
     body {
         max-width: 450px;
         margin: 0 auto;
+    }
+
+    .btn_confirm,
+    .btn_link {
+        width: 390px;
+    }
+
+    .product_link {
+        max-width: 450px;
+    }
+}
+
+@media (aspect-ratio: 414/736) {
+    .title_wrap {
+        padding: 11% 0 0;
+    }
+    .range_container {
+        padding: 2% 0;
+    }
+    .slider_container {
+        margin: 17% auto;
+    }
+}
+
+@media (max-width: 360px) {
+    table,
+    th {
+        font-size: 10px;
+    }
+
+    .benefit_section p:nth-of-type(1),
+    .pine_section p:nth-of-type(1),
+    .graph_description p:nth-of-type(1) {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 340px) {
+    p,
+    .section,
+    .range_title {
+        font-size: 13px;
+    }
+
+    .title_wrap {
+        padding: 8% 0 0;
+    }
+    .title {
+        font-size: 20px;
+    }
+
+    .main_section {
+        padding: 26px 20px 50px 20px;
+    }
+
+    .range_container {
+        padding: 3% 0;
+    }
+
+    .slider_container {
+        margin-bottom: 16%;
+    }
+
+    .__range-output-square {
+        font-size: 10px;
+        width: 39px;
+    }
+    .mark_tip {
+        font-size: 8px;
+    }
+    .btn_confirm,
+    .btn_link {
+        width: 250px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .__range-output-square:after {
+        border-top: 6px solid #000000;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        margin-left: -6px;
+        margin-top: 0px;
+    }
+    .__range-output-square {
+        top: -81%;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+    .slider::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+    }
+
+    .slider::-webkit-slider-runnable-track,
+    .slider::-moz-track,
+    .slider::-ms-track {
+        height: 7px;
+    }
+
+    .tickmarks p {
+        height: 12px;
+    }
+
+    .result-section-wrapper {
+        height: 470px;
+    }
+    .result_wrapper,
+    .plus_tip_container {
+        padding-top: 55px;
+    }
+
+    .result_container {
+        padding: 10px 15px;
+    }
+
+    .result_section span {
+        font-size: 14px;
+    }
+
+    .result_txt {
+        font-size: 18px;
+    }
+
+    .result_section_tip {
+        margin: 25px 0 50px 0;
+        padding: 4px 5px;
+    }
+
+    table,
+    th,
+    .table_caution p,
+    .caution_section p {
+        font-size: 10px;
+    }
+
+    table {
+        margin-top: 13px;
+    }
+
+    .benefit_section p:nth-of-type(1),
+    .pine_section p:nth-of-type(1),
+    .graph_description p:nth-of-type(1) {
+        font-size: 17px;
+    }
+
+    .square_wrapper .basic_square,
+    .square_wrapper .add_square,
+    .square_tip {
+        font-size: 12px;
+    }
+
+    #banner_swiper {
+        height: 220px;
+    }
+
+    .swiper-banner-container .swiper-slide {
+        height: 150px;
+    }
+
+    #chart_div {
+        padding-bottom: 30px;
     }
 }

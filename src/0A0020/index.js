@@ -1,3 +1,5 @@
+const mql = window.matchMedia("(max-width: 340px)");
+
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/iPhone/i.test(navigator.userAgent)) {
@@ -207,7 +209,6 @@ window.onload = function () {
         });
     });
 
-
     // 구글차트
     // google.charts.load("45", { packages: ["corechart"] });
     // google.charts.setOnLoadCallback(drawChart);
@@ -217,14 +218,13 @@ window.onload = function () {
 function showBtn(flag) {
     const productLink = document.querySelector(".product_link");
 
-    if(flag == "onEnter") {
-        productLink.style.bottom = "64px";
+    if (flag == "onEnter") {
+        productLink.style.bottom = "0px";
     }
 
-    if(flag == "onEnterBack") {
-        productLink.style.bottom = "-64px";
+    if (flag == "onEnterBack") {
+        productLink.style.bottom = "-100px";
     }
-    
 }
 
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
@@ -236,16 +236,32 @@ function handleSalarySliderValuePosition(input) {
     let thumbSize = 33;
 
     if (value == 0) {
-        rangeTip.style.width = "50px";
+        if (mql.matches) {
+            rangeTip.style.width = "45px";
+        } else {
+            rangeTip.style.width = "50px";
+        }
         rangeTip.innerText = "0원";
     } else if (value > 0 && value <= 100) {
-        rangeTip.style.width = "76px";
+        if (mql.matches) {
+            rangeTip.style.width = "73px";
+        } else {
+            rangeTip.style.width = "76px";
+        }
         rangeTip.innerText = "5,500만원 이하";
     } else if (value > 100 && value <= 200) {
-        rangeTip.style.width = "122px";
+        if (mql.matches) {
+            rangeTip.style.width = "115px";
+        } else {
+            rangeTip.style.width = "122px";
+        }
         rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
     } else {
-        rangeTip.style.width = "88px";
+        if (mql.matches) {
+            rangeTip.style.width = "76px";
+        } else {
+            rangeTip.style.width = "88px";
+        }
         rangeTip.innerText = "1억 2천만원 초과";
     }
 
@@ -349,6 +365,17 @@ function animateValue(obj, start, end, duration) {
 // createLineChart();
 
 function createLineChart() {
+    let chartWidth = 0;
+    let chartHeight = 0;
+
+    if (mql.matches) {
+        chartWidth = 350;
+        chartHeight = 200;
+    } else {
+        chartWidth = 400;
+        chartHeight = 300;
+    }
+
     google.charts.load("45", {
         callback: function () {
             var rawData = [
@@ -442,8 +469,8 @@ function createLineChart() {
                 title: "코스피 지수",
                 colors: ["#d62a56", "#000"],
                 colors: ["#d62a56", "transparent"],
-                width: 400,
-                height: 300,
+                width: chartWidth,
+                height: chartHeight,
                 // pointSize: 4,
                 tooltip: { trigger: "none" },
                 animation: {
