@@ -833,7 +833,7 @@ th {
     align-items: center;
     align-content: center; */
     margin: 0 auto;
-    padding-bottom: 180px;
+    padding-bottom: 170px;
     /* padding: 50px 0; */
 }
 
@@ -1094,7 +1094,11 @@ th {
     }
 }
 
-
+@media (aspect-ratio: 360/800) {
+    #chart_div {
+        padding-bottom: 160px
+    }
+}
 
 @media (aspect-ratio: 414/896) {
     .first_des {
@@ -1158,8 +1162,11 @@ th {
     .main_section {
         padding-bottom: 20px;
     }
+    .graph_description {
+        padding-bottom: 0;
+    }
     #chart_div {
-        padding-bottom: 100px;
+        padding-bottom: 85px;
     }
 }
 
