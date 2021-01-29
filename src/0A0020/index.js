@@ -9,6 +9,11 @@ window.onload = function () {
         console.log("not mobile");
     }
 
+    const mainSection = document.getElementsByClassName("main_section")[0];
+
+    plusPadding = document.getElementsByClassName("title_wrap")[0].offsetTop + document.body.clientHeight - mainSection.offsetHeight;
+    mainSection.style.paddingTop = (plusPadding > 0 ? plusPadding : 0)  + "px";
+
     const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
 
@@ -240,7 +245,7 @@ function modal(id, modalTxt) {
         height: "100%",
         overflow: "auto",
         // 레이어 색갈은 여기서 바꾸면 됨
-        backgroundColor: "rgba(0,0,0,0.4)",
+        backgroundColor: "rgba(0,0,0,0.6)",
     });
     document.body.append(bg);
 
@@ -253,7 +258,7 @@ function modal(id, modalTxt) {
     modal.setStyle({
         position: "fixed",
         display: "block",
-        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        // boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
 
         // 시꺼먼 레이어 보다 한칸 위에 보이기
         zIndex: zIndex + 1,

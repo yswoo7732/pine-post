@@ -100,12 +100,12 @@ img {
 #main_modal {
     display: none;
     width: 250px;
-    height: 150px;
+    height: auto;
     background-color: #fefefe;
     border: 1px solid #888;
     border-radius: 3px;
     font-family: LIFEPLUS;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -117,7 +117,7 @@ img {
 
 #main_modal .modal_txt {
     width: 100%;
-    height: 105px;
+    height: 87px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -128,7 +128,7 @@ img {
     background: #000;
     color: #fff;
     width: 100%;
-    height: 45px;
+    height: 50px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -137,7 +137,6 @@ img {
 }
 
 .title_wrap {
-    padding: 18% 0 0;
     margin: 0 auto;
 }
 
@@ -166,8 +165,12 @@ img {
     margin: 0 auto;
 }
 
+.first_des {
+    margin-top: 11%;
+}
+
 .main_section {
-    padding: 45px 20px 50px 20px;
+    padding: 63px 28px 50px 28px;
     margin: auto;
 }
 
@@ -474,7 +477,7 @@ img {
 }
 
 .btn_confirm {
-    width: 320px;
+    width: 100%;
     height: 60px;
     background-color: #000000;
     font-family: LIFEPLUS;
@@ -594,7 +597,7 @@ th {
 }
 
 .benefit_section {
-    padding: 50px 20px 50px 20px;
+    padding: 50px 28px 50px 28px;
     font-family: LIFEPLUS;
     font-size: 15px;
     font-weight: 500;
@@ -719,7 +722,7 @@ th {
 }
 
 .pine_section {
-    padding: 50px 20px 50px 20px;
+    padding: 50px 28px 50px 28px;
     font-family: LIFEPLUS;
     font-size: 15px;
     font-weight: 500;
@@ -806,18 +809,18 @@ th {
 }
 
 .graph_description {
-    padding: 50px 20px 20px 20px;
+    padding: 50px 28px 20px 28px;
 }
 
 .graph_description span {
     font-weight: bold;
 }
 
-.graph_description p:not(:nth-of-type(1)) {
+.graph_description p:not(.graph_title) {
     margin: 0;
 }
 
-.graph_description p:nth-of-type(1) {
+.graph_title {
     font-size: 21px;
     font-weight: bold;
 }
@@ -997,12 +1000,12 @@ th {
     left: 0;
     right: 0;
     transition: bottom 0.25s;
-    width: 100%;
+    width: auto;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 28px;
     border: 0;
 }
 
@@ -1011,7 +1014,7 @@ th {
     left: 50%;
     transform: translate(-50%, -50%);
     top: 0;
-    width: 320px;
+    width: 100%;
     height: 60px;
     background-color: #000000;
     font-family: LIFEPLUS;
@@ -1030,7 +1033,9 @@ th {
     border: 0;
 }
 
-.tip-375, .tip-360, .tip-412 {
+.tip-375,
+.tip-360,
+.tip-412 {
     display: none;
 }
 
@@ -1047,7 +1052,8 @@ th {
     .tip-360 {
         display: inline;
     }
-    .basic-tip, .tip-375 {
+    .basic-tip,
+    .tip-375 {
         display: none;
     }
 }
@@ -1056,7 +1062,8 @@ th {
     .tip-412 {
         display: inline;
     }
-    .basic-tip, .tip-375 {
+    .basic-tip,
+    .tip-375 {
         display: none;
     }
 }
@@ -1066,12 +1073,6 @@ th {
         max-width: 450px;
         margin: 0 auto;
     }
-
-    .btn_confirm,
-    .btn_link {
-        width: 390px;
-    }
-
     .product_link {
         max-width: 450px;
     }
@@ -1087,17 +1088,56 @@ th {
     .slider_container {
         margin: 17% auto;
     }
+
+    #chart_div {
+        padding-bottom: 102px;
+    }
+}
+
+
+
+@media (aspect-ratio: 414/896) {
+    .first_des {
+        margin-top: 15%;
+    }
+    .main_section {
+        margin-top: 110px;
+    }
+    .range_container {
+        padding: 11% 0;
+    }
 }
 
 @media (aspect-ratio: 360/718) {
+    .main_section {
+        padding-bottom: 30px;
+    }
+
+    .benefit_section,
+    .graph_section,
+    .pine_section,
+    .result_section_tip,
+    .result_section {
+        font-size: 14px;
+    }
+
     .title_wrap {
-        padding: 11% 0 0;
+        padding: 6% 0 0;
     }
     .range_container {
         padding: 2% 0;
     }
     .slider_container {
-        margin: 17% auto;
+        margin: 21% auto;
+        margin-bottom: 40px;
+    }
+
+    .btn_confirm {
+        margin-top: 25px;
+    }
+
+    #chart_div {
+        padding-bottom: 102px;
     }
 }
 
@@ -1111,7 +1151,8 @@ th {
     .slider_container {
         margin: 17% auto;
     }
-    .btn_confirm, .btn_link {
+    .btn_confirm,
+    .btn_link {
         height: 50px;
     }
     .main_section {
@@ -1150,7 +1191,7 @@ th {
     }
 
     .main_section {
-        padding: 26px 20px 50px 20px;
+        padding: 26px 28px 50px 28px;
     }
 
     .range_container {
@@ -1170,7 +1211,6 @@ th {
     }
     .btn_confirm,
     .btn_link {
-        width: 250px;
         height: 38px;
         font-size: 15px;
     }
