@@ -1,5 +1,6 @@
 const mql = window.matchMedia("(max-width: 340px)");
 const mql375 = window.matchMedia("(max-width: 375px)");
+const minHeight = window.matchMedia("(min-height: 800px)");
 
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -12,7 +13,7 @@ window.onload = function () {
     const mainSection = document.getElementsByClassName("main_section")[0];
 
     plusPadding = document.getElementsByClassName("title_wrap")[0].offsetTop + document.body.clientHeight - mainSection.offsetHeight;
-    mainSection.style.paddingTop = (plusPadding > 0 ? plusPadding : 0)  + "px";
+    mainSection.style.paddingTop = (plusPadding > 0 ? plusPadding : 0) + "px";
 
     const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
@@ -285,7 +286,7 @@ function showBtn(flag) {
     const productLink = document.querySelector(".product_link");
 
     if (flag == "onEnter") {
-        productLink.style.bottom = "0px";
+        productLink.style.bottom = minHeight.matches ? "20px" : "0px";
     }
 
     if (flag == "onEnterBack") {
