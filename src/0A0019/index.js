@@ -5,6 +5,9 @@ window.onload = function () {
             document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
             document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
             document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
+
+            // 좋아요 클릭 유무 체크위해 호출
+            window.AosConnector.isLike();
         }
     } else {
         console.log("not mobile");
