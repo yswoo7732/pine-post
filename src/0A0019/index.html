@@ -43,10 +43,10 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
             <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="assets/basic_foot_heart.png" />
+                <img id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()"/>
             </div>
             <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="assets/basic_foot_share.png" />
+                <img id="shareImg" src="assets/basic_foot_share.png" onclick="sharedContents()"/>
             </div>
         </div>
         <div class="wrap_body">
@@ -133,16 +133,17 @@
 
     <div class="basic_link_foot sticky">
         <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" />
+            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" onclick="clickLike()"/>
         </div>
         <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="assets/card_foot_share.png" />
+            <img id="whiteShareImg" src="assets/card_foot_share.png" onclick="sharedContents()"/>
         </div>
     </div>
     <!-- </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="../common/common.js"></script>
     <script type="text/javascript" src="index.js"></script>
 
 </body>

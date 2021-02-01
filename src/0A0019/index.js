@@ -1,6 +1,6 @@
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
+        if (/PINE/i.test(navigator.userAgent)) {
             document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
             document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
             document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
@@ -166,19 +166,6 @@ window.onload = function () {
 
     link_title.addEventListener("touchend", function (event) {
         this.classList.remove("stroke_link-active");
-    });
-
-    // 좋아요 이벤트
-    let heartClickEvent = document.querySelector("#imgHeart");
-    heartClickEvent.addEventListener("click", function () {
-        this.classList.toggle("heart_active");
-        document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
-    });
-
-    let whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
-    whiteHeartClickEvent.addEventListener("click", function () {
-        this.classList.toggle("heart_white_active");
-        document.querySelector("#imgHeart").classList.toggle("heart_active");
     });
 
     function tweenScrollTo() {
