@@ -6,9 +6,14 @@ window.onload = function () {
             document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
             document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
 
-            // 좋아요 클릭 유무 체크위해 호출
-            window.AosConnector.isLike();
-            webkit.messageHandlers.isLike.postMessage();
+            // 좋아요 클릭 유무 체크위해 호출 
+            if (/Android/i.test(navigator.userAgent)) { // Aos
+                window.AosConnector.isLike();
+            }
+
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) { // ios
+                webkit.messageHandlers.isLike.postMessage();
+            }
         }
     } else {
         console.log("not mobile");

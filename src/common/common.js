@@ -1,11 +1,12 @@
 // 공유하기 클릭
 function sharedContents() {
-    console.log(window.location.href);
+    let contentsUrl = window.location.href;
 
-    if (/Android/i.test(navigator.userAgent)) {
-        if (/PINE/i.test(navigator.userAgent)) {
-            let contentsUrl = window.location.href;
+    if (/PINE/i.test(navigator.userAgent)) {
+        if (/Android/i.test(navigator.userAgent)) {
             window.AosConnector.shareContents(`${contentsUrl}`); // Aos
+        }
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
             webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
         }
     }
@@ -41,7 +42,7 @@ function clickLike() {
 
     if (imgHeart.classList.contains("heart_active")) {
         likeYN = "Y";
-    } else if(whiteHeart.classList.contains("heart_white_active")) {
+    } else if (whiteHeart.classList.contains("heart_white_active")) {
         likeYN = "Y";
     } else {
         likeYN = "N";
