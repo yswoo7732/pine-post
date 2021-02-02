@@ -12,11 +12,6 @@ window.onload = function () {
         console.log("not mobile");
     }
 
-    const mainSection = document.getElementsByClassName("main_section")[0];
-
-    plusPadding = document.getElementsByClassName("title_wrap")[0].offsetTop + document.body.clientHeight - mainSection.offsetHeight;
-    mainSection.style.paddingTop = (plusPadding > 0 ? plusPadding : 0) + "px";
-
     const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
 
