@@ -8,6 +8,7 @@ window.onload = function () {
 
             // 좋아요 클릭 유무 체크위해 호출
             window.AosConnector.isLike();
+            webkit.messageHandlers.isLike.postMessage();
         }
     } else {
         console.log("not mobile");

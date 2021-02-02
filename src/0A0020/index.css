@@ -581,9 +581,9 @@ th {
     font-style: normal;
     line-height: 1.56;
     letter-spacing: normal;
-    padding: 10px 20px;
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
+    margin: 10px 20px 10px 10px;
+    border: 1px solid #d9d9d9;
+    padding: 9px;
 }
 
 .table_caution .caution_title {
@@ -1005,14 +1005,14 @@ th {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 28px;
+    margin: auto;
     border: 0;
 }
 
 .btn_link {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     top: 0;
     width: 100%;
     height: 60px;
@@ -1029,8 +1029,10 @@ th {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 28px;
     border: 0;
+    left: 0;
+    right: 0;
 }
 
 .tip-375,

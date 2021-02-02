@@ -5,7 +5,8 @@ function sharedContents() {
     if (/Android/i.test(navigator.userAgent)) {
         if (/PINE/i.test(navigator.userAgent)) {
             let contentsUrl = window.location.href;
-            window.AosConnector.shareContents(`${contentsUrl}`);
+            window.AosConnector.shareContents(`${contentsUrl}`); // Aos
+            webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
         }
     }
 }
@@ -47,5 +48,6 @@ function clickLike() {
     }
 
     window.AosConnector.clickedLike(`${likeYN}`);
+    webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
     console.log(likeYN);
 }

@@ -1,6 +1,8 @@
 const mql = window.matchMedia("(max-width: 340px)");
 const mql375 = window.matchMedia("(max-width: 375px)");
 const minHeight = window.matchMedia("(min-height: 800px)");
+const minWidth = window.matchMedia("(min-width: 750px)");
+const swiperVW = minWidth.matches ? 3 : 6;
 
 window.onload = function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -183,9 +185,9 @@ window.onload = function () {
                     var idx = this.realIndex + 1;
                     gsap.set("#result_swiper", { x: "0" });
                     if (idx == 2) {
-                        gsap.to("#result_swiper", 0.8, { x: "6vw", delay: 0.8 });
+                        gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
                     } else {
-                        gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.8 });
+                        gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
                     }
                 },
             },
@@ -370,7 +372,7 @@ function animateValue(obj, start, end, duration) {
         }
 
         if (progress == 1) {
-            gsap.to("#result_swiper", 0.8, { x: "-6vw", delay: 0.3 });
+            gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
         }
     };
     window.requestAnimationFrame(step);
