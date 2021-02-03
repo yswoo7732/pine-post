@@ -438,11 +438,14 @@ img {
   background-size: 100% 100%;
 }
 
+#imgHeart, #shareImg, #imgWhiteHeart, #whiteShareImg {
+  height: 100%;
+}
 .basic_foot {
   position: relative;
   display: flex;
   width: 100%;
-  height: auto;
+  height: 60px;
   object-fit: contain;
   background-color: rgba(255, 255, 255);
   z-index: 20;
@@ -455,8 +458,8 @@ img {
   bottom: 0;
   display: none;
   width: 100%;
+  height: 60px;
   background-color: rgba(255, 255, 255);
-  height: auto;
   object-fit: contain;
   background-color: "transparent";
   z-index: 50;
