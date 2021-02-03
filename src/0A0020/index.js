@@ -443,18 +443,6 @@ function createLineChart() {
     google.charts.load("45", {
         callback: function () {
             var rawData = [
-                // [1, 500, null],
-                // [2, 600, null],
-                // [3, 400, null],
-                // [4, 550, null],
-                // [5, 800, null],
-                // [6, 1700, ""],
-                // [7, 3500, null],
-                // [8, 3800, null],
-                // [9, 800, null],
-                // [10, 400, ""],
-                // [11, 300, null],
-                // [12, 200, null],
                 [0, 2080, 2311, ""],
                 [0.2, 2200, 2311, ""],
                 [0.4, 2285, 2311, ""],
@@ -473,49 +461,7 @@ function createLineChart() {
                 [3, 2420, 2509, ""],
                 [3.2, 2500, 2542, ""],
                 [3.4, 2598, 2575, ""],
-                // [3.6, 2610, 2608, ""],
-                // [3.8, 2615, 2641, ""],
-                // [4, 2680, 2674, ""],
-                // [4.2, 2690, 2707, ""],
-                // [4.4, 2820, 2740, ""],
-                // [4.6, 2810, 2773, ""],
-                // [4.8, 2800, 2806, ""],
-                // [5, 2950, 2839, ""],
-                // [5.2, 2980, 2872, ""],
-                // [5.4, 3040, 2905, ""],
-                // [5.6, 3050, 2938, ""],
-                // [5.8, 3120, 2971, ""],
-                // [6, 3141, 3004, ""],
-                // [6.2, 3149, 3037, ""],
-                // [6.4, 3100, 3070, ""],
-                // [6.8, 3140, 3070, ""],
-                // [7, 3120, 3070, ""],
-                // [7.2, 3120, 3070, ""],
-                // [7.4, 3150, 3070, ""],
-                // [7.6, 3180, 3070, ""],
-                // [7.8, 3160, 3070, ""],
-                // [8, 3190, 3070, ""],
-
-                // [8.2, 3188, 3070, ""],
-                // [8.4, 3020, 3030, ""],
-                // [8.6, 2910, 2990, ""],
-                // [8.8, 2890, 2950, ""],
-                // [9, 2880, 2910, ""],
-                // [9.2, 2780, 2870, ""],
-                // [9.4, 2625, 2830, ""],
-                // [9.6, 2614, 2790, ""],
-                // [9.8, 2620, 2750, ""],
-                // [10, 2639, 2710, ""],
-                // [10.2, 2624, 2624, ""],
-                // [10.4, 2590, 2590, ""],
-                // [10.6, 2570, 2570, ""],
-                // [10.8, 2549, 2549, ""],
-                // [11, 2540, 2540, ""],
-                // [11.2, 2546, 2546, ""],
-                // [11.4, 2528, 2528, ""],
-                // [11.6, 2500, 2500, ""],
-                // [11.8, 2526, 2526, ""],
-                // [12, 2520, 2520, ""],
+              
             ];
 
             var data = new google.visualization.DataTable({
@@ -548,7 +494,6 @@ function createLineChart() {
                         min: 0.2,
                         max: 12,
                     },
-                    // ticks: ["03/02", "06/01", "09/01", "12/01"],
                     title: "월별",
                 },
                 vAxis: {
@@ -642,24 +587,12 @@ function createLineChart() {
                         }
                         chart.draw(data, options);
                     }
-                    // console.log(rowIndex);
-
-                    // chart.setSelection([
-                    //     { row: [rowIndex], column: null },
-                    //     // { row: [6], column: null },
-                    // ]);
-
+                    
                     var interface = chart.getChartLayoutInterface();
                     var cli = chart.getChartLayoutInterface();
 
-                    // console.log(document.getElementById("line_chart").getElementsByTagName("path")[0].getAttribute("d"));
-                    // console.log(document.getElementById("line_chart").getElementsByTagName("rect"));
-
-                    // if (rowIndex == 7) {
                     Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
                         if (rect.getAttribute("fill") === "none") {
-                            // console.log(rect,i);
-                            // console.log(interface.getYLocation(rect) );
 
                             var xPos = parseFloat(rect.getAttribute("x"));
                             var yPos = parseFloat(rect.getAttribute("y"));
@@ -677,7 +610,6 @@ function createLineChart() {
                             } else {
                                 var bondCard = document.getElementsByClassName("bond_card")[0];
                             }
-                            // stockCard.style.background = "url('assets/pine_banner1.png')";
 
                             if (rowIndex > 0 && rowIndex < 18) {
                                 stockCard.innerText = "연금\n계좌";
@@ -701,60 +633,9 @@ function createLineChart() {
                                 // console.log("else", rawData[rowIndex], rowIndex);
                             }
 
-                            // console.log(rowIndex,document.getElementById("line_chart").getElementsByTagName("path")[0].getPointAtLength(xPos));
-
-                            // var pos = document.getElementById("line_chart").getElementsByTagName("path")[0].getPointAtLength(xPos);
-
-                            //     // var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
-                            //     // stockCard.innerText = "주식형 펀드";
-                            //     // stockCard.style.background = "url('assets/pine_banner1.png')";
-                            //     // stockCard.className = "stock_card";
-
-                            // var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
-                            // stockCard.innerText = "▴ 주식형 펀드";
-                            // stockCard.className = "commend-fund";
-
-                            // console.log(rawData[rowIndex][1]);
-
-                            // //     // // 16x16 (image size in this example)
-                            // if (rawData[rowIndex][1] > 2470) {
-                            //     // document.getElementById("fund-tooltip").style.bottom = yPos  + "px";
-                            // } else {
-                            //     // document.getElementById("fund-tooltip").style.bottom = yPos + "px";
-                            // }
-                            // // document.getElementById("fund-tooltip").style.left = xPos + "px";
-                            // //     setTimeout("", 1000);
                         }
                     });
-                    // }
-                    // if (rowIndex == 12) {
-
-                    //     Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
-                    //             console.log(rect, i);
-
-                    //         if (rect.getAttribute("fill") === "none" && i ==16) {
-                    //             var xPos = parseFloat(rect.getAttribute("x"));
-                    //             var yPos = parseFloat(rect.getAttribute("y"));
-
-                    //             console.log("xPos", xPos);
-                    //             console.log("yPos", yPos);
-
-                    //             // var bondCard = document.getElementById("line_chart").appendChild(document.createElement("img"));
-                    //             // bondCard.src = "assets/pine_banner2.png";
-                    //             // bondCard.className = "bond_card";
-                    //             // // 16x16 (image size in this example)
-                    //             // bondCard.style.bottom = xPos - 60 + "px";
-                    //             // bondCard.style.left = yPos + "px";
-
-                    //             var bondCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
-                    //             bondCard.innerText = "채권형 펀드";
-                    //             bondCard.className = "stock_card bond_card";
-                    //             // 16x16 (image size in this example)
-                    //             bondCard.style.bottom = yPos - 15 + "px";
-                    //             bondCard.style.left = xPos - 15 + "px";
-                    //         }
-                    //     });
-                    // }
+                    
                 }
             }
         },

@@ -1,24 +1,4 @@
 window.onload = function () {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/PINE/i.test(navigator.userAgent)) {
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
-
-            // 좋아요 클릭 유무 체크위해 호출 
-            if (/Android/i.test(navigator.userAgent)) { // Aos
-                window.AosConnector.isLike();
-            }
-
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) { // ios
-                webkit.messageHandlers.isLike.postMessage();
-            }
-        }
-    } else {
-        console.log("not mobile");
-    }
-
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
     const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
     const boxShadows = document.getElementsByClassName("box-shadow");
