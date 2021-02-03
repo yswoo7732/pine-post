@@ -19,52 +19,11 @@ function fitScreeSize() {
 
     var r = gcd(window.screen.width, window.screen.height);
     console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
-        }
-    } else {
-        console.log("not mobile");
-    }
 }
 
 window.onload = function () {
     fitScreeSize();
 
-    // var swiper = new Swiper(".swiper-container", {
-    //     direction: "horizontal",
-    //     initialSlide: 0,
-    //     watchSlidesProgress: true,
-    //     resistanceRatio: 0,
-    //     on: {
-    //         slideChange: function (sp) {
-    //             switch (sp.activeIndex) {
-    //                 case 0:
-    //                     document.querySelector(".footer").classList.add("d-none");
-    //                     document.querySelector(".swiper-pagination").classList.add("d-none");
-    //                     break;
-    //                 default:
-    //                     document.querySelector(".footer").classList.remove("d-none");
-    //                     document.querySelector(".swiper-pagination").classList.remove("d-none");
-    //                     console.log("switch default activeIndex:", sp.activeIndex);
-    //             }
-    //         },
-    //     },
-    //     pagination: {
-    //         el: ".swiper-pagination",
-    //         type: "custom",
-    //         renderCustom: function (swiper, current, total) {
-    //             return (
-    //                 '<div class="page-font-f">' +
-    //                 ("0" + current).slice(-2) +
-    //                 '</div><div class="rectangle"></div><div class="page-font-b">' +
-    //                 ("0" + total).slice(-2) +
-    //                 "</div>"
-    //             );
-    //         },
-    //     },
-    // });
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
         let sliderNav = document.querySelectorAll(".swiper-container.js-slider--nav");
@@ -152,15 +111,4 @@ window.onload = function () {
     };
 
     multipleSwiperSlides();
-
-    var el_imgHearts = document.getElementsByClassName("imgHeart");
-
-    Array.from(el_imgHearts).forEach(function (element, index, array) {
-        element.addEventListener("click", function () {
-            console.log("heartClickEvent");
-            Array.from(array).forEach(function (element2, index2, array2) {
-                element2.classList.toggle("heart_active");
-            });
-        });
-    });
 };

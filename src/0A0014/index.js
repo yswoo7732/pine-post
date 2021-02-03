@@ -19,14 +19,6 @@ function fitScreeSize() {
 
     var r = gcd(window.screen.width, window.screen.height);
     console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
-        }
-    } else {
-        console.log("not mobile");
-    }
 }
 
 window.onload = function () {
@@ -120,14 +112,4 @@ window.onload = function () {
 
     multipleSwiperSlides();
 
-    var el_imgHearts = document.getElementsByClassName("imgHeart");
-
-    Array.from(el_imgHearts).forEach(function (element, index, array) {
-        element.addEventListener("click", function () {
-            console.log("heartClickEvent");
-            Array.from(array).forEach(function (element2, index2, array2) {
-                element2.classList.toggle("heart_active");
-            });
-        });
-    });
 };

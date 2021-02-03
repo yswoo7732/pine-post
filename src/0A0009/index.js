@@ -69,73 +69,6 @@ let lottie7 = lottie.loadAnimation({
 window.onload = function () {
     fitScreeSize();
 
-    // var swiper = new Swiper(".swiper-container", {
-    //     direction: "horizontal",
-    //     initialSlide: 0,
-    //     watchSlidesProgress: true,
-    //     resistanceRatio: 0,
-    //     on: {
-    //         slideChange: function (sp) {
-    //             document.getElementsByClassName("footer")[0].classList.remove("d-none");
-    //             document.getElementsByClassName("swiper-pagination")[0].classList.remove("d-none");
-    //             console.log("switch default activeIndex:", sp.activeIndex);
-
-    //             switch (sp.activeIndex) {
-    //                 case 0:
-    //                     document.getElementsByClassName("swiper-pagination")[0].classList.add("d-none");
-    //                     document.getElementsByClassName("footer")[0].classList.add("d-none");
-    //                     break;
-    //                 case 4:
-    //                     lottie4.goToAndPlay(0);
-    //                     break;
-    //                 case 5:
-    //                     // lottie5.goToAndPlay(0);
-    //                     break;
-    //                 case 6:
-    //                     lottie6.goToAndPlay(0);
-    //                     break;
-    //                 case 7:
-    //                     // lottie7.goToAndPlay(0);
-    //                     break;
-    //                 default:
-    //                     break;
-    //             }
-    //         },
-    //         // slideChangeTransitionStart: function (sp) {
-    //         //   console.log("slideChangeTransitionStart:", sp.activeIndex);
-    //         //   document
-    //         //     .getElementsByClassName("swiper-pagination")[0]
-    //         //     .classList.add("d-none");
-    //         // },
-    //         // slideChangeTransitionEnd: function (sp) {
-    //         //   console.log("slideChangeTransitionEnd:", sp.activeIndex);
-    //         //   switch (sp.activeIndex) {
-    //         //     case 0:
-    //         //       break;
-    //         //     default:
-    //         //       document
-    //         //         .getElementsByClassName("swiper-pagination")[0]
-    //         //         .classList.remove("d-none");
-    //         //       console.log("switch default activeIndex:", sp.activeIndex);
-    //         //       break;
-    //         //   }
-    //         // },
-    //     },
-    //     pagination: {
-    //         el: ".swiper-pagination",
-    //         type: "custom",
-    //         renderCustom: function (swiper, current, total) {
-    //             return (
-    //                 '<div class="page-font-f">' +
-    //                 ("0" + current).slice(-2) +
-    //                 '</div><div class="rectangle"></div><div class="page-font-b">' +
-    //                 ("0" + total).slice(-2) +
-    //                 "</div>"
-    //             );
-    //         },
-    //     },
-    // });
-
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
         let sliderNav = document.querySelectorAll(".swiper-container.js-slider--nav");
@@ -235,12 +168,6 @@ window.onload = function () {
     };
 
     multipleSwiperSlides();
-
-    var heartClickEvent = document.querySelector("#imgHeart");
-    heartClickEvent.addEventListener("click", function () {
-        console.log("heartClickEvent");
-        this.classList.toggle("heart_active");
-    });
 
     var devModeCnt = 0;
     var dev_mode = document.querySelector("#dev_mode");
