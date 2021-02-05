@@ -1350,6 +1350,9 @@ th {
     .title_wrap {
         padding: 0;
     }
+    td, th {
+        padding: 6px 12px;
+    }
     #chart_div {
         padding-bottom: 0;
     }

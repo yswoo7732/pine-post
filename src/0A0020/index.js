@@ -1,7 +1,7 @@
 const mql = window.matchMedia("(max-width: 340px)");
 const mql375 = window.matchMedia("(max-width: 375px)");
 const minHeight = window.matchMedia("(min-height: 800px)");
-const minWidth = window.matchMedia("(min-width: 750px)");
+const minWidth = window.matchMedia("(min-width: 450px)");
 const swiperVW = minWidth.matches ? 3 : 6;
 
 window.onload = function () {
