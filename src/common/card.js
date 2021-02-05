@@ -1,4 +1,4 @@
-window.onload = function () {
+function getLike() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/PINE/i.test(navigator.userAgent)) {
             document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
@@ -16,7 +16,7 @@ window.onload = function () {
     } else {
         console.log("not mobile");
     }
-};
+}
 
 // 공유하기 클릭
 function sharedContents() {

@@ -69,6 +69,9 @@ let lottie7 = lottie.loadAnimation({
 window.onload = function () {
     fitScreeSize();
 
+     // 로드시, 좋아요 여부 호출
+     getLike();
+
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
         let sliderNav = document.querySelectorAll(".swiper-container.js-slider--nav");

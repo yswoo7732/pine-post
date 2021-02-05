@@ -1,4 +1,7 @@
 window.onload = function () {
+    // 로드시, 좋아요 여부 호출
+    getLike();
+
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
     const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
     const boxShadows = document.getElementsByClassName("box-shadow");
