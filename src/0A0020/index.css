@@ -1360,3 +1360,9 @@ th {
         padding: 50px 28px 4px 28px;
     }
 }
+
+@media (min-device-width: 390px) and (max-device-width:844px) {
+    .main_section {
+        padding: 100px 28px 50px 28px;
+    }
+}
