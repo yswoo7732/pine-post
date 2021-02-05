@@ -1,8 +1,8 @@
 function getLike() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/PINE/i.test(navigator.userAgent)) {
-            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
+            // document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
+            // document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
             
             // 좋아요 클릭 유무 체크위해 호출
             if (/Android/i.test(navigator.userAgent)) {

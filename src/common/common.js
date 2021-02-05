@@ -1,11 +1,6 @@
 function getLike() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         if (/PINE/i.test(navigator.userAgent)) {
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 10px)";
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 10px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 10px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 10px)";
-
             // 좋아요 클릭 유무 체크위해 호출
             if (/Android/i.test(navigator.userAgent)) {
                 window.AosConnector.isLike();
@@ -25,13 +20,11 @@ function sharedContents() {
     console.log("shared");
     let contentsUrl = window.location.href;
 
-    if (/PINE/i.test(navigator.userAgent)) {
-        if (/Android/i.test(navigator.userAgent)) {
-            window.AosConnector.shareContents(`${contentsUrl}`); // Aos
-        }
-        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
-        }
+    if (/Android/i.test(navigator.userAgent)) {
+        window.AosConnector.shareContents(`${contentsUrl}`); // Aos
+    }
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
     }
 }
 
