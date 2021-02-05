@@ -214,7 +214,7 @@ window.onload = function () {
         });
 
         ScrollTrigger.create({
-            trigger: ".graph_start",
+            trigger: ".graph_title",
             start: "top center",
             once: true,
             // markers: true,
@@ -283,7 +283,7 @@ function showBtn(flag) {
     const productLink = document.querySelector(".product_link");
 
     if (flag == "onEnter") {
-        productLink.style.bottom = minHeight.matches ? "20px" : "0px";
+        productLink.style.bottom = minHeight.matches ? "50px" : "25px";
     }
 
     if (flag == "onEnterBack") {
@@ -429,6 +429,7 @@ function animateValue(obj, start, end, duration) {
 // createLineChart();
 
 function createLineChart() {
+    console.log("createLineChart");
     let chartWidth = 0;
     let chartHeight = 0;
 
