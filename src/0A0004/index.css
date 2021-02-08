@@ -438,7 +438,12 @@ img {
     background-size: 100% 100%;
 }
 
+#heartDiv, #shareDiv {
+    text-align: center;
+}
+
 #imgHeart, #shareImg, #imgWhiteHeart, #whiteShareImg {
+    width: 188px;
     height: 100%;
 }
 .basic_foot {
@@ -449,8 +454,8 @@ img {
     object-fit: contain;
     background-color: rgba(255, 255, 255);
     z-index: 20;
-    /* padding-bottom: calc(constant(safe-area-inset-bottom) + 10px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 10px); */
+    /* padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
 }
 
 .basic_link_foot {

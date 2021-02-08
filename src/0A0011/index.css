@@ -438,7 +438,12 @@ img {
   background-size: 100% 100%;
 }
 
+#heartDiv, #shareDiv {
+  text-align: center;
+}
+
 #imgHeart, #shareImg, #imgWhiteHeart, #whiteShareImg {
+  width: 188px;
   height: 100%;
 }
 .basic_foot {
