@@ -438,7 +438,7 @@ img {
     background-size: 100% 100%;
 }
 
-#heartDiv, #shareDiv {
+#heartDiv, #shareDiv, #whiteHeartDiv, #whiteShareDiv {
     text-align: center;
 }
 
