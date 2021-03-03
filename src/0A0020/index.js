@@ -188,38 +188,38 @@ window.onload = function () {
             },
         });
 
-        let bannerSwiper = new Swiper("#banner_swiper", {
-            direction: "horizontal",
-            loop: true,
-            autoplay: {
-                delay: 1000,
-                disableOnInteraction: false,
-            },
-            paginationClickable: false,
-            centeredSlides: true,
-            slidesPerView: 3,
-            spaceBetween: 20,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
+        // let bannerSwiper = new Swiper("#banner_swiper", {
+        //     direction: "horizontal",
+        //     loop: true,
+        //     autoplay: {
+        //         delay: 1000,
+        //         disableOnInteraction: false,
+        //     },
+        //     paginationClickable: false,
+        //     centeredSlides: true,
+        //     slidesPerView: 3,
+        //     spaceBetween: 20,
+        //     pagination: {
+        //         el: ".swiper-pagination",
+        //         clickable: true,
+        //     },
+        // });
 
-        document.querySelector(".left-direction").addEventListener("click", function () {
-            resultSwiper.slideTo(0);
-        });
+        // document.querySelector(".left-direction").addEventListener("click", function () {
+        //     resultSwiper.slideTo(0);
+        // });
 
-        document.querySelector(".right-direction").addEventListener("click", function () {
-            resultSwiper.slideTo(1);
-        });
+        // document.querySelector(".right-direction").addEventListener("click", function () {
+        //     resultSwiper.slideTo(1);
+        // });
 
-        ScrollTrigger.create({
-            trigger: ".graph_title",
-            start: "top center",
-            once: true,
-            // markers: true,
-            onEnter: () => createLineChart(),
-        });
+        // ScrollTrigger.create({
+        //     trigger: ".graph_title",
+        //     start: "top center",
+        //     once: true,
+        //     // markers: true,
+        //     onEnter: () => createLineChart(),
+        // });
     });
 
     // 구글차트
@@ -428,218 +428,218 @@ function animateValue(obj, start, end, duration) {
 // }
 // createLineChart();
 
-function createLineChart() {
-    console.log("createLineChart");
-    let chartWidth = 0;
-    let chartHeight = 0;
+// function createLineChart() {
+//     console.log("createLineChart");
+//     let chartWidth = 0;
+//     let chartHeight = 0;
 
-    if (mql.matches) {
-        chartWidth = 350;
-        chartHeight = 200;
-    } else {
-        chartWidth = 400;
-        chartHeight = 300;
-    }
+//     if (mql.matches) {
+//         chartWidth = 350;
+//         chartHeight = 200;
+//     } else {
+//         chartWidth = 400;
+//         chartHeight = 300;
+//     }
 
-    google.charts.load("45", {
-        callback: function () {
-            var rawData = [
-                [0, 2080, 2311, ""],
-                [0.2, 2200, 2311, ""],
-                [0.4, 2285, 2311, ""],
-                [0.6, 2299, 2311, ""],
-                [0.8, 2250, 2311, ""],
-                [1, 2330, 2311, ""],
-                [1.2, 2350, 2311, ""],
-                [1.4, 2228, 2311, ""],
-                [1.6, 2288, 2311, ""],
-                [1.8, 2311, 2311, ""],
-                [2, 2280, 2344, ""],
-                [2.2, 2400, 2377, ""],
-                [2.4, 2420, 2410, ""],
-                [2.6, 2470, 2443, ""],
-                [2.8, 2450, 2476, ""],
-                [3, 2420, 2509, ""],
-                [3.2, 2500, 2542, ""],
-                [3.4, 2598, 2575, ""],
+//     google.charts.load("45", {
+//         callback: function () {
+//             var rawData = [
+//                 [0, 2080, 2311, ""],
+//                 [0.2, 2200, 2311, ""],
+//                 [0.4, 2285, 2311, ""],
+//                 [0.6, 2299, 2311, ""],
+//                 [0.8, 2250, 2311, ""],
+//                 [1, 2330, 2311, ""],
+//                 [1.2, 2350, 2311, ""],
+//                 [1.4, 2228, 2311, ""],
+//                 [1.6, 2288, 2311, ""],
+//                 [1.8, 2311, 2311, ""],
+//                 [2, 2280, 2344, ""],
+//                 [2.2, 2400, 2377, ""],
+//                 [2.4, 2420, 2410, ""],
+//                 [2.6, 2470, 2443, ""],
+//                 [2.8, 2450, 2476, ""],
+//                 [3, 2420, 2509, ""],
+//                 [3.2, 2500, 2542, ""],
+//                 [3.4, 2598, 2575, ""],
               
-            ];
+//             ];
 
-            var data = new google.visualization.DataTable({
-                cols: [
-                    { id: "", label: "X", type: "number" },
-                    { id: "", label: "Y", type: "number" },
-                    { id: "", label: "Y", type: "number" },
-                ],
-            });
+//             var data = new google.visualization.DataTable({
+//                 cols: [
+//                     { id: "", label: "X", type: "number" },
+//                     { id: "", label: "Y", type: "number" },
+//                     { id: "", label: "Y", type: "number" },
+//                 ],
+//             });
 
-            data.addColumn({ type: "string", role: "annotation" });
-            var options = {
-                theme: "material",
-                focusTarget: "category",
-                title: "코스피 지수",
-                colors: ["#d62a56", "#000"],
-                colors: ["#d62a56", "transparent"],
-                width: chartWidth,
-                height: chartHeight,
-                // pointSize: 4,
-                tooltip: { trigger: "none" },
-                animation: {
-                    startup: true,
-                    //   duration: 6,
-                    easing: "out",
-                },
-                legend: "none",
-                hAxis: {
-                    viewWindow: {
-                        min: 0.2,
-                        max: 12,
-                    },
-                    title: "월별",
-                },
-                vAxis: {
-                    gridline: 4,
-                    viewWindow: {
-                        min: 1860,
-                        max: 3350,
-                    },
-                },
-                annotations: {
-                    stemColor: "none",
-                },
-            };
+//             data.addColumn({ type: "string", role: "annotation" });
+//             var options = {
+//                 theme: "material",
+//                 focusTarget: "category",
+//                 title: "코스피 지수",
+//                 colors: ["#d62a56", "#000"],
+//                 colors: ["#d62a56", "transparent"],
+//                 width: chartWidth,
+//                 height: chartHeight,
+//                 // pointSize: 4,
+//                 tooltip: { trigger: "none" },
+//                 animation: {
+//                     startup: true,
+//                     //   duration: 6,
+//                     easing: "out",
+//                 },
+//                 legend: "none",
+//                 hAxis: {
+//                     viewWindow: {
+//                         min: 0.2,
+//                         max: 12,
+//                     },
+//                     title: "월별",
+//                 },
+//                 vAxis: {
+//                     gridline: 4,
+//                     viewWindow: {
+//                         min: 1860,
+//                         max: 3350,
+//                     },
+//                 },
+//                 annotations: {
+//                     stemColor: "none",
+//                 },
+//             };
 
-            var chart = new google.visualization.LineChart(document.getElementById("line_chart"));
+//             var chart = new google.visualization.LineChart(document.getElementById("line_chart"));
 
-            drawChart();
-            setInterval(drawChart, 70);
-            var rowIndex = 0;
+//             drawChart();
+//             setInterval(drawChart, 70);
+//             var rowIndex = 0;
 
-            function drawChart() {
-                if (rowIndex < rawData.length) {
-                    data.addRow(rawData[rowIndex++]);
+//             function drawChart() {
+//                 if (rowIndex < rawData.length) {
+//                     data.addRow(rawData[rowIndex++]);
 
-                    if (rowIndex == 18) {
-                        document.getElementsByClassName("commend-fund")[0].classList.add("commend-fund-active");
+//                     if (rowIndex == 18) {
+//                         document.getElementsByClassName("commend-fund")[0].classList.add("commend-fund-active");
 
-                        setTimeout(() => {
-                            rawData.push(
-                                [3.6, 2610, 2608, ""],
-                                [3.8, 2615, 2641, ""],
-                                [4, 2680, 2674, ""],
-                                [4.2, 2690, 2740, ""],
-                                [4.4, 2820, 2790, ""],
-                                [4.6, 2810, 2840, ""],
-                                [4.8, 2800, 2890, ""],
-                                [5, 2950, 2940, ""],
-                                [5.2, 2980, 2990, ""],
-                                [5.4, 3040, 3040, ""],
-                                [5.6, 3050, 3090, ""],
-                                [5.8, 3120, 3140, ""],
-                                [6, 3141, 3190, ""],
-                                [6.2, 3149, 3190, ""],
-                                [6.4, 3100, 3190, ""],
-                                [6.8, 3140, 3190, ""],
-                                [7, 3120, 3190, ""],
-                                [7.2, 3120, 3200, ""],
-                                [7.4, 3150, 3200, ""],
-                                [7.6, 3180, 3200, ""],
-                                [7.8, 3160, 3200, ""],
-                                [8, 3190, 3200, ""],
-                                [8.2, 3188, 3200, ""],
-                                [8.4, 3020, 3200, ""],
-                                [8.6, 2910, 2990, ""],
-                                [8.8, 2890, 2930, ""],
-                                [9, 2880, 2870, ""],
-                                [9.2, 2780, 2810, ""]
-                            );
-                        }, 1000);
+//                         setTimeout(() => {
+//                             rawData.push(
+//                                 [3.6, 2610, 2608, ""],
+//                                 [3.8, 2615, 2641, ""],
+//                                 [4, 2680, 2674, ""],
+//                                 [4.2, 2690, 2740, ""],
+//                                 [4.4, 2820, 2790, ""],
+//                                 [4.6, 2810, 2840, ""],
+//                                 [4.8, 2800, 2890, ""],
+//                                 [5, 2950, 2940, ""],
+//                                 [5.2, 2980, 2990, ""],
+//                                 [5.4, 3040, 3040, ""],
+//                                 [5.6, 3050, 3090, ""],
+//                                 [5.8, 3120, 3140, ""],
+//                                 [6, 3141, 3190, ""],
+//                                 [6.2, 3149, 3190, ""],
+//                                 [6.4, 3100, 3190, ""],
+//                                 [6.8, 3140, 3190, ""],
+//                                 [7, 3120, 3190, ""],
+//                                 [7.2, 3120, 3200, ""],
+//                                 [7.4, 3150, 3200, ""],
+//                                 [7.6, 3180, 3200, ""],
+//                                 [7.8, 3160, 3200, ""],
+//                                 [8, 3190, 3200, ""],
+//                                 [8.2, 3188, 3200, ""],
+//                                 [8.4, 3020, 3200, ""],
+//                                 [8.6, 2910, 2990, ""],
+//                                 [8.8, 2890, 2930, ""],
+//                                 [9, 2880, 2870, ""],
+//                                 [9.2, 2780, 2810, ""]
+//                             );
+//                         }, 1000);
 
-                        document.getElementsByClassName("commend-fund")[0].innerText = "주식형 펀드\n구매";
-                        document.getElementsByClassName("commend-fund")[0].style.width = "63px";
-                    } else if (rowIndex == 46) {
-                        document.getElementsByClassName("bond_card")[0].classList.add("commend-fund-active");
+//                         document.getElementsByClassName("commend-fund")[0].innerText = "주식형 펀드\n구매";
+//                         document.getElementsByClassName("commend-fund")[0].style.width = "63px";
+//                     } else if (rowIndex == 46) {
+//                         document.getElementsByClassName("bond_card")[0].classList.add("commend-fund-active");
 
-                        setTimeout(() => {
-                            rawData.push(
-                                [9.4, 2625, 2790, ""],
-                                [9.6, 2614, 2730, ""],
-                                [9.8, 2620, 2610, ""],
-                                [10, 2639, 2600, ""],
-                                [10.2, 2624, 2590, ""],
-                                [10.4, 2590, 2580, ""],
-                                [10.6, 2570, 2570, ""],
-                                [10.8, 2549, 2560, ""],
-                                [11, 2540, 2550, ""],
-                                [11.2, 2546, 2550, ""],
-                                [11.4, 2528, 2550, ""],
-                                [11.6, 2500, 2550, ""],
-                                [11.8, 2526, 2550, ""],
-                                [12, 2520, 2550, ""]
-                            );
-                        }, 1000);
+//                         setTimeout(() => {
+//                             rawData.push(
+//                                 [9.4, 2625, 2790, ""],
+//                                 [9.6, 2614, 2730, ""],
+//                                 [9.8, 2620, 2610, ""],
+//                                 [10, 2639, 2600, ""],
+//                                 [10.2, 2624, 2590, ""],
+//                                 [10.4, 2590, 2580, ""],
+//                                 [10.6, 2570, 2570, ""],
+//                                 [10.8, 2549, 2560, ""],
+//                                 [11, 2540, 2550, ""],
+//                                 [11.2, 2546, 2550, ""],
+//                                 [11.4, 2528, 2550, ""],
+//                                 [11.6, 2500, 2550, ""],
+//                                 [11.8, 2526, 2550, ""],
+//                                 [12, 2520, 2550, ""]
+//                             );
+//                         }, 1000);
 
-                        document.getElementsByClassName("bond_card")[0].innerText = "채권형 펀드\n구매";
-                        document.getElementsByClassName("bond_card")[0].style.width = "63px";
-                        document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
-                    } else {
-                        if (document.getElementsByClassName("commend-fund")[0]) {
-                            document.getElementsByClassName("commend-fund")[0].classList.remove("commend-fund-active");
-                        }
-                        chart.draw(data, options);
-                    }
+//                         document.getElementsByClassName("bond_card")[0].innerText = "채권형 펀드\n구매";
+//                         document.getElementsByClassName("bond_card")[0].style.width = "63px";
+//                         document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
+//                     } else {
+//                         if (document.getElementsByClassName("commend-fund")[0]) {
+//                             document.getElementsByClassName("commend-fund")[0].classList.remove("commend-fund-active");
+//                         }
+//                         chart.draw(data, options);
+//                     }
                     
-                    var interface = chart.getChartLayoutInterface();
-                    var cli = chart.getChartLayoutInterface();
+//                     var interface = chart.getChartLayoutInterface();
+//                     var cli = chart.getChartLayoutInterface();
 
-                    Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
-                        if (rect.getAttribute("fill") === "none") {
+//                     Array.prototype.forEach.call(document.getElementById("line_chart").getElementsByTagName("rect"), function (rect, i) {
+//                         if (rect.getAttribute("fill") === "none") {
 
-                            var xPos = parseFloat(rect.getAttribute("x"));
-                            var yPos = parseFloat(rect.getAttribute("y"));
+//                             var xPos = parseFloat(rect.getAttribute("x"));
+//                             var yPos = parseFloat(rect.getAttribute("y"));
 
-                            if (!document.getElementsByClassName("commend-fund")[0]) {
-                                var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
-                                stockCard.className = "commend-fund";
-                            } else {
-                                var stockCard = document.getElementsByClassName("commend-fund")[0];
-                            }
+//                             if (!document.getElementsByClassName("commend-fund")[0]) {
+//                                 var stockCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
+//                                 stockCard.className = "commend-fund";
+//                             } else {
+//                                 var stockCard = document.getElementsByClassName("commend-fund")[0];
+//                             }
 
-                            if (!document.getElementsByClassName("bond_card")[0]) {
-                                var bondCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
-                                bondCard.className = "bond_card";
-                            } else {
-                                var bondCard = document.getElementsByClassName("bond_card")[0];
-                            }
+//                             if (!document.getElementsByClassName("bond_card")[0]) {
+//                                 var bondCard = document.getElementById("line_chart").appendChild(document.createElement("div"));
+//                                 bondCard.className = "bond_card";
+//                             } else {
+//                                 var bondCard = document.getElementsByClassName("bond_card")[0];
+//                             }
 
-                            if (rowIndex > 0 && rowIndex < 18) {
-                                stockCard.innerText = "연금\n계좌";
-                                stockCard.style.opacity = 1;
+//                             if (rowIndex > 0 && rowIndex < 18) {
+//                                 stockCard.innerText = "연금\n계좌";
+//                                 stockCard.style.opacity = 1;
 
-                                stockCard.style.top = yPos - 55 + "px";
-                                stockCard.style.left = xPos - 30 + "px";
-                            } else if (rowIndex == 18) {
-                                stockCard.style.opacity = 0.6;
-                                // stockCard.innerText = "주식형 펀드";
-                                stockCard.style.top = yPos - 55 + "px";
-                                stockCard.style.left = xPos - 30 + "px";
-                            } else if (rowIndex == 46) {
-                                bondCard.style.top = yPos - 55 + "px";
-                                bondCard.style.left = xPos - 30 + "px";
-                                document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
+//                                 stockCard.style.top = yPos - 55 + "px";
+//                                 stockCard.style.left = xPos - 30 + "px";
+//                             } else if (rowIndex == 18) {
+//                                 stockCard.style.opacity = 0.6;
+//                                 // stockCard.innerText = "주식형 펀드";
+//                                 stockCard.style.top = yPos - 55 + "px";
+//                                 stockCard.style.left = xPos - 30 + "px";
+//                             } else if (rowIndex == 46) {
+//                                 bondCard.style.top = yPos - 55 + "px";
+//                                 bondCard.style.left = xPos - 30 + "px";
+//                                 document.getElementsByClassName("bond_card")[0].style.opacity = "0.6 !important";
 
-                                // stockCard.innerText = "채권형 펀드";
-                            } else {
-                                // stockCard.style.opacity = 0;
-                                // console.log("else", rawData[rowIndex], rowIndex);
-                            }
+//                                 // stockCard.innerText = "채권형 펀드";
+//                             } else {
+//                                 // stockCard.style.opacity = 0;
+//                                 // console.log("else", rawData[rowIndex], rowIndex);
+//                             }
 
-                        }
-                    });
+//                         }
+//                     });
                     
-                }
-            }
-        },
-        packages: ["corechart"],
-    });
-}
+//                 }
+//             }
+//         },
+//         packages: ["corechart"],
+//     });
+// }
