@@ -3,7 +3,7 @@ function getLike() {
         if (/PINE/i.test(navigator.userAgent)) {
             // document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
             // document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
-            
+
             // 좋아요 클릭 유무 체크위해 호출
             if (/Android/i.test(navigator.userAgent)) {
                 window.AosConnector.isLike();
@@ -60,6 +60,10 @@ function clickLike() {
         likeYN = "N";
     }
 
-    window.AosConnector.clickedLike(`${likeYN}`);
-    webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
+    if (/Android/i.test(navigator.userAgent)) {
+        window.AosConnector.clickedLike(`${likeYN}`);
+    }
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
+    }
 }
