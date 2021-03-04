@@ -64,7 +64,13 @@ function clickLike() {
         likeYN = "N";
     }
 
-    window.AosConnector.clickedLike(`${likeYN}`);
-    webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
+    if (/Android/i.test(navigator.userAgent)) {
+        window.AosConnector.clickedLike(`${likeYN}`);
+    }
+
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
+    }
+
     console.log(likeYN);
 }
