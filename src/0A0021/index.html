@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <title>환헤지 언헤지</title>
+  <!-- Link Swiper's CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+  <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
+
+  <!-- Demo styles -->
+  <style></style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container js-slider--main">
+    <div class="swiper-wrapper">
+      <!-- 0 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card1.png" /> -->
+        <div class="content-wrapper first">
+          <img id="dev_mode" class="" src="assets/card_4_draw1.png" />
+        </div>
+      </div>
+      <!-- 1 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card2.png"/> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw2.png" />
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card3.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw3.png" />
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card4.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw4.png" />
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card5.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw5.png" />
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="swiper-slide">
+        <!-- <img src="assets/card6.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw6.png" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <!-- index 6 -->
+        <!-- <img src="assets/card7.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw7.png" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <!-- index 7 -->
+        <!-- <img src="assets/card8.png" /> -->
+        <div class="content-wrapper">
+          <img class="" src="assets/card_4_draw8.png" />
+        </div>
+        <button class="btn-link">해외 펀드 찾아보기</button>
+      </div>
+    </div>
+    <div class="slider-wrapper page-slide" style="opacity: 0;">
+      <div class="swiper-container js-slider--nav">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide nav-slide" style="opacity: 0;">01</div>
+          <div class="swiper-slide nav-slide">02</div>
+          <div class="swiper-slide nav-slide">03</div>
+          <div class="swiper-slide nav-slide">04</div>
+          <div class="swiper-slide nav-slide">05</div>
+          <div class="swiper-slide nav-slide">06</div>
+          <div class="swiper-slide nav-slide">07</div>
+          <div class="swiper-slide nav-slide">08</div>
+        </div>
+      </div>
+      <div class="rectangle"></div>
+      <div class="page-font-b">08</div>
+    </div>
+    <!-- Add Pagination -->
+    <!-- <div class="swiper-pagination d-none"></div> -->
+  </div>
+  <div class="footer d-none">
+    <div><img id="imgHeart" src="assets/card_foot_heart.png" style="width: 100%; height: 100%;" onclick="clickLike()"/></div>
+    <div><img src="assets/card_foot_share.png" style="width: 100%; height: 100%;" onclick="sharedContents()"/></div>
+  </div>
+  <!-- Swiper JS -->
+  <script src="vendor/lottie.min.js"></script>
+  <script src="vendor/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../common/card.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
