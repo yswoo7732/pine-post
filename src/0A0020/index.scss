@@ -651,7 +651,7 @@ th {
 
 .square_wrapper {
     display: flex;
-    margin: 35px auto;
+    margin: 35px auto 0px;
     margin-top: 50px;
     // margin-bottom: 20px;
     justify-items: center;
@@ -753,7 +753,8 @@ th {
 }
 
 .pine_section {
-    padding: 50px 28px 50px 28px;
+    // padding: 50px 28px 50px 28px;
+    padding: 50px 0;
     font-family: LIFEPLUS;
     font-size: 15px;
     font-weight: 500;
@@ -764,6 +765,10 @@ th {
     color: #000000;
     overflow: hidden;
     background-color: #eee;
+
+    p {
+        padding-left: 28px;
+    }
 }
 
 .pine_section p:nth-of-type(1) {
@@ -780,19 +785,36 @@ th {
     height: 100%;
 }
 
-#banner_swiper {
+#banner_swiper  {
     height: 300px;
 }
 
 .pine-slider-wrapper {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 50px;
+    height: 300px;
+    width : 100%;
     overflow: hidden;
+    margin-top: 40px;
+
+    .bannerWrap{
+        width : 1500px;
+        img {
+            width: 200px;
+            display: block;
+            float: left;
+            padding: 0 10px;
+        }
+    }
 }
+
+// .pine-slider-wrapper {
+//     -webkit-box-align: center;
+//     -webkit-align-items: center;
+//     -moz-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     padding-top: 50px;
+//     overflow: hidden;
+// }
 
 .swiper-banner-container {
     overflow: visible;

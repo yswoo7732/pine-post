@@ -188,6 +188,27 @@ window.onload = function () {
             },
         });
 
+
+        //연금 저축펀드 
+        const bannerWrap = document.querySelectorAll(".bannerWrap")[0];
+        const bannerAll = bannerWrap.querySelectorAll("img");
+
+        const totalBannerNum = bannerAll.length; 
+        const bannerSize = bannerAll[0].clientWidth;
+        const wrapWidth = totalBannerNum * bannerSize;
+        bannerWrap.style.width = wrapWidth +"px";
+
+        let sliderXnum = 0;
+        const sliderFunc = () => {
+            sliderXnum += .5;
+            bannerWrap.style.transform = "translateX("+ -sliderXnum+"px)";
+            if(sliderXnum > bannerSize * 4 ){
+                sliderXnum = 0; 
+            }
+            window.requestAnimationFrame(sliderFunc);
+        };
+        sliderFunc();
+
         // let bannerSwiper = new Swiper("#banner_swiper", {
         //     direction: "horizontal",
         //     loop: true,
