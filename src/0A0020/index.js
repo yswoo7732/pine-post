@@ -32,7 +32,7 @@ window.onload = function () {
         }
 
         contentsContainer.style.display = "";
-        gsap.to(window, { scrollTo: { y: ".result_wrapper" } });
+        gsap.to(window, 1.2, { scrollTo: { y: ".result_wrapper" } , ease: Power4.easeInOut });
 
         document.querySelector(".result_container").classList.add("result_container_active");
         document.querySelector(".result_section_tip").classList.add("result_container_active");
@@ -42,14 +42,16 @@ window.onload = function () {
             trigger: ".benefit_section",
             start: "top center",
             once: true,
-            toggleClass: { targets: ".add_square", className: "add_square_active" },
+            // toggleClass: { targets: ".add_square", className: "add_square_active" },
+            toggleClass: { targets: ".add_square", className: "active" }
         });
 
         ScrollTrigger.create({
             trigger: ".benefit_section",
             start: "top center",
             once: true,
-            toggleClass: { targets: ".square_tip", className: "square_tip_active" },
+            // toggleClass: { targets: ".square_tip", className: "square_tip_active" },
+            toggleClass: { targets: ".square_tip", className: "active" }
         });
 
         ScrollTrigger.create({
@@ -176,15 +178,15 @@ window.onload = function () {
             initialSlide: 0,
             centeredSlides: true,
             on: {
-                slideChangeTransitionStart: function slideChangeTransitionStart() {
-                    var idx = this.realIndex + 1;
-                    gsap.set("#result_swiper", { x: "0" });
-                    if (idx == 2) {
-                        gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
-                    } else {
-                        gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
-                    }
-                },
+                // slideChangeTransitionStart: function slideChangeTransitionStart() {
+                //     var idx = this.realIndex + 1;
+                //     gsap.set("#result_swiper", { x: "0" });
+                //     if (idx == 2) {
+                //         gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
+                //     } else {
+                //         gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
+                //     }
+                // },
             },
         });
 
@@ -208,6 +210,15 @@ window.onload = function () {
             window.requestAnimationFrame(sliderFunc);
         };
         sliderFunc();
+
+
+        const toggleBtn = document.querySelectorAll('.toggle-btn')[0];
+        const textWrap = document.querySelectorAll('.textWrap')[0];
+        toggleBtn.addEventListener("click", function(){
+
+            toggleBtn.classList.toggle("active");
+            textWrap.classList.toggle("active");
+        })
 
         // let bannerSwiper = new Swiper("#banner_swiper", {
         //     direction: "horizontal",
@@ -388,7 +399,8 @@ function animateValue(obj, start, end, duration) {
         }
 
         if (progress == 1) {
-            gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
+            // gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
+            gsap.to("#result_swiper", .6, { x: "-" + swiperVW + "vw", delay: 0.3 , yoyo: 2, repeat : true, ease: Power2.easeOut});
         }
     };
     window.requestAnimationFrame(step);
