@@ -210,6 +210,12 @@ img {
   padding: 9% 30px 6%;
 }
 
+@media only screen and (max-width: 600px) {
+  .range_container {
+    padding: 5% 30px 5%;
+  }
+}
+
 .range_title {
   font-family: LIFEPLUS;
   font-size: 15px;
@@ -238,14 +244,14 @@ img {
   font-weight: 200;
   color: #000000;
   transform: translate(-50%, 0px);
-  top: 30px;
+  top: 26px;
   width: 70px;
   text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
   .mark_tip {
-    top: 28px;
+    top: 26px;
   }
 }
 
@@ -288,33 +294,36 @@ img {
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(2) {
-  left: 27%;
+  left: 108px;
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(3) {
-  left: 50%;
+  left: 205px;
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(4) {
-  left: 74%;
+  left: 302px;
 }
 
 .depositmarks_tips .mark_tip:nth-of-type(5) {
-  left: 97.5%;
+  left: 398px;
 }
 
 @media only screen and (max-width: 600px) {
   .depositmarks_tips .mark_tip:nth-of-type(1) {
-    left: 5%;
+    left: 13px;
   }
   .depositmarks_tips .mark_tip:nth-of-type(2) {
-    left: 28%;
+    left: 27%;
+  }
+  .depositmarks_tips .mark_tip:nth-of-type(3) {
+    left: 50%;
   }
   .depositmarks_tips .mark_tip:nth-of-type(4) {
     left: 73%;
   }
   .depositmarks_tips .mark_tip:nth-of-type(5) {
-    left: 96%;
+    left: 95%;
   }
 }
 

@@ -194,9 +194,9 @@ img {
 
 .range_container {
     padding: 9% 30px 6%;
-    // @media #{$mobile}{
-    //     padding : 9% 30px 5%;
-    // }
+    @media #{$mobile}{
+        padding : 5% 30px 5%;
+    }
 }
 
 .range_title {
@@ -230,13 +230,13 @@ img {
     // letter-spacing: normal;
     color: #000000;
     transform: translate(-50%, 0px);
-    top: 30px;
+    top: 26px;
     width: 70px;
     text-align: center;
     // background: red;
 
     @media #{$mobile} {
-        top: 28px;
+        top: 26px;
     }
 
     &:before {
@@ -273,29 +273,32 @@ img {
         left: 13px;
     }
     .mark_tip:nth-of-type(2){
-        left: 27%;
+        left: 108px;
     }
     .mark_tip:nth-of-type(3){
-        left: 50%;
+        left: 205px;
     }
     .mark_tip:nth-of-type(4){
-        left: 74%;
+        left: 302px;
     }
     .mark_tip:nth-of-type(5){
-        left: 97.5%;
+        left: 398px;
     }
     @media #{$mobile} {
         .mark_tip:nth-of-type(1){
-            left: 5%;
+            left: 13px;
         }
         .mark_tip:nth-of-type(2){
-            left: 28%;
+            left: 27%;
+        }
+        .mark_tip:nth-of-type(3){
+            left: 50%;
         }
         .mark_tip:nth-of-type(4){
             left: 73%;
         }
         .mark_tip:nth-of-type(5){
-            left: 96%;
+            left: 95%;
         }
     }
 }
