@@ -32,7 +32,7 @@ window.onload = function () {
         }
 
         contentsContainer.style.display = "";
-        gsap.to(window, { scrollTo: { y: ".result_wrapper" } });
+        gsap.to(window, 1.2, { scrollTo: { y: ".result_wrapper" } , ease: Power4.easeInOut });
 
         document.querySelector(".result_container").classList.add("result_container_active");
         document.querySelector(".result_section_tip").classList.add("result_container_active");
@@ -42,14 +42,16 @@ window.onload = function () {
             trigger: ".benefit_section",
             start: "top center",
             once: true,
-            toggleClass: { targets: ".add_square", className: "add_square_active" },
+            // toggleClass: { targets: ".add_square", className: "add_square_active" },
+            toggleClass: { targets: ".add_square", className: "active" }
         });
 
         ScrollTrigger.create({
             trigger: ".benefit_section",
             start: "top center",
             once: true,
-            toggleClass: { targets: ".square_tip", className: "square_tip_active" },
+            // toggleClass: { targets: ".square_tip", className: "square_tip_active" },
+            toggleClass: { targets: ".square_tip", className: "active" }
         });
 
         ScrollTrigger.create({
@@ -176,15 +178,15 @@ window.onload = function () {
             initialSlide: 0,
             centeredSlides: true,
             on: {
-                slideChangeTransitionStart: function slideChangeTransitionStart() {
-                    var idx = this.realIndex + 1;
-                    gsap.set("#result_swiper", { x: "0" });
-                    if (idx == 2) {
-                        gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
-                    } else {
-                        gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
-                    }
-                },
+                // slideChangeTransitionStart: function slideChangeTransitionStart() {
+                //     var idx = this.realIndex + 1;
+                //     gsap.set("#result_swiper", { x: "0" });
+                //     if (idx == 2) {
+                //         gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
+                //     } else {
+                //         gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
+                //     }
+                // },
             },
         });
 
@@ -208,6 +210,15 @@ window.onload = function () {
             window.requestAnimationFrame(sliderFunc);
         };
         sliderFunc();
+
+
+        const toggleBtn = document.querySelectorAll('.toggle-btn')[0];
+        const textWrap = document.querySelectorAll('.textWrap')[0];
+        toggleBtn.addEventListener("click", function(){
+
+            toggleBtn.classList.toggle("active");
+            textWrap.classList.toggle("active");
+        })
 
         // let bannerSwiper = new Swiper("#banner_swiper", {
         //     direction: "horizontal",
@@ -319,60 +330,60 @@ function handleSalarySliderValuePosition(input) {
     const max = parseInt(input.max);
     const value = parseInt(input.value);
     let thumbSize = 33;
+// console.log(input)
 
     if (value == 0) {
-        if (mql.matches) {
-            rangeTip.style.width = "45px";
-        } else {
-            rangeTip.style.width = "50px";
-        }
+        // if (mql.matches) {
+        //     rangeTip.style.width = "45px";
+        // } else {
+        //     rangeTip.style.width = "50px";
+        // }
         rangeTip.innerText = "0원";
     } else if (value > 0 && value <= 100) {
-        if (mql.matches) {
-            rangeTip.style.width = "73px";
-        } else {
-            rangeTip.style.width = "76px";
-        }
+        // if (mql.matches) {
+        //     rangeTip.style.width = "73px";
+        // } else {
+        //     rangeTip.style.width = "76px";
+        // }
         rangeTip.innerText = "5,500만원 이하";
     } else if (value > 100 && value <= 200) {
-        if (mql.matches) {
-            rangeTip.style.width = "115px";
-        } else {
-            rangeTip.style.width = "122px";
-        }
+        // if (mql.matches) {
+        //     rangeTip.style.width = "115px";
+        // } else {
+        //     rangeTip.style.width = "122px";
+        // }
         rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
     } else {
-        if (mql.matches) {
-            rangeTip.style.width = "76px";
-        } else {
-            rangeTip.style.width = "88px";
-        }
+        // if (mql.matches) {
+        //     rangeTip.style.width = "76px";
+        // } else {
+        //     rangeTip.style.width = "88px";
+        // }
         rangeTip.innerText = "1억 2천만원 초과";
     }
 
-    const multiplier = value / max;
-    const thumbOffset = thumbSize * multiplier;
-    const priceInputOffset = (thumbSize - document.body.clientWidth) / 2;
-
-    rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
-
-    // console.log(input.clientWidth * multiplier - thumbOffset  + "px");
+    const porNum = value / max;
+    const leftNum = porNum * (input.offsetWidth - 25);
+    rangeTip.style.left = leftNum +25/2+ "px";
 }
 
 // 연금 저축액 범위에 따른 tooltip 텍스트 및 위치조정
 function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
-    const thumbSize = 35;
+    // const thumbSize = 35;
     const max = parseInt(input.max);
     const value = parseInt(input.value);
 
-    const multiplier = value / max;
-    const thumbOffset = thumbSize * multiplier;
+    const porNum = value / max;
+    // const thumbOffset = thumbSize * multiplier;
 
     rangeTip.innerText = input.value;
     rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
-    rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
+    const leftNum = porNum * (input.offsetWidth - 25);
+    rangeTip.style.left = leftNum +25/2+ "px";
+
+    // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
     // console.log(input.value);
 }
 
@@ -388,7 +399,8 @@ function animateValue(obj, start, end, duration) {
         }
 
         if (progress == 1) {
-            gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
+            // gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
+            gsap.to("#result_swiper", .6, { x: "-" + swiperVW + "vw", delay: 0.3 , yoyo: 2, repeat : true, ease: Power2.easeOut});
         }
     };
     window.requestAnimationFrame(step);
