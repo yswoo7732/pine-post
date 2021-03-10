@@ -363,8 +363,8 @@ function handleSalarySliderValuePosition(input) {
     }
 
     const porNum = value / max;
-    const leftNum = porNum * (input.offsetWidth - 25);
-    rangeTip.style.left = leftNum +25/2+ "px";
+    const leftNum = porNum * (input.offsetWidth - 26);
+    rangeTip.style.left = leftNum +26/2+ "px";
 }
 
 // 연금 저축액 범위에 따른 tooltip 텍스트 및 위치조정
@@ -380,8 +380,8 @@ function handleDepositSliderValuePosition(input) {
     rangeTip.innerText = input.value;
     rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
-    const leftNum = porNum * (input.offsetWidth - 25);
-    rangeTip.style.left = leftNum +25/2+ "px";
+    const leftNum = porNum * (input.offsetWidth - 26);
+    rangeTip.style.left = leftNum +26/2+ "px";
 
     // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
     // console.log(input.value);

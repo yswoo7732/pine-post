@@ -63,6 +63,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  word-break: keep-all;
   /* Center slide text vertically */
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -209,12 +210,6 @@ img {
   padding: 9% 30px 6%;
 }
 
-@media only screen and (max-width: 600px) {
-  .range_container {
-    padding: 9% 15px 5%;
-  }
-}
-
 .range_title {
   font-family: LIFEPLUS;
   font-size: 15px;
@@ -331,7 +326,7 @@ img {
   border-radius: 6px;
   padding: 5px 10px;
   transform: translate(-50%, 0%);
-  left: 15px;
+  left: 13px;
   font-family: LIFEPLUS;
   font-size: 11px;
   font-weight: bold;
@@ -384,8 +379,8 @@ img {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   background: #fff;
   border: 2px solid #a1a5b3;
   -webkit-border-radius: 50%;
@@ -396,8 +391,8 @@ img {
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   background: #fff;
   border: 2px solid #737373;
   -webkit-border-radius: 50%;
@@ -445,15 +440,9 @@ img {
 
 .result-section-wrapper {
   width: 100%;
-  height: 540px;
+  height: 600px;
   position: relative;
   padding: 0;
-}
-
-@media only screen and (max-width: 600px) {
-  .result-section-wrapper {
-    height: 480px;
-  }
 }
 
 .swiper-slide {
@@ -466,13 +455,13 @@ img {
 
 @media only screen and (max-width: 600px) {
   .result_wrapper {
-    padding: 30px 20px 0;
+    padding: 60px 20px 0;
   }
 }
 
 .result_container {
   background: #0b1a3c;
-  padding: 14px 20px;
+  padding: 50px 20px;
   border-radius: 6px;
   font-family: LIFEPLUS;
   font-size: 15px;
@@ -493,13 +482,29 @@ img {
   color: #25AFBE;
 }
 
-.result_section:nth-child(1) {
-  margin-bottom: 10px;
+.result_section p {
+  color: #fff;
+  font-size: 17px;
 }
 
-.result_section span {
+@media only screen and (max-width: 600px) {
+  .result_section p {
+    font-size: 16px;
+  }
+}
+
+.result_section p span {
   font-weight: bold;
-  font-size: 16px;
+}
+
+.result_section p strong {
+  font-weight: bold;
+  color: #25AFBE;
+  letter-spacing: 2px;
+}
+
+.result_section:nth-child(1) {
+  margin-bottom: 10px;
 }
 
 #per_tax {
@@ -562,13 +567,13 @@ img {
 
 .plus_tip_container {
   width: 100%;
-  padding: 50px 40px;
+  padding: 60px 40px;
   box-sizing: border-box;
 }
 
 @media only screen and (max-width: 600px) {
   .plus_tip_container {
-    padding: 30px 20px;
+    padding: 60px 20px;
   }
 }
 
@@ -640,7 +645,7 @@ table tbody {
 
 td,
 th {
-  padding: 6px 0;
+  padding: 12px 0;
   width: 25%;
   text-align: center;
   border-bottom: 1px solid #d9d9d9;
@@ -711,7 +716,8 @@ h3.subTitle {
 
 p {
   text-align: center;
-  line-height: 20px;
+  line-height: 23px;
+  color: #333;
 }
 
 p span {
@@ -880,7 +886,7 @@ p.basic-tip {
 }
 
 .toggleBtnWrap {
-  margin: 42px auto 40px;
+  margin: 42px auto 80px;
   min-height: 300px;
   display: table;
   text-align: center;
