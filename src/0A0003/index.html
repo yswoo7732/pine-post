@@ -49,8 +49,7 @@
           <!-- <div class="fund1_startBtn"
             style="width: 67%; height: auto; margin: auto; margin-top: 104%; background-image: url('assets/cast_special_fund1_start1.png');">
           </div> -->
-          <div class="fund1_startBtn"
-            style="width: 67%; height: 12%; margin: auto; margin-top: 104%; 
+          <div class="fund1_startBtn" style="width: 67%; height: 12%; margin: auto; margin-top: 104%; 
             background: url('assets/cast_special_fund1_start1.png') no-repeat; background-size: contain;">
           </div>
         </div>
@@ -96,9 +95,23 @@
                       width: 80%;
                       height: auto;
                       position: absolute;
-                      top: 81%;
+                      top: 78%;
                       left: 10%;
                     " />
+                <img class="img_heart" id="imgHeart" src="assets/basic_foot_heart.png" style="
+                    width: 50%;
+                    height: auto;
+                    position: absolute;
+                  top: 87%;
+                  left: 0;
+                  " onclick="clickLike()" />
+                <img class="img_share" src="assets/card_foot_share.png" style="
+                    width: 50%;
+                    height: auto;
+                    position: absolute;
+                  top: 87%;
+                  left: 50%;
+                  " onclick="sharedContents()" />
               </div>
             </div>
             <div class="swiper-slide">
@@ -275,7 +288,8 @@
             </div>
             <!-- h-4 -->
             <div class="swiper-slide">
-              <!-- <img src="assets/cast_special_fund4.png" style="opacity: 0.5; z-index: 50; width: 100%; height: auto;"/> -->
+              <!-- <img src="assets/cast_special_fund_footer.png"
+                style="opacity: 0.5; z-index: 50; width: 100%; height: auto;" /> -->
               <!-- <img src="assets/cast_special_fund3_bg.png" style="
                     position: absolute;
                     z-index: 0;
@@ -308,25 +322,27 @@
                     width: 80%;
                     height: auto;
                     position: absolute;
-                    top: 81%;
+                    top: 78%;
                     left: 10%;
                   " />
-                <!-- <img class="fund4_2_text" src="assets/cast_special_fund4_text.png" style="
-                      width: 80%;
+                <img class="img_heart" id="imgWhiteHeart" src="assets/basic_foot_heart.png" style="
+                      width: 50%;
                       height: auto;
-                      margin: auto;
-                      margin-top: 14%;
-                    " />
-                <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" style="
-                      width: 20%;
+                      position: absolute;
+                    top: 87%;
+                    left: 0;
+                    " onclick="clickLike()" />
+                <img class="img_share" src="assets/card_foot_share.png" style="
+                      width: 50%;
                       height: auto;
-                      margin: auto;
-                      margin-top: 14%;
-                    " /> -->
+                      position: absolute;
+                    top: 87%;
+                    left: 50%;
+                    " onclick="sharedContents()" />
                 <!-- <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" style="
                       width: 80%;
                       height: auto;
-                      margin: auto;
+                      margin: auto;D
                       margin-top: 26%;
                     " /> -->
               </div>
@@ -343,6 +359,7 @@
   <script src="vendor/lottie.min.js"></script>
   <script src="vendor/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="../common/common.js"></script>
 </body>
 
 </html>

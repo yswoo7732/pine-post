@@ -234,6 +234,10 @@ img {
     animation-timing-function: ease-in-out;
 }
 
+.heart_active, .heart_white_active {
+    content: url("assets/card_foot_heart_fill.png");
+  }
+
 @keyframes ani_fund3_arrow {
     0% {
         transform: translate(0, -10px);
