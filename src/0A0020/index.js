@@ -19,17 +19,17 @@ window.onload = function () {
     const depositInput = document.getElementsByClassName("slider")[1];
 
     btnOK.addEventListener("click", () => {
-        if (salaryInput.value == 0) {
-            modal("main_modal", "연봉을 선택해주세요.");
-            return false;
-        }
+        // if (salaryInput.value == 0) {
+        //     modal("main_modal", "연봉을 선택해주세요.");
+        //     return false;
+        // }
 
-        if (depositInput.value == 0) {
-            console.log(depositInput);
+        // if (depositInput.value == 0) {
+        //     console.log(depositInput);
 
-            modal("main_modal", "연금저축액을 선택해주세요.");
-            return false;
-        }
+        //     modal("main_modal", "연금저축액을 선택해주세요.");
+        //     return false;
+        // }
 
         contentsContainer.style.display = "";
         gsap.to(window, 1.2, { scrollTo: { y: ".result_wrapper" } , ease: Power4.easeInOut });
