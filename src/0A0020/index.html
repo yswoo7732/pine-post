@@ -3,14 +3,10 @@
     <head>
         <meta charset="utf-8" />
         <title>연금저축펀드</title>
-        <!-- Link Swiper's CSS -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
         <link rel="stylesheet" type="text/css" href="common.css" />
         <link rel="stylesheet" type="text/css" href="index.css" />
-
-        <!-- Demo styles -->
-        <style></style>
     </head>
 
     <body>
@@ -33,7 +29,7 @@
                 <div class="range_container">
                     <p class="range_title">연봉을 선택해주세요</p>
                     <div class="slider_container">
-                        <output class="__range-output-square output-salary" for="range">0원</output>
+                        <output class="__range-output-square output-salary" for="range">5,500만원 이하</output>
                         <input
                             type="range"
                             class="slider"
@@ -45,12 +41,6 @@
                             oninput="handleSalarySliderValuePosition(this)"
                             id="salary_range"
                         />
-                        <!-- <div id="salarymarks" class="tickmarks">
-                            <p style="opacity: 0"></p>
-                            <p></p>
-                            <p></p>
-                            <p style="opacity: 0">20</p>
-                        </div> -->
                         <div class="salarymarks_tips">
                             <span class="mark_tip">5,500만</span>
                             <span class="mark_tip">1억 2천만</span>
@@ -58,30 +48,22 @@
                     </div>
                     <p class="range_title">연금저축액 (1년 기준)</p>
                     <div class="slider_container">
-                        <output class="__range-output-square output-deposit" for="won">0원</output>
+                        <output class="__range-output-square output-deposit" for="won">100만원</output>
                         <input
                             type="range"
                             class="slider"
                             name="won"
-                            min="0"
+                            min="100"
                             max="400"
                             value="0"
                             list="tickmarks"
                             step="100"
                             oninput="handleDepositSliderValuePosition(this)"
                         />
-                        <!-- <div class="tickmarks" id="depositmarks">
-                            <p id="__mark-0" style="opacity: 0"></p>
-                            <p id="__mark-100"></p>
-                            <p id="__mark-200"></p>
-                            <p id="__mark-300"></p>
-                            <p id="__mark-400" style="opacity: 0"></p>
-                        </div> -->
                         <div class="depositmarks_tips">
-                            <span class="mark_tip">0원</span>
+                            <span class="mark_tip">100만</span>
                             <span class="mark_tip">200만</span>
                             <span class="mark_tip">300만</span>
-                            <span class="mark_tip">100만</span>
                             <span class="mark_tip">400만</span>
                         </div>
                     </div>
@@ -97,7 +79,7 @@
                                     <div class="result_container">
                                         <div class="result_section">
                                             <p>
-                                                당신의 연금저축펀드 세액공제율은 <span id="per_tax"></span><strong>%</strong>로
+                                                당신의 연금저축펀드 세액공제율은 <span id="per_tax"></span><strong>%</strong>
                                                 <br>
                                                 돌려받을 수 있는 금액은 <span id="tax_deduction_amt"></span> 입니다.
                                             </p>
@@ -114,18 +96,7 @@
                                             연간 소득에 따라 세액 공제율과 공제 대상 저축액이 정해집니다. 그에 따라 환급 세액 한도가 달라지니 미리
                                             체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
                                         </p>
-                                        <!-- <p class="tip-375">
-                                            연간 소득에 따라 세액 공제율과 공제 대상 저축액이 정해집니다. 그에 따라 환급 세액 한도가<br />
-                                            달라지니 미리 체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
-                                        </p>
-                                        <p class="tip-360">
-                                            연간 소득에 따라 세액 공제율과 공제 대상<br />저축액이 정해집니다. 그에 따라 환급 세액<br />한도가 달라지니
-                                            미리 체크해서 똑똑하게<br />연금저축펀드 가입 계획을 세우는 게 좋겠죠?
-                                        </p>
-                                        <p class="tip-412">
-                                            연간 소득에 따라 세액 공제율과 공제 대상 저축액이<br />정해집니다. 그에 따라 환급 세액 한도가 달라지니 미리
-                                            체크해서 똑똑하게 연금저축펀드 가입 계획을 세우는 게 좋겠죠?
-                                        </p> -->
+                                        
                                     </div>
                                 </div>
                                 <button class="swipe-direction right-direction"><< swipe</button>
@@ -164,13 +135,11 @@
                                         </tbody>
                                     </table>
                                     <div class="table_caution">
-                                        <p class="caution_title">주의!</p>
-                                        <div class="caution_section">
-                                            <p>
-                                                연금저축펀드는 5년 이상 납입하고 55세 이후에 연금으로 수령할 수 있습니다. 그 이전에 환매하면 공제받은
-                                                세금을 다시 내야 해요.
-                                            </p>
-                                        </div>
+                                        <p class="caution_section">
+                                            ※ 연금저축펀드는 5년 이상 납입하고,
+                                            <br> 55세 이후에 연금으로 수령할 수 있습니다. 
+                                            <br>그 이전에 환매하면 공제받은 세금을 다시 내야 해요.
+                                        </p>
                                     </div>
                                 </div>
                                 <button class="swipe-direction left-direction">>> swipe</button>
@@ -199,17 +168,7 @@
                         따로 찾을 필요 없어요! <br>
                         PINE에서 연금저축펀드 클래스로 바로 가입
                     </p>
-                    <!-- <div class="slider_wrapper pine-slider-wrapper">
-                        <div class="swiper-container swiper-banner-container" id="banner_swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" style="background-image: url('assets/pine_banner1.png')"><div class="background"></div></div>
-                                <div class="swiper-slide" style="background-image: url('assets/pine_banner2.png')"><div class="background"></div></div>
-                                <div class="swiper-slide" style="background-image: url('assets/pine_banner1.png')"><div class="background"></div></div>
-                                <div class="swiper-slide" style="background-image: url('assets/pine_banner2.png')"><div class="background"></div></div>
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div> -->
+
                     <div class="slider_wrapper pine-slider-wrapper">
                         <div class="bannerWrap">
                             <img src="assets/pine_banner1.png" alt="배너1">
@@ -247,28 +206,9 @@
                                     <p>물론 언제든지 원할 때 <br> 다른 펀드로 바꿔도 <br> PINE 연금 계좌 내에서는 세금이 없어요!</p>
                                 </div>
                             </div>
-                            <!-- <h5>
-                                주식형? 채권형? 
-                                <br>지수에 따라 언제든지 변경 가능!
-                                <br>연금 계좌 안에서는 세금 걱정 없이 이동 가능!
-                            </h5> -->
                         </div>
                     </div>
-                    <!-- <div class="graph_description_360">
-                        <p class="graph_title_360">
-                            시장 상황에 따라<br />
-                            펀드를 바꾸고 싶다면<br />
-                            PINE 연금 계좌에서 자유롭게!
-                        </p>
-                        <p><span>주가 지수가 상승</span>하는 시장에서는</p>
-                        <p><span>주식형 펀드</span>를 연금 펀드로 선택하는 게 좋겠죠?</p>
-                        <p style="margin-top:10px;">이후 <span>주가 지수가 하락</span>해서</p>
-                        <p><span>채권형 펀드로 바꾸더라도</span></p>
-                        <p>PINE 연금 계좌 안에서는 세금이 없어요</p>
-                    </div>
-                    <div id="chart_div">
-                        <div id="line_chart"></div>
-                    </div> -->
+                    
                 </div>
             </div>
             <div class="product_link">
@@ -279,7 +219,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
         <script src="vendor/swiper-bundle.min.js"></script>
         <script type="text/javascript" src="index.js"></script>
     </body>
