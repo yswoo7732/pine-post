@@ -326,44 +326,37 @@ function showBtn(flag) {
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
 function handleSalarySliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[0];
-    const slider = document.getElementsByClassName("slider")[0];
+    // const slider = document.getElementsByClassName("slider")[0];
     const max = parseInt(input.max);
     const value = parseInt(input.value);
     let thumbSize = 33;
 // console.log(input)
 
-    if (value == 0) {
-        // if (mql.matches) {
-        //     rangeTip.style.width = "45px";
-        // } else {
-        //     rangeTip.style.width = "50px";
-        // }
-        rangeTip.innerText = "0원";
-    } else if (value > 0 && value <= 100) {
+    if(value <= 100) {
         // if (mql.matches) {
         //     rangeTip.style.width = "73px";
         // } else {
-        //     rangeTip.style.width = "76px";
+            rangeTip.style.width = "76px";
         // }
         rangeTip.innerText = "5,500만원 이하";
     } else if (value > 100 && value <= 200) {
         // if (mql.matches) {
         //     rangeTip.style.width = "115px";
         // } else {
-        //     rangeTip.style.width = "122px";
+            rangeTip.style.width = "122px";
         // }
         rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
     } else {
         // if (mql.matches) {
         //     rangeTip.style.width = "76px";
         // } else {
-        //     rangeTip.style.width = "88px";
+            rangeTip.style.width = "80px";
         // }
         rangeTip.innerText = "1억 2천만원 초과";
     }
 
-    const porNum = value / max;
-    const leftNum = porNum * (input.offsetWidth - 26);
+    const perNum = value / max;
+    const leftNum = perNum * (input.offsetWidth - 26);
     rangeTip.style.left = leftNum +26/2+ "px";
 }
 
@@ -371,16 +364,16 @@ function handleSalarySliderValuePosition(input) {
 function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
     // const thumbSize = 35;
-    const max = parseInt(input.max);
-    const value = parseInt(input.value);
+    const max = parseInt(input.max)-100;
+    const value = parseInt(input.value)-100;
 
-    const porNum = value / max;
+    const perNum = value / max;
+
     // const thumbOffset = thumbSize * multiplier;
+    rangeTip.innerText = input.value + "만원";
+    // rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
-    rangeTip.innerText = input.value;
-    rangeTip.innerText += input.value == 0 ? "원" : "만원";
-
-    const leftNum = porNum * (input.offsetWidth - 26);
+    const leftNum = perNum * (input.offsetWidth - 26);
     rangeTip.style.left = leftNum +26/2+ "px";
 
     // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
