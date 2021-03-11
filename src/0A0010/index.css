@@ -412,7 +412,6 @@ img {
 @media (min-aspect-ratio: 200/500) {
     .content-wrapper {
         width: 100%;
-        /* margin-top: 20%; */
     }
 }
 
@@ -420,6 +419,9 @@ img {
     .content-wrapper {
         width: 90%;
         margin-top: 0%;
+    }
+    .btn_skip {
+        right: 4%;
     }
 }
 
