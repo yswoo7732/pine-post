@@ -52,38 +52,6 @@ body {
     margin-top: 0;
 }
 
-/* @viewport {
-  height: device-height;
-} */
-
-/* img {
-  width: auto;
-  height: 100%;
-} */
-
-/* 
-@media screen and (min-width: 750px) {
-  body {
-    transform: scale(1.3, 1.3) translate(20%, 20%);
-  }
-} 
-*/
-
-/* 
-@media screen and (aspect-ratio: 9/16) {
-  .swiper-container {
-    transform: translate(0, -3%);
-  }
-} 
-*/
-
-/* 
-@media screen and (device-width: 360px) and (device-height: 640px) {
-  .swiper-container {
-    transform: translate(0, -8%);
-  }
-} 
-*/
 div,
 img {
     border: 0px white solid;
@@ -237,6 +205,10 @@ img {
 .heart_active, .heart_white_active {
     content: url("assets/card_foot_heart_fill.png");
   }
+
+.img_heart, .img_share {
+    filter: opacity(0.5) drop-shadow(0 0 0 #aa6bf7);
+}
 
 @keyframes ani_fund3_arrow {
     0% {

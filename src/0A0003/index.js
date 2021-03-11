@@ -13,70 +13,10 @@ function fitScreeSize() {
     console.log("window.outerHeight", window.outerHeight);
     console.log("window.devicePixelRatio", window.devicePixelRatio);
     console.log("navigator.userAgent", navigator.userAgent);
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        // var wh =
-        //   window.outerHeight < window.screen.availHeight
-        //     ? window.outerHeight
-        //     : window.screen.availHeight;
-        // var mh = 1624; // min width of site
-        // var ratio = wh / mh; //calculate ratio
-        // if (/Android/i.test(navigator.userAgent)) {
-        //   ratio = (wh - 100) / mh;
-        // }
-        // console.log("wh, mh, ratio", wh, mh, ratio);
-        // if (wh < mh) {
-        //   //smaller than minimum size
-        //   console.log("smaller than minimum size ratio", ratio);
-        //   var viewport = document.querySelector("meta[name=viewport]");
-        //   viewport.setAttribute(
-        //     "content",
-        //     "initial-scale=" +
-        //       ratio +
-        //       ", maximum-scale=" +
-        //       ratio +
-        //       ", minimum-scale=" +
-        //       ratio +
-        //       ", user-scalable=no, shrink-to-fit=no, height=" +
-        //       wh
-        //   );
-        // } else {
-        //   //regular size
-        //   console.log("regular size");
-        //   var viewport = document.querySelector("meta[name=viewport]");
-        //   viewport.setAttribute(
-        //     "content",
-        //     "initial-scale=1, maximum-scale=2, minimum-scale=0.1, user-scalable=yes, height=" +
-        //       wh
-        //   );
-        // }
-    } else {
-        console.log("not mobile");
-        // document.getElementsByClassName("swiper-container")[0].style =
-        //   "width: 750px; height: 1624px; transform: scale(0.5, 0.5) translate( 0, -50%);";
-    }
 }
 
 window.onload = function () {
     fitScreeSize();
-    // let isMobile = window.matchMedia("all and (max-width: 760px)").matches;
-    // let isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    // if (!isMobile) {
-    //   console.log("isNotMobile");
-    //   var containerElement = document.getElementsByClassName(
-    //     "swiper-container"
-    //   )[0];
-    //   containerElement.style =
-    //     containerElement.offsetHeight * 0.4618 + "px";
-
-    //   window.addEventListener("resize", function (e) {
-    //     var containerElement = document.getElementsByClassName(
-    //       "swiper-container"
-    //     )[0];
-    //     containerElement.style.width =
-    //       containerElement.offsetHeight * 0.4618 + "px";
-    //   });
-    // }
-    // var body = document.getElementsByTagName("body");
 
     var smSoundOnOff = document.querySelector("#smSoundOnOff");
     var gmSoundOnOff = document.querySelector("#gmSoundOnOff");
@@ -164,19 +104,6 @@ window.onload = function () {
         path: "assets/data.json", // the path to the animation json
     });
 
-    // window.addEventListener("scroll", function (event) {
-    //   console.log(event);
-    // });
-
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
     var scrollingElement = document.scrollingElement || document.body;
 
     console.log("scrollingElement.scrollWidth - window.innerWidth / 2", window.innerWidth / 2 - scrollingElement.scrollWidth / 2);
@@ -188,12 +115,6 @@ window.onload = function () {
         top: Math.abs(window.innerHeight / 2 - scrollingElement.scrollHeight / 2),
         behavior: "smooth",
     });
-
-    // var viewport = document.querySelector("meta[name=viewport]");
-    // viewport.setAttribute(
-    //   "content",
-    //   "width=375, initial-scale=1"
-    // );
 
     var page1StartBtn = document.getElementsByClassName("fund1_startBtn")[0];
     page1StartBtn.addEventListener(
@@ -265,21 +186,6 @@ window.onload = function () {
         },
         false
     );
-
-    // var promise = document.getElementById("bgmAudio").play();
-
-    // if (promise !== undefined) {
-    //   promise
-    //     .then((_) => {
-    //       // 자동 재생 시작!
-    //       console.log("자동 재생 시작");
-    //     })
-    //     .catch((error) => {
-    //       // 자동 재생이 막힘.
-    //       // "Play" 버튼을 노출해 유저가 재생을 시작할 수 있도록 한다
-    //       console.log("자동 재생이 막힘");
-    //     });
-    // }
 
     var samoVidio = document.querySelector("#samo_vidio");
     var btnfund3 = document.getElementsByClassName("fund3_button")[0];

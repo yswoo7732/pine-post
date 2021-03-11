@@ -70,16 +70,18 @@
       </div>
       <div class="swiper-slide">
         <!-- v-2 -->
+        <!-- <img src="assets/__cast_special_mmf_3_reference.png" class="mmf-bg" /> -->
         <div class="content-wrapper" style="background-color: #EFCD56;">
+          <div class="btn_skip" id="btnSkip" style=""></div>
           <video id="mmf_video" class="mmf_bg" autoplay playsinline
             style="width: auto; height: 100%; padding: 0; margin: 0; z-index: 3;">
-            <source src="assets/cast_special_mmf_3 1.mp4" type="video/mp4" />
+            <source src="assets/cast_special_mmf_3_new.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
       <div class="swiper-slide">
         <!-- v-3 -->
-        <!-- <img src="assets/cast_special_mmf_4.png" class="mmf-bg" /> -->
+        <!-- <img src="assets/cast_special_mmf_footer.png" class="mmf-bg" /> -->
         <div class="content-wrapper">
           <img src="assets/cast_special_mmf_4_bg.png" class="mmf-bg" />
           <img src="assets/cast_special_mmf_4_cloud1.png" class="page4-cloud1" />
@@ -89,7 +91,9 @@
           <img src="assets/cast_special_mmf_1_2_coin.png" class="third-coin" style="top: 70%; left: 37%;" />
           <img src="assets/cast_special_mmf_1_2_coin.png" class="third-coin" style="top: 70%; left: 59%;" />
           <img src="assets/cast_special_mmf_1_2_coin.png" class="third-coin" style="top: 76%; right: 20%;" />
-          <img src="assets/cast_special_mmf_4_button.png" class="mmf-finish-btn" style="bottom: 7.5%; width: 68%;" />
+          <img src="assets/cast_special_mmf_1_button_new.png" class="mmf-finish-btn"/>
+          <img src="assets/card_foot_heart.png" class="img_heart" id="imgHeart" onclick="clickLike()"/>
+          <img src="assets/card_foot_share.png" class="img_share" id="imgShare" onclick="sharedContents()"/>
         </div>
       </div>
     </div>
@@ -98,6 +102,7 @@
   <!-- Swiper JS -->
   <script src="vendor/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="../common/card.js"></script>
 </body>
 
 </html>

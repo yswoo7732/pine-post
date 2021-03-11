@@ -1,22 +1,18 @@
 function fitScreeSize() {
-    // console.log("document.body.clientWidth", document.body.clientWidth);
-    // console.log("document.body.clientWidth", document.body.clientWidth);
-    // console.log("document.body.scrollWidth", document.body.scrollWidth);
-    // console.log("document.body.clientHeight", document.body.clientHeight);
-    // console.log("document.body.scrollHeight", document.body.scrollHeight);
-    // console.log("window.innerWidth", window.innerWidth);
-    // console.log("window.innerHeight", window.innerHeight);
-    // console.log("window.screen.width", window.screen.width);
-    // console.log("window.screen.height", window.screen.height);
-    // console.log("window.screen.availWidth", window.screen.availWidth);
-    // console.log("window.screen.availHeight", window.screen.availHeight);
-    // console.log("window.outerHeight", window.outerHeight);
-    // console.log("window.devicePixelRatio", window.devicePixelRatio);
-    // console.log("navigator.userAgent", navigator.userAgent);
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    } else {
-        console.log("not mobile");
-    }
+    console.log("document.body.clientWidth", document.body.clientWidth);
+    console.log("document.body.clientWidth", document.body.clientWidth);
+    console.log("document.body.scrollWidth", document.body.scrollWidth);
+    console.log("document.body.clientHeight", document.body.clientHeight);
+    console.log("document.body.scrollHeight", document.body.scrollHeight);
+    console.log("window.innerWidth", window.innerWidth);
+    console.log("window.innerHeight", window.innerHeight);
+    console.log("window.screen.width", window.screen.width);
+    console.log("window.screen.height", window.screen.height);
+    console.log("window.screen.availWidth", window.screen.availWidth);
+    console.log("window.screen.availHeight", window.screen.availHeight);
+    console.log("window.outerHeight", window.outerHeight);
+    console.log("window.devicePixelRatio", window.devicePixelRatio);
+    console.log("navigator.userAgent", navigator.userAgent);
 }
 
 const secondImg = document.getElementById("secondImg");
@@ -28,7 +24,7 @@ const thirdCoin = document.getElementsByClassName("third-coin");
 const mmfVideo = document.getElementById("mmf_video");
 
 window.onload = function () {
-    fitScreeSize();
+    // fitScreeSize();
 
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
@@ -51,7 +47,7 @@ window.onload = function () {
                         // document.getElementsByClassName("cloud")[1].style.display = "none";
                         setTimeout(function () {
                             mmfVideo.currentTime = 0;
-                            mmfVideo.play();
+                            // mmfVideo.play();
                         }, 100);
                         break;
                     case 3:
@@ -116,19 +112,22 @@ window.onload = function () {
     console.log("window.screen.height", window.screen.height);
     var scrollingElement = document.scrollingElement || document.body;
 
-    console.log(
-        "scrollingElement.scrollWidth - window.innerWidth / 2",
-        window.innerWidth / 2 - scrollingElement.scrollWidth / 2
-    );
+    console.log("scrollingElement.scrollWidth - window.innerWidth / 2", window.innerWidth / 2 - scrollingElement.scrollWidth / 2);
 
-    console.log(
-        "scrollingElement.scrollHeight - window.innerHeight / 2",
-        window.innerHeight / 2 - scrollingElement.scrollHeight / 2
-    );
+    console.log("scrollingElement.scrollHeight - window.innerHeight / 2", window.innerHeight / 2 - scrollingElement.scrollHeight / 2);
 
     window.scroll({
         left: Math.abs(window.innerWidth / 2 - scrollingElement.scrollWidth / 2),
         top: Math.abs(window.innerHeight / 2 - scrollingElement.scrollHeight / 2),
         behavior: "smooth",
+    });
+
+    document.querySelector("#btnSkip").addEventListener("touchstart", function () {
+        this.classList.add("btn_skip_active");
+    });
+
+    document.querySelector("#btnSkip").addEventListener("touchend", function () {
+        this.classList.remove("btn_skip_active");
+        swiper_h.slideTo(3);
     });
 };
