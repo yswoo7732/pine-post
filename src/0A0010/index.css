@@ -377,7 +377,7 @@ img {
     width: 66px;
     height: 25px;
     position: absolute;
-    top: 8%;
+    top: 8.2%;
     right: 6%;
     background-image: url('assets/__cast_special_mmf_skip.png');
     background-size: cover;
@@ -390,7 +390,6 @@ img {
 
 .heart_active {
     content: url("assets/card_foot_heart_fill.png");
-    filter: opacity(0.5) drop-shadow(0 0 0 #EFCD56);
 }
 
 .img_heart {
@@ -398,7 +397,6 @@ img {
     bottom: 4%;
     width: 50%;
     left: 0;
-    filter: opacity(0.5) drop-shadow(0 0 0 #EFCD56);
 }
 
 .img_share {
@@ -406,7 +404,6 @@ img {
     bottom: 4%;
     width: 50%;
     right: 0;
-    filter: opacity(0.5) drop-shadow(0 0 0 #EFCD56);
 }
 
 @media (min-aspect-ratio: 200/500) {

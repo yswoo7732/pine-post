@@ -206,10 +206,6 @@ img {
     content: url("assets/card_foot_heart_fill.png");
   }
 
-.img_heart, .img_share {
-    filter: opacity(0.5) drop-shadow(0 0 0 #aa6bf7);
-}
-
 @keyframes ani_fund3_arrow {
     0% {
         transform: translate(0, -10px);
