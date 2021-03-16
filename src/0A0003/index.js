@@ -63,9 +63,14 @@ window.onload = function () {
 
                         document.querySelector("#samo_vidio").currentTime = 0;
                         document.querySelector("#gongmo_vidio").currentTime = 0;
-                        if (gmSoundOnOff.classList.contains("sound_on") || gmSoundOnOff.classList.contains("sound_on")) {
+                        if (gmSoundOnOff.classList.contains("sound_on") || smSoundOnOff.classList.contains("sound_on")) {
+                            console.log("swiper_vvvvvvvvvvvvvvvvvv sound_on");
+
+                            document.querySelector(".sound_on_off").classList.add("sound_on");
+                            document.getElementById("bgmAudio").muted = false;
                             document.querySelector("#bgmAudio").play();
                         }
+                        console.log("swiper_vvvvvvvvvvvvvvvvvv");
                         break;
                     default:
                         document.querySelector(".btnGongmoResult").classList.remove("fund_result_animation");
@@ -300,12 +305,15 @@ window.onload = function () {
         if (!smSoundOnOff.classList.contains("sound_on")) {
             console.log("sound on!");
             smSoundOnOff.classList.add("sound_on");
+            gmSoundOnOff.classList.add("sound_on");
             document.querySelector("#buttonSound").muted = false;
             document.getElementById("bgmAudio").muted = false;
             document.getElementById("bgmAudio").play();
         } else {
             console.log("sound off!");
             smSoundOnOff.classList.remove("sound_on");
+            gmSoundOnOff.classList.remove("sound_on");
+
             document.querySelector("#buttonSound").muted = true;
             document.getElementById("bgmAudio").muted = true;
         }
@@ -316,6 +324,8 @@ window.onload = function () {
 
         if (!gmSoundOnOff.classList.contains("sound_on")) {
             console.log("sound on!");
+            smSoundOnOff.classList.add("sound_on");
+
             gmSoundOnOff.classList.add("sound_on");
             document.querySelector("#buttonSound").muted = false;
             document.getElementById("bgmAudio").muted = false;
@@ -323,10 +333,25 @@ window.onload = function () {
         } else {
             console.log("sound off!");
             gmSoundOnOff.classList.remove("sound_on");
+            smSoundOnOff.classList.remove("sound_on");
+
             document.querySelector("#buttonSound").muted = true;
             document.getElementById("bgmAudio").muted = true;
         }
     });
+
+    var btnSoundClass = document.getElementsByClassName("btn-sound");
+
+    for (i = 0; i < btnSoundClass.length; i++) {
+        btnSoundClass[i].addEventListener("touchstart", function () {
+            console.log("buttonSound on!!!!!!!!!!!11");
+
+            if (gmSoundOnOff.classList.contains("sound_on") || smSoundOnOff.classList.contains("sound_on")) {
+                document.querySelector("#buttonSound").muted = false;
+                document.querySelector("#buttonSound").play();
+            }
+        });
+    }
 };
 
 window.onunload = function () {
