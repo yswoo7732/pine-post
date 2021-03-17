@@ -1,3 +1,95 @@
+
+@font-face {
+  font-family: LIFEPLUS;
+  src: 
+    local(LIFEPLUS OTF Medium), url(./font/LIFEPLUS-OTF-Medium.otf), url(./font/LIFEPLUS-Medium.ttf),
+    local(LIFEPLUS OTF Bold), url(./font/LIFEPLUS-OTF-Bold.otf),
+    local(LIFEPLUS OTF Light), url(./font/LIFEPLUS-OTF-Light.otf), url(./font/LIFEPLUS-Light.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: LIFEPLUS-BODY;
+  src: 
+    local(LIFEPLUS-BODY-OTF-Light), url(./font/LIFEPLUS-BODY-OTF-Light.otf), url(./font/LIFEPLUS-BODY-Light_Hinted.ttf),
+    local(LIFEPLUS-BODY-OTF-Medium), url(./font/LIFEPLUS-BODY-OTF-Medium.otf), url(./font/LIFEPLUS-BODY-Medium_Hinted.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+
+/* @font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS OTF Medium), url(./font/LIFEPLUS-OTF-Medium.otf), url(./font/LIFEPLUS-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS OTF Bold), url(./font/LIFEPLUS-OTF-Bold.otf);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS OTF Light), url(./font/LIFEPLUS-OTF-Light.otf), url(./font/LIFEPLUS-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+} */
+
+/* @font-face {
+  font-family: LIFEPLUS-BODY;
+  src: local(LIFEPLUS-BODY-OTF-Light), url(./font/LIFEPLUS-BODY-OTF-Light.otf), url(./font/LIFEPLUS-BODY-Light_Hinted.ttf);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: LIFEPLUS-BODY;
+  src: local(LIFEPLUS-BODY-OTF-Medium), url(./font/LIFEPLUS-BODY-OTF-Medium.otf), url(./font/LIFEPLUS-BODY-Medium_Hinted.ttf);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+} */
+
+
+html,
+body {
+    height: 100%;
+    /* Center slide text vertically */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    overscroll-behavior: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+div {
+    margin: 0;
+    padding: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+img {
+    width: 100%;
+}
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
@@ -6,7 +98,7 @@
  *    user zoom.
  */
 
- html {
+html {
     font-family: sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -88,6 +180,7 @@
   
   a {
     background-color: transparent;
+    text-decoration: none;
   }
   
   /**
@@ -429,3 +522,15 @@
   th {
     padding: 0;
   }
+
+
+  * {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none; /* Safari Touch */
+    -webkit-user-select: none; /* Webkit */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Edge*/
+    user-select: none; /* Future-proof*/
+    -webkit-user-drag: none;
+}
+

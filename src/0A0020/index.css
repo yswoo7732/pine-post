@@ -1,85 +1,6 @@
 @charset "UTF-8";
-* {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-touch-callout: none;
-  /* Safari Touch */
-  -webkit-user-select: none;
-  /* Webkit */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Edge*/
-  user-select: none;
-  /* Future-proof*/
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  text-decoration: none;
-}
-
-@font-face {
-  font-family: LIFEPLUS;
-  src: local(LIFEPLUS OTF Medium), url(assets/LIFEPLUS-OTF-Medium.otf), url(assets/LIFEPLUS-Medium.ttf);
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: LIFEPLUS;
-  src: local(LIFEPLUS OTF Bold), url(assets/LIFEPLUS-OTF-Bold.otf);
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: LIFEPLUS;
-  src: local(LIFEPLUS OTF Light), url(assets/LIFEPLUS-OTF-Light.otf), url(assets/LIFEPLUS-Light.ttf);
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: LIFEPLUS-BODY;
-  src: local(LIFEPLUS-BODY-OTF-Light), url(assets/LIFEPLUS-BODY-OTF-Light.otf), url(assets/LIFEPLUS-BODY-Light_Hinted.ttf);
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: LIFEPLUS-BODY;
-  src: local(LIFEPLUS-BODY-OTF-Medium), url(assets/LIFEPLUS-BODY-OTF-Medium.otf), url(assets/LIFEPLUS-BODY-Medium_Hinted.ttf);
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-html,
 body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  word-break: keep-all;
-  /* Center slide text vertically */
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  overscroll-behavior: none;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-body {
+  font-family: LIFEPLUS;
   background-color: #e7e7e7;
 }
 
@@ -100,14 +21,6 @@ body main {
   }
 }
 
-body,
-div {
-  margin: 0;
-  padding: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
 img {
   width: 100%;
 }
@@ -117,51 +30,11 @@ img {
   border-color: #eee;
 }
 
-#main_modal {
-  display: none;
-  width: 250px;
-  height: auto;
-  background-color: #fefefe;
-  border: 1px solid #888;
-  border-radius: 3px;
-  font-family: LIFEPLUS;
-  font-size: 14px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.44;
-  letter-spacing: normal;
-  color: #000000;
-  text-align: center;
-}
-
-#main_modal .modal_txt {
-  width: 100%;
-  height: 87px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-#main_modal .modal_close_btn {
-  position: relative;
-  background: #000;
-  color: #fff;
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  font-weight: bold;
-}
-
 .title_wrap {
   margin: 0 auto;
 }
 
 .title_wrap h1 {
-  font-family: LIFEPLUS;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.4;
@@ -180,13 +53,9 @@ img {
 }
 
 .description p {
-  font-family: LIFEPLUS;
   font-size: 16px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.5;
-  letter-spacing: normal;
   color: #666666;
   margin: 0 auto;
   text-align: center;
@@ -217,7 +86,6 @@ img {
 }
 
 .range_title {
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: bold;
   color: #666;
@@ -239,7 +107,6 @@ img {
 .mark_tip {
   position: absolute;
   display: inline-block;
-  font-family: LIFEPLUS;
   font-size: 11px;
   font-weight: 200;
   color: #000000;
@@ -330,7 +197,6 @@ img {
   border-radius: 6px;
   padding: 5px 10px;
   transform: translate(-50%, 0%);
-  font-family: LIFEPLUS;
   font-size: 11px;
   font-weight: bold;
   line-height: 1.5;
@@ -456,13 +322,9 @@ img {
   background: #0b1a3c;
   padding: 50px 20px;
   border-radius: 6px;
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #ffffff;
 }
 
@@ -506,13 +368,9 @@ img {
 }
 
 .result_section_tip {
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: 200;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.8;
-  letter-spacing: normal;
   color: #000000;
   margin: 20px 0 50px 0;
   padding: 16px 10px;
@@ -537,13 +395,9 @@ img {
   width: 100%;
   height: 60px;
   background-color: #000000;
-  font-family: LIFEPLUS;
   font-size: 18px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   text-align: center;
   color: #ffffff;
   display: flex;
@@ -580,13 +434,9 @@ img {
 .swipe-direction {
   border: 0;
   background: transparent;
-  font-family: LIFEPLUS;
   font-size: 11px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #000000;
   position: absolute;
   bottom: 30px;
@@ -602,13 +452,9 @@ img {
 }
 
 .result_txt {
-  font-family: LIFEPLUS;
   font-size: 21px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #000000;
   margin: 0;
 }
@@ -616,13 +462,9 @@ img {
 table {
   margin: 0px 0 30px;
   border-collapse: collapse;
-  font-family: LIFEPLUS;
   font-size: 12px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   text-align: center;
   width: 100%;
 }
@@ -651,13 +493,9 @@ th {
 }
 
 .table_caution {
-  font-family: LIFEPLUS;
   font-size: 12px;
   font-weight: 200;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   border: 1px solid #d9d9d9;
   padding: 14px 0;
   width: 100%;
@@ -672,13 +510,9 @@ th {
 
 .benefit_section {
   padding: 50px 40px;
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #000000;
   overflow: hidden;
   background-color: #fff;
@@ -720,13 +554,9 @@ p span {
   height: 90px;
   border-radius: 6px;
   background-color: #0b1a3c;
-  font-family: LIFEPLUS;
   font-size: 13px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #ffffff;
   z-index: 3;
   justify-content: center;
@@ -740,13 +570,9 @@ p span {
   height: 90px;
   border-radius: 6px;
   background-color: #25AFBE;
-  font-family: LIFEPLUS;
   font-size: 13px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #ffffff;
   justify-content: center;
   align-items: center;
@@ -768,13 +594,9 @@ p span {
 }
 
 .square_tip {
-  font-family: LIFEPLUS;
   font-size: 14px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #737373;
   justify-content: center;
   align-items: center;
@@ -792,13 +614,9 @@ p span {
 
 .pine_section {
   padding: 50px 0;
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #000000;
   overflow: hidden;
   background-color: #f0f0f0;
@@ -1004,13 +822,9 @@ p span {
 }
 
 .graph_section {
-  font-family: LIFEPLUS;
   font-size: 15px;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #000000;
   overflow: hidden;
   background-color: #fff;
@@ -1193,13 +1007,8 @@ p span {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: LIFEPLUS;
   font-size: 22px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #000;
   /* transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -1232,13 +1041,9 @@ p span {
   width: 100%;
   height: 60px;
   background-color: #000000;
-  font-family: LIFEPLUS;
   font-size: 18px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   text-align: center;
   color: #ffffff;
   display: flex;
@@ -1248,12 +1053,4 @@ p span {
   border: 0;
   left: 0;
   right: 0;
-}
-
-.tip-375,
-.tip-360,
-.tip-412,
-.graph_description_360,
-.graph_title_360 {
-  display: none;
 }
