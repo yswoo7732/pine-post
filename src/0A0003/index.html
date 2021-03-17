@@ -20,37 +20,17 @@
   <audio id="bgmAudio" autoplay muted loop>
     <source src="assets/bgm_game.mp3" type="audio/mpeg" />
   </audio>
-
-  <audio id="buttonSound" autoplay muted>
-    <source src="assets/btn_sound.mp3" type="audio/mpeg" />
-  </audio>
-
+  
   <div class="swiper-container swiper-container-v">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <!-- v-0 -->
-        <!-- <img src="assets/cast_special_fund1.png" /> -->
-        <div class="img_frame" style="
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-              text-align: center;
-              margin: 0 auto;
-            ">
-          <img class="fund1_img_bg" src="assets/cast_special_bg.png" style="
-                position: absolute;
-                height: 100%;
-                left: -20%;
-                right: 0;
-              " />
+        <div class="img_frame">
+          <img class="fund1_img_bg" src="assets/cast_special_bg.png" />
         </div>
         <div class="content-wrapper">
-          <img src="assets/cast_special_fund1_text.png" style="width: 79%; height: auto; margin-top: 21%;" />
-          <!-- <div class="fund1_startBtn"
-            style="width: 67%; height: auto; margin: auto; margin-top: 104%; background-image: url('assets/cast_special_fund1_start1.png');">
-          </div> -->
-          <div class="fund1_startBtn" style="width: 67%; height: 12%; margin: auto; margin-top: 104%; 
-            background: url('assets/cast_special_fund1_start1.png') no-repeat; background-size: contain;">
+          <img src="assets/cast_special_fund1_text.png" class="main_title" />
+          <div class="fund1_startBtn">
           </div>
         </div>
       </div>
@@ -60,297 +40,69 @@
         <div class="swiper-container swiper-container-h">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <!-- <img src="assets/cast_special_fund4-2.png" style="opacity: 0.5; z-index: 50; width: 100%; height: auto;"/> -->
-              <!-- h-0 -->
-              <!-- <img src="assets/cast_special_fund3_bg.png" style="
-                    position: absolute;
-                    z-index: 0;
-                    width: 100%;
-                    height: 100%;
-                  " /> -->
               <div class="content-wrapper">
-                <!-- <img class="fund4_character" src="assets/cast_special_fund4_character.png" style="
-                      display: block;
-                      width: 12%;
-                      height: auto;
-                      margin: auto;
-                      margin-top: 8%;
-                    " /> -->
-
-                <img class="fund4_2_text" src="assets/cast_special_fund4-2_text.png" style="
-                      width: 100%;
-                      height: auto;
-                      margin: auto;
-                      margin-top:-20%;
-                      display: block;
-                    " />
-                <img class="fund4_replay btn-sound" src="assets/cast_special_fund4_replay.png" style="
-                      width: 19%;
-                      height: auto;
-                      position: absolute;
-                      top: 58%;
-                      left: 41%;
-                    " />
-                <img class="fund4_2_result btn-sound" src="assets/cast_special_fund4-2_result.png" style="
-                      width: 80%;
-                      height: auto;
-                      position: absolute;
-                      top: 78%;
-                      left: 10%;
-                    " />
-                <img class="img_heart" id="imgHeart" src="assets/basic_foot_heart.png" style="
-                    width: 50%;
-                    height: auto;
-                    position: absolute;
-                  top: 87%;
-                  left: 0;
-                  " onclick="clickLike()" />
-                <img class="img_share" src="assets/card_foot_share.png" style="
-                    width: 50%;
-                    height: auto;
-                    position: absolute;
-                  top: 87%;
-                  left: 50%;
-                  " onclick="sharedContents()" />
+                <img class="fund4_2_text" src="assets/cast_special_fund4-2_text.png" />
+                <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
+                <img class="fund4_2_result" src="assets/cast_special_fund4-2_result.png" />
+                <img class="img_heart" id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
+                <img class="img_share" src="assets/card_foot_share.png" onclick="sharedContents()" />
               </div>
             </div>
             <div class="swiper-slide">
               <!-- h-1 -->
-              <img src="assets/cast_special_fund3_bg.png" style="
-                    position: absolute;
-                    z-index: 0;
-                    width: 100%;
-                    height: 100%;
-                  " />
+              <img src="assets/cast_special_fund3_bg.png" class="game_bg" />
               <div class="content-wrapper samo-wrapper">
-                <img class="fund3_2_text" src="assets/cast_special_fund3-2_text.png"
-                  style="width: 47%; height: auto; margin-top: 2%;" />
-
-                <img id="smSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" style="
-                      position: absolute;
-                      z-index: 1;
-                      width: 6%;
-                      height: auto;
-                      right: 10%;
-                      margin-top: 2%;
-                    " />
-
-                <div class="fund3_game" style="
-                      position: absolute;
-                      width: 79%;
-                      height: auto;
-                      left: 0;
-                      right: 0;
-                      margin: auto;
-                      margin-top: 5%;
-                    ">
-                  <div class="fund3_game_overay_back d-none" style="
-                        position: absolute;
-                        width: 100%;
-                        height: auto;
-                        background-color: #000;
-                        opacity: 0.3;
-                        z-index: 3;
-                        padding: 0;
-                        margin: 0;
-                      "></div>
-                  <video id="samo_vidio" autoplay playsinline style="width: 100%; height: auto; padding: 0; margin: 0;">
+                <img class="fund3_2_text mode_text" src="assets/cast_special_fund3-2_text.png" />
+                <img id="smSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" />
+                <div class="fund3_game">
+                  <div class="fund3_game_overay_back game_overay_back d-none"></div>
+                  <video id="samo_vidio" class="game_video" autoplay playsinline>
                     <source src="assets/samo_1.mp4" type="video/mp4" />
                   </video>
-
-                  <img class="fund3_button btn-sound" src="assets/game_button.svg" style="
-                        position: absolute;
-                        z-index: 1;
-                        width: 20%;
-                        height: auto;
-                        bottom: 7%;
-                        right: 7%;
-                      " />
-                  <img class="fund3_arrow" src="assets/cast_special_fund3_arrow.png" style="
-                        position: absolute;
-                        z-index: 1;
-                        width: 15%;
-                        height: auto;
-                        right: 9.5%;
-                        bottom: -11%;
-                      " />
+                  <img class="fund3_button btn_game" src="assets/game_button.svg" />
+                  <img class="fund3_arrow img_arrow" src="assets/cast_special_fund3_arrow.png" />
                 </div>
-
-                <img class="btnSamoResult fund3_result btn-sound" src="assets/cast_special_fund3_result.png" style="
-                      z-index: 1;
-                      width: 80%;
-                      height: auto;
-                      left: 0;
-                      right: 0;
-                      margin: auto;
-                      margin-top: 149%;
-                    " />
+                <img class="btnSamoResult fund3_result" src="assets/cast_special_fund3_result.png" />
               </div>
             </div>
             <!-- 기준 h-2-->
             <div class="swiper-slide">
-              <!-- <img src="assets/cast_special_fund2.png" /> -->
-
-              <img src="assets/cast_special_fund2_bg.png" style="
-                    position: absolute;
-                    z-index: 0;
-                    width: 100%;
-                    height: 100%;
-                  " />
+              <img src="assets/cast_special_fund2_bg.png" class="sel_mode_bg" />
               <div class="content-wrapper">
-                <img class="fund2_text" src="assets/cast_special_fund2_text.png" style="
-                      width: 46%;
-                      height: auto;
-                      left: 0;
-                      right: 0;
-                      margin-top: 28%;
-                    " />
-                <img class="fund2_box1 btn-sound" src="assets/cast_special_fund2_box1-1.png"
-                  style="width: 88%; height: auto; margin-top: 20%;" />
-                <img class="fund2_box2 btn-sound" src="assets/cast_special_fund2_box2-1.png"
-                  style="width: 88%; height: auto; margin-top: 5%;" />
+                <img class="fund2_text sel_mode_txt" src="assets/cast_special_fund2_text.png" />
+                <img class="fund2_box1 sel_mode_box1" src="assets/cast_special_fund2_box1-1.png" />
+                <img class="fund2_box2 sel_mode_box2" src="assets/cast_special_fund2_box2-1.png" style="" />
               </div>
             </div>
             <!-- h-3 -->
             <div class="swiper-slide">
-              <!-- <img src="assets/cast_special_fund3.png" style="opacity: 0.5; z-index: 50; width: 100%; height: auto;"/> -->
-
-              <img src="assets/cast_special_fund3_bg.png" style="
-                    position: absolute;
-                    z-index: 0;
-                    width: 100%;
-                    height: 100%;
-                  " />
-
+              <img src="assets/cast_special_fund3_bg.png" class="game_bg" />
               <div class="content-wrapper gongmo-wrapper">
-                <img class="fund3_text" src="assets/cast_special_fund3_text.png"
-                  style="width: 47%; height: auto; margin-top: 2%;" />
-
-                <img id="gmSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" style="
-                      position: absolute;
-                      z-index: 1;
-                      width: 6%;
-                      height: auto;
-                      right: 10%;
-                      margin-top: 2%;
-                    " />
-
-                <div class="fund3_game" style="
-                      position: absolute;
-                      width: 79%;
-                      height: auto;
-                      left: 0;
-                      right: 0;
-                      margin: auto;
-                      margin-top: 5%;
-                    ">
-                  <div class="fund4_game_overay_back d-none" style="
-                        position: absolute;
-                        width: 100%;
-                        height: auto;
-                        background-color: #000;
-                        opacity: 0.3;
-                        z-index: 3;
-                      "></div>
-                  <video id="gongmo_vidio" autoplay playsinline
-                    style="width: 100%; height: auto; padding: 0; margin: 0;">
+                <img class="fund3_text mode_text" src="assets/cast_special_fund3_text.png" />
+                <img id="gmSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" />
+                <div class="fund3_game">
+                  <div class="fund4_game_overay_back game_overay_back d-none"></div>
+                  <video id="gongmo_vidio" class="game_video" autoplay playsinline>
                     <source src="assets/gongmo_1.mp4" type="video/mp4" />
                   </video>
-
-                  <img class="fund4_button btn-sound" src="assets/game_button.svg" style="
-                        position: absolute;
-                        z-index: 1;
-                        width: 20%;
-                        height: auto;
-                        bottom: 7%;
-                        right: 7%;
-                      " />
-                  <img class="fund4_arrow" src="assets/cast_special_fund3_arrow.png" style="
-                        position: absolute;
-                        z-index: 1;
-                        width: 15%;
-                        height: auto;
-                        right: 9.5%;
-                        bottom: -11%;
-                      " />
+                  <img class="fund4_button btn_game" src="assets/game_button.svg" />
+                  <img class="fund4_arrow img_arrow" src="assets/cast_special_fund3_arrow.png" />
                 </div>
-
-                <img class="btnGongmoResult fund3_result btn-sound" src="assets/cast_special_fund3_result.png" style="
-                      z-index: 1;
-                      width: 80%;
-                      height: auto;
-                      left: 0;
-                      right: 0;
-                      margin: auto;
-                      margin-top: 149%;
-                    " />
+                <img class="btnGongmoResult fund3_result" src="assets/cast_special_fund3_result.png" />
               </div>
             </div>
             <!-- h-4 -->
             <div class="swiper-slide">
-              <!-- <img src="assets/cast_special_fund_footer.png"
-                style="opacity: 0.5; z-index: 50; width: 100%; height: auto;" /> -->
-              <!-- <img src="assets/cast_special_fund3_bg.png" style="
-                    position: absolute;
-                    z-index: 0;
-                    width: 100%;
-                    height: 100%;
-                  " /> -->
               <div class="content-wrapper">
-                <!-- <img class="fund4_character" src="assets/cast_special_fund4_character.png" style="
-                      display: block;
-                      width: 12%;
-                      height: auto;
-                      margin: auto;
-                      margin-top: 8%;
-                    " /> -->
-                <img class="fund4_2_text" src="assets/cast_special_fund4_text.png" style="
-                    width: 100%;
-                    height: auto;
-                    margin: auto;
-                    margin-top:-20%;
-                    display: block;
-                  " />
-                <img class="fund4_replay btn-sound" src="assets/cast_special_fund4_replay.png" style="
-                    width: 19%;
-                    height: auto;
-                    position: absolute;
-                    top: 58%;
-                    left: 41%;
-                  " />
-                <img class="fund4_2_result btn-sound" src="assets/cast_special_fund4_result.png" style="
-                    width: 80%;
-                    height: auto;
-                    position: absolute;
-                    top: 78%;
-                    left: 10%;
-                  " />
-                <img class="img_heart" id="imgWhiteHeart" src="assets/basic_foot_heart.png" style="
-                      width: 50%;
-                      height: auto;
-                      position: absolute;
-                    top: 87%;
-                    left: 0;
-                    " onclick="clickLike()" />
-                <img class="img_share" src="assets/card_foot_share.png" style="
-                      width: 50%;
-                      height: auto;
-                      position: absolute;
-                    top: 87%;
-                    left: 50%;
-                    " onclick="sharedContents()" />
-                <!-- <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" style="
-                      width: 80%;
-                      height: auto;
-                      margin: auto;D
-                      margin-top: 26%;
-                    " /> -->
+                <img class="fund4_2_text" src="assets/cast_special_fund4_text.png" />
+                <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
+                <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" />
+                <img class="img_heart" id="imgWhiteHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
+                <img class="img_share" src="assets/card_foot_share.png" onclick="sharedContents()" />
               </div>
             </div>
           </div>
         </div>
-
-        <!-- <div class="fund3-2_text"></div> -->
       </div>
     </div>
   </div>

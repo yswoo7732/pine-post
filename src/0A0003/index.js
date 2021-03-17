@@ -53,6 +53,8 @@ window.onload = function () {
         allowTouchMove: false,
         on: {
             slideChange: function (sp) {
+                console.log("switch activeIndex:", sp.activeIndex);
+
                 switch (sp.activeIndex) {
                     case 1:
                     case 3:
@@ -64,20 +66,20 @@ window.onload = function () {
                         document.querySelector("#samo_vidio").currentTime = 0;
                         document.querySelector("#gongmo_vidio").currentTime = 0;
                         if (gmSoundOnOff.classList.contains("sound_on") || smSoundOnOff.classList.contains("sound_on")) {
-                            console.log("swiper_vvvvvvvvvvvvvvvvvv sound_on");
-
                             document.querySelector(".sound_on_off").classList.add("sound_on");
                             document.getElementById("bgmAudio").muted = false;
                             document.querySelector("#bgmAudio").play();
                         }
-                        console.log("swiper_vvvvvvvvvvvvvvvvvv");
                         break;
                     default:
                         document.querySelector(".btnGongmoResult").classList.remove("fund_result_animation");
                         document.querySelector(".btnSamoResult").classList.remove("fund_result_animation");
+
+                        document.getElementsByClassName("fund3_button")[0].classList.remove("fund3_button_active");
+                        document.getElementsByClassName("fund4_button")[0].classList.remove("fund4_button_active");
+
                         document.getElementById("bgmAudio").muted = true;
                         document.querySelector(".sound_on_off").classList.remove("sound_on");
-                        document.querySelector("#buttonSound").muted = true;
                         document.getElementById("bgmAudio").currentTime = 0;
                         document.querySelector("#samo_vidio").pause();
                         document.querySelector("#gongmo_vidio").pause();
@@ -156,6 +158,7 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("btnSamoResult Click!", event);
+            btnfund3.classList.remove("fund3_button_active");
             swiper_v.slideTo(0);
         },
         false
@@ -187,6 +190,7 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("btnGongmoResult Click!", event);
+            btnfund4.classList.remove("fund4_button_active");
             swiper_v.slideTo(4);
         },
         false
@@ -208,7 +212,6 @@ window.onload = function () {
                 case 26:
                     document.querySelector(".btnSamoResult").classList.add("fund_result_animation");
                     fund3_game_overay_back.classList.remove("d-none");
-                    console.log("samofund done!");
                     break;
                 default:
                     break;
@@ -234,18 +237,6 @@ window.onload = function () {
             }
 
             btnfund3.classList.add("fund3_button_active");
-
-            console.log("buttonSound Click!");
-            var btnSound = document.getElementById("buttonSound");
-            btnSound.play();
-            btnSound.addEventListener("ended", function () {
-                // btnfund3.disabled = true;
-                btnfund3.classList.remove("fund3_button_active");
-                console.log("ended");
-            });
-            btnSound.removeEventListener("ended", function () {
-                console.log("remove ended");
-            });
         }
     });
 
@@ -286,16 +277,6 @@ window.onload = function () {
                     break;
             }
             btnfund4.classList.add("fund4_button_active");
-
-            console.log("buttonSound Click!");
-            var btnSound = document.getElementById("buttonSound");
-            btnSound.play();
-            btnSound.addEventListener("ended", function () {
-                // btnfund4.disabled = true;
-                btnfund4.classList.remove("fund4_button_active");
-                console.log("ended");
-            });
-            btnSound.removeEventListener("ended", function () {});
         }
     });
 
@@ -303,10 +284,8 @@ window.onload = function () {
         console.log("smSoundOnOff");
 
         if (!smSoundOnOff.classList.contains("sound_on")) {
-            console.log("sound on!");
             smSoundOnOff.classList.add("sound_on");
             gmSoundOnOff.classList.add("sound_on");
-            document.querySelector("#buttonSound").muted = false;
             document.getElementById("bgmAudio").muted = false;
             document.getElementById("bgmAudio").play();
         } else {
@@ -314,7 +293,6 @@ window.onload = function () {
             smSoundOnOff.classList.remove("sound_on");
             gmSoundOnOff.classList.remove("sound_on");
 
-            document.querySelector("#buttonSound").muted = true;
             document.getElementById("bgmAudio").muted = true;
         }
     });
@@ -323,35 +301,18 @@ window.onload = function () {
         console.log("gmSoundOnOff");
 
         if (!gmSoundOnOff.classList.contains("sound_on")) {
-            console.log("sound on!");
             smSoundOnOff.classList.add("sound_on");
 
             gmSoundOnOff.classList.add("sound_on");
-            document.querySelector("#buttonSound").muted = false;
             document.getElementById("bgmAudio").muted = false;
             document.getElementById("bgmAudio").play();
         } else {
-            console.log("sound off!");
             gmSoundOnOff.classList.remove("sound_on");
             smSoundOnOff.classList.remove("sound_on");
 
-            document.querySelector("#buttonSound").muted = true;
             document.getElementById("bgmAudio").muted = true;
         }
     });
-
-    var btnSoundClass = document.getElementsByClassName("btn-sound");
-
-    for (i = 0; i < btnSoundClass.length; i++) {
-        btnSoundClass[i].addEventListener("touchstart", function () {
-            console.log("buttonSound on!!!!!!!!!!!11");
-
-            if (gmSoundOnOff.classList.contains("sound_on") || smSoundOnOff.classList.contains("sound_on")) {
-                document.querySelector("#buttonSound").muted = false;
-                document.querySelector("#buttonSound").play();
-            }
-        });
-    }
 };
 
 window.onunload = function () {

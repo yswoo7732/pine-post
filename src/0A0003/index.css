@@ -40,6 +40,19 @@ body {
     align-items: center;
 }
 
+div,
+img {
+    border: 0px white solid;
+}
+
+.img_frame {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .content-wrapper {
     position: absolute;
     width: 100%;
@@ -52,12 +65,13 @@ body {
     margin-top: 0;
 }
 
-div,
-img {
-    border: 0px white solid;
-}
-
 .fund1_startBtn {
+    width: 67%;
+    height: 12%;
+    margin: auto;
+    margin-top: 104%;
+    background: url("assets/cast_special_fund1_start1.png") no-repeat;
+    background-size: contain;
     animation-name: ani-fund1_startBtn;
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
@@ -84,6 +98,10 @@ img {
 }
 
 .fund1_img_bg {
+    position: absolute;
+    height: 100%;
+    left: -20%;
+    right: 0;
     animation-name: ani_fund1_img_bg;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -102,6 +120,60 @@ img {
     }
 }
 
+.main_title {
+    width: 79%;
+    height: auto;
+    margin-top: 21%;
+}
+
+.sel_mode_bg {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sel_mode_txt {
+    width: 46%;
+    height: auto;
+    left: 0;
+    right: 0;
+    margin-top: 28%;
+}
+
+.sel_mode_box1 {
+    width: 88%;
+    height: auto;
+    margin-top: 20%;
+}
+
+.sel_mode_box2 {
+    width: 88%;
+    height: auto;
+    margin-top: 5%;
+}
+
+.game_bg {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mode_text {
+    width: 47%;
+    height: auto;
+    margin-top: 2%;
+}
+
+.fund4_2_text {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: -20%;
+    display: block;
+}
+
 .fund2_box1:active {
     content: url("assets/cast_special_fund2_box1-2.png");
     transform: scale(0.95, 0.95);
@@ -110,6 +182,53 @@ img {
 .fund2_box2:active {
     content: url("assets/cast_special_fund2_box2-2.png");
     transform: scale(0.95, 0.95);
+}
+
+.fund3_game {
+    position: absolute;
+    width: 79%;
+    height: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.game_overay_back {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    opacity: 0.3;
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+}
+
+.game_video {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.btn_game {
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+    height: auto;
+    bottom: 7%;
+    right: 7%;
+}
+
+.img_arrow {
+    position: absolute;
+    z-index: 1;
+    width: 15%;
+    height: auto;
+    right: 9.5%;
+    bottom: -11%;
+    animation: ani_fund3_arrow 1s ease-in-out infinite;
 }
 
 .fund3_game_bg {
@@ -149,13 +268,6 @@ img {
     display: none;
 }
 
-.fund3_arrow {
-    animation-name: ani_fund3_arrow;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
 .fund_result_animation {
     animation-name: ani_fund_result;
     animation-duration: 1.3s;
@@ -172,39 +284,64 @@ img {
     }
 }
 
+.fund3_result {
+    z-index: 1;
+    width: 80%;
+    height: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 149%;
+}
+
 .fund3_result:active {
     transform: scale(0.95, 0.95);
+}
+
+.fund4_replay {
+    width: 19%;
+    height: auto;
+    position: absolute;
+    top: 58%;
+    left: 41%;
 }
 
 .fund4_replay:active {
     transform: scale(0.95, 0.95);
 }
 
+.fund4_2_result {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 78%;
+    left: 10%;
+}
+
 .d-none {
     display: none;
 }
 
-.fund4_arrow {
-    position: absolute;
-    z-index: 1;
-    width: calc(89px / 1);
-    height: calc(98px / 1);
-    right: calc(138px / 1);
-    bottom: calc((193px + 91px + 278px - 130px) / 1);
-    background-image: url("assets/cast_special_fund3_arrow.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-
-    animation-name: ani_fund3_arrow;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+.heart_active,
+.heart_white_active {
+    content: url("assets/card_foot_heart_fill.png");
 }
 
-.heart_active, .heart_white_active {
-    content: url("assets/card_foot_heart_fill.png");
-  }
+.img_heart {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    top: 87%;
+    left: 0;
+}
+
+.img_share {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    top: 87%;
+    left: 50%;
+}
 
 @keyframes ani_fund3_arrow {
     0% {
@@ -220,6 +357,15 @@ img {
 
 .sound_on {
     content: url("assets/sound_on.svg");
+}
+
+.sound_on_off {
+    position: absolute;
+    z-index: 1;
+    width: 6%;
+    height: auto;
+    right: 10%;
+    margin-top: 2%;
 }
 
 .sound_on_off:active {
@@ -239,7 +385,8 @@ img {
         margin-top: 7%;
     }
 
-    .samo-wrapper, .gongmo-wrapper {
+    .samo-wrapper,
+    .gongmo-wrapper {
         margin-top: 19%;
     }
 
@@ -304,7 +451,8 @@ img {
         margin-top: 20%;
     }
 
-    .samo-wrapper, .gongmo-wrapper {
+    .samo-wrapper,
+    .gongmo-wrapper {
         margin-top: 30%;
     }
 }
