@@ -62,12 +62,6 @@ window.onload = function () {
 
                         break;
                     case 3:
-                        document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
-                        setTimeout(function () {
-                            for (i = 0; i < thirdCoin.length; i++) {
-                                thirdCoin[i].classList.add("third-coin-active");
-                            }
-                        }, 300);
                         mmfVideo.muted = true;
 
                         if (soundOnOff.classList.contains("sound_on")) {
@@ -75,6 +69,14 @@ window.onload = function () {
                             bgmSound.currentTime = 0;
                             bgmSound.play();
                         }
+
+                        document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
+                        setTimeout(function () {
+                            for (i = 0; i < thirdCoin.length; i++) {
+                                thirdCoin[i].classList.add("third-coin-active");
+                            }
+                        }, 300);
+
                         break;
                     default:
                         mmfVideo.muted = true;
