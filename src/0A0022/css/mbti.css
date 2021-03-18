@@ -4,6 +4,7 @@
 
 body {
   word-wrap: break-word;
+  word-break: keep-all;
   font-family: LIFEPLUS;
   background: #eee;
   font-size: 16px;
@@ -12,12 +13,23 @@ body {
 }
 
 body article {
+  position: absolute;
   width: 100%;
+  height: 1000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 600px) {
   body {
     background: #fff;
+  }
+  body article {
+    height: auto;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
   }
 }
 
@@ -134,8 +146,8 @@ main button.defaultBtn:hover {
 main section {
   position: relative;
   width: 600px;
+  height: inherit;
   margin: 0 auto;
-  padding: 0px 0;
   background: #fff;
   overflow: hidden;
   text-align: center;
@@ -157,10 +169,6 @@ main section button.startBtn.dimd {
   color: #A5A5A5;
 }
 
-main section.startPage {
-  height: 100vh;
-}
-
 main section.startPage .titleWrap {
   position: relative;
   padding: 12vh 0 5vh;
@@ -174,31 +182,6 @@ main section.startPage .titleWrap h1 {
 
 main section.quizPage {
   position: relative;
-  height: 100vh;
-}
-
-main section.quizPage .infoWrap {
-  position: relative;
-  width: 600px;
-  background: #0b1a3c;
-}
-
-main section.quizPage .infoWrap p {
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-@media only screen and (max-width: 600px) {
-  main section.quizPage .infoWrap {
-    width: 100%;
-  }
-}
-
-main section.quizPage .subTitle {
-  position: absolute;
-  width: 100px;
-  top: 14px;
-  right: 10px;
 }
 
 main section.quizPage .pageNumWrap {
@@ -247,8 +230,8 @@ main section.quizPage .questionWrap .question {
   left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
-  width: 440px;
-  padding: 8vh 0 0;
+  width: 500px;
+  padding: 12vh 0 0;
   visibility: hidden;
   opacity: 0;
   z-index: 1;
@@ -258,7 +241,8 @@ main section.quizPage .questionWrap .question {
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question {
     width: 100%;
-    padding: 14vw 5vw;
+    padding: 18vw 5vw;
+    text-align: left;
   }
 }
 
@@ -268,19 +252,29 @@ main section.quizPage .questionWrap .question.active {
   z-index: 10;
 }
 
+main section.quizPage .questionWrap .question .index {
+  font-weight: 500;
+  font-size: 24px;
+  color: #0b1a3c;
+  padding: 5px 16px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, Gotham, helvetica arial sans-serif;
+}
+
 main section.quizPage .questionWrap .question .title {
   font-size: 26px;
   font-weight: bold;
   line-height: 1.5;
   padding: 0 2px;
-  margin-top: 20px;
+  margin-top: 5px;
   color: #0b1a3c;
-  text-align: left;
 }
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question .title {
+    font-size: 22px;
     line-height: 1.3;
+    text-align: center;
   }
 }
 
@@ -297,28 +291,38 @@ main section.quizPage .questionWrap .question .optionWrap {
 main section.quizPage .questionWrap .question .optionWrap button.option {
   position: relative;
   display: inline-block;
-  padding: 22px 74px 22px 24px;
+  padding: 22px;
   font-size: 1rem;
   line-height: 1.5rem;
-  text-align: left;
   border: 1px solid #e4e4e4;
   border-radius: 4px;
   margin-bottom: 12px;
   cursor: pointer;
   width: 100%;
-  color: #313131;
+  color: #555555;
   transition: background .4s ease, color .3s ease;
+  font-weight: 100;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option strong {
+  color: #0b1a3c;
+  transition: color .3s ease;
 }
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question .optionWrap button.option {
-    padding: 4vw 70px 4vw 4vw;
+    text-align: left;
+    padding: 5vw 5vw;
   }
 }
 
 main section.quizPage .questionWrap .question .optionWrap button.option:hover, main section.quizPage .questionWrap .question .optionWrap button.option.on {
   color: #fff;
   background: #0b1a3c;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option:hover strong, main section.quizPage .questionWrap .question .optionWrap button.option.on strong {
+  color: #fff;
 }
 
 main section.quizPage .questionWrap .question .optionWrap button.option.dimd {

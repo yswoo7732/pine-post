@@ -27,17 +27,29 @@ $infoColor : #fff;
 
 body {
     word-wrap: break-word;
-    // word-break: keep-all;
+    word-break: keep-all;
     font-family: LIFEPLUS;
     background: #eee;
     font-size: $t_size;
     box-sizing: border-box;
     color: #fff;
     article {
+        position: absolute;
         width: 100%;
+        height : 1000px;
+        top : 50%;
+        left : 50%;
+        transform: translate(-50%, -50%);
     }
     @media #{$mobile} {
         background: #fff;
+        article { 
+            height : auto;
+            // height : 1000px;
+            top : 0%;
+            left : 0%;
+            transform: translate(-0%, -0%);
+        }
     }
 }
 
@@ -127,8 +139,9 @@ main {
     section {
         position : relative;
         width: $content-width;
+        // min-height: inherit;
+        height: inherit;
         margin: 0 auto;
-        padding: 0px 0;
         background : #fff;
         overflow: hidden;
         text-align: center;
@@ -153,7 +166,6 @@ main {
         }
         
         &.startPage {
-            height: 100vh;
             
             .titleWrap {
                 position : relative;
@@ -168,28 +180,26 @@ main {
 
         &.quizPage {
             position: relative;
-            height: 100vh;
-            
-            .infoWrap {
-                position : relative;
-                width: $content-width;
-                background : $defaultColor;
-                // margin-top: 34px;
+            // .infoWrap {
+            //     position : relative;
+            //     width: $content-width;
+            //     background : $defaultColor;
+            //     // margin-top: 34px;
                 
-                p {
-                    padding : 20px 0;
-                    font-size : 14px;
-                }
-                @media #{$mobile}{
-                    width : 100%;
-                }
-            }
-            .subTitle {
-                position: absolute;
-                width: 100px;
-                top: 14px;
-                right: 10px;
-            }
+            //     p {
+            //         padding : 20px 0;
+            //         font-size : 14px;
+            //     }
+            //     @media #{$mobile}{
+            //         width : 100%;
+            //     }
+            // }
+            // .subTitle {
+            //     position: absolute;
+            //     width: 100px;
+            //     top: 14px;
+            //     right: 10px;
+            // }
 
             .pageNumWrap {
                 position: absolute;
@@ -230,18 +240,11 @@ main {
                 position : relative;
                 .question {
                     position: absolute;
-                    // top: 0;
-                    // margin : 0 auto;
                     left: 50%;
                     transform : translate(-50%, 0);
                     text-align: center;
-                    // left : 50%;
-                    width: 440px;
-                    // background : red;
-                    // background-color: #fff; 
-                    // margin : 16px 14px;
-                    padding: 8vh 0 0;
-                    // transition: all .3s ease-in-out;
+                    width: 500px;
+                    padding: 12vh 0 0;
                     visibility: hidden;
                     opacity: 0;
                     z-index: 1;
@@ -249,7 +252,8 @@ main {
 
                     @media #{$mobile} {
                         width: 100%;
-                        padding : 14vw 5vw;
+                        padding : 18vw 5vw;
+                        text-align: left;
                     }
 
                     &.active {
@@ -259,27 +263,29 @@ main {
                         // transition-delay: .5s;
                     }
 
-                    // .index {
-                    //     font-weight: bold;
-                    //     display: inline;                        
-                    //     font-size: 20px;
-                    //     // border: 1px solid $defaultColor;
-                    //     color: $defaultColor;
-                    //     padding: 5px 16px;
-                    //     // border-radius : 50px;
-                    //     font-family: -apple-system, BlinkMacSystemFont, Gotham, helvetica arial sans-serif;
-                    // }
+                    .index {
+                        font-weight: 500;
+                        font-size: 24px;
+                        // border: 1px solid $defaultColor;
+                        color: $defaultColor;
+                        padding: 5px 16px;
+                        text-align: center;
+                        // border-radius : 50px;
+                        font-family: -apple-system, BlinkMacSystemFont, Gotham, helvetica arial sans-serif;
+                    }
 
                     .title {
                         font-size: 26px;
                         font-weight: bold;
                         line-height: 1.5;
                         padding: 0 2px;
-                        margin-top: 20px;
+                        margin-top: 5px;
                         color: $defaultColor;
-                        text-align : left;
+                        // text-align : left;
                         @media #{$mobile} {
+                            font-size: 22px;
                             line-height: 1.3;
+                            text-align : center;
                         }
                     }
 
@@ -292,26 +298,33 @@ main {
                         button.option {
                             position : relative;
                             display: inline-block;
-                            padding: 22px 74px 22px 24px;
+                            padding: 22px;
                             font-size: 1rem;
                             line-height: 1.5rem;
-                            text-align: left;
+                            // text-align: left;
                             border: 1px solid #e4e4e4;
                             border-radius: 4px;
                             margin-bottom: 12px;
                             cursor: pointer;
                             width: 100%;
-                            color: #313131;
+                            color: #555555;
                             transition: background .4s ease, color .3s ease;
-
+                            font-weight: 100;
+                            strong {
+                                color: $defaultColor;
+                                transition: color .3s ease;
+                            }
 
                             @media #{$mobile} {
-                                // padding: 16px 70px 16px 16px;
-                                padding: 4vw 70px 4vw 4vw;
+                                text-align: left;
+                                padding: 5vw 5vw;
                             }
 
                             &:hover, &.on {
                                 color: #fff;
+                                strong {
+                                    color: #fff;
+                                }
                                 background : $defaultColor;
 
                             }

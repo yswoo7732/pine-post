@@ -2,15 +2,15 @@ var q_data = [
     {
         question: "중고 거래를 할 때",
         case: [
-            { q: "에누리 좀 해주세요! 네고를 시도한다.", type: "E" },
-            { q: "이미 최저가 아닌가? 불편하니 그냥 산다.", type: "I" },
+            { q: "에누리 좀 해주세요! <strong>네고를 시도</strong>한다.", type: "E" },
+            { q: "이미 최저가 아닌가? 불편하니 <strong>그냥 산다.</strong>", type: "I" },
         ],
     },
     {
         question: "친구들과 모여 식사를 했을 때 당신은",
         case: [
-            { q: "10원 단위까지 칼같이 나눈다", type: "E" },
-            { q: "친구인데 누가 1000원 더 낼 수도 있지 뭐", type: "I" },
+            { q: "10원 단위까지 <strong>칼같이</strong> 나눈다", type: "E" },
+            { q: "친구인데 누가 <strong>1000원 더 낼 수</strong>도 있지 뭐", type: "I" },
         ],
     },
     {
@@ -85,7 +85,7 @@ resultText[5] = "장애물은 그냥 밀고 나가";
 resultText[6] = "돈 샐 틈 없이 철벽방어";
 resultText[7] = "저축과 투자의 정석";
 
-var _mobile = false;
+var is_mobile = false;
 var pageNum = 0;
 var questionArr;
 var qChkArr = [];
@@ -96,6 +96,7 @@ var height, width;
 var _main;
 
 document.addEventListener("DOMContentLoaded", function(){
+    is_mobile = isMobile();
     _main = document.querySelector("main");
     
     document.querySelector(".startBtn").addEventListener("click", function(){
@@ -178,8 +179,8 @@ function qSetting() {
     
     for (var i = 0; i < qTotalNum; i++) {
         innerOption.push('<div class="question">');
-        // innerOption.push('<div class="index">Q' + (i + 1) + "</div>");
-        innerOption.push('<div class="title">Q' + (i + 1)+ ". " + q_data[i].question + "</div>");
+        innerOption.push('<div class="index">Q' + (i + 1) + ".</div>");
+        innerOption.push('<div class="title">' + q_data[i].question + "</div>");
         innerOption.push('<div class="optionWrap">');
 
         for (var n = 0; n < q_data[i].case.length; n++) {
@@ -312,9 +313,12 @@ function resizeFunc(){
     height = window.innerHeight;
     width = window.innerWidth;
     //console.log(height)
-    document.querySelectorAll('section').forEach(function(item){
-        item.style.height = height+"px";
-    })
+    if(is_mobile){
+        document.querySelector('article').style.height = height + "px";
+    }
+    // document.querySelectorAll('section').forEach(function(item){
+    //     item.style.height = height+"px";
+    // })
     
 }
 
@@ -332,3 +336,17 @@ function getParam(sname) {
     return sval;
 }
 
+function isMobile() {
+    var rtn = false;
+    // if (window.innerWidth <= 640) {
+    //     rtn = true;
+    // }
+    if (
+        navigator.userAgent.match(
+            /Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/
+        )
+    ) {
+        rtn = true;
+    }
+    return rtn;
+}
