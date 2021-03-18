@@ -22,9 +22,14 @@ const firstCoin = document.getElementsByClassName("first-coin");
 const secondCoin = document.getElementsByClassName("second-coin");
 const thirdCoin = document.getElementsByClassName("third-coin");
 const mmfVideo = document.getElementById("mmf_video");
+const bgmSound = new Audio("assets/bgm_sound.mp3");
+bgmSound.loop = true;
+bgmSound.muted = true;
+bgmSound.currentTime = 0;
 
 window.onload = function () {
     // fitScreeSize();
+    var soundOnOff = document.querySelector(".sound_on_off");
 
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
@@ -35,20 +40,26 @@ window.onload = function () {
 
                 switch (sp.activeIndex) {
                     case 1:
-                        // document.getElementsByClassName("cloud")[0].style.display = "none";
-                        // document.getElementsByClassName("cloud")[1].style.display = "block";
                         setTimeout(function () {
                             for (i = 0; i < secondCoin.length; i++) {
                                 secondCoin[i].classList.add("second-coin-active");
                             }
                         }, 300);
+
                         break;
                     case 2:
-                        // document.getElementsByClassName("cloud")[1].style.display = "none";
-                        setTimeout(function () {
+                        bgmSound.muted = true;
+                        bgmSound.pause();
+
+                        if (soundOnOff.classList.contains("sound_on")) {
                             mmfVideo.currentTime = 0;
-                            // mmfVideo.play();
+                            mmfVideo.muted = false;
+                        }
+
+                        setTimeout(function () {
+                            mmfVideo.play();
                         }, 100);
+
                         break;
                     case 3:
                         document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
@@ -57,8 +68,16 @@ window.onload = function () {
                                 thirdCoin[i].classList.add("third-coin-active");
                             }
                         }, 300);
+                        mmfVideo.muted = true;
+
+                        if (soundOnOff.classList.contains("sound_on")) {
+                            bgmSound.muted = false;
+                            bgmSound.currentTime = 0;
+                            bgmSound.play();
+                        }
                         break;
                     default:
+                        mmfVideo.muted = true;
                         mmfVideo.pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
                         break;
@@ -68,6 +87,7 @@ window.onload = function () {
     });
 
     var page1StartBtn = document.getElementsByClassName("mmf-start-btn")[0];
+
     page1StartBtn.addEventListener(
         "click",
         function (event) {
@@ -81,11 +101,25 @@ window.onload = function () {
         false
     );
 
+    soundOnOff.addEventListener("click", function () {
+        if (!soundOnOff.classList.contains("sound_on")) {
+            soundOnOff.classList.add("sound_on");
+            bgmSound.muted = false;
+            bgmSound.play();
+        } else {
+            console.log("sound off!");
+            soundOnOff.classList.remove("sound_on");
+            bgmSound.muted = true;
+            bgmSound.pause();
+        }
+    });
+
     mmfArrow.addEventListener("animationend", () => {
         player2.classList.add("blinking");
     });
 
     player2.addEventListener("animationend", () => {
+        console.log("player2 animationend");
         setTimeout(function () {
             swiper_h.slideTo(2);
         }, 800);
@@ -94,22 +128,11 @@ window.onload = function () {
     mmfVideo.addEventListener("ended", () => {
         if (swiper_h.activeIndex == 2) {
             swiper_h.slideTo(3);
+            bgmSound.muted = false;
+            bgmSound.play();
         }
     });
 
-    document.getElementById("mmf_video").addEventListener;
-
-    secondCoin[3].addEventListener("animationend", () => {});
-
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
     var scrollingElement = document.scrollingElement || document.body;
 
     console.log("scrollingElement.scrollWidth - window.innerWidth / 2", window.innerWidth / 2 - scrollingElement.scrollWidth / 2);
