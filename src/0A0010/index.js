@@ -27,15 +27,10 @@ bgmSound.loop = true;
 bgmSound.muted = true;
 bgmSound.currentTime = 0;
 
-const gameSound = new Audio("assets/gametest.mp3");
-
-gameSound.loop = true;
-gameSound.muted = true;
-gameSound.currentTime = 23;
-
 window.onload = function () {
     // fitScreeSize();
     var soundOnOff = document.querySelector(".sound_on_off");
+    var btnGameSound = document.getElementById("btnGameSound");
 
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
@@ -57,36 +52,25 @@ window.onload = function () {
                         bgmSound.muted = true;
                         bgmSound.pause();
 
-                        gameSound.currentTime = 23;
-                        gameSound.muted = false;
-
-
                         mmfVideo.currentTime = 0;
                         mmfVideo.muted = false;
 
-                        // if (soundOnOff.classList.contains("sound_on")) {
-                        //     // mmfVideo.muted = false;
-                        //     gameSound.muted = false;
-                        //     gameSound.play();
-                        // }
-
                         setTimeout(function () {
-                            
-                            // mmfVideo.play();
+                            mmfVideo.play();
                         }, 100);
 
-                        // document.getElementById("vd_sound").addEventListener("click", function(){
-                        //     console.log("aaa");
-                        //     // mmfVideo.muted = true;
-                        //     gameSound.muted = false;
-                        //     gameSound.play();
-                        //     mmfVideo.play();
-                        // });
+                        btnGameSound.addEventListener("click", function(){
+                            if (!btnGameSound.classList.contains("sound_on")) {
+                                btnGameSound.classList.add("sound_on");
+                                mmfVideo.muted = false;
+                            } else {
+                                btnGameSound.classList.remove("sound_on");
+                                mmfVideo.muted = true;
+                            }
+                        });
                         break;
                     case 3:
                         mmfVideo.muted = true;
-                        gameSound.muted = true;
-
 
                         if (soundOnOff.classList.contains("sound_on")) {
                             bgmSound.muted = false;
@@ -135,9 +119,6 @@ window.onload = function () {
             soundOnOff.classList.add("sound_on");
             bgmSound.muted = false;
             bgmSound.play();
-
-            gameSound.muted = true;
-            gameSound.play();
         } else {
             console.log("sound off!");
             soundOnOff.classList.remove("sound_on");

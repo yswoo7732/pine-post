@@ -372,6 +372,11 @@ body {
     display: none;
 }
 
+.btn_game_sound {
+    top: 14%;
+    right: 10%;
+}
+
 .btn_skip {
     z-index: 20;
     width: 66px;
