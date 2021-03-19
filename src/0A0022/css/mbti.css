@@ -353,11 +353,21 @@ main section.loadingPage .loading h2 {
 }
 
 main section.resultPage {
-  padding: 100px;
+  padding: 50px 20px;
+  overflow: auto;
 }
 
 main section.resultPage h4 {
   font-size: 30px;
   color: #0b1a3c;
-  margin: 120px 0 200px;
+  margin: 120px 0;
+}
+
+main section.resultPage button {
+  margin-top: 100px;
+}
+
+main section.resultPage p {
+  color: #000;
+  margin: 20px;
 }

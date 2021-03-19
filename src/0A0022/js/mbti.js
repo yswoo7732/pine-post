@@ -2,8 +2,8 @@ var q_data = [
     {
         question: "중고 거래를 할 때",
         case: [
-            { q: "에누리 좀 해주세요! <strong>네고를 시도</strong>한다.", type: "E" },
-            { q: "이미 최저가 아닌가? 불편하니 <strong>그냥 산다.</strong>", type: "I" },
+            { q: "에누리 좀 해주세요! <strong>네고를 시도</strong>한다", type: "E" },
+            { q: "이미 최저가 아닌가? 불편하니 <strong>그냥 산다</strong>", type: "I" },
         ],
     },
     {
@@ -16,38 +16,38 @@ var q_data = [
     {
         question: "물건을 샀는데 작은 하자가 있다",
         case: [
-            { q: "내 돈은 소중하다 끝까지 교환/환불을 받는다 ", type: "E" },
-            { q: "내 시간과 에너지가 더 아깝다 그냥 쓴다", type: "I" },
+            { q: "내 돈은 소중하다 <strong>끝까지 교환/환불</strong>을 받는다 ", type: "E" },
+            { q: "내 시간과 에너지가 더 아깝다 <strong>그냥 쓴다</strong>", type: "I" },
         ],
     },
     
     {
         question: "예상 못했던 수입이 생겼을 때",
         case: [
-            { q: "미래를 위해 저축한다.", type: "S" },
-            { q: "쇼핑 타임! 일단 쓰고 본다.", type: "N" },
+            { q: "미래를 위해 <strong>저축</strong>한다", type: "S" },
+            { q: "쇼핑 타임! 일단 <strong>쓰고</strong> 본다", type: "N" },
         ],
     },
     {
         question: "새 신발이 필요할 때 당신은",
         case: [
-            { q: "후기와 환불 정책을 꼼꼼히 확인하고 인터넷 최저가로 산다", type: "S" },
-            { q: "귀찮다 그냥 베스트 셀러로 정렬해서 고른다 ", type: "N" },
+            { q: "후기와 환불 정책을 <strong>꼼꼼히 확인</strong>하고 인터넷 최저가로 산다", type: "S" },
+            { q: "<strong>귀찮다</strong> 그냥 베스트 셀러로 정렬해서 고른다 ", type: "N" },
         ],
     },
     {
         question: "답답해서 바다를 보고 싶어졌다",
         case: [
             { q: "교통은 어떻게 하는 게 좋을지 숙소는 어디에 묵을지 근처에 식당은 뭐가 있는지부터 찾아본다", type: "S" },
-            { q: "당장 드라이브 떠나서 바다만 보고 새벽에 오면 안 되나?", type: "N" },
+            { q: "<strong>당장 드라이브 떠나서</strong> 바다만 보고 새벽에 오면 안 되나?", type: "N" },
         ],
     },
 
     {
-        question: "끌리는 신상품에 후기가 0일 때",
+        question: "끌리는 신상품에 후기가 0개일 때",
         case: [
-            { q: "불안하니까 사는 걸 미룬다.", type: "T" },
-            { q: "내가 개척한다.", type: "F" },
+            { q: "불안하니까 사는 걸 <strong>미룬다</strong>", type: "T" },
+            { q: "내가 <strong>개척한다</strong>", type: "F" },
         ],
     },
     {
@@ -60,8 +60,8 @@ var q_data = [
     {
         question: "요정이 나타나 선택을 하라고 했다",
         case: [
-            { q: "90% 확률로 1억 받기", type: "T" },
-            { q: "10% 확률로 1000억 받기", type: "F" },
+            { q: "<strong>90% 확률</strong>로 1억 받기", type: "T" },
+            { q: "<strong>10% 확률</strong>로 1000억 받기", type: "F" },
         ],
     },
 ];
@@ -234,6 +234,8 @@ function resultFunc() {
     _main.classList.remove("quiz");
     _main.classList.remove("loading");
     _main.classList.add("result");
+    
+    document.querySelector(".resultPage").scrollTop = 0;
     // ["E", "I", "S", "N", "T", "F"]; 
     // qChkArr = ["E", "E", "I", "S", "S", "N", "F", "T", "F"];
     //E , S, T
@@ -313,9 +315,10 @@ function resizeFunc(){
     height = window.innerHeight;
     width = window.innerWidth;
     //console.log(height)
-    if(is_mobile){
+    if(is_mobile || (!is_mobile && height < 1000)){
         document.querySelector('article').style.height = height + "px";
     }
+
     // document.querySelectorAll('section').forEach(function(item){
     //     item.style.height = height+"px";
     // })
