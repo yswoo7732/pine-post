@@ -51,13 +51,13 @@ window.onload = function () {
                         bgmSound.muted = true;
                         bgmSound.pause();
 
-                        if (soundOnOff.classList.contains("sound_on")) {
-                            mmfVideo.currentTime = 0;
-                            mmfVideo.muted = false;
-                        }
-
                         setTimeout(function () {
                             mmfVideo.play();
+
+                            if (soundOnOff.classList.contains("sound_on")) {
+                                mmfVideo.currentTime = 0;
+                                mmfVideo.muted = false;
+                            }
                         }, 100);
 
                         break;
