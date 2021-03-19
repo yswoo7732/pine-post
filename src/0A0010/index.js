@@ -27,7 +27,7 @@ bgmSound.loop = true;
 bgmSound.muted = true;
 bgmSound.currentTime = 0;
 
-const gameSound = new Audio("assets/test.mp3");
+const gameSound = new Audio("assets/gametest.mp3");
 
 gameSound.loop = true;
 gameSound.muted = true;
@@ -56,6 +56,10 @@ window.onload = function () {
                     case 2:
                         bgmSound.muted = true;
                         bgmSound.pause();
+
+                        gameSound.muted = true;
+                        gameSound.currentTime = 23;
+
 
                         mmfVideo.currentTime = 0;
                         mmfVideo.muted = false;
