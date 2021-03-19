@@ -57,8 +57,8 @@ window.onload = function () {
                         bgmSound.muted = true;
                         bgmSound.pause();
 
-                        gameSound.muted = true;
                         gameSound.currentTime = 23;
+                        gameSound.muted = false;
 
 
                         mmfVideo.currentTime = 0;
@@ -135,6 +135,9 @@ window.onload = function () {
             soundOnOff.classList.add("sound_on");
             bgmSound.muted = false;
             bgmSound.play();
+
+            gameSound.muted = true;
+            gameSound.play();
         } else {
             console.log("sound off!");
             soundOnOff.classList.remove("sound_on");
