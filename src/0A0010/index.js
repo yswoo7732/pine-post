@@ -29,7 +29,7 @@ bgmSound.currentTime = 0;
 
 window.onload = function () {
     // fitScreeSize();
-    var soundOnOff = document.querySelector(".sound_on_off");
+    var soundOnOff = document.getElementsByClassName("sound_on_off")[0];
     var btnGameSound = document.getElementById("btnGameSound");
 
     var swiper_h = new Swiper(".swiper-container", {
@@ -53,13 +53,13 @@ window.onload = function () {
                         bgmSound.pause();
 
                         mmfVideo.currentTime = 0;
-                        mmfVideo.muted = false;
 
                         setTimeout(function () {
                             mmfVideo.play();
                         }, 100);
 
                         btnGameSound.addEventListener("click", function(){
+                            console.log("a");
                             if (!btnGameSound.classList.contains("sound_on")) {
                                 btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
