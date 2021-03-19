@@ -52,19 +52,20 @@ window.onload = function () {
                         bgmSound.pause();
 
                         mmfVideo.currentTime = 0;
-                        mmfVideo.muted = false;
+                        mmfVideo.muted = true;
+
+                        if (soundOnOff.classList.contains("sound_on")) {
+                            mmfVideo.muted = false;
+                        }
 
                         setTimeout(function () {
                             mmfVideo.play();
-
-                            if (soundOnOff.classList.contains("sound_on")) {
-                                mmfVideo.muted = false;
-                            }
                         }, 100);
 
-                        document.getElementById("vd_sound").addEventListener("click", function(){
-                            mmfVideo.muted = false;
-                        });
+                        // document.getElementById("vd_sound").addEventListener("click", function(){
+                        //     console.log("aaa");
+                        //     mmfVideo.muted = false;
+                        // });
                         break;
                     case 3:
                         mmfVideo.muted = true;
