@@ -61,12 +61,13 @@ window.onload = function () {
                         mmfVideo.muted = true;
 
                         if (soundOnOff.classList.contains("sound_on")) {
-                            mmfVideo.muted = false;
+                            // mmfVideo.muted = false;
+                            gameSound.muted = false;
+                            gameSound.play();
                         }
 
                         setTimeout(function () {
-                            gameSound.muted = false;
-                            gameSound.play();
+                            
                             mmfVideo.play();
                         }, 100);
 
