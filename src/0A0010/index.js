@@ -52,6 +52,7 @@ window.onload = function () {
                         bgmSound.pause();
 
                         mmfVideo.currentTime = 0;
+                        mmfVideo.muted = false;
 
                         setTimeout(function () {
                             // mmfVideo.play();
