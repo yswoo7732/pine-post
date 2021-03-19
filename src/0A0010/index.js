@@ -50,7 +50,7 @@ window.onload = function () {
                     case 2:
                         bgmSound.muted = true;
                         bgmSound.pause();
-                        
+
                         mmfVideo.currentTime = 0;
 
                         setTimeout(function () {
@@ -156,4 +156,7 @@ window.onload = function () {
         this.classList.remove("btn_skip_active");
         swiper_h.slideTo(3);
     });
+};
+window.onunload = function () {
+    bgmSound.pause();
 };
