@@ -27,6 +27,12 @@ bgmSound.loop = true;
 bgmSound.muted = true;
 bgmSound.currentTime = 0;
 
+const gameSound = new Audio("assets/test.mp3");
+
+gameSound.loop = true;
+gameSound.muted = true;
+gameSound.currentTime = 23;
+
 window.onload = function () {
     // fitScreeSize();
     var soundOnOff = document.querySelector(".sound_on_off");
@@ -59,6 +65,8 @@ window.onload = function () {
                         }
 
                         setTimeout(function () {
+                            gameSound.muted = false;
+                            gameSound.play();
                             mmfVideo.play();
                         }, 100);
 
@@ -69,6 +77,8 @@ window.onload = function () {
                         break;
                     case 3:
                         mmfVideo.muted = true;
+                        gameSound.muted = true;
+
 
                         if (soundOnOff.classList.contains("sound_on")) {
                             bgmSound.muted = false;
