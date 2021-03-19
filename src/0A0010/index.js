@@ -72,13 +72,13 @@ window.onload = function () {
                             // mmfVideo.play();
                         }, 100);
 
-                        document.getElementById("vd_sound").addEventListener("click", function(){
-                            console.log("aaa");
-                            // mmfVideo.muted = true;
-                            gameSound.muted = false;
-                            gameSound.play();
-                            mmfVideo.play();
-                        });
+                        // document.getElementById("vd_sound").addEventListener("click", function(){
+                        //     console.log("aaa");
+                        //     // mmfVideo.muted = true;
+                        //     gameSound.muted = false;
+                        //     gameSound.play();
+                        //     mmfVideo.play();
+                        // });
                         break;
                     case 3:
                         mmfVideo.muted = true;
