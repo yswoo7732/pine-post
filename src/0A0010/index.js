@@ -59,10 +59,10 @@ window.onload = function () {
                         }, 100);
 
                         btnGameSound.addEventListener("click", function(){
-                            console.log("a");
                             if (!btnGameSound.classList.contains("sound_on")) {
                                 btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
+                                mmfVideo.volume = 1;
                             } else {
                                 btnGameSound.classList.remove("sound_on");
                                 mmfVideo.muted = true;
@@ -133,9 +133,11 @@ window.onload = function () {
 
     player2.addEventListener("animationend", () => {
         console.log("player2 animationend");
-        setTimeout(function () {
-            swiper_h.slideTo(2);
-        }, 800);
+        if (swiper_h.activeIndex == 1) {
+            setTimeout(function () {
+                swiper_h.slideTo(2);
+            }, 800);
+        }
     });
 
     mmfVideo.addEventListener("ended", () => {
