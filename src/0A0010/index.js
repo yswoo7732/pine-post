@@ -50,12 +50,13 @@ window.onload = function () {
                     case 2:
                         bgmSound.muted = true;
                         bgmSound.pause();
+                        
+                        mmfVideo.currentTime = 0;
 
                         setTimeout(function () {
-                            mmfVideo.play();
+                            // mmfVideo.play();
 
                             if (soundOnOff.classList.contains("sound_on")) {
-                                mmfVideo.currentTime = 0;
                                 mmfVideo.muted = false;
                             }
                         }, 100);
