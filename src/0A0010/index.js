@@ -59,7 +59,6 @@ window.onload = function () {
 
                         mmfVideo.currentTime = 0;
                         mmfVideo.muted = false;
-                        mmfVideo.loop = true;
 
                         // if (soundOnOff.classList.contains("sound_on")) {
                         //     // mmfVideo.muted = false;
@@ -114,15 +113,15 @@ window.onload = function () {
     page1StartBtn.addEventListener(
         "click",
         function (event) {
+            mmfVideo.play();
+            mmfVideo.muted = true;
+
             console.log("page1StartBtn Click!", event);
             for (i = 0; i < firstCoin.length; i++) {
                 firstCoin[i].classList.remove("first-coin-active");
             }
             swiper_h.slideTo(1);
             mmfArrow.classList.add("mmf-arrow-move");
-
-            mmfVideo.play();
-            mmfVideo.muted = true;
         },
         false
     );
