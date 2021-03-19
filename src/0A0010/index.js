@@ -55,13 +55,16 @@ window.onload = function () {
                         mmfVideo.muted = false;
 
                         setTimeout(function () {
-                            // mmfVideo.play();
+                            mmfVideo.play();
 
                             if (soundOnOff.classList.contains("sound_on")) {
                                 mmfVideo.muted = false;
                             }
                         }, 100);
 
+                        document.getElementById("vd_sound").addEventListener("click", function(){
+                            mmfVideo.muted = false;
+                        });
                         break;
                     case 3:
                         mmfVideo.muted = true;
