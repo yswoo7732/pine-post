@@ -51,13 +51,15 @@ window.onload = function () {
                         bgmSound.muted = true;
                         bgmSound.pause();
 
-                        if (soundOnOff.classList.contains("sound_on")) {
-                            mmfVideo.currentTime = 0;
-                            mmfVideo.muted = false;
-                        }
+                        mmfVideo.currentTime = 0;
+                        mmfVideo.muted = false;
 
                         setTimeout(function () {
-                            mmfVideo.play();
+                            // mmfVideo.play();
+
+                            if (soundOnOff.classList.contains("sound_on")) {
+                                mmfVideo.muted = false;
+                            }
                         }, 100);
 
                         break;
@@ -155,4 +157,7 @@ window.onload = function () {
         this.classList.remove("btn_skip_active");
         swiper_h.slideTo(3);
     });
+};
+window.onunload = function () {
+    bgmSound.pause();
 };
