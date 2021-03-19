@@ -58,23 +58,27 @@ window.onload = function () {
                         bgmSound.pause();
 
                         mmfVideo.currentTime = 0;
-                        mmfVideo.muted = true;
+                        mmfVideo.muted = false;
+                        mmfVideo.loop = true;
 
-                        if (soundOnOff.classList.contains("sound_on")) {
-                            // mmfVideo.muted = false;
-                            gameSound.muted = false;
-                            gameSound.play();
-                        }
+                        // if (soundOnOff.classList.contains("sound_on")) {
+                        //     // mmfVideo.muted = false;
+                        //     gameSound.muted = false;
+                        //     gameSound.play();
+                        // }
 
                         setTimeout(function () {
                             
-                            mmfVideo.play();
+                            // mmfVideo.play();
                         }, 100);
 
-                        // document.getElementById("vd_sound").addEventListener("click", function(){
-                        //     console.log("aaa");
-                        //     mmfVideo.muted = false;
-                        // });
+                        document.getElementById("vd_sound").addEventListener("click", function(){
+                            console.log("aaa");
+                            // mmfVideo.muted = true;
+                            gameSound.muted = false;
+                            gameSound.play();
+                            mmfVideo.play();
+                        });
                         break;
                     case 3:
                         mmfVideo.muted = true;
@@ -116,6 +120,9 @@ window.onload = function () {
             }
             swiper_h.slideTo(1);
             mmfArrow.classList.add("mmf-arrow-move");
+
+            mmfVideo.play();
+            mmfVideo.muted = true;
         },
         false
     );
