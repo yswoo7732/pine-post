@@ -55,6 +55,11 @@ window.onload = function () {
                         mmfVideo.currentTime = 0;
 
                         setTimeout(function () {
+                            if (soundOnOff.classList.contains("sound_on")) {
+                                mmfVideo.muted = false;
+                            } else {
+                                mmfVideo.muted = true;
+                            }
                             mmfVideo.play();
                         }, 100);
 
@@ -62,20 +67,22 @@ window.onload = function () {
                             if (!btnGameSound.classList.contains("sound_on")) {
                                 btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
-                                mmfVideo.volume = 1;
                             } else {
                                 btnGameSound.classList.remove("sound_on");
                                 mmfVideo.muted = true;
                             }
                         });
+
+                        
                         break;
                     case 3:
-                        mmfVideo.muted = true;
 
                         if (soundOnOff.classList.contains("sound_on")) {
                             bgmSound.muted = false;
                             bgmSound.currentTime = 0;
                             bgmSound.play();
+                        } else {
+                            mmfVideo.muted = true;
                         }
 
                         document.querySelector(".page4-cloud2").classList.add("page4-cloud2-active");
@@ -88,6 +95,7 @@ window.onload = function () {
                         break;
                     default:
                         mmfVideo.muted = true;
+                        mmfVideo.currentTime = 0;
                         mmfVideo.pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
                         break;
