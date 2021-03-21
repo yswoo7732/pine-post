@@ -15,6 +15,7 @@ function fitScreeSize() {
     console.log("navigator.userAgent", navigator.userAgent);
 }
 
+const unmuteButton = document.getElementById("unmuteButton");
 const secondImg = document.getElementById("secondImg");
 const mmfArrow = document.querySelector(".mmf-arrow");
 const player2 = document.querySelector(".player2");
@@ -28,6 +29,9 @@ bgmSound.muted = true;
 bgmSound.currentTime = 0;
 
 window.onload = function () {
+    unmuteButton.addEventListener('click', function() {
+        mmfVideo.muted = false;
+      });
     // fitScreeSize();
     var soundOnOff = document.getElementsByClassName("sound_on_off")[0];
     var btnGameSound = document.getElementById("btnGameSound");
@@ -152,7 +156,7 @@ window.onload = function () {
 
     mmfVideo.addEventListener("ended", () => {
         if (swiper_h.activeIndex == 2) {
-            swiper_h.slideTo(3);
+            // swiper_h.slideTo(3);
             // bgmSound.muted = false;
             // bgmSound.play();
         }
