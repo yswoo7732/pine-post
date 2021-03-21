@@ -46,7 +46,8 @@ window.onload = function () {
                                 secondCoin[i].classList.add("second-coin-active");
                             }
                         }, 300);
-
+                        mmfVideo.muted = true;
+                        mmfVideo.pause();
                         break;
                     case 2:
                         bgmSound.muted = true;
@@ -76,7 +77,6 @@ window.onload = function () {
                         
                         break;
                     case 3:
-
                         if (soundOnOff.classList.contains("sound_on")) {
                             bgmSound.muted = false;
                             bgmSound.currentTime = 0;
@@ -92,6 +92,8 @@ window.onload = function () {
                             }
                         }, 300);
 
+                        mmfVideo.muted = true;
+                        mmfVideo.pause();
                         break;
                     default:
                         mmfVideo.muted = true;
@@ -151,8 +153,8 @@ window.onload = function () {
     mmfVideo.addEventListener("ended", () => {
         if (swiper_h.activeIndex == 2) {
             swiper_h.slideTo(3);
-            bgmSound.muted = false;
-            bgmSound.play();
+            // bgmSound.muted = false;
+            // bgmSound.play();
         }
     });
 
