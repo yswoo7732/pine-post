@@ -43,7 +43,6 @@ function disableGameMute() {
     mmfVideo.muted = false;
 }
 
-
 window.onload = function () {
     // fitScreeSize();
     var soundOnOff = document.getElementsByClassName("sound_on_off")[0];
@@ -186,4 +185,19 @@ window.onload = function () {
 window.onunload = function () {
     bgmSound.pause();
     mmfVideo.pause();
+
+    enableBgmMute();
+    enableGameMute();
 };
+
+// 페이지 이탈시, 사운드 음소거
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        enableBgmMute();
+        document.querySelector(".sound_on_off").classList.remove("sound_on");
+        bgmSound.pause();
+
+        enableBgmMute();
+        enableGameMute();
+    }
+});

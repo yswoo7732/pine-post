@@ -22,7 +22,7 @@ function fitScreeSize() {
     console.log("navigator.userAgent", navigator.userAgent);
 }
 
-function soundOn(bgm) {
+function soundOn() {
     soundOnOff.forEach((item) => {
         item.classList.add("sound_on");
     });
@@ -30,7 +30,7 @@ function soundOn(bgm) {
     bgmSound.play();
 }
 
-function soundOff(bgm) {
+function soundOff() {
     soundOnOff.forEach((item) => {
         item.classList.remove("sound_on");
     });
@@ -309,3 +309,10 @@ window.onload = function () {
 window.onunload = function () {
     bgmSound.pause();
 };
+
+// 페이지 이탈시, 사운드 음소거
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        soundOff();
+    }
+});
