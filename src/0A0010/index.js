@@ -101,7 +101,9 @@ window.onload = function () {
                         mmfVideo.pause();
                         break;
                     default:
+                        enableBgmMute();
                         enableGameMute();
+                        bgmSound.pause();
                         mmfVideo.currentTime = 0;
                         mmfVideo.pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
@@ -185,8 +187,3 @@ window.onunload = function () {
     bgmSound.pause();
     mmfVideo.pause();
 };
-
-window.onbeforeunload = function () {
-    bgmSound.pause();
-    mmfVideo.pause();
-}
