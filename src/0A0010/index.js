@@ -173,15 +173,18 @@ window.onload = function () {
         behavior: "smooth",
     });
 
-    document.querySelector("#btnSkip").addEventListener("touchstart", function () {
-        this.classList.add("btn_skip_active");
-    });
-
-    document.querySelector("#btnSkip").addEventListener("touchend", function () {
-        this.classList.remove("btn_skip_active");
-        swiper_h.slideTo(3);
+    ["touchstart", "touchend", "click"].forEach(function(e) {
+        document.querySelector("#btnSkip").addEventListener(e, function () {
+            if(e === "touchstart") {
+                this.classList.add("btn_skip_active");
+            } else {
+                this.classList.remove("btn_skip_active");
+                swiper_h.slideTo(3);
+            }
+        });
     });
 };
+
 window.onunload = function () {
     bgmSound.pause();
     mmfVideo.pause();
