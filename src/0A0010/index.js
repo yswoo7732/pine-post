@@ -1,3 +1,15 @@
+const secondImg = document.getElementById("secondImg");
+const mmfArrow = document.querySelector(".mmf-arrow");
+const player2 = document.querySelector(".player2");
+const firstCoin = document.getElementsByClassName("first-coin");
+const secondCoin = document.getElementsByClassName("second-coin");
+const thirdCoin = document.getElementsByClassName("third-coin");
+const mmfVideo = document.getElementById("mmf_video");
+const bgmSound = new Audio("assets/bgm_sound.mp3");
+bgmSound.loop = true;
+bgmSound.muted = true;
+bgmSound.currentTime = 0;
+
 function fitScreeSize() {
     console.log("document.body.clientWidth", document.body.clientWidth);
     console.log("document.body.clientWidth", document.body.clientWidth);
@@ -15,18 +27,22 @@ function fitScreeSize() {
     console.log("navigator.userAgent", navigator.userAgent);
 }
 
-const secondImg = document.getElementById("secondImg");
-const mmfArrow = document.querySelector(".mmf-arrow");
-const player2 = document.querySelector(".player2");
-const firstCoin = document.getElementsByClassName("first-coin");
-const secondCoin = document.getElementsByClassName("second-coin");
-const thirdCoin = document.getElementsByClassName("third-coin");
-const mmfVideo = document.getElementById("mmf_video");
-const bgmSound = new Audio("assets/bgm_sound.mp3");
-bgmSound.volume = 1;
-bgmSound.loop = true;
-bgmSound.muted = true;
-bgmSound.currentTime = 0;
+function enableBgmMute() {
+    bgmSound.muted = true;
+}
+
+function disableBgmMute() {
+    bgmSound.muted = false;
+}
+
+function enableGameMute() {
+    mmfVideo.muted = true;
+}
+
+function disableGameMute() {
+    mmfVideo.muted = false;
+}
+
 
 window.onload = function () {
     // fitScreeSize();
@@ -46,32 +62,31 @@ window.onload = function () {
                                 secondCoin[i].classList.add("second-coin-active");
                             }
                         }, 300);
-                        mmfVideo.muted = true;
+                        enableGameMute();
                         mmfVideo.pause();
                         break;
                     case 2:
-                        bgmSound.muted = true;
+                        enableBgmMute();
                         bgmSound.pause();
 
                         mmfVideo.currentTime = 0;
 
                         setTimeout(function () {
                             if (soundOnOff.classList.contains("sound_on")) {
-                                // btnGameSound.classList.add("sound_on");
-                                mmfVideo.muted = false;
+                                disableGameMute();
                             } else {
-                                mmfVideo.muted = true;
+                                enableGameMute();
                             }
                             mmfVideo.play();
                         }, 100);
                         break;
                     case 3:
                         if (soundOnOff.classList.contains("sound_on")) {
-                            bgmSound.muted = false;
+                            disableBgmMute();
                             bgmSound.currentTime = 0;
                             bgmSound.play();
                         } else {
-                            bgmSound.muted = true;
+                            enableBgmMute();
                             bgmSound.pause();
                         }
 
@@ -82,11 +97,11 @@ window.onload = function () {
                             }
                         }, 300);
 
-                        mmfVideo.muted = true;
+                        enableGameMute();
                         mmfVideo.pause();
                         break;
                     default:
-                        mmfVideo.muted = true;
+                        enableGameMute();
                         mmfVideo.currentTime = 0;
                         mmfVideo.pause();
                         console.log("switch default activeIndex:", sp.activeIndex);
@@ -102,7 +117,7 @@ window.onload = function () {
         "click",
         function (event) {
             mmfVideo.play();
-            mmfVideo.muted = true;
+            enableGameMute();
 
             console.log("page1StartBtn Click!", event);
             for (i = 0; i < firstCoin.length; i++) {
@@ -117,12 +132,12 @@ window.onload = function () {
     soundOnOff.addEventListener("click", function () {
         if (!soundOnOff.classList.contains("sound_on")) {
             soundOnOff.classList.add("sound_on");
-            bgmSound.muted = false;
+            disableBgmMute();
             bgmSound.play();
         } else {
             console.log("sound off!");
             soundOnOff.classList.remove("sound_on");
-            bgmSound.muted = true;
+            enableBgmMute();
             bgmSound.pause();
         }
     });
@@ -149,7 +164,6 @@ window.onload = function () {
     var scrollingElement = document.scrollingElement || document.body;
 
     console.log("scrollingElement.scrollWidth - window.innerWidth / 2", window.innerWidth / 2 - scrollingElement.scrollWidth / 2);
-
     console.log("scrollingElement.scrollHeight - window.innerHeight / 2", window.innerHeight / 2 - scrollingElement.scrollHeight / 2);
 
     window.scroll({
@@ -168,6 +182,8 @@ window.onload = function () {
     });
 };
 window.onunload = function () {
+    enableBgmMute();
+    enableGameMute();
     bgmSound.pause();
     mmfVideo.pause();
 };
