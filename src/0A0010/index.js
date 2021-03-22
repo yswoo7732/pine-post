@@ -69,8 +69,8 @@ window.onload = function () {
                             if (!btnGameSound.classList.contains("sound_on")) {
                                 btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
-                                mmfVideo.volume = 1;
-                                alert("sound on");
+                                // mmfVideo.volume = 1;
+                                alert(mmfVideo.muted);
                             } else {
                                 btnGameSound.classList.remove("sound_on");
                                 mmfVideo.muted = true;
