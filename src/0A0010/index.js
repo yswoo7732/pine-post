@@ -65,17 +65,18 @@ window.onload = function () {
                             mmfVideo.play();
                         }, 100);
 
-                        btnGameSound.addEventListener("click", function(){
+                        btnGameSound.addEventListener("click", function () {
                             if (!btnGameSound.classList.contains("sound_on")) {
                                 btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
+                                mmfVideo.volume = 1;
+                                alert("sound on");
                             } else {
                                 btnGameSound.classList.remove("sound_on");
                                 mmfVideo.muted = true;
                             }
                         });
 
-                        
                         break;
                     case 3:
                         if (soundOnOff.classList.contains("sound_on")) {
