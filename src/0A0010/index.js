@@ -169,4 +169,5 @@ window.onload = function () {
 };
 window.onunload = function () {
     bgmSound.pause();
+    mmfVideo.pause();
 };
