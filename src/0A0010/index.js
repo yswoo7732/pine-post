@@ -31,7 +31,6 @@ bgmSound.currentTime = 0;
 window.onload = function () {
     // fitScreeSize();
     var soundOnOff = document.getElementsByClassName("sound_on_off")[0];
-    // var btnGameSound = document.getElementById("btnGameSound");
 
     var swiper_h = new Swiper(".swiper-container", {
         initialSlide: 0,
@@ -65,18 +64,6 @@ window.onload = function () {
                             }
                             mmfVideo.play();
                         }, 100);
-
-                        // btnGameSound.addEventListener("click", function () {
-                        //     if (!btnGameSound.classList.contains("sound_on")) {
-                        //         btnGameSound.classList.add("sound_on");
-                        //         mmfVideo.muted = false;
-                        //         alert(mmfVideo.muted);
-                        //     } else {
-                        //         btnGameSound.classList.remove("sound_on");
-                        //         mmfVideo.muted = true;
-                        //     }
-                        // });
-
                         break;
                     case 3:
                         if (soundOnOff.classList.contains("sound_on")) {
