@@ -1,10 +1,7 @@
-// window.onload = function () {
 let windowHeight = 0;
-let findAppChk = false;
 
 window.addEventListener('DOMContentLoaded', function(){
 
-    
     window.addEventListener("resize", resizeFunc);
     resizeFunc();
 
@@ -16,15 +13,11 @@ window.addEventListener('DOMContentLoaded', function(){
     const progressBar = basicFoot.getElementsByClassName("progress-bar")[0]; 
     // const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
 
-    //파인 앱 체크. 
-    fineAppChk = pineAppChk();
-    console.log("fineAppChk : ", fineAppChk);
-    if(!fineAppChk) {
-        basicFoot.classList.remove("pineApp");
-    }else{
-        // 로드시, 좋아요 여부 호출
-        getLike();
-    }
+    //로드시, 좋아요 여부 호출
+    getLike();
+    // if(!getLike()) {
+    //     basicFoot.classList.remove("pineApp");
+    // }
 
     const boxShadows = document.getElementsByClassName("box-shadow");
     const coverFull = document.getElementById("cover_full");

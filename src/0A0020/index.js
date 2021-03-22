@@ -4,14 +4,10 @@ const minHeight = window.matchMedia("(min-height: 800px)");
 const minWidth = window.matchMedia("(min-width: 450px)");
 const swiperVW = minWidth.matches ? 3 : 6;
 
-window.onload = function () {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-        }
-    } else {
-        console.log("not mobile");
-    }
+window.addEventListener('DOMContentLoaded', function(){
 
+    getLike();
+    
     const btnOK = document.getElementById("btnOK");
     const contentsContainer = document.getElementsByClassName("contents_container")[0];
 
@@ -54,14 +50,14 @@ window.onload = function () {
             toggleClass: { targets: ".square_tip", className: "active" }
         });
 
-        ScrollTrigger.create({
-            trigger: ".square_wrapper",
-            start: "top center",
-            end: "top center",
-            // markers: true,
-            onEnter: () => showBtn("onEnter"),
-            onEnterBack: () => showBtn("onEnterBack"),
-        });
+        // ScrollTrigger.create({
+        //     trigger: ".square_wrapper",
+        //     start: "top center",
+        //     end: "top center",
+        //     // markers: true,
+        //     onEnter: () => showBtn("onEnter"),
+        //     onEnterBack: () => showBtn("onEnterBack"),
+        // });
 
         // 세액공제율
         const perTax = document.getElementById("per_tax");
@@ -257,7 +253,7 @@ window.onload = function () {
     // 구글차트
     // google.charts.load("45", { packages: ["corechart"] });
     // google.charts.setOnLoadCallback(drawChart);
-};
+});
 // createLineChart();
 
 function modal(id, modalTxt) {
@@ -311,17 +307,17 @@ Element.prototype.setStyle = function (styles) {
 };
 
 // 연금저축펀드 투자하기 버튼 보이기
-function showBtn(flag) {
-    const productLink = document.querySelector(".product_link");
+// function showBtn(flag) {
+//     const productLink = document.querySelector(".product_link");
 
-    if (flag == "onEnter") {
-        productLink.style.bottom = minHeight.matches ? "50px" : "25px";
-    }
+//     if (flag == "onEnter") {
+//         productLink.style.bottom = minHeight.matches ? "50px" : "25px";
+//     }
 
-    if (flag == "onEnterBack") {
-        productLink.style.bottom = "-100px";
-    }
-}
+//     if (flag == "onEnterBack") {
+//         productLink.style.bottom = "-100px";
+//     }
+// }
 
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
 function handleSalarySliderValuePosition(input) {

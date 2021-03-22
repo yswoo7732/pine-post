@@ -7,19 +7,23 @@ function pineAppChk() {
 }
 
 function getLike() {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (pineAppChk()) {
-            // 좋아요 클릭 유무 체크위해 호출
-            if (/Android/i.test(navigator.userAgent)) {
-                window.AosConnector.isLike();
-            }
-
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                webkit.messageHandlers.isLike.postMessage();
-            }
+    // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    if (pineAppChk()) {
+        // 좋아요 클릭 유무 체크위해 호출
+        if (/Android/i.test(navigator.userAgent)) {
+            window.AosConnector.isLike();
         }
-    } else {
-        console.log("not mobile");
+
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            webkit.messageHandlers.isLike.postMessage();
+        }
+    }else {
+        console.log("not pineApp");
+        
+        const basicFoot = document.getElementsByClassName("basic_foot");
+        if(basicFoot.length > 0){
+            basicFoot[0].classList.remove("pineApp");
+        }
     }
 }
 
