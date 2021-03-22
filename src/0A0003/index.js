@@ -1,3 +1,4 @@
+const soundOnOff = document.querySelectorAll(".sound_on_off");
 const bgmSound = new Audio("assets/bgm_game.mp3");
 
 bgmSound.loop = true;
@@ -21,11 +22,25 @@ function fitScreeSize() {
     console.log("navigator.userAgent", navigator.userAgent);
 }
 
-window.onload = function () {
-    fitScreeSize();
+function soundOn(bgm) {
+    soundOnOff.forEach((item) => {
+        item.classList.add("sound_on");
+    });
+    bgmSound.muted = false;
+    bgmSound.play();
+}
 
-    var smSoundOnOff = document.querySelector("#smSoundOnOff");
-    var gmSoundOnOff = document.querySelector("#gmSoundOnOff");
+function soundOff(bgm) {
+    soundOnOff.forEach((item) => {
+        item.classList.remove("sound_on");
+    });
+    bgmSound.currentTime = 0;
+    bgmSound.muted = true;
+    bgmSound.pause();
+}
+
+window.onload = function () {
+    // fitScreeSize();
 
     var swiper_h = new Swiper(".swiper-container-v", {
         direction: "vertical",
@@ -71,11 +86,7 @@ window.onload = function () {
 
                         document.querySelector("#samo_vidio").currentTime = 0;
                         document.querySelector("#gongmo_vidio").currentTime = 0;
-                        if (gmSoundOnOff.classList.contains("sound_on") || smSoundOnOff.classList.contains("sound_on")) {
-                            document.querySelector(".sound_on_off").classList.add("sound_on");
-                            bgmSound.muted = false;
-                            bgmSound.play();
-                        }
+
                         break;
                     default:
                         document.querySelector(".btnGongmoResult").classList.remove("fund_result_animation");
@@ -84,9 +95,6 @@ window.onload = function () {
                         document.getElementsByClassName("fund3_button")[0].classList.remove("fund3_button_active");
                         document.getElementsByClassName("fund4_button")[0].classList.remove("fund4_button_active");
 
-                        bgmSound.muted = true;
-                        document.querySelector(".sound_on_off").classList.remove("sound_on");
-                        bgmSound.currentTime = 0;
                         document.querySelector("#samo_vidio").pause();
                         document.querySelector("#gongmo_vidio").pause();
 
@@ -286,39 +294,16 @@ window.onload = function () {
         }
     });
 
-    smSoundOnOff.addEventListener("click", function () {
-        console.log("smSoundOnOff");
-
-        if (!smSoundOnOff.classList.contains("sound_on")) {
-            smSoundOnOff.classList.add("sound_on");
-            gmSoundOnOff.classList.add("sound_on");
-            bgmSound.muted = false;
-            bgmSound.play();
-        } else {
-            console.log("sound off!");
-            smSoundOnOff.classList.remove("sound_on");
-            gmSoundOnOff.classList.remove("sound_on");
-
-            bgmSound.muted = true;
-        }
+    soundOnOff.forEach((item) => {
+        item.addEventListener("click", (event) => {
+            if (!event.target.classList.contains("sound_on")) {
+                soundOn(event.target);
+            } else {
+                soundOff(event.target);
+            }
+        });
     });
-
-    gmSoundOnOff.addEventListener("click", function () {
-        console.log("gmSoundOnOff");
-
-        if (!gmSoundOnOff.classList.contains("sound_on")) {
-            smSoundOnOff.classList.add("sound_on");
-
-            gmSoundOnOff.classList.add("sound_on");
-            bgmSound.muted = false;
-            bgmSound.play();
-        } else {
-            gmSoundOnOff.classList.remove("sound_on");
-            smSoundOnOff.classList.remove("sound_on");
-
-            bgmSound.muted = true;
-        }
-    });
+    
 };
 
 window.onunload = function () {
