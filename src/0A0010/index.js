@@ -61,6 +61,7 @@ window.onload = function () {
                             } else {
                                 mmfVideo.muted = true;
                             }
+                            mmfVideo.volume = 1;
                             mmfVideo.play();
                         }, 100);
 
