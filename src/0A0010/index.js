@@ -182,8 +182,11 @@ window.onload = function () {
     });
 };
 window.onunload = function () {
-    enableBgmMute();
-    enableGameMute();
     bgmSound.pause();
     mmfVideo.pause();
 };
+
+window.onbeforeunload = function () {
+    bgmSound.pause();
+    mmfVideo.pause();
+}
