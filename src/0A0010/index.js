@@ -23,7 +23,7 @@ const secondCoin = document.getElementsByClassName("second-coin");
 const thirdCoin = document.getElementsByClassName("third-coin");
 const mmfVideo = document.getElementById("mmf_video");
 const bgmSound = new Audio("assets/bgm_sound.mp3");
-bgmSound.volume = 1.3;
+bgmSound.volume = 1;
 bgmSound.loop = true;
 bgmSound.muted = true;
 bgmSound.currentTime = 0;
@@ -58,11 +58,11 @@ window.onload = function () {
 
                         setTimeout(function () {
                             if (soundOnOff.classList.contains("sound_on")) {
+                                // btnGameSound.classList.add("sound_on");
                                 mmfVideo.muted = false;
                             } else {
                                 mmfVideo.muted = true;
                             }
-                            mmfVideo.volume = 1;
                             mmfVideo.play();
                         }, 100);
 
