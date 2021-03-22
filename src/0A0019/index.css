@@ -320,48 +320,57 @@ body {
   background-size: 100% 100%;
 }
 
-#heartDiv, #shareDiv, #whiteHeartDiv, #whiteShareDiv {
-  text-align: center;
-}
-
-#imgHeart, #shareImg, #imgWhiteHeart, #whiteShareImg {
-  width: 188px;
-  height: 100%;
-}
-
 .basic_foot {
   position: relative;
   display: flex;
   width: 100%;
-  height: 60px;
+  height: 70px;
   object-fit: contain;
   background-color: white;
   z-index: 20;
-  /* padding-bottom: calc(constant(safe-area-inset-bottom) + 20px);
-    padding-bottom: calc(env(safe-area-inset-bottom) + 20px); */
 }
 
-.basic_link_foot {
-  position: sticky;
-  bottom: 0;
-  display: none;
-  width: 100%;
-  height: 60px;
-  background-color: white;
-  object-fit: contain;
-  background-color: "transparent";
-  z-index: 50;
+.basic_foot button {
+  width: 50%;
+  font-size: 0;
+  color: transparent !important;
+  transition: all .3s ease;
+  background-size: 188px;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+}
+
+.basic_foot button#imgHeart {
+  background-image: url(../common/assets/basic_foot_pine.png);
+}
+
+.basic_foot button#shareImg {
+  background-image: url(../common/assets/basic_foot_share.png);
+}
+
+.basic_foot.darkMode button#imgHeart {
+  background-image: url(../common/assets/card_foot_pine.png);
+}
+
+.basic_foot.darkMode button#shareImg {
+  background-image: url(../common/assets/card_foot_share.png);
+}
+
+.basic_foot.pineApp button#imgHeart {
+  background-image: url(../common/assets/basic_foot_heart.png);
+}
+
+.basic_foot.pineApp button#imgHeart.heart_active {
+  background-image: url(../common/assets/basic_foot_heart_fill.png);
+}
+
+.basic_foot.pineApp.darkMode button#imgHeart {
+  background-image: url(../common/assets/basic_foot_heart.png);
 }
 
 .sticky {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -o-sticky;
-  position: -ms-sticky;
   position: fixed;
   bottom: 0;
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 10px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
 }
 
 .progress-indicator {
@@ -380,14 +389,6 @@ body {
   background: black;
   height: 1px;
   max-width: 100%;
-}
-
-.heart_active {
-  content: url("assets/basic_foot_heart_fill.png");
-}
-
-.heart_white_active {
-  content: url("assets/card_foot_heart_fill.png");
 }
 
 @media (max-width: 340px) {

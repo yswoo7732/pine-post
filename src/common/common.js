@@ -1,6 +1,14 @@
+//pine app 체크. 테스트 필요
+function pineAppChk() {
+    if (navigator.userAgent.match(/PINE|pine/)) {
+        return true;
+    }
+    return false; //여기만 true로 바꿔서 테스트
+}
+
 function getLike() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/PINE/i.test(navigator.userAgent)) {
+        if (pineAppChk()) {
             // 좋아요 클릭 유무 체크위해 호출
             if (/Android/i.test(navigator.userAgent)) {
                 window.AosConnector.isLike();
@@ -19,12 +27,15 @@ function getLike() {
 function sharedContents() {
     console.log("shared");
     let contentsUrl = window.location.href;
-
-    if (/Android/i.test(navigator.userAgent)) {
-        window.AosConnector.shareContents(`${contentsUrl}`); // Aos
-    }
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
+    if (pineAppChk()) {
+        if (/Android/i.test(navigator.userAgent)) {
+            window.AosConnector.shareContents(`${contentsUrl}`); // Aos
+        }
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
+        }
+    }else {
+        console.log("어떻게 SNS 공유? 그냥 주소 복사?")
     }
 }
 
@@ -49,28 +60,32 @@ function isLike(yn) {
 
 // 좋아요 클릭시
 function clickLike() {
+    
     let imgHeart = document.querySelector("#imgHeart");
-    let whiteHeart = document.querySelector("#imgWhiteHeart");
-    let likeYN = "N";
-
+    // let whiteHeart = document.querySelector("#imgWhiteHeart");
+    
     document.querySelector("#imgHeart").classList.toggle("heart_active");
-    document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
+    // document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
 
-    if (imgHeart.classList.contains("heart_active")) {
-        likeYN = "Y";
-    } else if (whiteHeart.classList.contains("heart_white_active")) {
-        likeYN = "Y";
-    } else {
-        likeYN = "N";
+    if (pineAppChk()) {
+        let likeYN = "N";
+        if (imgHeart.classList.contains("heart_active")) {
+            likeYN = "Y";
+        } else {
+            likeYN = "N";
+        }
+
+        if (/Android/i.test(navigator.userAgent)) {
+            window.AosConnector.clickedLike(`${likeYN}`);
+        }
+
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
+        }
+
+        console.log(likeYN);
+    }else {
+        console.log("웹, 파인앱 (설치로) 보내기");
     }
-
-    if (/Android/i.test(navigator.userAgent)) {
-        window.AosConnector.clickedLike(`${likeYN}`);
-    }
-
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        webkit.messageHandlers.clickedLike.postMessage(`${likeYN}`);
-    }
-
-    console.log(likeYN);
 }
+

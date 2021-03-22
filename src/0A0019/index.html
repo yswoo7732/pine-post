@@ -32,17 +32,15 @@
 
 
     <div class="wrap_body_frame" id="body_frame">
-        <div class="basic_foot">
+
+        <div class="basic_foot pineApp">
             <div class="progress-indicator">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="../common/assets/basic_foot_pine.png" onclick="clickLike()"/>
-            </div>
-            <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="../common/assets/basic_foot_share.png" onclick="sharedContents()"/>
-            </div>
+            <button type="button" id="imgHeart" onclick="clickLike()">좋아요</button>
+            <button type="button" id="shareImg" onclick="sharedContents()">컨텐츠 공유</button>
         </div>
+
         <div class="wrap_body">
             <div class="contents_title_1">
                 <span class=body-title>#펀드 거래 시점</span>
@@ -125,14 +123,10 @@
         </a>
     </div>
 
-    <div class="basic_link_foot sticky">
-        <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="../common/assets/card_foot_pine.png" onclick="clickLike()"/>
-        </div>
-        <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="../common/assets/card_foot_share.png" onclick="sharedContents()"/>
-        </div>
-    </div>
+    <!-- <div class="basic_link_foot sticky">
+        <button type="button" id="whiteHeartDiv" onclick="clickLike()">좋아요</button>
+        <button type="button" id="whiteShareDiv" onclick="sharedContents()">컨텐츠 공유</button>
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>

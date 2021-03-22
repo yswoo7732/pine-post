@@ -1,33 +1,38 @@
 // window.onload = function () {
 let windowHeight = 0;
+let findAppChk = false;
 
 window.addEventListener('DOMContentLoaded', function(){
 
-    // 로드시, 좋아요 여부 호출
-    getLike();
+    
     window.addEventListener("resize", resizeFunc);
     resizeFunc();
+
+    const body = document.body;
     const body_frame = document.getElementById("body_frame");
+    
+    //SNS 버튼
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
-    const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
+    const progressBar = basicFoot.getElementsByClassName("progress-bar")[0]; 
+    // const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
+
+    //파인 앱 체크. 
+    fineAppChk = pineAppChk();
+    console.log("fineAppChk : ", fineAppChk);
+    if(!fineAppChk) {
+        basicFoot.classList.remove("pineApp");
+    }else{
+        // 로드시, 좋아요 여부 호출
+        getLike();
+    }
+
     const boxShadows = document.getElementsByClassName("box-shadow");
     const coverFull = document.getElementById("cover_full");
     const link_title = document.getElementById("link_title");
     const linkCoverFull = document.getElementById("link_cover_full");
     const linkImg = document.getElementById("link_img");
-    const body = document.body;
     const halfBody = windowHeight / 2;
-    const heartDiv = document.getElementById("heartDiv");
-    const shareDiv = document.getElementById("shareDiv");
-    const imgHeart = document.getElementById("imgHeart");
-    const shareImg = document.getElementById("shareImg");
-    const whiteHeartDiv = document.getElementById("whiteHeartDiv");
-    const whiteShareDiv = document.getElementById("whiteShareDiv");
-    const imgWhiteHeart = document.getElementById("imgWhiteHeart");
-    const whiteShareImg = document.getElementById("whiteShareImg");
-    const progressBar = document.getElementsByClassName("progress-bar")[0]; 
 
-    // let upToWrapBodyScroll = body.scrollHeight - linkCoverFull.scrollHeight + basicFoot.scrollHeight;
     let isUp = true;
     let currentScrollTop = 0;
     let prevScrollTop = 0;
@@ -75,63 +80,38 @@ window.addEventListener('DOMContentLoaded', function(){
             }
         }
 
-        //프로그래스 바
-        progressBar.style.width = Math.ceil((currentScrollTop / (body.scrollHeight - windowHeight)) * 100) + "%";
-
-
         // 하단 이미지 시작점과 끝점(2px는 progress-bar)
-        var openLinkImgPos = linkCoverFull.offsetTop - window.scrollY + (basicFoot.scrollHeight - 2);
-        var closeLinkImgPos = linkCoverFull.offsetTop - window.scrollY;
+        var openLinkImgPos = linkCoverFull.offsetTop - currentScrollTop + (basicFoot.scrollHeight - 2);
+        var closeLinkImgPos = linkCoverFull.offsetTop - currentScrollTop;
 
         // 하단 이미지 시작시 이미지 scale 변화
         if (windowHeight - openLinkImgPos >= 0 && windowHeight - openLinkImgPos <= windowHeight) {
             var linkImgScale = 1 + (windowHeight - openLinkImgPos) / (windowHeight * 3);
-            // console.log(linkImgScale)
-            // console.log("openLinkImgPos", (windowHeight - openLinkImgPos) / (windowHeight * 10));
             linkImg.style.transform = `scale(${linkImgScale})`;
         }
 
-        // 하단이미지 시작시, 좋아요/공유버튼 opacity 및 footer change
-        var basicFootOpacity = 1 - (windowHeight - openLinkImgPos) / windowHeight;
-        // console.log(basicFootOpacity)
+        //프로그래스 바
+        progressBar.style.width = Math.ceil((currentScrollTop / (body.scrollHeight - windowHeight)) * 100) + "%";
 
-        if (windowHeight - openLinkImgPos >= 0 && windowHeight - openLinkImgPos <= halfBody) {
-            basicLinkFoot.style.display = "none";
-            basicFoot.style.display = "flex";
+        if(currentScrollTop > basicFoot.offsetHeight ){
+            var basicFootOpacity = closeLinkImgPos / windowHeight * 1 - .1; //opacity 1~0
             basicFoot.classList.add("sticky");
-            basicFoot.style.opacity = basicFootOpacity;
-            heartDiv.style.opacity = basicFootOpacity;
-            imgHeart.style.opacity = basicFootOpacity;
-            shareDiv.style.opacity = basicFootOpacity;
-            shareImg.style.opacity = basicFootOpacity;
-        } else if (windowHeight - openLinkImgPos > halfBody && linkCoverFull.offsetTop - window.scrollY >= 0) {
-            var basicLinkFootOpacity = (windowHeight - closeLinkImgPos) / windowHeight;
+            basicFoot.classList.remove("darkMode");
 
-            basicFoot.style.display = "none";
-            basicLinkFoot.classList.add("sticky");
-            basicLinkFoot.style.display = "flex";
-            basicLinkFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
-            whiteHeartDiv.style.opacity = basicLinkFootOpacity;
-            imgWhiteHeart.style.opacity = basicLinkFootOpacity;
-            whiteShareDiv.style.opacity = basicLinkFootOpacity;
-            whiteShareImg.style.opacity = basicLinkFootOpacity;
-        } else {
-            basicFoot.style.opacity = 1;
-            heartDiv.style.opacity = 1;
-            imgHeart.style.opacity = 1;
-            shareDiv.style.opacity = 1;
-            shareImg.style.opacity = 1;
-            basicFoot.classList.add("sticky");
-        }
+            if(basicFootOpacity < 1){
+                progressBar.style.opacity = basicFootOpacity;
+                basicFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
 
-        // 좋아요 공유버튼 이벤트 sticky
-        if (currentScrollTop <= basicFoot.scrollHeight) {
+                if(basicFootOpacity < .4){
+                    basicFoot.classList.add("darkMode");
+                }
+            }
+        }else {
             basicFoot.classList.remove("sticky");
-        } else if (currentScrollTop < window.screen.height) {
-            basicFoot.classList.add("sticky");
-        } else {
-            basicFoot.classList.add("sticky");
+            basicFoot.classList.remove("darkMode");
+            progressBar.style.opacity = 1;
         }
+        
 
         var speed = checkScrollSpeed();
 
