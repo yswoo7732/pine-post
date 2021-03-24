@@ -87,7 +87,10 @@ body {
     position: relative;
     overflow: hidden;
 
-    background : url(./assets/12_timing_intro.jpg) center center / cover no-repeat;
+    //background-image : url(./assets/12_timing_intro.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .link_item {

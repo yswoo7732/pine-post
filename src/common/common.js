@@ -3,7 +3,7 @@ function pineAppChk() {
     if (navigator.userAgent.match(/PINE|pine/)) {
         return true;
     }
-    return false; //여기만 true로 바꿔서 테스트
+    return true; //여기만 true로 바꿔서 테스트
 }
 
 function getLike() {
@@ -19,7 +19,7 @@ function getLike() {
         }
     }else {
         console.log("not pineApp");
-        
+
         const basicFoot = document.getElementsByClassName("basic_foot");
         if(basicFoot.length > 0){
             basicFoot[0].classList.remove("pineApp");

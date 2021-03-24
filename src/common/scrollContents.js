@@ -11,13 +11,9 @@ window.addEventListener('DOMContentLoaded', function(){
     //SNS 버튼
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
     const progressBar = basicFoot.getElementsByClassName("progress-bar")[0]; 
-    // const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
 
     //로드시, 좋아요 여부 호출
     getLike();
-    // if(!getLike()) {
-    //     basicFoot.classList.remove("pineApp");
-    // }
 
     const boxShadows = document.getElementsByClassName("box-shadow");
     const coverFull = document.getElementById("cover_full");

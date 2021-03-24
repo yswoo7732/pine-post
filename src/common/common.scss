@@ -593,6 +593,9 @@ input::-moz-focus-inner {
           button {
               &#imgHeart {
                   background-image: url(../common/assets/basic_foot_heart.png);
+                  &.heart_active {
+                    background-image : url(../common/assets/card_foot_heart_fill.png);
+                }
               }
           }
       }

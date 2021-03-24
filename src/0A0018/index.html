@@ -3,23 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <title>펀드 장기투자 추천</title>
-        <!-- Link Swiper's CSS -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" type="text/css" href="index.css" />
-
-        <!-- Demo styles -->
-        <style></style>
+        <link rel="stylesheet" type="text/css" href="../common/common.css" />
+        <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+        <script type="text/javascript" src="../common/common.js"></script>
+        <script type="text/javascript" src="../common/scrollContents.js"></script>
     </head>
 
     <body>
-        <!-- Swiper -->
-        <!-- <div> -->
         <div class="wrap_cover">
-            <div class="cover_item" id="cover_full">
-                <div class="cover_image" id="intro_img" style="background-image: url('assets/11_long_intro.png')"></div>
-            </div>
+            <div class="cover_item" id="cover_full" style="background-image:url(./assets/11_long_intro.png)"></div>
             <div class="contents_1_1">
-                <p>원금 손실에 대처하는 법</p>
+                <h1>원금 손실에 대처하는 법</h1>
                 <p style="font-weight: 500; line-height: 1.5">장기투자 해야 하는 이유</p>
             </div>
             <div class="tip_cell">
@@ -36,16 +33,10 @@
         </div>
 
         <div class="wrap_body_frame" id="body_frame">
-            <div class="basic_foot">
-                <div class="progress-indicator">
-                    <div class="progress-bar" id="progressBar"></div>
-                </div>
-                <div style="width: 50%" id="heartDiv">
-                    <img id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
-                </div>
-                <div style="width: 50%" id="shareDiv">
-                    <img id="shareImg" src="assets/basic_foot_share.png" onclick="sharedContents()" />
-                </div>
+            <div class="basic_foot pineApp">
+                <div class="progress-indicator"><div class="progress-bar" id="progressBar"></div></div>
+                <button type="button" id="imgHeart" onclick="clickLike()">좋아요</button>
+                <button type="button" id="shareImg" onclick="sharedContents()">컨텐츠 공유</button>
             </div>
             <div class="wrap_body">
                 <div class="contents_title_1">
@@ -127,18 +118,6 @@
                 <p style="text-align: center">내 투자 현황<br />살펴보기</p>
             </a>
         </div>
-        <div class="basic_link_foot sticky">
-            <div style="width: 50%" id="whiteHeartDiv">
-                <img id="imgWhiteHeart" src="assets/card_foot_heart.png" onclick="clickLike()" />
-            </div>
-            <div style="width: 50%" id="whiteShareDiv">
-                <img id="whiteShareImg" src="assets/card_foot_share.png" onclick="sharedContents()" />
-            </div>
-        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
-        <script type="text/javascript" src="../common/common.js"></script>
-        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
