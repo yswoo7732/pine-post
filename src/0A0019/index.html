@@ -18,8 +18,8 @@
 
     <link rel="stylesheet" type="text/css" href="../common/common.css" />
     <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
+    <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
     <script type="text/javascript" src="../common/common.js"></script>
     <script type="text/javascript" src="../common/scrollContents.js"></script>
 </head>
@@ -129,7 +129,7 @@
     <div class="link_item" id="link_cover_full">
         <div class="cover_image" id="link_img" style="background-image: url('assets/12_timing_end.jpg'); height: 100%">
         </div>
-        <a class="stroke_link" id="link_title" href="hamcpine://share?&what=noticeList&value=12345">
+        <a class="stroke_link" id="link_title" onclick="appLinkFunc('notice', '12345')">
             <p style="text-align: center">펀드<br />투자하기</p>
         </a>
     </div>

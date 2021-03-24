@@ -93,3 +93,18 @@ function clickLike() {
     }
 }
 
+function appLinkFunc(str, num){
+    console.log(str, num)
+    if (pineAppChk()) {
+        if (/Android/i.test(navigator.userAgent)) {
+            window.AosConnector.appLink(str, num);
+        }
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            webkit.messageHandlers.appLink.postMessage(str, num);
+        }
+    }else {
+        window.location = "hamcpine://share?&what="+str+"&value="+num;
+    }
+    //웹 hamcpine://share?&what=noticeList&value=12345
+    //앱.appLink(str, num);
+}
