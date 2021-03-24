@@ -3,7 +3,7 @@ function pineAppChk() {
     if (navigator.userAgent.match(/PINE|pine/)) {
         return true;
     }
-    return true; //여기만 true로 바꿔서 테스트
+    return false; //여기만 true로 바꿔서 테스트
 }
 
 function getLike() {
