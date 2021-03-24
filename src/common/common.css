@@ -535,7 +535,7 @@ th {
 }
 
 .basic_foot button#imgHeart {
-  background-image: url(../common/assets/basic_foot_pine.png);
+  background-image: url(../common/assets/basic_foot_PINE.png);
 }
 
 .basic_foot button#shareImg {
@@ -543,7 +543,7 @@ th {
 }
 
 .basic_foot.darkMode button#imgHeart {
-  background-image: url(../common/assets/card_foot_pine.png);
+  background-image: url(../common/assets/card_foot_PINE.png);
 }
 
 .basic_foot.darkMode button#shareImg {

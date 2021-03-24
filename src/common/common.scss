@@ -558,7 +558,7 @@ input::-moz-focus-inner {
       @include text-hide();
       transition: all .3s ease;
       &#imgHeart {
-          background-image: url(../common/assets/basic_foot_pine.png);
+          background-image: url(../common/assets/basic_foot_PINE.png);
       }
       &#shareImg {
           background-image: url(../common/assets/basic_foot_share.png);
@@ -571,7 +571,7 @@ input::-moz-focus-inner {
   &.darkMode {
       button {
           &#imgHeart {
-              background-image: url(../common/assets/card_foot_pine.png);
+              background-image: url(../common/assets/card_foot_PINE.png);
           }
           &#shareImg {
               background-image: url(../common/assets/card_foot_share.png);
