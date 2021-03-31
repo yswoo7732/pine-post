@@ -48,17 +48,16 @@ function isLike(yn) {
     console.log("isLike");
 
     let imgHeart = document.querySelector("#imgHeart");
-    let whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
-
-    document.querySelector("#imgHeart").classList.toggle("heart_active");
-    document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
+    // let whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
+    // imgHeart.classList.toggle("heart_active");
+    // document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
 
     if (yn == "N") {
         imgHeart.classList.remove("heart_active");
-        whiteHeartClickEvent.classList.remove("heart_white_active");
+        // whiteHeartClickEvent.classList.remove("heart_white_active");
     } else {
         imgHeart.classList.add("heart_active");
-        whiteHeartClickEvent.classList.add("heart_white_active");
+        // whiteHeartClickEvent.classList.add("heart_white_active");
     }
 }
 
@@ -68,8 +67,8 @@ function clickLike() {
     let imgHeart = document.querySelector("#imgHeart");
     // let whiteHeart = document.querySelector("#imgWhiteHeart");
     
-    document.querySelector("#imgHeart").classList.toggle("heart_active");
-    // document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
+    imgHeart.classList.toggle("heart_active");
+    // whiteHeart.classList.toggle("heart_white_active");
 
     if (pineAppChk()) {
         let likeYN = "N";

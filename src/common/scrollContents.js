@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function(){
         event.preventDefault();
 
         // 스크롤 방향 감지
-        isUp = currentScrollTop-prevScrollTop >= 0 ? true : false;
+        isUp = currentScrollTop-prevScrollTop >= 0 ? false : true;
         prevScrollTop = currentScrollTop;
         // console.log("isUp: ", isUp);
 
