@@ -89,22 +89,35 @@ function clickLike() {
 
         console.log(likeYN);
     }else {
+        //앱이 아닐 경우 노출되는 PINE 로고 클릭
         console.log("웹, 파인앱 (설치로) 보내기");
     }
 }
 
 function appLinkFunc(str, num){
     console.log(str, num)
-    if (pineAppChk()) {
-        if (/Android/i.test(navigator.userAgent)) {
-            window.AosConnector.appLink(str, num);
-        }
-        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            webkit.messageHandlers.appLink.postMessage(str, num);
-        }
-    }else {
+    // if (pineAppChk()) {
+    //     if (/Android/i.test(navigator.userAgent)) {
+    //         window.AosConnector.appLink(str, num);
+    //     }
+    //     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    //         webkit.messageHandlers.appLink.postMessage(str, num);
+    //     }
+    // }else {
+        // window.location = "hamcpine://share?&what="+str+"&value="+num;
+    // }
+    if(pineAppChk() || isMobile()){
         window.location = "hamcpine://share?&what="+str+"&value="+num;
+    }else {
+        //pc일 경우
+        console.log("웹, 파인앱 (설치로) 보내기");
     }
-    //웹 hamcpine://share?&what=noticeList&value=12345
-    //앱.appLink(str, num);
+}
+
+
+function isMobile() {
+    if (navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)) {
+        return true;
+    }
+    return false;
 }
