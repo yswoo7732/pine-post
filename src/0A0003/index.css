@@ -174,12 +174,12 @@ img {
     display: block;
 }
 
-.fund2_box1:active {
+.fund2_box1_active {
     content: url("assets/cast_special_fund2_box1-2.png");
     transform: scale(0.95, 0.95);
 }
 
-.fund2_box2:active {
+.fund2_box2_active {
     content: url("assets/cast_special_fund2_box2-2.png");
     transform: scale(0.95, 0.95);
 }

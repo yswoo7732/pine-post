@@ -86,14 +86,17 @@ window.onload = function () {
 
                         document.querySelector("#samo_vidio").currentTime = 0;
                         document.querySelector("#gongmo_vidio").currentTime = 0;
-
                         break;
+
                     default:
                         document.querySelector(".btnGongmoResult").classList.remove("fund_result_animation");
                         document.querySelector(".btnSamoResult").classList.remove("fund_result_animation");
 
                         document.getElementsByClassName("fund3_button")[0].classList.remove("fund3_button_active");
                         document.getElementsByClassName("fund4_button")[0].classList.remove("fund4_button_active");
+
+                        document.getElementById("selSamo").classList.remove("fund2_box1_active");
+                        document.getElementById("selGongmo").classList.remove("fund2_box2_active");
 
                         document.querySelector("#samo_vidio").pause();
                         document.querySelector("#gongmo_vidio").pause();
@@ -152,6 +155,7 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("page2box1 Click!", event);
+            this.classList.add("fund2_box1_active");
             swiper_v.slideTo(1);
         },
         false
@@ -162,6 +166,7 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("page2box2 Click!", event);
+            this.classList.add("fund2_box2_active");
             swiper_v.slideTo(3);
         },
         false
@@ -303,7 +308,6 @@ window.onload = function () {
             }
         });
     });
-    
 };
 
 window.onunload = function () {
