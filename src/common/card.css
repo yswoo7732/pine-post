@@ -653,7 +653,7 @@ th {
     }
 }
 
-.basic_foot.pineApp button#imgHeart {
+.basic_foot button#imgHeart {
     background-image: url(../common/assets/card_foot_PINE.png);
 }
 
@@ -661,10 +661,10 @@ th {
     background-image: url(../common/assets/card_foot_share.png);
 }
 
-.basic_foot button#imgHeart {
+.basic_foot.pineApp button#imgHeart {
     background-image: url(../common/assets/card_foot_heart.png);
 }
 
-.basic_foot button#imgHeart.heart_active {
+.basic_foot.pineApp button#imgHeart.heart_active {
     background-image: url(../common/assets/card_foot_heart_fill.png);
 }
