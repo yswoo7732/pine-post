@@ -1,10 +1,3 @@
-console.log("2/3", 2 / 3);
-console.log("9/16", 9 / 16);
-console.log("10/16", 10 / 16);
-console.log("4/5", 4 / 5);
-console.log("3/5", 3 / 5);
-console.log("1/7", 1 / 7);
-
 function gcd(a, b) {
     return b == 0 ? a : gcd(b, a % b);
 }
@@ -29,10 +22,10 @@ function fitScreeSize() {
 }
 
 window.onload = function () {
-    fitScreeSize();
+    // fitScreeSize();
 
-     // 로드시, 좋아요 여부 호출
-     getLike();
+    // 로드시, 좋아요 여부 호출
+    getLike();
 
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
@@ -56,8 +49,11 @@ window.onload = function () {
 
                             document.querySelector(".page-slide").style.opacity = 1;
 
-                            document.getElementsByClassName("footer")[0].classList.remove("d-none");
-                            document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
+                            document.getElementsByClassName("footer")[0].classList.remove("fade-out");
+                            document.getElementsByClassName("page-slide")[0].classList.remove("fade-out");
+
+                            document.getElementsByClassName("footer")[0].classList.add("fade-in");
+                            document.getElementsByClassName("page-slide")[0].classList.add("fade-in");
 
                             console.log("switch default activeIndex:", sp.activeIndex);
 
@@ -65,8 +61,12 @@ window.onload = function () {
                                 case 0:
                                     document.querySelector(".page-slide").style.opacity = 0;
 
-                                    document.getElementsByClassName("footer")[0].classList.add("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                                    document.getElementsByClassName("footer")[0].classList.remove("fade-in");
+                                    document.getElementsByClassName("page-slide")[0].classList.remove("fade-in");
+
+                                    document.getElementsByClassName("footer")[0].classList.add("fade-out");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("fade-out");
+
                                     break;
                                 case 1:
                                     document.getElementById("question1").classList.add("q1");
@@ -102,10 +102,6 @@ window.onload = function () {
                     },
                     on: {
                         slideChange: function (sp) {
-                            // if (sp.activeIndex == 0) {
-                            //     document.getElementsByClassName("page-slide")[0].classList.add("d-none");
-                            // }
-
                             console.log("switch nav activeIndex:", sp.realIndex);
                         },
                     },
@@ -126,7 +122,6 @@ window.onload = function () {
                     navArray[i].controller.control = mainArray[i];
                 }
 
-                document.getElementsByClassName("page-slide")[0].classList.add("d-none");
                 console.log("multipleSwiperSlides: Things should be working fine. B)");
             }
         };

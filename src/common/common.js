@@ -106,7 +106,11 @@ function appLinkFunc(str, num){
         // window.location = "hamcpine://share?&what="+str+"&value="+num;
     // }
     if(pineAppChk() || isMobile()){
-        window.location = "hamcpine://share?&what="+str+"&value="+num;
+        if(num != null) {
+            window.location = "hamcpine://share?&what="+str+"&value="+num;
+        } else {
+            window.location = "hamcpine://share?&what="+str;
+        }
     }else {
         //pc일 경우
         console.log("웹, 파인앱 (설치로) 보내기");
