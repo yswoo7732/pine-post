@@ -1,42 +1,3 @@
-console.log("2/3", 2 / 3);
-console.log("9/16", 9 / 16);
-console.log("10/16", 10 / 16);
-console.log("4/5", 4 / 5);
-console.log("3/5", 3 / 5);
-console.log("1/7", 1 / 7);
-
-function gcd(a, b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-function fitScreeSize() {
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
-    console.log("window.screen.availWidth", window.screen.availWidth);
-    console.log("window.screen.availHeight", window.screen.availHeight);
-    console.log("window.outerHeight", window.outerHeight);
-    console.log("window.devicePixelRatio", window.devicePixelRatio);
-    console.log("navigator.userAgent", navigator.userAgent);
-    console.log("aspect-ratio value", 1 - window.screen.width / window.screen.height);
-
-    var r = gcd(window.screen.width, window.screen.height);
-    console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
-        }
-    } else {
-        console.log("not mobile");
-    }
-}
-
 let lottie4 = lottie.loadAnimation({
     container: document.getElementById("lottie4"), // the dom element that will contain the animation
     renderer: "svg",
@@ -67,10 +28,8 @@ let lottie7 = lottie.loadAnimation({
 });
 
 window.onload = function () {
-    fitScreeSize();
-
-     // 로드시, 좋아요 여부 호출
-     getLike();
+    // 로드시, 좋아요 여부 호출
+    getLike();
 
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
@@ -90,13 +49,19 @@ window.onload = function () {
                     on: {
                         slideChange: function (sp) {
                             console.log("switch default activeIndex:", sp.activeIndex);
+                            document.getElementsByClassName("footer")[0].classList.remove("fade-out");
+                            document.getElementsByClassName("page-slide")[0].classList.remove("fade-out");
+
+                            document.getElementsByClassName("footer")[0].classList.add("fade-in");
+                            document.getElementsByClassName("page-slide")[0].classList.add("fade-in");
 
                             switch (sp.activeIndex) {
                                 case 0:
-                                    document.querySelector(".page-slide").style.opacity = 0;
+                                    document.getElementsByClassName("footer")[0].classList.remove("fade-in");
+                                    document.getElementsByClassName("page-slide")[0].classList.remove("fade-in");
 
-                                    document.getElementsByClassName("footer")[0].style.opacity = 0;
-                                    document.getElementsByClassName("page-slide")[0].style.opacity = 0;
+                                    document.getElementsByClassName("footer")[0].classList.add("fade-out");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("fade-out");
                                     break;
                                 case 4:
                                     lottie4.goToAndPlay(0);
@@ -111,10 +76,6 @@ window.onload = function () {
                                     lottie7.goToAndPlay(0);
                                     break;
                                 default:
-                                    document.querySelector(".page-slide").style.opacity = 1;
-
-                                    document.getElementsByClassName("footer")[0].style.opacity = 1;
-                                    document.getElementsByClassName("page-slide")[0].style.opacity = 1;
                                     break;
                             }
                         },
@@ -162,7 +123,6 @@ window.onload = function () {
                     navArray[i].controller.control = mainArray[i];
                 }
 
-                document.getElementsByClassName("page-slide")[0].style.opacity = 0;
                 console.log("multipleSwiperSlides: Things should be working fine. B)");
             }
         };
@@ -172,25 +132,4 @@ window.onload = function () {
 
     multipleSwiperSlides();
 
-    var devModeCnt = 0;
-    var dev_mode = document.querySelector("#dev_mode");
-    dev_mode.addEventListener("click", function () {
-        if (devModeCnt++ > 5) {
-            var r = gcd(window.screen.width, window.screen.height);
-            document.getElementById("dev").innerHTML =
-                "aspect-ratio-value: " +
-                (1 - window.screen.width / window.screen.height) +
-                "<br/>" +
-                "aspect-ratio: " +
-                (window.screen.width / r + ":" + window.screen.height / r) +
-                "<br/>" +
-                "w:" +
-                window.screen.width +
-                " h:" +
-                window.screen.height +
-                "<br/>" +
-                "devicePixelRatio:" +
-                window.devicePixelRatio;
-        }
-    });
 };

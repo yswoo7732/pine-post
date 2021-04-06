@@ -47,8 +47,6 @@ window.onload = function () {
                             document.getElementById("question1").classList.remove("q1");
                             document.getElementById("question2").classList.remove("q2");
 
-                            document.querySelector(".page-slide").style.opacity = 1;
-
                             document.getElementsByClassName("footer")[0].classList.remove("fade-out");
                             document.getElementsByClassName("page-slide")[0].classList.remove("fade-out");
 
@@ -59,8 +57,6 @@ window.onload = function () {
 
                             switch (sp.activeIndex) {
                                 case 0:
-                                    document.querySelector(".page-slide").style.opacity = 0;
-
                                     document.getElementsByClassName("footer")[0].classList.remove("fade-in");
                                     document.getElementsByClassName("page-slide")[0].classList.remove("fade-in");
 
@@ -155,25 +151,4 @@ window.onload = function () {
         path: "assets/lottie/scale3.json", // the path to the animation json
     });
 
-    var devModeCnt = 0;
-    var dev_mode = document.querySelector("#dev_mode");
-    dev_mode.addEventListener("click", function () {
-        if (devModeCnt++ > 5) {
-            var r = gcd(window.screen.width, window.screen.height);
-            document.getElementById("dev").innerHTML =
-                "aspect-ratio-value: " +
-                (1 - window.screen.width / window.screen.height) +
-                "<br/>" +
-                "aspect-ratio: " +
-                (window.screen.width / r + ":" + window.screen.height / r) +
-                "<br/>" +
-                "w:" +
-                window.screen.width +
-                " h:" +
-                window.screen.height +
-                "<br/>" +
-                "devicePixelRatio:" +
-                window.devicePixelRatio;
-        }
-    });
 };

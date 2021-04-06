@@ -539,6 +539,57 @@ th {
     box-sizing: border-box;
 }
 
+div[class*="scale_wrapper"] {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 13%;
+}
+
+.page-slide {
+    position: absolute;
+    display: flex;
+    z-index: 3;
+    width: 29.3%;
+    height: auto;
+    top: 83.2%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.rectangle {
+    width: 47%;
+    height: 1px;
+    margin-top: 9%;
+    margin-left: 10%;
+    border-radius: 0.5px;
+    background-color: #88888a;
+}
+
+.btn-link {
+    width: 85%;
+    height: 7.5%;
+    background-color: #ffffff;
+    font-family: LIFEPLUS;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70.2%;
+    border: 0;
+}
+
 .js-slider--nav {
     z-index: 3;
     width: 19%;

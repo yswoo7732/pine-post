@@ -1,29 +1,4 @@
-function gcd(a, b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-function fitScreeSize() {
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
-    console.log("window.screen.availWidth", window.screen.availWidth);
-    console.log("window.screen.availHeight", window.screen.availHeight);
-    console.log("window.outerHeight", window.outerHeight);
-    console.log("window.devicePixelRatio", window.devicePixelRatio);
-    console.log("navigator.userAgent", navigator.userAgent);
-    console.log("aspect-ratio value", 1 - window.screen.width / window.screen.height);
-
-    var r = gcd(window.screen.width, window.screen.height);
-    console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
-}
-
 window.onload = function () {
-    fitScreeSize();
-     
      // 로드시, 좋아요 여부 호출
      getLike();
 
@@ -48,16 +23,18 @@ window.onload = function () {
 
                             switch (sp.activeIndex) {
                                 case 0:
-                                    document.querySelector(".page-slide").style.opacity = 0;
+                                    document.getElementsByClassName("footer")[0].classList.remove("fade-in");
+                                    document.getElementsByClassName("page-slide")[0].classList.remove("fade-in");
 
-                                    document.getElementsByClassName("footer")[0].classList.add("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                                    document.getElementsByClassName("footer")[0].classList.add("fade-out");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("fade-out");
                                     break;
                                 default:
-                                    document.querySelector(".page-slide").style.opacity = 1;
+                                    document.getElementsByClassName("footer")[0].classList.remove("fade-out");
+                                    document.getElementsByClassName("page-slide")[0].classList.remove("fade-out");
 
-                                    document.getElementsByClassName("footer")[0].classList.remove("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
+                                    document.getElementsByClassName("footer")[0].classList.add("fade-in");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("fade-in");
                                     break;
                             }
                         },
@@ -105,7 +82,6 @@ window.onload = function () {
                     navArray[i].controller.control = mainArray[i];
                 }
 
-                document.getElementsByClassName("page-slide")[0].classList.add("d-none");
                 console.log("multipleSwiperSlides: Things should be working fine. B)");
             }
         };
