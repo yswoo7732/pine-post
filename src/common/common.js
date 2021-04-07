@@ -106,8 +106,11 @@ function appLinkFunc(str, num = "") {
     // }
     if (pineAppChk() || isMobile()) {
         if (num != "") {
-            console.log("hamcpine://share?&what=" + str + "&value=" + num);
-            window.location = "hamcpine://share?&what=" + str + "&value=" + num;
+            if (num === "web") {
+                window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/"+ num;
+            } else {
+                window.location = "hamcpine://share?&what=" + str + "&value=" + num;
+            }
         } else {
             console.log("hamcpine://share?&what=" + str);
             window.location = "hamcpine://share?&what=" + str;

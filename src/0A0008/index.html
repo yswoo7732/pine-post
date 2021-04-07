@@ -5,7 +5,17 @@
     <meta charset="utf-8" />
     <title>직접투자와 간접투자</title>
     <!-- Link Swiper's CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" viewport-fit="cover" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="title" content="직접투자와 간접투자">
+    <meta name="description" content="주식과 펀드의 차이">
+    <meta property="og:site_name" content="직접투자와 간접투자" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="직접투자와 간접투자" />
+    <meta property="og:description" content="주식과 펀드의 차이" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="assets/cast_thumbnail.png" />
+    <meta property="og:image:width" content="610" />
+    <meta property="og:image:height" content="319" />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
     <!-- Demo styles -->
@@ -41,10 +51,10 @@
                 <div class="progress-bar" id="progressBar"></div>
             </div>
             <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()"/>
+                <img id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
             </div>
             <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="assets/basic_foot_share.png" onclick="sharedContents()"/>
+                <img id="shareImg" src="assets/basic_foot_share.png" onclick="sharedContents()" />
             </div>
         </div>
         <div class="wrap_body">
@@ -153,17 +163,17 @@
     <div class="link_item" id="link_cover_full">
         <div class="cover_image" id="link_img" style="background-image: url('assets/4_direct_end.jpg'); height: 100%">
         </div>
-        <a class="stroke_link" id="link_title">
-            <p style="text-align: center">전문가에게<br />투자 맡기기</p>
+        <a class="stroke_link" id="link_title" onclick="appLinkFunc('web', '0A0004');">
+            <p style="text-align: center">펀드 개념<br />다지기</p>
         </a>
     </div>
 
     <div class="basic_link_foot sticky">
         <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" onclick="clickLike()"/>
+            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" onclick="clickLike()" />
         </div>
         <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="assets/card_foot_share.png" onclick="sharedContents()"/>
+            <img id="whiteShareImg" src="assets/card_foot_share.png" onclick="sharedContents()" />
         </div>
     </div>
 
