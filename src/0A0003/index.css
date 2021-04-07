@@ -93,7 +93,7 @@ img {
     }
 }
 
-.fund1_startBtn:active {
+.fund1_startBtn_active {
     transform: scale(0.9, 0.9);
 }
 
@@ -324,7 +324,7 @@ img {
 
 .heart_active,
 .heart_white_active {
-    content: url("assets/card_foot_heart_fill.png");
+    content: url("../common/assets/card_foot_heart_fill.png");
 }
 
 .img_heart {

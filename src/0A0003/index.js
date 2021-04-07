@@ -145,6 +145,7 @@ window.onload = function () {
         "click",
         function (event) {
             console.log("page1StartBtn Click!", event);
+            this.classList.add("fund1_startBtn_active");
             swiper_h.slideTo(1);
         },
         false

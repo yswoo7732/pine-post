@@ -97,7 +97,7 @@
         <div class="content-wrapper">
           <img class="" src="assets/card_1_draw9.png" />
         </div>
-        <button class="btn-link" onclick="appLinkFunc('web', 'http:\/\/103.244.108.134/contents/0A0016/')">주식형 펀드 유형 정복하기</button>
+        <button class="btn-link" onclick="appLinkFunc('web', location.origin+'/0A0016/')">주식형 펀드 유형 정복하기</button>
       </div>
     </div>
     <div class="slider-wrapper page-slide">
@@ -119,8 +119,8 @@
     </div>
   </div>
   <div class="footer basic_foot pineApp">
-    <button type="button" id="imgHeart" onclick="clickLike()"></button>
-    <button type="button" id="shareImg" onclick="sharedContents()"></button>
+    <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()"></button>
+    <button type="button" id="shareImg" class="img_share" onclick="sharedContents()"></button>
   </div>
   <!-- Swiper JS -->
   <script src="../common/vendor/lottie.min.js"></script>

@@ -8,7 +8,7 @@
 
   <meta name="viewport" viewport-fit="cover" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />
 
-  <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../common/vendor/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="index.css" />
 
   <!-- Demo styles -->
@@ -40,9 +40,9 @@
               <div class="content-wrapper">
                 <img class="fund4_2_text" src="assets/cast_special_fund4-2_text.png" />
                 <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
-                <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" />
-                <img class="img_heart" id="imgHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
-                <img class="img_share" src="assets/card_foot_share.png" onclick="sharedContents()" />
+                <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" onclick="appLinkFunc('');"/>
+                <img class="img_heart" id="imgHeart" src="../common/assets/basic_foot_heart.png" onclick="clickLike();" />
+                <img class="img_share" src="../common/assets/card_foot_share.png" onclick="sharedContents();" />
               </div>
             </div>
             <div class="swiper-slide">
@@ -93,9 +93,9 @@
               <div class="content-wrapper">
                 <img class="fund4_2_text" src="assets/cast_special_fund4_text.png" />
                 <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
-                <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" />
-                <img class="img_heart" id="imgWhiteHeart" src="assets/basic_foot_heart.png" onclick="clickLike()" />
-                <img class="img_share" src="assets/card_foot_share.png" onclick="sharedContents()" />
+                <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" onclick="appLinkFunc('');"/>
+                <img class="img_heart" id="imgHeart" src="../common/assets/basic_foot_heart.png" onclick="clickLike();" />
+                <img class="img_share" src="../common/assets/card_foot_share.png" onclick="sharedContents();" />
               </div>
             </div>
           </div>
@@ -105,10 +105,11 @@
   </div>
 
   <!-- Swiper JS -->
-  <script src="vendor/lottie.min.js"></script>
-  <script src="vendor/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="index.js"></script>
+  <script src="../common/vendor/lottie.min.js"></script>
+  <script src="../common/vendor/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="../common/common.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+
 </body>
 
 </html>

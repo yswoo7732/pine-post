@@ -3,7 +3,7 @@ function pineAppChk() {
     if (navigator.userAgent.match(/PINE|pine/)) {
         return true;
     }
-    return false; //여기만 true로 바꿔서 테스트
+    return true; //여기만 true로 바꿔서 테스트
 }
 
 function getLike() {
@@ -17,11 +17,11 @@ function getLike() {
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
             webkit.messageHandlers.isLike.postMessage();
         }
-    }else {
+    } else {
         console.log("not pineApp");
 
         const basicFoot = document.getElementsByClassName("basic_foot");
-        if(basicFoot.length > 0){
+        if (basicFoot.length > 0) {
             basicFoot[0].classList.remove("pineApp");
         }
     }
@@ -38,8 +38,8 @@ function sharedContents() {
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
             webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
         }
-    }else {
-        console.log("어떻게 SNS 공유? 그냥 주소 복사?")
+    } else {
+        console.log("어떻게 SNS 공유? 그냥 주소 복사?");
     }
 }
 
@@ -47,36 +47,35 @@ function sharedContents() {
 function isLike(yn) {
     console.log("isLike");
 
-    let imgHeart = document.querySelector("#imgHeart");
-    // let whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
-    // imgHeart.classList.toggle("heart_active");
-    // document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
+    let imgHeart = document.querySelectorAll(".img_heart");
 
     if (yn == "N") {
-        imgHeart.classList.remove("heart_active");
-        // whiteHeartClickEvent.classList.remove("heart_white_active");
+        imgHeart.forEach(function (el) {
+            el.classList.remove("heart_active");
+        });
     } else {
-        imgHeart.classList.add("heart_active");
-        // whiteHeartClickEvent.classList.add("heart_white_active");
+        imgHeart.forEach(function (el) {
+            el.classList.add("heart_active");
+        });
     }
 }
 
 // 좋아요 클릭시
 function clickLike() {
-    
-    let imgHeart = document.querySelector("#imgHeart");
-    // let whiteHeart = document.querySelector("#imgWhiteHeart");
-    
-    imgHeart.classList.toggle("heart_active");
-    // whiteHeart.classList.toggle("heart_white_active");
+    let imgHeart = document.querySelectorAll(".img_heart");
 
     if (pineAppChk()) {
         let likeYN = "N";
-        if (imgHeart.classList.contains("heart_active")) {
-            likeYN = "Y";
-        } else {
-            likeYN = "N";
-        }
+
+        imgHeart.forEach(function (el) {
+            el.classList.toggle("heart_active");
+
+            if (el.classList.contains("heart_active")) {
+                likeYN = "Y";
+            } else {
+                likeYN = "N";
+            }
+        });
 
         if (/Android/i.test(navigator.userAgent)) {
             window.AosConnector.clickedLike(`${likeYN}`);
@@ -87,14 +86,14 @@ function clickLike() {
         }
 
         console.log(likeYN);
-    }else {
+    } else {
         //앱이 아닐 경우 노출되는 PINE 로고 클릭
         console.log("웹, 파인앱 (설치로) 보내기");
     }
 }
 
-function appLinkFunc(str, num){
-    console.log(str, num)
+function appLinkFunc(str, num = "") {
+    console.log(str, num);
     // if (pineAppChk()) {
     //     if (/Android/i.test(navigator.userAgent)) {
     //         window.AosConnector.appLink(str, num);
@@ -103,23 +102,28 @@ function appLinkFunc(str, num){
     //         webkit.messageHandlers.appLink.postMessage(str, num);
     //     }
     // }else {
-        // window.location = "hamcpine://share?&what="+str+"&value="+num;
+    // window.location = "hamcpine://share?&what="+str+"&value="+num;
     // }
-    if(pineAppChk() || isMobile()){
-        if(num != null) {
-            window.location = "hamcpine://share?&what="+str+"&value="+num;
+    if (pineAppChk() || isMobile()) {
+        if (num != "") {
+            console.log("hamcpine://share?&what=" + str + "&value=" + num);
+            window.location = "hamcpine://share?&what=" + str + "&value=" + num;
         } else {
-            window.location = "hamcpine://share?&what="+str;
+            console.log("hamcpine://share?&what=" + str);
+            window.location = "hamcpine://share?&what=" + str;
         }
-    }else {
+    } else {
         //pc일 경우
         console.log("웹, 파인앱 (설치로) 보내기");
     }
 }
 
-
 function isMobile() {
-    if (navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)) {
+    if (
+        navigator.userAgent.match(
+            /Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/
+        )
+    ) {
         return true;
     }
     return false;
