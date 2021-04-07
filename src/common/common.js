@@ -3,7 +3,7 @@ function pineAppChk() {
     if (navigator.userAgent.match(/PINE|pine/)) {
         return true;
     }
-    return true; //여기만 true로 바꿔서 테스트
+    return false; //여기만 true로 바꿔서 테스트
 }
 
 function getLike() {
@@ -105,17 +105,18 @@ function appLinkFunc(str, num = "") {
     // window.location = "hamcpine://share?&what="+str+"&value="+num;
     // }
     if (pineAppChk() || isMobile()) {
-        if (num != "") {
-            if (str === "web") {
-                console.log("hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num);
-                window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
-            } else {
-                window.location = "hamcpine://share?&what=" + str + "&value=" + num;
-            }
+        if (str == "web") {
+            console.log("hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num);
+            window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
         } else {
-            console.log("hamcpine://share?&what=" + str);
-            window.location = "hamcpine://share?&what=" + str;
+            console.log("hamcpine://share?&what=" + str + "&value=" + num);
+            window.location = "hamcpine://share?&what=" + str + "&value=" + num;
         }
+        // if (num != "") {
+            
+        // } else {
+        //     window.location = "hamcpine://share?&what=" + str;
+        // }
     } else {
         //pc일 경우
         console.log("웹, 파인앱 (설치로) 보내기");
