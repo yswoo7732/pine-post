@@ -323,6 +323,20 @@ body {
     color: transparent !important;
 }
 
+.progress-indicator {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+    
+    .progress-bar {
+        transition: width 0.2s ease-out;
+        background: black;
+        height: 1px;
+        max-width: 100%;
+    }
+}
+
 // //SNS 버튼 영역
 // .basic_foot {
 //     position: relative;
@@ -338,19 +352,7 @@ body {
 //         bottom: 0;
 //     }
 
-//     .progress-indicator {
-//         position: absolute;
-//         height: 1px;
-//         width: 100%;
-//         overflow: hidden;
-        
-//         &.progress-bar {
-//             transition: width 0.2s ease-out;
-//             background: black;
-//             height: 1px;
-//             max-width: 100%;
-//         }
-//     }
+//     
 
 //     button {
 //         width: 50%;

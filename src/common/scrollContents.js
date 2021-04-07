@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function(){
         // 스크롤 방향 감지
         isUp = currentScrollTop-prevScrollTop >= 0 ? false : true;
         prevScrollTop = currentScrollTop;
-        // console.log("isUp: ", isUp);
+        //console.log("isUp: ", isUp);
 
         // scroll에 따른 main cover image height
         if (body_frame.offsetTop >= currentScrollTop ) {
@@ -101,18 +101,11 @@ window.addEventListener('DOMContentLoaded', function(){
             progressBar.style.opacity = 1;
         }
         
-
         var speed = checkScrollSpeed();
-
-        if (isUp && speed < 20) {
-            if (windowHeight - openLinkImgPos > 100) {
-                // stopper = true;
-                // scrollTo(document.documentElement, body.scrollHeight * 0.8, 240, speed);
-            }
-        } else if (!isUp && speed < 20) {
-            if (windowHeight - openLinkImgPos >= halfBody - 100 && 0 < openLinkImgPos) {
-                // stopper = false;
-                tweenScrollTo(linkCoverFull.offsetTop + 10);
+        
+        if (currentScrollTop > (linkCoverFull.offsetTop - windowHeight) + halfBody) {
+            if (!isUp && speed < 20) {
+                tweenScrollTo();
             }
         }
     });
@@ -126,26 +119,25 @@ window.addEventListener('DOMContentLoaded', function(){
         this.classList.remove("stroke_link-active");
     });
 
-});
+    function tweenScrollTo() {
+        stopper = false;
+        let domScroll = linkCoverFull.offsetTop;
+    
+        TweenMax.to(window, 1, {
+            scrollTo: {
+                y: domScroll,
+                autoKill: true,
+            },
+            ease: "Power2.easeOut",
+            autoKill: true,
+        });
+    }
 
+});
 
 
 function resizeFunc(){
     windowHeight = window.innerHeight;
-}
-
-function tweenScrollTo(domScroll) {
-    // stopper = false;
-    // let domScroll = linkCoverFull.offsetTop + 10;
-
-    TweenMax.to(window, 1, {
-        scrollTo: {
-            y: domScroll,
-            autoKill: true,
-        },
-        ease: "Power4.easeInOut",
-        autoKill: true
-    });
 }
 
 let checkScrollSpeed = (function (settings) {

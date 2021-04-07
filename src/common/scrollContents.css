@@ -322,6 +322,20 @@ body {
   background-size: 100% 100%;
 }
 
+.progress-indicator {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-indicator .progress-bar {
+  transition: width 0.2s ease-out;
+  background: black;
+  height: 1px;
+  max-width: 100%;
+}
+
 @media (max-width: 340px) {
   .contents_1_1 > p {
     font-size: 20px !important;
