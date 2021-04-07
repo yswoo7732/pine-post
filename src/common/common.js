@@ -92,31 +92,15 @@ function clickLike() {
     }
 }
 
-function appLinkFunc(str, num = "") {
+function appLinkFunc(str, num="") {
     console.log(str, num);
-    // if (pineAppChk()) {
-    //     if (/Android/i.test(navigator.userAgent)) {
-    //         window.AosConnector.appLink(str, num);
-    //     }
-    //     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    //         webkit.messageHandlers.appLink.postMessage(str, num);
-    //     }
-    // }else {
-    // window.location = "hamcpine://share?&what="+str+"&value="+num;
-    // }
+   
     if (pineAppChk() || isMobile()) {
         if (str == "web") {
-            console.log("hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num);
             window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
         } else {
-            console.log("hamcpine://share?&what=" + str + "&value=" + num);
             window.location = "hamcpine://share?&what=" + str + "&value=" + num;
         }
-        // if (num != "") {
-            
-        // } else {
-        //     window.location = "hamcpine://share?&what=" + str;
-        // }
     } else {
         //pc일 경우
         console.log("웹, 파인앱 (설치로) 보내기");
