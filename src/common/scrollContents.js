@@ -1,16 +1,16 @@
 let windowHeight = 0;
 
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener("resize", resizeFunc);
     resizeFunc();
 
     const body = document.body;
     const body_frame = document.getElementById("body_frame");
-    
+
     //SNS 버튼
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
-    const progressBar = basicFoot.getElementsByClassName("progress-bar")[0]; 
+    const progressBar = basicFoot.getElementsByClassName("progress-bar")[0];
 
     //로드시, 좋아요 여부 호출
     getLike();
@@ -26,27 +26,33 @@ window.addEventListener('DOMContentLoaded', function(){
     let currentScrollTop = 0;
     let prevScrollTop = 0;
     let prevCoverSize = 0;
-    
+
     document.addEventListener("scroll", function (event) {
         currentScrollTop = document.documentElement.scrollTop;
         if (currentScrollTop < 0) return;
         event.preventDefault();
 
         // 스크롤 방향 감지
-        isUp = currentScrollTop-prevScrollTop >= 0 ? false : true;
+        isUp = currentScrollTop - prevScrollTop >= 0 ? false : true;
         prevScrollTop = currentScrollTop;
         //console.log("isUp: ", isUp);
 
         // scroll에 따른 main cover image height
-        if (body_frame.offsetTop >= currentScrollTop ) {
+        if (body_frame.offsetTop >= currentScrollTop) {
             // setTimeout(() => {
-                prevCoverSize = windowHeight - currentScrollTop;
-                coverFull.style.height = prevCoverSize + "px";
+            document.querySelector(".wrap_cover").style.position = 'fixed';
+            document.querySelector(".wrap_cover").style.transform = 'translate3d(0, 0, 0)';
+
+            prevCoverSize = windowHeight - currentScrollTop;
+            coverFull.style.height = prevCoverSize + "px";
             // }, 3);
+        } else {
+            document.querySelector(".wrap_cover").style.position = 'absolute';
+            document.querySelector(".wrap_cover").style.transform = 'translate3d(0, ' + (currentScrollTop) + 'px, 0)';
         }
 
         //length 가 1개 이상이면 실행
-        if(boxShadows.length > 1){
+        if (boxShadows.length > 1) {
             var chkTmp = new Array();
 
             Array.from(boxShadows).forEach(function (element, index, array) {
@@ -82,27 +88,27 @@ window.addEventListener('DOMContentLoaded', function(){
         //프로그래스 바
         progressBar.style.width = Math.ceil((currentScrollTop / (body.scrollHeight - windowHeight)) * 100) + "%";
 
-        if(currentScrollTop > basicFoot.offsetHeight ){
+        if (currentScrollTop > basicFoot.offsetHeight) {
             var basicFootOpacity = closeLinkImgPos / windowHeight * 1 - .1; //opacity 1~0
             basicFoot.classList.add("sticky");
             basicFoot.classList.remove("darkMode");
 
-            if(basicFootOpacity < 1){
+            if (basicFootOpacity < 1) {
                 progressBar.style.opacity = basicFootOpacity;
                 basicFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
 
-                if(basicFootOpacity < .4){
+                if (basicFootOpacity < .4) {
                     basicFoot.classList.add("darkMode");
                 }
             }
-        }else {
+        } else {
             basicFoot.classList.remove("sticky");
             basicFoot.classList.remove("darkMode");
             progressBar.style.opacity = 1;
         }
-        
+
         var speed = checkScrollSpeed();
-        
+
         if (currentScrollTop > (linkCoverFull.offsetTop - windowHeight) + halfBody) {
             if (!isUp && speed < 20) {
                 tweenScrollTo();
@@ -122,7 +128,7 @@ window.addEventListener('DOMContentLoaded', function(){
     function tweenScrollTo() {
         stopper = false;
         let domScroll = linkCoverFull.offsetTop;
-    
+
         TweenMax.to(window, 1, {
             scrollTo: {
                 y: domScroll,
@@ -136,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function(){
 });
 
 
-function resizeFunc(){
+function resizeFunc() {
     windowHeight = window.innerHeight;
 }
 
