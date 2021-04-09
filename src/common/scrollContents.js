@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener("resize", resizeFunc);
     resizeFunc();
-
+    
     const body = document.body;
     const body_frame = document.getElementById("body_frame");
 
@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const linkCoverFull = document.getElementById("link_cover_full");
     const linkImg = document.getElementById("link_img");
     const halfBody = windowHeight / 2;
-
+    
     let isUp = true;
     let currentScrollTop = 0;
     let prevScrollTop = 0;
@@ -40,13 +40,9 @@ window.addEventListener('DOMContentLoaded', function () {
         // scroll에 따른 main cover image height
         if (body_frame.offsetTop >= currentScrollTop) {
             // setTimeout(() => {
-            coverFull.style.willChange = 'transform';
-
             prevCoverSize = windowHeight - currentScrollTop;
             coverFull.style.height = prevCoverSize + "px";
             // }, 3);
-        } else {
-            coverFull.style.willChange = 'auto';
         }
 
         //length 가 1개 이상이면 실행
