@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: LIFEPLUS;
+  src: local(LIFEPLUS OTF Bold), url(./font/LIFEPLUS-OTF-Bold.otf);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
   font-family: LIFEPLUS-BODY;
   src: local(LIFEPLUS-BODY-OTF-Light), url(./font/LIFEPLUS-BODY-OTF-Light.otf), url(./font/LIFEPLUS-BODY-Light_Hinted.ttf), local(LIFEPLUS-BODY-OTF-Medium), url(./font/LIFEPLUS-BODY-OTF-Medium.otf), url(./font/LIFEPLUS-BODY-Medium_Hinted.ttf);
   font-weight: normal;
@@ -38,7 +46,6 @@ body {
   overscroll-behavior: none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
 }
 
 div {
