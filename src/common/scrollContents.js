@@ -40,15 +40,13 @@ window.addEventListener('DOMContentLoaded', function () {
         // scroll에 따른 main cover image height
         if (body_frame.offsetTop >= currentScrollTop) {
             // setTimeout(() => {
-            document.querySelector(".wrap_cover").style.position = 'fixed';
-            document.querySelector(".wrap_cover").style.transform = 'translate3d(0, 0, 0)';
+            coverFull.style.willChange = 'transform';
 
             prevCoverSize = windowHeight - currentScrollTop;
             coverFull.style.height = prevCoverSize + "px";
             // }, 3);
         } else {
-            document.querySelector(".wrap_cover").style.position = 'absolute';
-            document.querySelector(".wrap_cover").style.transform = 'translate3d(0, ' + (currentScrollTop) + 'px, 0)';
+            coverFull.style.willChange = 'auto';
         }
 
         //length 가 1개 이상이면 실행
