@@ -117,3 +117,11 @@ function isMobile() {
     }
     return false;
 }
+
+function urlCopy() {
+    var urlbox = document.getElementById("textUrl");
+    urlbox.value = window.location.href;
+    urlbox.select();
+    document.execCommand("Copy");
+    alert("URL이 복사 되었습니다.");
+}
