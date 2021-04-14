@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function(){
         let newLine = "";
 
         // 연봉 5500만원 이하
-        if (salaryInput.value > 0 && salaryInput.value <= 100) {
+        if (salaryInput.value >= 0 && salaryInput.value <= 100) {
             let taxDeductionRate = "16.5";
             let taxCreditLimitTxt = "400만원";
             let maxDeductionAmtTxt = "66만원";
@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
             // 연금저축액 100만원일때
             if (depositInput.value == 100) {
-                taxDeductionAmtTxt = "26만 4천원";
+                taxDeductionAmtTxt = "13만 2천원";
             }
             // 연금저축액 200만원일때
             else if (depositInput.value == 200) {
