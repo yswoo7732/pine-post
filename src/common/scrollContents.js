@@ -29,7 +29,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
     document.addEventListener("scroll", function (event) {
         currentScrollTop = document.documentElement.scrollTop;
+
         if (currentScrollTop < 0) return;
+
         event.preventDefault();
 
         // 스크롤 방향 감지
@@ -120,16 +122,13 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     function tweenScrollTo() {
-        stopper = false;
-        let domScroll = linkCoverFull.offsetTop;
-
+        let domScroll = linkCoverFull.offsetTop + 10;
         TweenMax.to(window, 1, {
             scrollTo: {
                 y: domScroll,
                 autoKill: true,
             },
             ease: "Power2.easeOut",
-            autoKill: true,
         });
     }
 
