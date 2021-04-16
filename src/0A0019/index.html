@@ -12,7 +12,7 @@
     <meta property="og:title" content="펀드 거래 시점 알기" />
     <meta property="og:description" content="펀드 오늘 사도 내일 받는 이유" />
     <meta property="og:url" content="" />
-    <meta property="og:image" content="assets/cast_thumbnail.png" />
+    <meta property="og:image" content="" />
     <meta property="og:image:width" content="610" />
     <meta property="og:image:height" content="319" />
 
@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
     <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
     <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
-    <script type="text/javascript" src="../common/common.js"></script>
+    <script type="text/javascript"; src="../common/common.js"></script>
     <script type="text/javascript" src="../common/scrollContents.js"></script>
 </head>
 
@@ -48,8 +48,8 @@
 
         <div class="basic_foot pineApp">
             <div class="progress-indicator"><div class="progress-bar" id="progressBar"></div></div>
-            <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()">좋아요</button>
-            <button type="button" id="shareImg" class="img_share" onclick="sharedContents()">컨텐츠 공유</button>
+            <button type="button" id="imgHeart" onclick="clickLike()">좋아요</button>
+            <button type="button" id="shareImg" onclick="sharedContents()">컨텐츠 공유</button>
         </div>
 
         <div class="wrap_body">
@@ -129,7 +129,7 @@
     <div class="link_item" id="link_cover_full">
         <div class="cover_image" id="link_img" style="background-image: url('assets/12_timing_end.jpg'); height: 100%">
         </div>
-        <a class="stroke_link" id="link_title" onclick="appLinkFunc('home')">
+        <a class="stroke_link" id="link_title" onclick="appLinkFunc('noticeList', 'null')">
             <p style="text-align: center">펀드<br />투자하기</p>
         </a>
     </div>
