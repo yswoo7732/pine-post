@@ -120,7 +120,7 @@ function isMobile() {
 }
 
 function urlCopy() {
-    const t = document.createElement("textarea");
+    const t = document.createElement("input");
     document.body.appendChild(t);
     t.value = window.location.href;
     t.select();
