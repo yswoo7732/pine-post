@@ -93,9 +93,9 @@ function clickLike() {
     }
 }
 
-function appLinkFunc(str, num="") {
+function appLinkFunc(str, num = "") {
     console.log(str, num);
-   
+
     if (pineAppChk() || isMobile()) {
         if (str == "web") {
             window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
@@ -120,10 +120,16 @@ function isMobile() {
 }
 
 function urlCopy() {
-    var urlbox = document.getElementById("shareUrl");
-    urlbox.value = window.location.href;
-    console.log(urlbox.value);
-    urlbox.select();
-    document.execCommand("Copy");
+    const t = document.createElement("textarea");
+    document.body.appendChild(t);
+    t.value = window.location.href;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+    // var urlbox = document.getElementById("shareUrl");
+    // urlbox.value = window.location.href;
+    // urlbox.select();
+    // therange = urlbox.createTextRange();
+    // therange.execCommand("Copy");
     alert("URL이 복사 되었습니다.");
 }
