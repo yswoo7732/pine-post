@@ -39,6 +39,7 @@ function sharedContents() {
             webkit.messageHandlers.shareContents.postMessage(`${contentsUrl}`); //ios
         }
     } else {
+        urlCopy();
         console.log("어떻게 SNS 공유? 그냥 주소 복사?");
     }
 }
@@ -119,8 +120,9 @@ function isMobile() {
 }
 
 function urlCopy() {
-    var urlbox = document.getElementById("textUrl");
+    var urlbox = document.getElementById("shareUrl");
     urlbox.value = window.location.href;
+    console.log(urlbox.value);
     urlbox.select();
     document.execCommand("Copy");
     alert("URL이 복사 되었습니다.");
