@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded", function(){
         resetFunc();
     })
 
-    document.querySelector(".restartBtn").addEventListener("click", function(){
-        _main.classList.add("start");
-        _main.classList.remove("quiz");
-        _main.classList.remove("loading");
-        _main.classList.remove("result");
-        resetFunc();
-    })
+    // document.querySelector(".restartBtn").addEventListener("click", function(){
+    //     _main.classList.add("start");
+    //     _main.classList.remove("quiz");
+    //     _main.classList.remove("loading");
+    //     _main.classList.remove("result");
+    //     resetFunc();
+    // })
 
     qSetting();
 
@@ -179,7 +179,7 @@ function qSetting() {
     
     for (var i = 0; i < qTotalNum; i++) {
         innerOption.push('<div class="question">');
-        innerOption.push('<div class="index">Q' + (i + 1) + ".</div>");
+        innerOption.push('<div class="index">0' + (i + 1) + "</div>");
         innerOption.push('<div class="title">' + q_data[i].question + "</div>");
         innerOption.push('<div class="optionWrap">');
 
@@ -235,7 +235,7 @@ function resultFunc() {
     _main.classList.remove("loading");
     _main.classList.add("result");
     
-    document.querySelector(".resultPage").scrollTop = 0;
+    // document.querySelector(".resultPage").scrollTop = 0;
     // ["E", "I", "S", "N", "T", "F"]; 
     // qChkArr = ["E", "E", "I", "S", "S", "N", "F", "T", "F"];
     //E , S, T
@@ -296,11 +296,12 @@ function resultFunc() {
         resultPageNum = 7;
     }
 
-    console.log(resultPageNum+1, typeArr, resultText[resultPageNum]);
-    document.querySelector(".resultPage h4").innerHTML = resultPageNum+1 +", "+ typeArr +", "+ resultText[resultPageNum];
+    //console.log(resultPageNum+1, typeArr, resultText[resultPageNum]);
+    // document.querySelector(".resultPage h4").innerHTML = resultPageNum+1 +", "+ typeArr +", "+ resultText[resultPageNum];
     // $(".resultPage h4").text(resultPageNum+1 +", "+ typeArr +", "+ resultText[resultPageNum]);
     //saveDataFunc(resultPageNum);
-    //window.location = "https://digitalspecial.joins.com/special/2020/1020_factpl/result_"+resultPageNum+".html?resultChk="+resultPageNum;
+    // alert(resultPageNum)
+    window.location = "./result"+resultPageNum+".html?resultChk="+resultPageNum;
     
 }
 

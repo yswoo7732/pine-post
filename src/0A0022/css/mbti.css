@@ -128,19 +128,18 @@ main button.defaultBtn {
   position: relative;
   display: block;
   z-index: 10;
-  background: #0b1a3c;
+  background: #000;
   color: #fff;
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.5;
-  letter-spacing: -0.01em;
   border-radius: 100px;
-  padding: 18px 56px;
+  padding: 15px 100px;
   margin: 5px auto;
   transition: background .3s ease-out;
 }
 
 main button.defaultBtn:hover {
-  background: #071128;
+  background: black;
 }
 
 main section {
@@ -169,15 +168,33 @@ main section button.startBtn.dimd {
   color: #A5A5A5;
 }
 
+main section.startPage {
+  background: #57b876;
+}
+
 main section.startPage .titleWrap {
   position: relative;
-  padding: 12vh 0 5vh;
+  padding: 10vh 0 0;
   z-index: 2;
-  color: #0b1a3c;
+  color: #000;
+}
+
+main section.startPage .titleWrap span {
+  color: #fff;
+  font-size: 15px;
+  border-radius: 20px;
+  padding: 4px 18px;
+  border: 1px solid #fff;
 }
 
 main section.startPage .titleWrap h1 {
   font-size: 40px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+main section.startPage .titleWrap img {
+  width: 80%;
 }
 
 main section.quizPage {
@@ -187,7 +204,7 @@ main section.quizPage {
 main section.quizPage .pageNumWrap {
   position: absolute;
   width: 600px;
-  background: #0b1a3c;
+  background: #333;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
@@ -201,7 +218,7 @@ main section.quizPage .pageNumWrap {
 
 main section.quizPage .pageNumWrap .bar {
   width: 0%;
-  background: #25AFBE;
+  background: #57b876;
   position: absolute;
   height: 100%;
   transition: width .4s ease-out;
@@ -209,9 +226,10 @@ main section.quizPage .pageNumWrap .bar {
 
 main section.quizPage .pageNumWrap p {
   position: relative;
-  padding: 20px 0;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
@@ -242,7 +260,6 @@ main section.quizPage .questionWrap .question {
   main section.quizPage .questionWrap .question {
     width: 100%;
     padding: 18vw 5vw;
-    text-align: left;
   }
 }
 
@@ -253,21 +270,23 @@ main section.quizPage .questionWrap .question.active {
 }
 
 main section.quizPage .questionWrap .question .index {
-  font-weight: 500;
-  font-size: 24px;
-  color: #0b1a3c;
-  padding: 5px 16px;
+  display: inline;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  background-color: #57b876;
+  padding: 2px 10px;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, Gotham, helvetica arial sans-serif;
+  border-radius: 50px;
 }
 
 main section.quizPage .questionWrap .question .title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   line-height: 1.5;
   padding: 0 2px;
-  margin-top: 5px;
-  color: #0b1a3c;
+  margin-top: 14px;
+  color: #000;
 }
 
 @media only screen and (max-width: 600px) {
@@ -279,12 +298,12 @@ main section.quizPage .questionWrap .question .title {
 }
 
 main section.quizPage .questionWrap .question .optionWrap {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question .optionWrap {
-    margin-top: 10%;
+    margin-top: 32px;
   }
 }
 
@@ -292,37 +311,46 @@ main section.quizPage .questionWrap .question .optionWrap button.option {
   position: relative;
   display: inline-block;
   padding: 22px;
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.5rem;
-  border: 1px solid #e4e4e4;
-  border-radius: 4px;
-  margin-bottom: 12px;
+  text-align: center;
+  background-color: #f3f3f3;
+  border-radius: 33px;
+  margin-bottom: 20px;
   cursor: pointer;
   width: 100%;
-  color: #555555;
+  color: #000;
   transition: background .4s ease, color .3s ease;
-  font-weight: 100;
-}
-
-main section.quizPage .questionWrap .question .optionWrap button.option strong {
-  color: #0b1a3c;
-  transition: color .3s ease;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question .optionWrap button.option {
-    text-align: left;
     padding: 5vw 5vw;
   }
 }
 
-main section.quizPage .questionWrap .question .optionWrap button.option:hover, main section.quizPage .questionWrap .question .optionWrap button.option.on {
-  color: #fff;
-  background: #0b1a3c;
+main section.quizPage .questionWrap .question .optionWrap button.option:after {
+  content: "";
+  width: 15px;
+  height: 12px;
+  position: absolute;
+  top: calc(50% - 6px);
+  right: 22px;
+  z-index: 2;
+  background: url(../image/icon-investment-check.svg) center center/cover no-repeat;
+  opacity: 0;
+  transition: opacity .3s ease-out;
 }
 
-main section.quizPage .questionWrap .question .optionWrap button.option:hover strong, main section.quizPage .questionWrap .question .optionWrap button.option.on strong {
+main section.quizPage .questionWrap .question .optionWrap button.option:hover, main section.quizPage .questionWrap .question .optionWrap button.option.on {
   color: #fff;
+  font-weight: bold;
+  background: #000;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option:hover:after, main section.quizPage .questionWrap .question .optionWrap button.option.on:after {
+  opacity: 1;
 }
 
 main section.quizPage .questionWrap .question .optionWrap button.option.dimd {
@@ -335,7 +363,7 @@ main section.loadingPage .loading {
 
 main section.loadingPage .loading h2 {
   font-size: 40px;
-  color: #0b1a3c;
+  color: #000;
   font-weight: bold;
   animation: loadingAni 1s ease-in-out infinite;
 }
@@ -352,22 +380,220 @@ main section.loadingPage .loading h2 {
   }
 }
 
-main section.resultPage {
-  padding: 50px 20px;
+.resultPage {
+  padding: 50px 0 0;
   overflow: auto;
 }
 
-main section.resultPage h4 {
-  font-size: 30px;
-  color: #0b1a3c;
-  margin: 120px 0;
+.resultPage .titleWrap {
+  position: relative;
+  padding: 50px 0 10px;
+  z-index: 2;
+  color: #000;
 }
 
-main section.resultPage button {
+.resultPage .titleWrap span {
+  color: #000;
+  font-size: 15px;
+  border-radius: 20px;
+  padding: 4px 18px;
+  border: 1px solid #000;
+}
+
+.resultPage .titleWrap h4 {
+  margin: 0;
+  padding: 25px 0 8px;
+}
+
+.resultPage .titleWrap h2 {
+  font-size: 35px;
+  color: #000;
+  letter-spacing: 1px;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.resultPage .titleWrap img {
+  width: 60%;
+}
+
+.resultPage button {
   margin-top: 100px;
 }
 
-main section.resultPage p {
+.resultPage .infoWrap {
+  background-color: #57b876;
+}
+
+.resultPage .infoWrap .infoInnerWrap {
+  padding: 30px 50px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap {
+    padding: 30px 22px 0;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap h5 {
+  font-size: 15px;
+  padding: 0 5px 4px;
+  margin: 20px 0 30px;
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(transparent 45%, #6ec74e 0);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap {
+    padding: 20px 0;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap h4 {
+  margin: 0;
+  padding: 20px 0 8px;
   color: #000;
-  margin: 20px;
+  font-size: 13px;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap h2 {
+  font-size: 24px;
+  color: #000;
+  letter-spacing: 1px;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap ul {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap ul li {
+  color: #57b876;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+  line-height: 2;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap p {
+  font-size: 13px;
+  color: #000;
+  line-height: 2;
+  font-weight: bold;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap p span {
+  font-style: none;
+  color: #57b876;
+  border-bottom: 1px;
+  text-decoration: underline;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap em.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap img.car {
+  position: relative;
+  width: 60%;
+  z-index: 10;
+}
+
+.resultPage .infoWrap .infoInnerWrap .restartBtn {
+  position: relative;
+  display: inline-block;
+  margin: 50px auto;
+  font-size: 17px;
+  background: none;
+  border: 1px solid #fff;
+  padding: 15px 60px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.resultPage .infoWrap .infoInnerWrap .restartBtn:-webkit-any-link {
+  color: #fff;
+}
+
+.resultPage .infoWrap .infoInnerWrap .restartBtn em {
+  top: 3px;
+  position: relative;
+  left: 10px;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background: url(../image/refresh.svg) no-repeat;
+  transition: all .3s ease-in-out;
+}
+
+.resultPage .infoWrap .infoInnerWrap .restartBtn:hover em {
+  transform: rotate(180deg);
+}
+
+.shareBtnWrap {
+  background-color: #464646;
+}
+
+.shareBtnWrap p {
+  padding: 45px 0 0;
+  font-size: 15px;
+}
+
+.shareBtnWrap .ico_sns {
+  margin: 0 auto;
+  padding: 30px 0 60px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.shareBtnWrap .ico_sns li {
+  color: #fff;
+  font-size: 9px;
+  line-height: 26px;
+}
+
+.shareBtnWrap .ico_sns li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 15px;
+  background: url(../image/snsicon.png) 0 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.facebook {
+  background: url(../image/snsicon.png) -40px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.twitter {
+  background: url(../image/snsicon.png) -80px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.url {
+  background: url(../image/snsicon.png) -120px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a input {
+  display: none;
 }
