@@ -142,23 +142,9 @@ document.addEventListener("DOMContentLoaded", function(){
     resizeFunc();
 });
 
-// function mainMotionFunc(){
-//     for(var i=0; i<$('.card').length; i++){
-//         var mc = $('.card').eq(i);
-//         TweenMax.set(mc, { rotation : randomReturn(-50, 50)})
-//     }
-    
-//     for(var i=0; i<$('.card').length; i++){
-//         var mc = $('.card').eq(i);
-//         TweenMax.from(mc, Math.random()*.5 + .5, {
-//             y: 650, yPercent : 100
-//             ,x: randomReturn(-250, 250)
-//             ,rotation : randomReturn(-250, 250)
-//             ,delay : (Math.random()*.7)+.3
-//             ,ease: Power2.easeOut
-//         })
-//     }
-// }
+function mainMotionFunc(){
+   
+}
 
 function resetFunc(){
     pageNum = 0;

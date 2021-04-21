@@ -193,8 +193,23 @@ main section.startPage .titleWrap h1 {
   letter-spacing: 1px;
 }
 
-main section.startPage .titleWrap img {
+main section.startPage .titleWrap .imageWrap {
+  position: relative;
+}
+
+main section.startPage .titleWrap .imageWrap img {
   width: 80%;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+main section.startPage .startBtn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 main section.quizPage {
@@ -449,14 +464,14 @@ main section.loadingPage .loading h2 {
 .resultPage .infoWrap .infoInnerWrap .textWrap {
   background-color: #fff;
   border-radius: 10px;
-  padding: 24px 0;
+  padding: 24px 20px;
   overflow: hidden;
   position: relative;
 }
 
 @media only screen and (max-width: 600px) {
   .resultPage .infoWrap .infoInnerWrap .textWrap {
-    padding: 20px 0;
+    padding: 20px 20px;
   }
 }
 
@@ -518,6 +533,12 @@ main section.loadingPage .loading h2 {
   position: relative;
   width: 60%;
   z-index: 10;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap img.car {
+    width: 70%;
+  }
 }
 
 .resultPage .infoWrap .infoInnerWrap .restartBtn {
