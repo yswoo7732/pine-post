@@ -19,7 +19,8 @@
 
     <link rel="stylesheet" type="text/css" href="../common/common.css" />
     <link rel="stylesheet" type="text/css" href="./css/mbti.css" />
-    <script type="text/javascript" src="./js/mbti.js"></script>
+    <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
+    <script type="text/javascript" src="./js/mbti.min.js"></script>
     
 </head>
 <body>
@@ -30,9 +31,9 @@
                     <span>TEST</span>
                     <h1>나와 어울리는 <br>자동차 찾기</h1>
                     <div class="imageWrap">
-                        <img class="mainImage0" src="./image/cast_special_genie/cast_special_genie_01.png" alt="지니">
-                        <img class="mainImage1" src="./image/cast_special_genie/cast_special_genie_02.png" alt="지니">
-                        <img class="mainImage2" src="./image/cast_special_genie/cast_special_genie_03.png" alt="지니">
+                        <img class="mainImage" src="./image/cast_special_genie/cast_special_genie_01.png" alt="병">
+                        <img class="mainImage" src="./image/cast_special_genie/cast_special_genie_02.png" alt="지니">
+                        <div class="card"><img class="mainImage" src="./image/cast_special_genie/cast_special_genie_03.png" alt="카드"></div>
                     </div>
                 </div>
                 <button type="button" class="defaultBtn startBtn">START</button>
@@ -53,8 +54,16 @@
             </section>
 
             <section class="loadingPage">
-                <div class="loading">
-                    <h2>로딩로딩</h2>
+                <!-- <div class="loading">
+                    <h2>나와 어울리는 자동차 찾는중</h2>
+                </div> -->
+                <div class="titleWrap">
+                    <h2>나와 어울리는 <br>자동차 찾는중</h2>
+                    <div class="imageWrap">
+                        <img class="mainImage" src="./image/cast_special_genie/cast_special_genie_01.png" alt="병">
+                        <img class="mainImage" src="./image/cast_special_genie/cast_special_genie_02.png" alt="지니">
+                        <div class="card"><img class="mainImage" src="./image/cast_special_genie/cast_special_genie_03.png" alt="카드"></div>
+                    </div>
                 </div>
             </section>
 

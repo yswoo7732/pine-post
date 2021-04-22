@@ -200,7 +200,7 @@ main section.startPage .titleWrap .imageWrap {
 main section.startPage .titleWrap .imageWrap img {
   width: 80%;
   position: absolute;
-  top: -50px;
+  top: -40px;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -372,14 +372,21 @@ main section.quizPage .questionWrap .question .optionWrap button.option.dimd {
   color: #555;
 }
 
-main section.loadingPage .loading {
-  margin-top: 40%;
+main section.loadingPage {
+  background: #57b876;
 }
 
-main section.loadingPage .loading h2 {
-  font-size: 40px;
+main section.loadingPage .titleWrap {
+  position: relative;
+  padding: 10vh 0 0;
+  z-index: 2;
   color: #000;
-  font-weight: bold;
+}
+
+main section.loadingPage .titleWrap h2 {
+  font-size: 40px;
+  color: #fff;
+  letter-spacing: 1px;
   animation: loadingAni 1s ease-in-out infinite;
 }
 
@@ -393,6 +400,18 @@ main section.loadingPage .loading h2 {
   to {
     opacity: .1;
   }
+}
+
+main section.loadingPage .titleWrap .imageWrap {
+  position: relative;
+}
+
+main section.loadingPage .titleWrap .imageWrap img {
+  width: 70%;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .resultPage {

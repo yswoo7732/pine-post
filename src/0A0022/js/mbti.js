@@ -140,10 +140,45 @@ document.addEventListener("DOMContentLoaded", function(){
     })
     
     resizeFunc();
+    mainMotionFunc();
 });
 
 function mainMotionFunc(){
-   
+    var startPage = document.querySelector(".startPage");
+    var imageALL = startPage.querySelectorAll(".mainImage");
+    // console.log(imageALL)
+    var tl = gsap.timeline();
+
+    tl.from(imageALL[0], .5, {
+        y : 40,
+        alpha: 0
+    }).from(imageALL[1], .7, {
+        y: 50
+        ,alpha: 0
+        ,scaleY : .7
+        ,ease : Power4.easeOut
+    })
+    gsap.from(imageALL[2], 1, {
+        alpha: 0
+        ,scale : 0
+        ,rotate : -200
+        ,delay : .8
+        ,ease : Power4.easeOut
+    })
+
+    gsap.to(imageALL[1], 1, {
+        skewX: -4
+        // ,ease : Cubic.easeOut
+        ,yoyo: true
+        ,repeat : Infinity
+    })
+
+    gsap.to('.card', 1.5, {
+        y: -40
+        ,ease : Power2.easeOut
+        ,yoyo: true
+        ,repeat : Infinity
+    })
 }
 
 function resetFunc(){
@@ -208,9 +243,22 @@ function loadingFunc(){
     _main.classList.add("loading");
     _main.classList.remove("result");
 
+    var loadingPage = document.querySelector(".loadingPage");
+    var imageALL = loadingPage.querySelectorAll(".mainImage");
+    // console.log(imageALL)
+
+    gsap.from(imageALL[2], 1, {
+        scale : .8
+        ,rotate : -100
+        ,ease : Power2.easeOut
+        ,yoyo: true
+        ,repeat : Infinity
+    })
+
+
     setTimeout(function(){
         resultFunc();
-    }, 1000)
+    }, 4000)
 }
 
 
@@ -291,11 +339,10 @@ function resultFunc() {
     
 }
 
-function saveDataFunc(num){
-    //결과 데이터 저장 함수 추가
-    console.log("data저장 : " + num );
-}
-
+// function saveDataFunc(num){
+//     //결과 데이터 저장 함수 추가
+//     console.log("data저장 : " + num );
+// }
 
 function resizeFunc(){
     
