@@ -185,8 +185,10 @@ function snsFunc(sns) {
 
 function urlCopy() {
     var urlbox = document.getElementById("ShareUrl");
-    console.log(urlbox)
-    urlbox.value = window.location.href;
+    //console.log(urlbox)
+    //urlbox.value = window.location.href;
+    urlbox.value = ds_config.url;
+    // console.log(urlbox.value)
     urlbox.select();
     document.execCommand("Copy");
     alert("URL이 복사 되었습니다.");

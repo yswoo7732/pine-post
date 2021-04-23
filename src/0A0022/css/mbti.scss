@@ -611,7 +611,8 @@ main {
                     background: url(../image/snsicon.png) -120px 0/cover no-repeat;
                 }
                 input {
-                    display: none;
+                    position: absolute;
+                    left : -200%;
                 }
             }
             color: #fff;

@@ -335,7 +335,7 @@ function resultFunc() {
     // $(".resultPage h4").text(resultPageNum+1 +", "+ typeArr +", "+ resultText[resultPageNum]);
     //saveDataFunc(resultPageNum);
     // alert(resultPageNum)
-    window.location = "./result"+resultPageNum+".html?resultChk="+resultPageNum;
+    window.location = "./result"+resultPageNum+".html";
     
 }
 
