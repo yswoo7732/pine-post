@@ -31,7 +31,7 @@ var q_data = [
     {
         question: "새 신발이 필요할 때 당신은",
         case: [
-            { q: "후기와 환불 정책을 <strong>꼼꼼히 확인</strong>하고 인터넷 최저가로 산다", type: "S" },
+            { q: "후기와 환불 정책을 <strong>꼼꼼히 확인</strong>하고<br> 인터넷 최저가로 산다", type: "S" },
             { q: "<strong>귀찮다</strong> 그냥 베스트 셀러로 정렬해서 고른다 ", type: "N" },
         ],
     },
@@ -39,7 +39,7 @@ var q_data = [
         question: "답답해서 바다를 보고 싶어졌다",
         case: [
             { q: "교통 숙소 식당부터 찾는다 <strong>계획은 필수</strong>니까", type: "S" },
-            { q: "<strong>당장 드라이브 떠나서</strong> 바다만 보고 새벽에 오면 안 되나?", type: "N" },
+            { q: "<strong>당장 드라이브 떠나서</strong> <br>바다만 보고 새벽에 오면 안 되나?", type: "N" },
         ],
     },
 
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // })
 
     qSetting();
+    var clickBool = false;
 
     questionArr = document.querySelectorAll(".question");
     //console.log(questionArr.length)
@@ -124,12 +125,23 @@ document.addEventListener("DOMContentLoaded", function(){
         _this.querySelectorAll("button").forEach(function(_btn, n){
 
             _btn.addEventListener("click", function(e){
+                // alert(clickBool)
+                //console.log(clickBool)
+
+                if( clickBool ) return false;
+                clickBool = true;
                 var _dtype = e.currentTarget.dataset.type;
                 qChkArr.push(_dtype);
-                console.log(_dtype , qChkArr);
-                pageNum = i + 1;
-                pageSetFunc()
-    //             // $(_this).addClass("on").siblings().removeClass('"on');
+                //console.log(_dtype , qChkArr);
+                // console.log( e.target)
+                e.target.classList.add('on');
+
+                setTimeout(function(){
+                    clickBool = false;
+                    pageNum = i + 1;
+                    pageSetFunc();
+                }, 400)
+                
             })
         })
     });
@@ -167,14 +179,14 @@ function mainMotionFunc(){
     })
 
     gsap.to(imageALL[1], 1, {
-        skewX: -4
+        skewX: -2
         // ,ease : Cubic.easeOut
         ,yoyo: true
         ,repeat : Infinity
     })
 
     gsap.to('.card', 1.5, {
-        y: -40
+        y: -20
         ,ease : Power2.easeOut
         ,yoyo: true
         ,repeat : Infinity

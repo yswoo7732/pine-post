@@ -113,7 +113,9 @@ if (navigator.platform) {
 
 
 function snsFunc(sns) {
-    var o;
+    var o = {
+        method: ""
+    }
     var _url = encodeURIComponent(ds_config.url);
     var _txt = encodeURIComponent(ds_config.title);
     //    var _br = encodeURIComponent('\r\n');
@@ -132,9 +134,7 @@ function snsFunc(sns) {
                 method: "popup",
                 url:
                     "https://twitter.com/intent/tweet?text=" +
-                    _txt +
-                    "&url=" +
-                    _url,
+                    _txt +"&url=" + _url,
             };
             break;
         case "kakaotalk":

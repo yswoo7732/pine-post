@@ -200,16 +200,19 @@ main section.startPage .titleWrap .imageWrap {
 main section.startPage .titleWrap .imageWrap img {
   width: 80%;
   position: absolute;
-  top: -40px;
+  top: -36px;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
 main section.startPage .startBtn {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translate(-50%, 0);
+  top: 480px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.startPage .startBtn {
+    top: 80vw;
+  }
 }
 
 main section.quizPage {
@@ -335,13 +338,13 @@ main section.quizPage .questionWrap .question .optionWrap button.option {
   cursor: pointer;
   width: 100%;
   color: #000;
-  transition: background .4s ease, color .3s ease;
+  transition: background .2s ease, color .3s ease;
   font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question .optionWrap button.option {
-    padding: 5vw 5vw;
+    padding: 5vw 10vw 5vw;
   }
 }
 
@@ -355,16 +358,16 @@ main section.quizPage .questionWrap .question .optionWrap button.option:after {
   z-index: 2;
   background: url(../image/icon-investment-check.svg) center center/cover no-repeat;
   opacity: 0;
-  transition: opacity .3s ease-out;
+  transition: opacity .2s ease-out;
 }
 
-main section.quizPage .questionWrap .question .optionWrap button.option:hover, main section.quizPage .questionWrap .question .optionWrap button.option.on {
+main section.quizPage .questionWrap .question .optionWrap button.option.on {
   color: #fff;
   font-weight: bold;
   background: #000;
 }
 
-main section.quizPage .questionWrap .question .optionWrap button.option:hover:after, main section.quizPage .questionWrap .question .optionWrap button.option.on:after {
+main section.quizPage .questionWrap .question .optionWrap button.option.on:after {
   opacity: 1;
 }
 
@@ -415,13 +418,13 @@ main section.loadingPage .titleWrap .imageWrap img {
 }
 
 .resultPage {
-  padding: 50px 0 0;
+  padding: 0;
   overflow: auto;
 }
 
 .resultPage .titleWrap {
   position: relative;
-  padding: 50px 0 10px;
+  padding: 8vh 0 10px;
   z-index: 2;
   color: #000;
 }
@@ -449,6 +452,13 @@ main section.loadingPage .titleWrap .imageWrap img {
 
 .resultPage .titleWrap img {
   width: 60%;
+  padding: 30px 0 34px;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .titleWrap img {
+    width: 70%;
+  }
 }
 
 .resultPage button {
@@ -460,12 +470,12 @@ main section.loadingPage .titleWrap .imageWrap img {
 }
 
 .resultPage .infoWrap .infoInnerWrap {
-  padding: 30px 50px 0;
+  padding: 30px 80px 0;
 }
 
 @media only screen and (max-width: 600px) {
   .resultPage .infoWrap .infoInnerWrap {
-    padding: 30px 22px 0;
+    padding: 30px 28px 0;
   }
 }
 
@@ -482,7 +492,7 @@ main section.loadingPage .titleWrap .imageWrap img {
 
 .resultPage .infoWrap .infoInnerWrap .textWrap {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 7px;
   padding: 24px 20px;
   overflow: hidden;
   position: relative;
@@ -490,13 +500,13 @@ main section.loadingPage .titleWrap .imageWrap img {
 
 @media only screen and (max-width: 600px) {
   .resultPage .infoWrap .infoInnerWrap .textWrap {
-    padding: 20px 20px;
+    padding: 22px 20px;
   }
 }
 
 .resultPage .infoWrap .infoInnerWrap .textWrap h4 {
   margin: 0;
-  padding: 20px 0 8px;
+  padding: 6px 0 8px;
   color: #000;
   font-size: 13px;
 }
@@ -505,8 +515,14 @@ main section.loadingPage .titleWrap .imageWrap img {
   font-size: 24px;
   color: #000;
   letter-spacing: 1px;
-  margin: 0 0 24px;
+  margin: 0 0 4px;
   padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap h2 {
+    margin: 0;
+  }
 }
 
 .resultPage .infoWrap .infoInnerWrap .textWrap ul {
@@ -548,16 +564,17 @@ main section.loadingPage .titleWrap .imageWrap img {
   border-radius: 50%;
 }
 
-.resultPage .infoWrap .infoInnerWrap .textWrap img.car {
-  position: relative;
-  width: 60%;
-  z-index: 10;
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap em.bg {
+    top: 48%;
+  }
 }
 
-@media only screen and (max-width: 600px) {
-  .resultPage .infoWrap .infoInnerWrap .textWrap img.car {
-    width: 70%;
-  }
+.resultPage .infoWrap .infoInnerWrap .textWrap img.car {
+  position: relative;
+  width: 80%;
+  z-index: 10;
+  padding: 30px 0 2px;
 }
 
 .resultPage .infoWrap .infoInnerWrap .restartBtn {
