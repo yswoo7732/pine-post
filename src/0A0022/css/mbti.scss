@@ -161,17 +161,24 @@ main {
                 padding: 10vh 0 0;
                 z-index : 2;
                 color: $defaultColor;
-                span {
-                    color : #fff;
-                    font-size: 15px;
-                    border-radius: 20px;
-                    padding: 4px 18px;
-                    border : 1px solid #fff;
+                // span {
+                //     // color : #fff;
+                //     // font-size: 15px;
+                //     // border-radius: 20px;
+                //     // padding: 4px 18px;
+                //     // border : 1px solid #fff;
+                //     img {
+                //         width: 30px;
+                //     }
+                // }
+                .tag {
+                    width: 60px;
                 }
                 h1 {
                     font-size: 40px;
                     color : #fff;
                     letter-spacing : 1px;
+                    margin: 16px 0;
                 }
                 .imageWrap {
                     position: relative;
@@ -420,16 +427,19 @@ main {
         padding: 8vh 0 10px;
         z-index : 2;
         color: $defaultColor;
-        span {
-            color : #000;
-            font-size: 15px;
-            border-radius: 20px;
-            padding: 4px 18px;
-            border : 1px solid #000;
+        // span {
+        //     color : #000;
+        //     font-size: 15px;
+        //     border-radius: 20px;
+        //     padding: 4px 18px;
+        //     border : 1px solid #000;
+        // }
+        .tag {
+            width: 76px;
         }
         h4 {
             margin:0;
-            padding : 25px 0 8px;
+            padding : 17px 0 8px;
         }
         h2 {
             font-size: 35px;
@@ -438,13 +448,14 @@ main {
             margin: 0 0 24px;
             padding: 0;
         }
-        img {
+        img.carImage {
             width: 60%;
-            padding: 30px 0 34px;
+            padding: 30px 0 38px;
             @media #{$mobile} {
                 width: 70%;
             }
         }
+        
     }
 
     button {

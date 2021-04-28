@@ -1,6 +1,7 @@
 $mobile: "only screen and (max-width: 650px)"; 
-$pointColor : #0b1a3c;
-$pointColor2 : #25AFBE;
+$pointColor : #57b876;
+$pointColor2 : #2D418A;
+$slideColor : #888888;
 // $content-width: 450px;
 
 body {
@@ -70,18 +71,18 @@ img {
 .range_container {
     padding: 9% 30px 6%;
     @media #{$mobile}{
-        padding : 5% 30px 5%;
+        padding : 7% 30px 5%;
     }
 }
 
 .range_title {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
-    color: #666;
+    color: #000;
     
-    @media #{$mobile}{
-        font-size: 13px;
-    }
+    // @media #{$mobile}{
+    //     font-size: 16px;
+    // }
 }
 
 .slider_container {
@@ -89,6 +90,7 @@ img {
     height: 100%;
     margin: 58px auto 8%;
     position: relative;
+    // background-color: red;
     // box-sizing: border-box;
 }
 
@@ -114,7 +116,7 @@ img {
         left: 50%;
         width:1px;
         height : 14px;
-        background: #a1a5b3;
+        background: $slideColor;
     }
 }
 
@@ -222,7 +224,7 @@ img {
     width: 24px;
     height: 24px;
     background: #fff;
-    border: 2px solid #a1a5b3;
+    border: 2px solid $slideColor;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -245,7 +247,7 @@ img {
 .slider::-webkit-slider-runnable-track {
     width: 100%;
     height: 10px;
-    background: #a1a5b3;
+    background: $slideColor;
     border: none;
     border-radius: 3px;
 }
@@ -253,7 +255,7 @@ img {
 .slider::-moz-track {
     width: 100%;
     height: 10px;
-    background: #a1a5b3;
+    background: $slideColor;
     border: none;
     border-radius: 3px;
 }
@@ -270,7 +272,7 @@ img {
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #a1a5b3;
+    background: $slideColor;
 }
 
 
@@ -410,7 +412,7 @@ img {
 .swipe-direction {
     border: 0;
     background: transparent;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.56;
     color: #000000;
@@ -672,13 +674,13 @@ p{
 }
 
 .pine-slider-wrapper {
-    height: 220px; // 사이즈 수정예정
+    height: 330px; // 사이즈 수정예정
     width : 100%;
     overflow: hidden;
     margin-top: 40px;
 
     .bannerWrap{
-        width : 1500px;
+        width : 1200px;
         img {
             width: 200px;
             display: block;
@@ -747,13 +749,13 @@ p{
         border-radius: 50px;
         display: inline-block;
         position: relative;
-        background: $pointColor2;
+        background: $pointColor;
         overflow: hidden;
         cursor: pointer;
         transition : background .4s ease-out;
 
         &.active {
-            background-color: $pointColor;
+            background-color: $pointColor2;
             .round-btn { 
                 background : url(./assets/prevBtn.png) center center / 100% no-repeat;
                 left: 205px;
@@ -849,7 +851,7 @@ p{
                 opacity: 1;
                 transform: translate(-50% , 0);
                 p {
-                    color : $pointColor2;
+                    color : $pointColor;
                 }
             }
             &:nth-child(2) {
@@ -860,7 +862,7 @@ p{
                     left: 70%;
                 }
                 p {
-                    color : $pointColor;
+                    color : $pointColor2;
                 }
             }
         }
@@ -1085,7 +1087,7 @@ p{
     width: inherit;
     // height: 60px;
     background-color: #fff;
-    padding: 0 40px 5px;
+    padding: 0 40px 25px;
     box-sizing: border-box;
     .btn_link {
         position: relative;

@@ -179,18 +179,15 @@ main section.startPage .titleWrap {
   color: #000;
 }
 
-main section.startPage .titleWrap span {
-  color: #fff;
-  font-size: 15px;
-  border-radius: 20px;
-  padding: 4px 18px;
-  border: 1px solid #fff;
+main section.startPage .titleWrap .tag {
+  width: 60px;
 }
 
 main section.startPage .titleWrap h1 {
   font-size: 40px;
   color: #fff;
   letter-spacing: 1px;
+  margin: 16px 0;
 }
 
 main section.startPage .titleWrap .imageWrap {
@@ -429,17 +426,13 @@ main section.loadingPage .titleWrap .imageWrap img {
   color: #000;
 }
 
-.resultPage .titleWrap span {
-  color: #000;
-  font-size: 15px;
-  border-radius: 20px;
-  padding: 4px 18px;
-  border: 1px solid #000;
+.resultPage .titleWrap .tag {
+  width: 76px;
 }
 
 .resultPage .titleWrap h4 {
   margin: 0;
-  padding: 25px 0 8px;
+  padding: 17px 0 8px;
 }
 
 .resultPage .titleWrap h2 {
@@ -450,13 +443,13 @@ main section.loadingPage .titleWrap .imageWrap img {
   padding: 0;
 }
 
-.resultPage .titleWrap img {
+.resultPage .titleWrap img.carImage {
   width: 60%;
-  padding: 30px 0 34px;
+  padding: 30px 0 38px;
 }
 
 @media only screen and (max-width: 600px) {
-  .resultPage .titleWrap img {
+  .resultPage .titleWrap img.carImage {
     width: 70%;
   }
 }

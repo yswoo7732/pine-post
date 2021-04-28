@@ -371,7 +371,7 @@ function handleDepositSliderValuePosition(input) {
 
     const leftNum = perNum * (input.offsetWidth - 26);
     rangeTip.style.left = leftNum +26/2+ "px";
-
+    rangeTip.style.width = "45px";
     // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
     // console.log(input.value);
 }
