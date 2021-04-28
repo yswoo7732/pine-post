@@ -548,7 +548,7 @@ th {
     position: relative;
     display: flex;
     width: 100%;
-    height: 70px;
+    height: 60px;
     padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
     padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
     object-fit: contain;
@@ -576,6 +576,7 @@ th {
 
     button {
         width: 50%;
+        height: 100vh;
         @include text-hide();
         transition: all 0.3s ease;
         &#imgHeart {

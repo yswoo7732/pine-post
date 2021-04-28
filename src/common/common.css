@@ -523,7 +523,7 @@ th {
   position: relative;
   display: flex;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
   object-fit: contain;
@@ -552,6 +552,7 @@ th {
 
 .basic_foot button {
   width: 50%;
+  height: 100vh;
   font-size: 0;
   color: transparent !important;
   transition: all 0.3s ease;
