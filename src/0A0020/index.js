@@ -195,12 +195,12 @@ window.addEventListener('DOMContentLoaded', function(){
         const bannerSize = bannerAll[0].clientWidth;
         const wrapWidth = totalBannerNum * bannerSize;
         bannerWrap.style.width = wrapWidth +"px";
-
+        // alert(wrapWidth)
         let sliderXnum = 0;
         const sliderFunc = () => {
             sliderXnum += .5;
             bannerWrap.style.transform = "translateX("+ -sliderXnum+"px)";
-            if(sliderXnum > bannerSize * 4 ){
+            if(sliderXnum > bannerSize * totalBannerNum/2 ){
                 sliderXnum = 0; 
             }
             window.requestAnimationFrame(sliderFunc);
