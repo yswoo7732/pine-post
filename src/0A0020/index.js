@@ -360,34 +360,23 @@ function handleSalarySliderValuePosition(input) {
 function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
     // const thumbSize = 35;
-    const max = parseInt(input.max);
-    const value = parseInt(input.value);
-    // console.log(value)
-    if(value <= 100) {
-        rangeTip.style.width = "65px";
-        rangeTip.innerText = "100만원 이하";
-    }else if(value <= 200){
-        rangeTip.style.width = "72px";
-        rangeTip.innerText = "101~200만원";
-    }else if(value <= 300){
-        rangeTip.style.width = "72px";
-        rangeTip.innerText = "201~300만원";
-    }else {
-        rangeTip.style.width = "72px";
-        rangeTip.innerText = "301~400만원";
-    }
 
 
-    // return false;
+    const max = parseInt(input.max)-100;
+    const value = parseInt(input.value)-100;
+
     const perNum = value / max;
 
-    // rangeTip.innerText = input.value + "만원";
+    // const thumbOffset = thumbSize * multiplier;
+    rangeTip.innerText = input.value + "만원";
+    // rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
     const leftNum = perNum * (input.offsetWidth - 26);
     rangeTip.style.left = leftNum +26/2+ "px";
-    // rangeTip.style.width = "45px";
+    rangeTip.style.width = "45px";
     // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
     // console.log(input.value);
+
 }
 
 // 연봉/연금저축액 결과 세액 공제율 countUp animation

@@ -55,23 +55,23 @@
                     </div>
                     <p class="range_title">연금저축액 (1년 기준)</p>
                     <div class="slider_container">
-                        <output class="__range-output-square output-deposit" for="won">100만원 이하</output>
+                        <output class="__range-output-square output-deposit" for="won">100만원</output>
                         <input
                             type="range"
                             class="slider"
                             name="won"
-                            min="0"
+                            min="100"
                             max="400"
                             value="0"
                             list="tickmarks"
-                            step="1"
+                            step="100"
                             oninput="handleDepositSliderValuePosition(this)"
                         />
                         <div class="depositmarks_tips">
                             <span class="mark_tip">100만</span>
                             <span class="mark_tip">200만</span>
                             <span class="mark_tip">300만</span>
-                            <!-- <span class="mark_tip">400만</span> -->
+                            <span class="mark_tip">400만</span>
                         </div>
                     </div>
                 </div>
