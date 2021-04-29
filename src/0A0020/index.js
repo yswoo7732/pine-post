@@ -78,19 +78,19 @@ window.addEventListener('DOMContentLoaded', function(){
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
-            if (depositInput.value == 100) {
+            if (depositInput.value <= 100) {
                 taxDeductionAmtTxt = "16만 5천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput.value == 200) {
+            else if (depositInput.value <= 200) {
                 taxDeductionAmtTxt = "33만원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput.value == 300) {
+            else if (depositInput.value <= 300) {
                 taxDeductionAmtTxt = "49만 5천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput.value == 400) {
+            else if (depositInput.value <= 400) {
                 taxDeductionAmtTxt = "66만원";
             }
 
@@ -110,19 +110,19 @@ window.addEventListener('DOMContentLoaded', function(){
             let taxDeductionAmtTxt = "";
 
             // 연금저축액 100만원일때
-            if (depositInput.value == 100) {
+            if (depositInput.value <= 100) {
                 taxDeductionAmtTxt = "13만 2천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput.value == 200) {
+            else if (depositInput.value <= 200) {
                 taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput.value == 300) {
+            else if (depositInput.value <= 300) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput.value == 400) {
+            else if (depositInput.value <= 400) {
                 taxDeductionAmtTxt = "52만 8천원";
             }
 
@@ -139,21 +139,21 @@ window.addEventListener('DOMContentLoaded', function(){
             let taxCreditLimitTxt = "300만원";
             let maxDeductionAmtTxt = "39만 6천원";
             let taxDeductionAmtTxt = "";
-
+// console.log(depositInput.value)
             // 연금저축액 100만원일때
-            if (depositInput.value == 100) {
+            if (depositInput.value <= 100) {
                 taxDeductionAmtTxt = "13만 2천원";
             }
             // 연금저축액 200만원일때
-            else if (depositInput.value == 200) {
+            else if (depositInput.value <= 200) {
                 taxDeductionAmtTxt = "26만 4천원";
             }
             // 연금저축액 300만원일때
-            else if (depositInput.value == 300) {
+            else if (depositInput.value <= 300) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
             // 연금저축액 400만원일때
-            else if (depositInput.value == 400) {
+            else if (depositInput.value <= 400) {
                 taxDeductionAmtTxt = "39만 6천원";
             }
 
@@ -360,18 +360,32 @@ function handleSalarySliderValuePosition(input) {
 function handleDepositSliderValuePosition(input) {
     const rangeTip = document.getElementsByClassName("__range-output-square")[1];
     // const thumbSize = 35;
-    const max = parseInt(input.max)-100;
-    const value = parseInt(input.value)-100;
+    const max = parseInt(input.max);
+    const value = parseInt(input.value);
+    // console.log(value)
+    if(value <= 100) {
+        rangeTip.style.width = "65px";
+        rangeTip.innerText = "100만원 이하";
+    }else if(value <= 200){
+        rangeTip.style.width = "72px";
+        rangeTip.innerText = "101~200만원";
+    }else if(value <= 300){
+        rangeTip.style.width = "72px";
+        rangeTip.innerText = "201~300만원";
+    }else {
+        rangeTip.style.width = "72px";
+        rangeTip.innerText = "301~400만원";
+    }
 
+
+    // return false;
     const perNum = value / max;
 
-    // const thumbOffset = thumbSize * multiplier;
-    rangeTip.innerText = input.value + "만원";
-    // rangeTip.innerText += input.value == 0 ? "원" : "만원";
+    // rangeTip.innerText = input.value + "만원";
 
     const leftNum = perNum * (input.offsetWidth - 26);
     rangeTip.style.left = leftNum +26/2+ "px";
-    rangeTip.style.width = "45px";
+    // rangeTip.style.width = "45px";
     // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
     // console.log(input.value);
 }

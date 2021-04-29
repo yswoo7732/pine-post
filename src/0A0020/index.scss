@@ -57,14 +57,14 @@ img {
 
 
 .main_section {
-    padding: 20% 40px 10%;
+    padding: 15% 40px 10%;
     margin: auto;
     background-color: #fff;
     // height: 100vh;
     box-sizing: border-box;
     @media #{$mobile}{
         min-height: 100vh;
-        padding : 20% 20px 15%;
+        padding : 10% 20px 15%;
     }
 }
 
@@ -136,34 +136,29 @@ img {
     }
 }
 .depositmarks_tips {
-    width: 100%;
+    width: 65px;
     height: 30px;
 
     .mark_tip:nth-of-type(1){
-        left: 13px;
+        left: 25%;
     }
     .mark_tip:nth-of-type(2){
-        left: 140px;
+        left: 50%;
     }
     .mark_tip:nth-of-type(3){
-        left: 270px;
-    }
-    .mark_tip:nth-of-type(4){
-        left: 398px;
+        left: 75%;
     }
     @media #{$mobile} {
         .mark_tip:nth-of-type(1){
-            left: 13px;
+            left: 25%;
         }
         .mark_tip:nth-of-type(2){
-            left: 35%;
+            left: 50%;
         }
         .mark_tip:nth-of-type(3){
-            left: 65%;
+            left: 75%;
         }
-        .mark_tip:nth-of-type(4){
-            left: 95%;
-        }
+        
     }
 }
 
@@ -207,16 +202,16 @@ img {
     // transform: translateX(-50%);
 }
 
-.slider:hover.slider::-webkit-slider-thumb {
-    -webkit-box-shadow: 1px 1px 10px #000000;
-    -moz-box-shadow: 1px 1px 10px #000000;
-    box-shadow: 1px 1px 10px #000000;
-}
-.slider:hover.slider::-moz-slider-thumb {
-    -webkit-box-shadow: 1px 1px 10px #000000;
-    -moz-box-shadow: 1px 1px 10px #000000;
-    box-shadow: 1px 1px 10px #000000;
-}
+// .slider:hover.slider::-webkit-slider-thumb {
+    // -webkit-box-shadow: 1px 1px 10px #000000;
+    // -moz-box-shadow: 1px 1px 10px #000000;
+    // box-shadow: 1px 1px 10px #000000;
+// }
+// .slider:hover.slider::-moz-slider-thumb {
+    // -webkit-box-shadow: 1px 1px 10px #000000;
+    // -moz-box-shadow: 1px 1px 10px #000000;
+    // box-shadow: 1px 1px 10px #000000;
+// }
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -297,7 +292,7 @@ img {
     padding: 60px 40px 0;
 
     @media #{$mobile}{
-        padding : 60px 20px 0;
+        padding : 100px 20px 0;
     }
 }
 
@@ -399,7 +394,7 @@ img {
     box-sizing: border-box;
 
     @media #{$mobile}{
-        padding : 60px 20px;
+        padding : 100px 20px;
     }
 }
 
