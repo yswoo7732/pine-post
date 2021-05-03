@@ -30,6 +30,7 @@ window.addEventListener('DOMContentLoaded', function(){
         contentsContainer.style.display = "";
         gsap.to(window, 1.2, { scrollTo: { y: ".result_wrapper" } , ease: Power4.easeInOut });
 
+        document.querySelector(".main_section").classList.add("result_container_active");
         document.querySelector(".result_container").classList.add("result_container_active");
         document.querySelector(".result_section_tip").classList.add("result_container_active");
 

@@ -60,12 +60,38 @@ img {
     padding: 15% 40px 10%;
     margin: auto;
     background-color: #fff;
-    // height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
-    @media #{$mobile}{
-        min-height: 100vh;
-        padding : 10% 20px 15%;
+    .innerContWrap {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        padding : 3vh 20px 3vh;
+        transform: translate(-50%,-50%);
+        width: 650px;
+        // min-height: 100vh;
+        box-sizing: border-box;
+        // height: 100vh;
+        //background-color: red;
     }
+    @media #{$mobile}{
+        // min-height: 100vh;
+        padding : 3vh 20px 3vh;
+        .innerContWrap {
+            width: 100%;
+        }
+    }
+
+    // &.result_container_active {
+    //     @media #{$mobile}{
+    //         // position: relative;
+    //         // top:0%;
+    //         // left: 0%;
+    //         // padding : 5vh 20px;
+    //         // height: 100vh;
+    //         // background-color: red;
+    //     }
+    // }
 }
 
 .range_container {
@@ -88,7 +114,7 @@ img {
 .slider_container {
     width: 100%;
     height: 100%;
-    margin: 58px auto 8%;
+    margin: 54px auto 18px;
     position: relative;
     // background-color: red;
     // box-sizing: border-box;
@@ -318,7 +344,7 @@ img {
 }
 
 .result_container_active {
-    animation: slide-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    //animation: slide-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 #per_tax,
