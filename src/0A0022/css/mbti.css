@@ -39,6 +39,14 @@ body article {
   overflow: hidden !important;
 }
 
+.centerWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
 header {
   width: 600px;
   position: fixed;
@@ -174,7 +182,6 @@ main section.startPage {
 
 main section.startPage .titleWrap {
   position: relative;
-  padding: 10vh 0 0;
   z-index: 2;
   color: #000;
 }
@@ -192,6 +199,13 @@ main section.startPage .titleWrap h1 {
 
 main section.startPage .titleWrap .imageWrap {
   position: relative;
+  height: 480px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.startPage .titleWrap .imageWrap {
+    height: 80vw;
+  }
 }
 
 main section.startPage .titleWrap .imageWrap img {
@@ -200,16 +214,6 @@ main section.startPage .titleWrap .imageWrap img {
   top: -36px;
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-main section.startPage .startBtn {
-  top: 480px;
-}
-
-@media only screen and (max-width: 600px) {
-  main section.startPage .startBtn {
-    top: 80vw;
-  }
 }
 
 main section.quizPage {
@@ -274,7 +278,7 @@ main section.quizPage .questionWrap .question {
 @media only screen and (max-width: 600px) {
   main section.quizPage .questionWrap .question {
     width: 100%;
-    padding: 18vw 5vw;
+    padding: 18vh 5vw 0;
   }
 }
 
@@ -378,7 +382,6 @@ main section.loadingPage {
 
 main section.loadingPage .titleWrap {
   position: relative;
-  padding: 10vh 0 0;
   z-index: 2;
   color: #000;
 }
@@ -404,6 +407,13 @@ main section.loadingPage .titleWrap h2 {
 
 main section.loadingPage .titleWrap .imageWrap {
   position: relative;
+  height: 520px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.loadingPage .titleWrap .imageWrap {
+    height: 85vw;
+  }
 }
 
 main section.loadingPage .titleWrap .imageWrap img {
@@ -421,7 +431,7 @@ main section.loadingPage .titleWrap .imageWrap img {
 
 .resultPage .titleWrap {
   position: relative;
-  padding: 8vh 0 10px;
+  padding: 15vh 0 10px;
   z-index: 2;
   color: #000;
 }

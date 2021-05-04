@@ -58,6 +58,15 @@ body {
     overflow: hidden !important;
 }
 
+.centerWrap {
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    width:100%;
+    transform: translate(-50%, -50%);
+    // height: 100%;
+}
+
 header {
     width: $content-width;
     position: fixed;
@@ -158,9 +167,10 @@ main {
             
             .titleWrap {
                 position : relative;
-                padding: 10vh 0 0;
+                //padding: 14vh 0 0;
                 z-index : 2;
                 color: $defaultColor;
+                
                 // span {
                 //     // color : #fff;
                 //     // font-size: 15px;
@@ -182,6 +192,10 @@ main {
                 }
                 .imageWrap {
                     position: relative;
+                    height: 480px;
+                    @media #{$mobile} {
+                        height: 80vw;
+                    }
                     img {
                         width: 80%;
                         position: absolute;
@@ -192,10 +206,10 @@ main {
                 }
             }
             .startBtn {
-                top: 480px;
-                @media #{$mobile} {
-                    top: 80vw;
-                }
+                // top: 480px;
+                // @media #{$mobile} {
+                //     top: 80vw;
+                // }
                 // position: fixed;
                 // bottom : 30px;
                 // left : 50%;
@@ -278,7 +292,7 @@ main {
 
                     @media #{$mobile} {
                         width: 100%;
-                        padding : 18vw 5vw;
+                        padding : 18vh 5vw 0;
                         // text-align: left;
                     }
 
@@ -379,7 +393,7 @@ main {
             background : $pointColor;
             .titleWrap {
                 position : relative;
-                padding: 10vh 0 0;
+                // padding: 18vh 0 0;
                 z-index : 2;
                 color: $defaultColor;
                 
@@ -403,6 +417,10 @@ main {
 
                 .imageWrap {
                     position: relative;
+                    height: 520px;
+                    @media #{$mobile} {
+                        height: 85vw;
+                    }
                     img {
                         width: 70%;
                         position: absolute;
@@ -424,7 +442,7 @@ main {
 
     .titleWrap {
         position : relative;
-        padding: 8vh 0 10px;
+        padding: 15vh 0 10px;
         z-index : 2;
         color: $defaultColor;
         // span {
