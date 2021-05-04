@@ -154,10 +154,10 @@ function snsFunc(sns) {
                 },
                 buttons: [
                     {
-                        title: "나의 투자메이트 파인",
+                        title: "나와 어울리는 자동차 찾기",
                         link: {
-                            mobileWebUrl: "https://pine.fund/",
-                            webUrl: "https://pine.fund/",
+                            mobileWebUrl: "https://contents.pine.fund/0A0022/",
+                            webUrl: "https://contents.pine.fund/0A0022/",
                         },
                     },
                 ],
@@ -174,11 +174,22 @@ function snsFunc(sns) {
 
     switch (o.method) {
         case "popup":
-            window.open(
-                o.url,
-                o.sns + "",
-                "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
-            );
+            
+            // window.open(
+            //     o.url,
+            //     o.sns + "",
+            //     "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
+            // );
+            if (typeof (window.open) == "function") { 
+                window.open(
+                    o.url,
+                    o.sns + "",
+                    "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
+                );
+            } else { 
+                window.location.href = o.url;
+            }
+
             break;
     }
 }
