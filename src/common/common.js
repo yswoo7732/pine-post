@@ -90,21 +90,45 @@ function clickLike() {
     } else {
         //앱이 아닐 경우 노출되는 PINE 로고 클릭
         console.log("웹, 파인앱 (설치로) 보내기");
+        if (isMobile()) {
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                location.href = "https://itunes.apple.com/app/id1559691452";
+            } else {
+                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+            }
+        } else {
+            if (navigator.appVersion.indexOf("Mac") != -1) {
+                location.href = "https://itunes.apple.com/app/id1559691452";
+            } else {
+                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+            }
+        }
     }
 }
 
 function appLinkFunc(str, num = "") {
     console.log(str, num);
 
-    if (pineAppChk() || isMobile()) {
+    if (pineAppChk()) {
         if (str == "web") {
             window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
         } else {
             window.location = "hamcpine://share?&what=" + str + "&value=" + num;
         }
     } else {
-        //pc일 경우
-        console.log("웹, 파인앱 (설치로) 보내기");
+        if (isMobile()) {
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                location.href = "https://itunes.apple.com/app/id1559691452";
+            } else {
+                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+            }
+        } else {
+            if (navigator.appVersion.indexOf("Mac") != -1) {
+                location.href = "https://itunes.apple.com/app/id1559691452";
+            } else {
+                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+            }
+        }
     }
 }
 
@@ -124,7 +148,7 @@ function urlCopy() {
     document.body.appendChild(t);
     t.value = window.location.href;
     t.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(t);
     // var urlbox = document.getElementById("shareUrl");
     // urlbox.value = window.location.href;

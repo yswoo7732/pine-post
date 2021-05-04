@@ -1,10 +1,9 @@
 let windowHeight = 0;
 
-window.addEventListener('DOMContentLoaded', function () {
-
+window.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", resizeFunc);
     resizeFunc();
-    
+
     const body = document.body;
     const body_frame = document.getElementById("body_frame");
 
@@ -21,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const linkCoverFull = document.getElementById("link_cover_full");
     const linkImg = document.getElementById("link_img");
     const halfBody = windowHeight / 2;
-    
+
     let isUp = true;
     let currentScrollTop = 0;
     let prevScrollTop = 0;
@@ -52,11 +51,12 @@ window.addEventListener('DOMContentLoaded', function () {
             var chkTmp = new Array();
 
             Array.from(boxShadows).forEach(function (element, index, array) {
-                if (element.getBoundingClientRect().top > basicFoot.scrollHeight && element.getBoundingClientRect().top < window.innerHeight) {
+                // console.log(element);
+
+                if (element.getBoundingClientRect().top < window.innerHeight) {
                     chkTmp.push(element);
                 }
             });
-
             if (chkTmp.length >= 1) {
                 for (var i = 0; i < chkTmp.length; i++) {
                     chkTmp[i].style.transitionDelay = i + "s";
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function () {
         progressBar.style.width = Math.ceil((currentScrollTop / (body.scrollHeight - windowHeight)) * 100) + "%";
 
         if (currentScrollTop > basicFoot.offsetHeight) {
-            var basicFootOpacity = closeLinkImgPos / windowHeight * 1 - .1; //opacity 1~0
+            var basicFootOpacity = (closeLinkImgPos / windowHeight) * 1 - 0.1; //opacity 1~0
             basicFoot.classList.add("sticky");
             basicFoot.classList.remove("darkMode");
 
@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 progressBar.style.opacity = basicFootOpacity;
                 basicFoot.style.backgroundColor = "rgba(255, 255, 255, " + basicFootOpacity + ")";
 
-                if (basicFootOpacity < .4) {
+                if (basicFootOpacity < 0.4) {
                     basicFoot.classList.add("darkMode");
                 }
             }
@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         var speed = checkScrollSpeed();
 
-        if (currentScrollTop > (linkCoverFull.offsetTop - windowHeight) + halfBody) {
+        if (currentScrollTop > linkCoverFull.offsetTop - windowHeight + halfBody) {
             if (!isUp && speed < 20) {
                 tweenScrollTo();
             }
@@ -131,9 +131,7 @@ window.addEventListener('DOMContentLoaded', function () {
             ease: "Power2.easeOut",
         });
     }
-
 });
-
 
 function resizeFunc() {
     windowHeight = window.innerHeight;
