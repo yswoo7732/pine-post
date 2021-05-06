@@ -106,8 +106,6 @@ function clickLike() {
 }
 
 function appLinkFunc(str, num = "") {
-    console.log(str, num);
-
     if (str == "web") {
         var pine_url = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
     } else {
@@ -134,40 +132,13 @@ function appLinkFunc(str, num = "") {
             
 			location.href = pine_url;
 		}
-	}
-
-    // if (pineAppChk()) {
-    //     if (str == "web") {
-    //         window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
-    //     } else {
-    //         window.location = "hamcpine://share?&what=" + str + "&value=" + num;
-    //     }
-    // } else {
-    //     if (isMobile()) {
-    //         if (str == "web") {
-    //             var ios_appstore_url = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
-    //         } else {
-    //             var ios_appstore_url = "hamcpine://share?&what=" + str + "&value=" + num;
-    //         }
-    //         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                
-    //             setTimeout( function() {
-    //                 window.open(ios_appstore_url);
-    //             }, 1500);
-    
-    //             // location.href = ios_url;
-    //             location.href = "https://itunes.apple.com/app/id1559691452";
-    //         } else {
-    //             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
-    //         }
-    //     } else {
-    //         if (navigator.appVersion.indexOf("Mac") != -1) {
-    //             location.href = "https://itunes.apple.com/app/id1559691452";
-    //         } else {
-    //             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
-    //         }
-    //     }
-    // }
+	} else {
+        if (navigator.appVersion.indexOf("Mac") != -1) {
+            window.open(ios_appstore_url);
+        } else {
+            window.open(android_store_url);
+        }
+    }
 }
 
 function isMobile() {
