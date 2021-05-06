@@ -216,7 +216,7 @@ function urlCopy() {
         alert("URL이 복사 되었습니다.");
     }else {
         var snsBtn = document.querySelector('.ico_sns');
-        snsBtn.querySelectorAll("li")[3].querySelector("span").innerText = "<span>URL 복사</span>완료";
+        snsBtn.querySelectorAll("li")[3].querySelector("span").innerText = "URL 복사완료";
     }
 
 }
