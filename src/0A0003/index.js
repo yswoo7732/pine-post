@@ -41,6 +41,25 @@ function soundOff() {
 
 window.onload = function () {
     // fitScreeSize();
+    getLike();
+
+    var page1StartBtn = document.getElementsByClassName("fund1_startBtn")[0];
+    page1StartBtn.addEventListener(
+        "click",
+        function (event) {
+            this.classList.add("fund1_startBtn_active");
+            swiper_h.slideTo(1);
+        },
+        false
+    );
+
+    if (!pineAppChk()) {
+        let imgHeart = document.querySelectorAll(".img_heart");
+
+        imgHeart.forEach(function (el) {
+            el.src = "../common/assets/card_foot_PINE.png";
+        });
+    }
 
     var swiper_h = new Swiper(".swiper-container-v", {
         direction: "vertical",
@@ -120,36 +139,14 @@ window.onload = function () {
         },
     });
 
-    lottie.loadAnimation({
-        container: document.getElementsByClassName("fund3_game_ani")[0], // the dom element that will contain the animation
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "assets/data.json", // the path to the animation json
-    });
-
+   
     var scrollingElement = document.scrollingElement || document.body;
-
-    console.log("scrollingElement.scrollWidth - window.innerWidth / 2", window.innerWidth / 2 - scrollingElement.scrollWidth / 2);
-
-    console.log("scrollingElement.scrollHeight - window.innerHeight / 2", window.innerHeight / 2 - scrollingElement.scrollHeight / 2);
 
     window.scroll({
         left: Math.abs(window.innerWidth / 2 - scrollingElement.scrollWidth / 2),
         top: Math.abs(window.innerHeight / 2 - scrollingElement.scrollHeight / 2),
         behavior: "smooth",
     });
-
-    var page1StartBtn = document.getElementsByClassName("fund1_startBtn")[0];
-    page1StartBtn.addEventListener(
-        "click",
-        function (event) {
-            console.log("page1StartBtn Click!", event);
-            this.classList.add("fund1_startBtn_active");
-            swiper_h.slideTo(1);
-        },
-        false
-    );
 
     var page2box1 = document.getElementsByClassName("fund2_box1")[0];
     page2box1.addEventListener(
@@ -303,9 +300,9 @@ window.onload = function () {
     soundOnOff.forEach((item) => {
         item.addEventListener("click", (event) => {
             if (!event.target.classList.contains("sound_on")) {
-                soundOn(event.target);
+                soundOn();
             } else {
-                soundOff(event.target);
+                soundOff();
             }
         });
     });

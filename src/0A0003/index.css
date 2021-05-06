@@ -304,7 +304,8 @@ img {
     margin-top: 149%;
 }
 
-.fund3_result:active,  .fund4_2_result:active {
+.fund3_result:active,
+.fund4_2_result:active {
     transform: scale(0.95, 0.95);
 }
 
@@ -341,16 +342,20 @@ img {
     width: 50%;
     height: auto;
     position: absolute;
-    top: 87%;
+    bottom: 0;
     left: 0;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
 }
 
 .img_share {
     width: 50%;
     height: auto;
     position: absolute;
-    top: 87%;
+    bottom: 0;
     left: 50%;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
 }
 
 @keyframes ani_fund3_arrow {

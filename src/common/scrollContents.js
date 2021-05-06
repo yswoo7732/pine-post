@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded", function () {
             });
             if (chkTmp.length >= 1) {
                 for (var i = 0; i < chkTmp.length; i++) {
-                    chkTmp[i].style.transitionDelay = i + "s";
+                    chkTmp[i].style.transitionDelay = i / 2 + "s";
                 }
 
                 for (var i = 0; i < chkTmp.length; i++) {
@@ -122,6 +122,8 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 
     function tweenScrollTo() {
+        if(isUp) return false;
+
         let domScroll = linkCoverFull.offsetTop + 10;
         TweenMax.to(window, 1, {
             scrollTo: {

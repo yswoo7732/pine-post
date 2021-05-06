@@ -40,7 +40,6 @@ function sharedContents() {
         }
     } else {
         urlCopy();
-        console.log("어떻게 SNS 공유? 그냥 주소 복사?");
     }
 }
 
