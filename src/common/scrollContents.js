@@ -105,7 +105,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         var speed = checkScrollSpeed();
 
-        if (currentScrollTop > linkCoverFull.offsetTop - windowHeight + halfBody && currentScrollTop < window.scrollY) {
+        if (currentScrollTop > linkCoverFull.offsetTop - windowHeight + halfBody) {
             if (!isUp && speed < 20) {
                 tweenScrollTo();
             }
