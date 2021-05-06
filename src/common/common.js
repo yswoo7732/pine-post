@@ -108,27 +108,62 @@ function clickLike() {
 function appLinkFunc(str, num = "") {
     console.log(str, num);
 
-    if (pineAppChk()) {
-        if (str == "web") {
-            window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
-        } else {
-            window.location = "hamcpine://share?&what=" + str + "&value=" + num;
-        }
+    if (str == "web") {
+        var pine_url = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
     } else {
-        if (isMobile()) {
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                location.href = "https://itunes.apple.com/app/id1559691452";
-            } else {
-                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
-            }
-        } else {
-            if (navigator.appVersion.indexOf("Mac") != -1) {
-                location.href = "https://itunes.apple.com/app/id1559691452";
-            } else {
-                location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
-            }
-        }
+        var pine_url = "hamcpine://share?&what=" + str + "&value=" + num;
     }
+
+    var ios_appstore_url = "https://itunes.apple.com/app/id1559691452";
+    var android_store_url = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+
+    var result_mo_chk = mo_chk();
+
+    if(result_mo_chk!="pc"){
+		if(result_mo_chk == "ios"){
+
+			setTimeout( function() {
+				window.open(ios_appstore_url);
+			}, 1500);
+
+			location.href = pine_url;
+		} else {
+			location.href = pine_url;
+		}
+	}
+
+    // if (pineAppChk()) {
+    //     if (str == "web") {
+    //         window.location = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
+    //     } else {
+    //         window.location = "hamcpine://share?&what=" + str + "&value=" + num;
+    //     }
+    // } else {
+    //     if (isMobile()) {
+    //         if (str == "web") {
+    //             var ios_appstore_url = "hamcpine://share?&what=" + str + "&value=" + location.origin + "/" + num;
+    //         } else {
+    //             var ios_appstore_url = "hamcpine://share?&what=" + str + "&value=" + num;
+    //         }
+    //         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                
+    //             setTimeout( function() {
+    //                 window.open(ios_appstore_url);
+    //             }, 1500);
+    
+    //             // location.href = ios_url;
+    //             location.href = "https://itunes.apple.com/app/id1559691452";
+    //         } else {
+    //             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+    //         }
+    //     } else {
+    //         if (navigator.appVersion.indexOf("Mac") != -1) {
+    //             location.href = "https://itunes.apple.com/app/id1559691452";
+    //         } else {
+    //             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+    //         }
+    //     }
+    // }
 }
 
 function isMobile() {
@@ -155,4 +190,23 @@ function urlCopy() {
     // therange = urlbox.createTextRange();
     // therange.execCommand("Copy");
     alert("URL이 복사 되었습니다.");
+}
+
+function mo_chk(){
+
+	var os;
+
+	if (isMobile()) {
+		var userAgent = navigator.userAgent.toLowerCase();
+		if (userAgent.search("android") > -1){
+			return os = "android";
+		}else if ((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)){
+			return os = "ios";
+		}else{
+			return os = "other";
+		}
+
+	} else {
+		return os = "pc";
+	}
 }
