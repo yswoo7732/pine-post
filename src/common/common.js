@@ -126,9 +126,9 @@ function appLinkFunc(str, num = "") {
 
 			location.href = pine_url;
 		} else {
-            setTimeout( function() {
-				window.open(android_store_url);
-            }, 1500);
+            // setTimeout( function() {
+			// 	window.open(android_store_url);
+            // }, 1500);
             
 			location.href = pine_url;
 		}
