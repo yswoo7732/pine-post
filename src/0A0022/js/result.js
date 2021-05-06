@@ -11,9 +11,18 @@ function logoClick(){
 var is_mobile = false;
 var height, width;
 var _main;
+var fineApp = false;
 
 document.addEventListener("DOMContentLoaded", function(){
     is_mobile = isMobile();
+    fineApp = pineAppChk();
+
+    //앱 sns 공유 버튼 셋팅
+    // var snsBtn = document.querySelector('.ico_sns');
+    // snsBtn.querySelectorAll("li")[0].innerHTML = <a href=""></a>
+    // snsBtn.querySelectorAll("li")[1].innerHTML = <a href=""></a>
+    // snsBtn.querySelectorAll("li")[2].innerHTML = <a href=""></a>
+
     _main = document.querySelector("main");
     
     document.querySelector(".restartBtn").addEventListener("click", function(){
@@ -180,7 +189,8 @@ function snsFunc(sns) {
             //     o.sns + "",
             //     "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
             // );
-            if (typeof (window.open) == "function") { 
+            
+            if (!fineApp) { 
                 window.open(
                     o.url,
                     o.sns + "",
@@ -202,7 +212,13 @@ function urlCopy() {
     // console.log(urlbox.value)
     urlbox.select();
     document.execCommand("Copy");
-    alert("URL이 복사 되었습니다.");
+    if (!fineApp) { 
+        alert("URL이 복사 되었습니다.");
+    }else {
+        var snsBtn = document.querySelector('.ico_sns');
+        snsBtn.querySelectorAll("li")[3].querySelector("span").innerText = "<span>URL 복사</span>완료";
+    }
+
 }
 
 
@@ -221,3 +237,9 @@ function isMobile() {
     return rtn;
 }
 
+function pineAppChk() {
+    if (navigator.userAgent.match(/PINE|pine/)) {
+        return true;
+    }
+    return false; //여기만 true로 바꿔서 테스트
+}

@@ -245,7 +245,7 @@ main section.quizPage .pageNumWrap .bar {
 
 main section.quizPage .pageNumWrap p {
   position: relative;
-  padding: 16px 0;
+  padding: 18px 0;
   font-size: 14px;
   font-weight: bold;
   color: #fff;
@@ -253,7 +253,7 @@ main section.quizPage .pageNumWrap p {
 
 @media only screen and (max-width: 600px) {
   main section.quizPage .pageNumWrap p {
-    padding: 15px 0;
+    padding: 20px 0;
     font-size: 14px;
   }
 }

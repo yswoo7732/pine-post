@@ -261,7 +261,7 @@ main {
                 }
                 p {
                     position: relative;
-                    padding : 16px 0;
+                    padding : 18px 0;
                     font-size : 14px;
                     font-weight: bold;
                     color: #fff;
@@ -269,7 +269,7 @@ main {
 
                     // }
                     @media #{$mobile}{
-                        padding : 15px 0;
+                        padding : 20px 0;
                         font-size : 14px;
                     }
                 }
