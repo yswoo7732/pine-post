@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // 스크롤 방향 감지
         isUp = currentScrollTop - prevScrollTop >= 0 ? false : true;
         prevScrollTop = currentScrollTop;
-        //console.log("isUp: ", isUp);
+        // console.log("isUp: ", isUp);
 
         // scroll에 따른 main cover image height
         if (body_frame.offsetTop >= currentScrollTop) {
@@ -105,7 +105,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         var speed = checkScrollSpeed();
 
-        if (currentScrollTop > linkCoverFull.offsetTop - windowHeight + halfBody) {
+        if (currentScrollTop > linkCoverFull.offsetTop - windowHeight + halfBody && currentScrollTop < window.scrollY) {
             if (!isUp && speed < 20) {
                 tweenScrollTo();
             }
@@ -125,6 +125,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if(isUp) return false;
 
         let domScroll = linkCoverFull.offsetTop + 10;
+
         TweenMax.to(window, 1, {
             scrollTo: {
                 y: domScroll,
