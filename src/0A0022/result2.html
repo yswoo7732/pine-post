@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" type="text/css" href="../common/common.css" />
     <link rel="stylesheet" type="text/css" href="./css/mbti.css" />
+    <script type="text/javascript" src="../common/common.js"></script>
     <script type="text/javascript" src="./js/result.min.js"></script>
 
 </head>
@@ -51,6 +52,7 @@
                                 야심차게 시작했는데 못 끝낸 프로젝트들이 있나요? 포기하지 않고 꾸준히 하는 마인드가 필요합니다. 
                                 <span>투자가 어렵다면 소액부터 꾸준하게 적립식 투자를 시도해봐도 좋아요!</span>
                             </p>
+                            <a class="investBtn" onclick="appLinkFunc('home');">투자하기</a>
                         </div>
                     </div>
 
@@ -62,7 +64,10 @@
                             <em class="bg"></em>
                             <img class="car" src="./image/cast_special_car_04.png" alt="아우디">
                         </div>
-                        <a class="restartBtn" href="index.html">다시하기<em></em></a>
+                        <div class="resultBtnWrap"> 
+                            <a class="resultAllBtn" href="#">전체 유형 보기</a>
+                            <a class="restartBtn" href="index.html">다시하기<em></em></a>
+                        </div>
                     </div>
                     
                 </div>
@@ -72,8 +77,25 @@
                         <li><a href="#" onclick="snsFunc('kakaotalk'); return false;" class="kakao" title="카카오톡 공유"></a>카카오톡</li>
                         <li><a href="#" onclick="snsFunc('facebook'); return false;" class="facebook" title="페이스북 공유"></a>페이스북</li>
                         <li><a href="#" onclick="snsFunc('twitter'); return false;" class="twitter" title="트위터 공유"></a>트위터</li>
-                        <li><a href="#" onclick="urlCopy(); return false;" class="url" title="주소 복사"><input type="text" id="ShareUrl"></a><span>URL 복사</span></li>
+                        <li><a href="#" onclick="urlCopyFunc(); return false;" class="url" title="주소 복사"><input type="text" id="ShareUrl"></a><span>URL 복사</span></li>
                     </ul>
+                </div>
+                <div class="allResultLayer">
+                    <div class="innerLayer">
+                        <button type="button" class="closeBtn"><img src="./image/btn-top-icon-closed-b@2x.png" alt="레이어닫기"></button>
+                        <h4>모든 자동차 구경하기</h4>
+                        <ul>
+                            <li><a href="result0.html"><img src="./image/cast_special_car_01.png" style="width:92px;" alt="벤틀리"></a>벤틀리</li>
+                            <li><a href="result1.html"><img src="./image/cast_special_car_02.png" style="width:84px;" alt="포르쉐"></a>포르쉐</li>
+                            <li><a href="result2.html"><img src="./image/cast_special_car_03.png" style="width:92px;" alt="테슬라"></a>테슬라</li>
+                            <li><a href="result3.html"><img src="./image/cast_special_car_04.png" style="width:102px;" alt="아우디"></a>아우디</li>
+                            <li><a href="result4.html"><img src="./image/cast_special_car_05.png" style="width:92px;" alt="람보르기니"></a>람보르기니</li>
+                            <li><a href="result5.html"><img src="./image/cast_special_car_06.png" style="width:70px;" alt="지프"></a>지프</li>
+                            <li><a href="result6.html"><img src="./image/cast_special_car_07.png" style="width:71px;" alt="허머"></a>허머</li>
+                            <li><a href="result7.html"><img src="./image/cast_special_car_08.png" style="width:101px;" alt="벤츠"></a>벤츠</li>
+                        </ul>
+                        <button type="button" class="confirmBtn">확인</button>
+                    </div>
                 </div>
             </section>
         </article>

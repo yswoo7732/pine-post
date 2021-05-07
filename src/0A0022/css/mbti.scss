@@ -477,9 +477,9 @@ main {
         
     }
 
-    button {
-        margin-top : 100px;
-    }
+    // button {
+    //     margin-top : 100px;
+    // }
     // p {
     //     color : #000;
     //     margin : 20px;
@@ -589,40 +589,89 @@ main {
                     // }
                 }
             }
-            .restartBtn {
-                position: relative;
-                display: inline-block;
-                margin : 50px auto;
-                font-size: 17px;
-                background: none;
-                border : 1px solid #fff;
-                padding: 15px 60px; 
-                border-radius: 100px;
-                cursor : pointer;
-                &:-webkit-any-link {
-                    color: #fff;
-                }
-                em {
-                    top: 3px;
-                    position: relative;
-                    left: 10px;
-                    width: 17px;
-                    height: 17px;
-                    display: inline-block;
-                    background: url(../image/refresh.svg) no-repeat;
-                    transition : all .3s ease-in-out;
-                }
-                &:hover {
-                    em {
-                        transform: rotate(180deg);
-                    }
-                }
-            }
+            
         }
         
     }
+}
+
+.investBtn {
+    position: relative;
+    display: inline-block;
+    margin : 20px auto 10px;
+    font-size: 15px;
+    // background: none;
+    border : 1px solid #fff;
+    padding: 14px 40px; 
+    border-radius: 5px;
+    cursor : pointer;
+
+    background-color: #000;
+    color: #fff;
     
 }
+
+.resultBtnWrap {
+    position: relative;
+    padding : 50px 0;
+    .resultAllBtn {
+        position: relative;
+        display: inline-block;
+        // margin : 50px 10px;
+        font-size: 17px;
+        background: none;
+        // border : 1px solid #fff;
+        padding: 15px 40px; 
+        border-radius: 100px;
+        cursor : pointer;
+        color: #fff;
+        background-color: #000;
+        margin-right : 12px;
+
+        @media #{$mobile} {
+            padding: 15px 7vw; 
+            margin-right : 1.5vw;
+        }    
+    }
+
+    .restartBtn {
+        position: relative;
+        display: inline-block;
+        // margin : 0 auto;
+        font-size: 17px;
+        background: none;
+        border : 1px solid #fff;
+        padding: 15px 60px; 
+        border-radius: 100px;
+        cursor : pointer;
+
+        @media #{$mobile} {
+            padding: 15px 10vw; 
+            // margin-left : 2px;
+        } 
+
+        &:-webkit-any-link {
+            color: #fff;
+        }
+        em {
+            top: 3px;
+            position: relative;
+            left: 10px;
+            width: 17px;
+            height: 17px;
+            display: inline-block;
+            background: url(../image/refresh.svg) no-repeat;
+            transition : all .3s ease-in-out;
+        }
+        &:hover {
+            em {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+
 .shareBtnWrap {
     background-color: #464646;
     p {
@@ -665,4 +714,80 @@ main {
         }
     }
     // height: 300px;
+}
+
+.allResultLayer {
+    position: fixed;
+    top:0;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition : all .3s ease-in-out;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .innerLayer {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        width: calc(100% - 156px);
+        transform: translate(-50%,-50%);
+        background-color: #fff;
+        // margin : 10% 28px;
+
+        @media #{$mobile} {
+            width: calc(100% - 56px);
+        } 
+
+        .closeBtn {
+            position: absolute;
+            top:0;
+            right:0;
+            width: 50px;
+        }
+
+        h4 {
+            font-size :16px;
+            color: #fff;
+            background-color: black;
+            border-radius: 50px;
+            padding : 10px 20px;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        ul {
+            padding: 0 25px 10px;
+            li {
+                display: inline-block;
+                width: 49%;
+                margin : 18px 0;
+                font-size : 12px;
+                text-align: center;
+                color: #000;
+                a {
+                    display: block;
+                    // padding: 0 6vw;
+                    // background-color: red;
+                    img {
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+        .confirmBtn {
+            width: 100%;
+            background-color: #000;
+            font-size : 18px;
+            padding: 18px 0;
+            // font-weight: bold;
+        }
+    }
 }

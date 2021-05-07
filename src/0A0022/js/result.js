@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
     is_mobile = isMobile();
     fineApp = pineAppChk();
 
+    console.log(is_mobile, fineApp)
     //앱 sns 공유 버튼 셋팅
     // var snsBtn = document.querySelector('.ico_sns');
     // snsBtn.querySelectorAll("li")[0].innerHTML = <a href=""></a>
@@ -24,14 +25,30 @@ document.addEventListener("DOMContentLoaded", function(){
     // snsBtn.querySelectorAll("li")[2].innerHTML = <a href=""></a>
 
     _main = document.querySelector("main");
+
+    //레이어
+    var allResultLayer = _main.querySelector('.allResultLayer');
     
-    document.querySelector(".restartBtn").addEventListener("click", function(){
+    _main.querySelector(".resultAllBtn").addEventListener("click", function(){
+        allResultLayer.classList.add("active");
+    });
+
+    _main.querySelector(".closeBtn").addEventListener("click", function(){
+        allResultLayer.classList.remove("active");
+    })
+    _main.querySelector(".confirmBtn").addEventListener("click", function(){
+        allResultLayer.classList.remove("active");
+    })
+    //레이어 end
+
+    _main.querySelector(".restartBtn").addEventListener("click", function(){
         _main.classList.add("start");
         _main.classList.remove("quiz");
         _main.classList.remove("loading");
         _main.classList.remove("result");
         resetFunc();
     })
+
 
     window.addEventListener("resize", function(){
         resizeFunc();
@@ -147,7 +164,16 @@ function snsFunc(sns) {
             };
             break;
         case "kakaotalk":
-            // console.log("ds_config.title : " + ds_config.title + " : ds_config.kakaotalk.text : " + ds_config.kakaotalk.text + " _ " + ds_config.url)
+            // console.log("ds_config.title : " + ds_config.title + " : ds_config.kakaotalk.text : " + ds_config.kakaotalk.text + " _ " + ds_config.url);
+
+            var result_mo_chk = mo_chk();
+
+            if(fineApp && result_mo_chk == "ios"){
+                //아이폰이면 네이티브 공유로
+                sharedContents();
+                return false;
+            }
+
             Kakao.Link.sendDefault({
                 objectType: "feed",
                 content: {
@@ -204,7 +230,7 @@ function snsFunc(sns) {
     }
 }
 
-function urlCopy() {
+function urlCopyFunc() {
     var urlbox = document.getElementById("ShareUrl");
     //console.log(urlbox)
     //urlbox.value = window.location.href;
@@ -218,28 +244,22 @@ function urlCopy() {
         var snsBtn = document.querySelector('.ico_sns');
         snsBtn.querySelectorAll("li")[3].querySelector("span").innerText = "URL 복사완료";
     }
-
 }
 
 
-function isMobile() {
-    var rtn = false;
-    // if (window.innerWidth <= 640) {
-    //     rtn = true;
-    // }
-    if (
-        navigator.userAgent.match(
-            /Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/
-        )
-    ) {
-        rtn = true;
-    }
-    return rtn;
-}
 
-function pineAppChk() {
-    if (navigator.userAgent.match(/PINE|pine/)) {
-        return true;
+function isInstalledApp() {
+    if (isMobile()) {
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            location.href = "https://itunes.apple.com/app/id1559691452";
+        } else {
+            location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+        }
+    } else {
+        if (navigator.appVersion.indexOf("Mac") != -1) {
+            location.href = "https://itunes.apple.com/app/id1559691452";
+        } else {
+            location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
+        }
     }
-    return false; //여기만 true로 바꿔서 테스트
 }
