@@ -91,13 +91,13 @@ function clickLike() {
         console.log("웹, 파인앱 (설치로) 보내기");
         if (isMobile()) {
             if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                location.href = "https://itunes.apple.com/app/id1559691452";
+                location.href = "https://apps.apple.com/app/id1559691452";
             } else {
                 location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
             }
         } else {
             if (navigator.appVersion.indexOf("Mac") != -1) {
-                location.href = "https://itunes.apple.com/app/id1559691452";
+                location.href = "https://apps.apple.com/app/id1559691452";
             } else {
                 location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
             }
@@ -112,7 +112,7 @@ function appLinkFunc(str, num = "") {
         var pine_url = "hamcpine://share?&what=" + str + "&value=" + num;
     }
 
-    var ios_appstore_url = "https://itunes.apple.com/app/id1559691452";
+    var ios_appstore_url = "https://apps.apple.com/app/id1559691452";
     var android_store_url = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
 
     var result_mo_chk = mo_chk();

@@ -251,13 +251,13 @@ function urlCopyFunc() {
 function isInstalledApp() {
     if (isMobile()) {
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            location.href = "https://itunes.apple.com/app/id1559691452";
+            location.href = "https://apps.apple.com/app/id1559691452";
         } else {
             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
         }
     } else {
         if (navigator.appVersion.indexOf("Mac") != -1) {
-            location.href = "https://itunes.apple.com/app/id1559691452";
+            location.href = "https://apps.apple.com/app/id1559691452";
         } else {
             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
         }
