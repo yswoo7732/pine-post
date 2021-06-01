@@ -1,42 +1,3 @@
-console.log("2/3", 2 / 3);
-console.log("9/16", 9 / 16);
-console.log("10/16", 10 / 16);
-console.log("4/5", 4 / 5);
-console.log("3/5", 3 / 5);
-console.log("1/7", 1 / 7);
-
-function gcd(a, b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-function fitScreeSize() {
-    console.log("document.body.clientWidth", document.body.clientWidth);
-    console.log("document.body.scrollWidth", document.body.scrollWidth);
-    console.log("document.body.clientHeight", document.body.clientHeight);
-    console.log("document.body.scrollHeight", document.body.scrollHeight);
-    console.log("window.innerWidth", window.innerWidth);
-    console.log("window.innerHeight", window.innerHeight);
-    console.log("window.screen.width", window.screen.width);
-    console.log("window.screen.height", window.screen.height);
-    console.log("window.screen.availWidth", window.screen.availWidth);
-    console.log("window.screen.availHeight", window.screen.availHeight);
-    console.log("window.outerHeight", window.outerHeight);
-    console.log("window.devicePixelRatio", window.devicePixelRatio);
-    console.log("navigator.userAgent", navigator.userAgent);
-    console.log("aspect-ratio value", 1 - window.screen.width / window.screen.height);
-
-    var r = gcd(window.screen.width, window.screen.height);
-    console.log("aspect-ratio", window.screen.width / r + ":" + window.screen.height / r);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".footer").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 34px)";
-            document.querySelector(".footer").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 34px)";
-        }
-    } else {
-        console.log("not mobile");
-    }
-}
-
 let lottie4 = lottie.loadAnimation({
     container: document.getElementById("lottie4"), // the dom element that will contain the animation
     renderer: "svg",
@@ -44,13 +5,13 @@ let lottie4 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
 });
-// let lottie5 = lottie.loadAnimation({
-//     container: document.getElementById("lottie5"), // the dom element that will contain the animation
-//     renderer: "svg",
-//     loop: false,
-//     autoplay: true,
-//     path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
-// });
+let lottie5 = lottie.loadAnimation({
+    container: document.getElementById("lottie5"), // the dom element that will contain the animation
+    renderer: "svg",
+    loop: false,
+    autoplay: true,
+    path: "assets/drawable_cast_card_fund2_5.json", // the path to the animation json
+});
 let lottie6 = lottie.loadAnimation({
     container: document.getElementById("lottie6"), // the dom element that will contain the animation
     renderer: "svg",
@@ -58,83 +19,17 @@ let lottie6 = lottie.loadAnimation({
     autoplay: false,
     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
 });
-// let lottie7 = lottie.loadAnimation({
-//     container: document.getElementById("lottie7"), // the dom element that will contain the animation
-//     renderer: "svg",
-//     loop: false,
-//     autoplay: true,
-//     path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
-// });
+let lottie7 = lottie.loadAnimation({
+    container: document.getElementById("lottie7"), // the dom element that will contain the animation
+    renderer: "svg",
+    loop: false,
+    autoplay: true,
+    path: "assets/drawable_cast_card_fund2_7.json", // the path to the animation json
+});
 
 window.onload = function () {
-    fitScreeSize();
-
-    // var swiper = new Swiper(".swiper-container", {
-    //     direction: "horizontal",
-    //     initialSlide: 0,
-    //     watchSlidesProgress: true,
-    //     resistanceRatio: 0,
-    //     on: {
-    //         slideChange: function (sp) {
-    //             document.getElementsByClassName("footer")[0].classList.remove("d-none");
-    //             document.getElementsByClassName("swiper-pagination")[0].classList.remove("d-none");
-    //             console.log("switch default activeIndex:", sp.activeIndex);
-
-    //             switch (sp.activeIndex) {
-    //                 case 0:
-    //                     document.getElementsByClassName("swiper-pagination")[0].classList.add("d-none");
-    //                     document.getElementsByClassName("footer")[0].classList.add("d-none");
-    //                     break;
-    //                 case 4:
-    //                     lottie4.goToAndPlay(0);
-    //                     break;
-    //                 case 5:
-    //                     // lottie5.goToAndPlay(0);
-    //                     break;
-    //                 case 6:
-    //                     lottie6.goToAndPlay(0);
-    //                     break;
-    //                 case 7:
-    //                     // lottie7.goToAndPlay(0);
-    //                     break;
-    //                 default:
-    //                     break;
-    //             }
-    //         },
-    //         // slideChangeTransitionStart: function (sp) {
-    //         //   console.log("slideChangeTransitionStart:", sp.activeIndex);
-    //         //   document
-    //         //     .getElementsByClassName("swiper-pagination")[0]
-    //         //     .classList.add("d-none");
-    //         // },
-    //         // slideChangeTransitionEnd: function (sp) {
-    //         //   console.log("slideChangeTransitionEnd:", sp.activeIndex);
-    //         //   switch (sp.activeIndex) {
-    //         //     case 0:
-    //         //       break;
-    //         //     default:
-    //         //       document
-    //         //         .getElementsByClassName("swiper-pagination")[0]
-    //         //         .classList.remove("d-none");
-    //         //       console.log("switch default activeIndex:", sp.activeIndex);
-    //         //       break;
-    //         //   }
-    //         // },
-    //     },
-    //     pagination: {
-    //         el: ".swiper-pagination",
-    //         type: "custom",
-    //         renderCustom: function (swiper, current, total) {
-    //             return (
-    //                 '<div class="page-font-f">' +
-    //                 ("0" + current).slice(-2) +
-    //                 '</div><div class="rectangle"></div><div class="page-font-b">' +
-    //                 ("0" + total).slice(-2) +
-    //                 "</div>"
-    //             );
-    //         },
-    //     },
-    // });
+    // 로드시, 좋아요 여부 호출
+    getLike();
 
     const multipleSwiperSlides = function () {
         let sliderMain = document.querySelectorAll(".swiper-container.js-slider--main");
@@ -154,31 +49,33 @@ window.onload = function () {
                     on: {
                         slideChange: function (sp) {
                             console.log("switch default activeIndex:", sp.activeIndex);
+                            document.getElementsByClassName("footer")[0].classList.remove("fade-out");
+                            document.getElementsByClassName("page-slide")[0].classList.remove("fade-out");
+
+                            document.getElementsByClassName("footer")[0].classList.add("fade-in");
+                            document.getElementsByClassName("page-slide")[0].classList.add("fade-in");
 
                             switch (sp.activeIndex) {
                                 case 0:
-                                    document.querySelector(".page-slide").style.opacity = 0;
+                                    document.getElementsByClassName("footer")[0].classList.remove("fade-in");
+                                    document.getElementsByClassName("page-slide")[0].classList.remove("fade-in");
 
-                                    document.getElementsByClassName("footer")[0].classList.add("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.add("d-none");
+                                    document.getElementsByClassName("footer")[0].classList.add("fade-out");
+                                    document.getElementsByClassName("page-slide")[0].classList.add("fade-out");
                                     break;
                                 case 4:
                                     lottie4.goToAndPlay(0);
                                     break;
                                 case 5:
-                                    lottie4.goToAndPlay(0);
+                                    lottie5.goToAndPlay(0);
                                     break;
                                 case 6:
                                     lottie6.goToAndPlay(0);
                                     break;
                                 case 7:
-                                    lottie6.goToAndPlay(0);
+                                    lottie7.goToAndPlay(0);
                                     break;
                                 default:
-                                    document.querySelector(".page-slide").style.opacity = 1;
-
-                                    document.getElementsByClassName("footer")[0].classList.remove("d-none");
-                                    document.getElementsByClassName("page-slide")[0].classList.remove("d-none");
                                     break;
                             }
                         },
@@ -226,7 +123,6 @@ window.onload = function () {
                     navArray[i].controller.control = mainArray[i];
                 }
 
-                document.getElementsByClassName("page-slide")[0].classList.add("d-none");
                 console.log("multipleSwiperSlides: Things should be working fine. B)");
             }
         };
@@ -236,31 +132,4 @@ window.onload = function () {
 
     multipleSwiperSlides();
 
-    var heartClickEvent = document.querySelector("#imgHeart");
-    heartClickEvent.addEventListener("click", function () {
-        console.log("heartClickEvent");
-        this.classList.toggle("heart_active");
-    });
-
-    var devModeCnt = 0;
-    var dev_mode = document.querySelector("#dev_mode");
-    dev_mode.addEventListener("click", function () {
-        if (devModeCnt++ > 5) {
-            var r = gcd(window.screen.width, window.screen.height);
-            document.getElementById("dev").innerHTML =
-                "aspect-ratio-value: " +
-                (1 - window.screen.width / window.screen.height) +
-                "<br/>" +
-                "aspect-ratio: " +
-                (window.screen.width / r + ":" + window.screen.height / r) +
-                "<br/>" +
-                "w:" +
-                window.screen.width +
-                " h:" +
-                window.screen.height +
-                "<br/>" +
-                "devicePixelRatio:" +
-                window.devicePixelRatio;
-        }
-    });
 };

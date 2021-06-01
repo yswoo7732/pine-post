@@ -5,22 +5,32 @@
     <meta charset="utf-8" />
     <title>직접투자와 간접투자</title>
     <!-- Link Swiper's CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="title" content="직접투자와 간접투자">
+    <meta name="description" content="주식과 펀드의 차이">
+    <meta property="og:site_name" content="직접투자와 간접투자" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="직접투자와 간접투자" />
+    <meta property="og:description" content="주식과 펀드의 차이" />
+    <meta property="og:url" content="https://contents.pine.fund/0A0008/" />
+    <meta property="og:image" content="https://contents.pine.fund/0A0008/assets/cast_thumbnail.png" />
+    <meta property="og:image:width" content="610" />
+    <meta property="og:image:height" content="319" />
 
-    <!-- Demo styles -->
-    <style></style>
+    <link rel="stylesheet" type="text/css" href="../common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
+    <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
+    <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/scrollContents.js"></script>
 </head>
 
 <body>
-    <!-- Swiper -->
-    <!-- <div> -->
     <div class="wrap_cover">
-        <div class="cover_item" id="cover_full">
-            <div class="cover_image" id="intro_img" style="background-image: url('assets/4_direct_intro.png')"></div>
+        <div class="cover_item" id="cover_full" style="background-image: url('assets/4_direct_intro.jpg')">
         </div>
         <div class="contents_1_1">
-            <p>주식이랑 펀드는 뭐가 다를까</p>
+            <h1>주식이랑 펀드는 뭐가 다를까</h1>
             <p style="font-weight: 500; line-height: 1.5">직접 투자와 간접 투자</p>
         </div>
         <div class="tip_cell">
@@ -32,21 +42,16 @@
             <p class="sub-tag-contents">#펀드</p>
         </div>
         <div class="sub-date-cell">
-            <p class="sub-date-contents">Nov.2020</p>
+            <p class="sub-date-contents">May.2021</p>
         </div>
     </div>
-    </div>
     <div class="wrap_body_frame" id="body_frame">
-        <div class="basic_foot">
+        <div class="basic_foot pineApp">
             <div class="progress-indicator">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="assets/basic_foot_heart.png" />
-            </div>
-            <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="assets/basic_foot_share.png" />
-            </div>
+            <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()">좋아요</button>
+            <button type="button" id="shareImg" class="img_share" onclick="sharedContents()">컨텐츠 공유</button>
         </div>
         <div class="wrap_body">
             <div class="contents_title_1">
@@ -54,7 +59,7 @@
                 <span></span>
             </div>
             <div class="contents_banner_1">
-                <img class="img_round" src="assets/drawable_image_main1.png" />
+                <img class="img_round" src="assets/drawable_image_main1.jpg" />
             </div>
 
             <div class="contents text_basic">
@@ -77,7 +82,7 @@
             </div>
 
             <div class="contents_banner_2">
-                <img class="img_round" src="assets/drawable_image_main2.png" />
+                <img class="img_round" src="assets/drawable_image_main2.jpg" />
             </div>
 
             <div class="contents_title_2">
@@ -100,7 +105,7 @@
             </div>
 
             <div class="contents_banner_3">
-                <img class="img_round" src="assets/drawable_image_main3.png" />
+                <img class="img_round" src="assets/drawable_image_main3.jpg" />
             </div>
 
             <div class="contents_title_3">
@@ -125,7 +130,7 @@
             </div>
 
             <div class="contents_banner_4">
-                <img class="img_round" src="assets/drawable_image_main4.png" />
+                <img class="img_round" src="assets/drawable_image_main4.jpg" />
             </div>
 
             <div class="contents_title_4">
@@ -152,28 +157,12 @@
     </div>
 
     <div class="link_item" id="link_cover_full">
-        <div class="cover_image" id="link_img" style="background-image: url('assets/4_direct_end.png'); height: 100%">
+        <div class="cover_image" id="link_img" style="background-image: url('assets/4_direct_end.jpg'); height: 100%">
         </div>
-        <a class="stroke_link" id="link_title">
-            <p style="text-align: center">전문가에게<br />투자 맡기기</p>
+        <a class="stroke_link" id="link_title" onclick="appLinkFunc('web', '0A0004');">
+            <p style="text-align: center">펀드 개념<br />다지기</p>
         </a>
     </div>
-
-
-    <div class="basic_link_foot sticky">
-        <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" />
-        </div>
-        <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="assets/card_foot_share.png" />
-        </div>
-    </div>
-    <!-- </div> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
-
-    <script type="text/javascript" src="index.js"></script>
 
 </body>
 

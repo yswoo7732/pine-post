@@ -5,9 +5,19 @@
   <meta charset="utf-8" />
   <title>적립식과 거치식</title>
   <!-- Link Swiper's CSS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />
-
-  <link rel="stylesheet" href="vendor/swiper-bundle.min.css" />
+  <meta name="viewport" view-fit="cover" content="width=device-width, initial-scale=1, user-scalable=0" />
+  <meta name="title" content="적립식과 거치식">
+  <meta name="description" content="세상은 넓고 펀드는 많다">
+  <meta property="og:site_name" content="적립식과 거치식" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="적립식과 거치식" />
+  <meta property="og:description" content="세상은 넓고 펀드는 많다" />
+  <meta property="og:url" content="https://contents.pine.fund/0A0009/" />
+  <meta property="og:image" content="https://contents.pine.fund/0A0009/assets/cast_thumbnail.png" />
+  <meta property="og:image:width" content="610" />
+  <meta property="og:image:height" content="319" />
+  <link rel="stylesheet" href="../common/vendor/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="../common/card.css" />
   <link rel="stylesheet" type="text/css" href="index.css" />
 
   <!-- Demo styles -->
@@ -51,16 +61,7 @@
         <!-- <img src="assets/card3_5.png" /> -->
         <div class="content-wrapper">
           <img class="" src="assets/card_3_draw5.png" />
-          <div id="lottie4" style="
-                position: absolute;
-                width: 95%;
-                height: auto;
-                left: 0;
-                right: 0;
-                bottom: 39%;
-                margin: auto;
-                z-index: 1;
-              "></div>
+          <div id="lottie4"></div>
         </div>
       </div>
       <!-- 5 -->
@@ -68,16 +69,7 @@
         <!-- <img src="assets/card3_6.png" /> -->
         <div class="content-wrapper">
           <img class="" src="assets/card_3_draw6.png" />
-          <div id="lottie5" style="
-                position: absolute;
-                width: 95%;
-                height: auto;
-                left: 0;
-                right: 0;
-                bottom: 39%;
-                margin: auto;
-                z-index: 1;
-              "></div>
+          <div id="lottie5"></div>
         </div>
       </div>
       <div class="swiper-slide">
@@ -85,16 +77,7 @@
         <!-- <img src="assets/card3_7.png" /> -->
         <div class="content-wrapper">
           <img class="" src="assets/card_3_draw7.png" />
-          <div id="lottie6" class="" style="
-                position: absolute;
-                width: 100%;
-                height: auto;
-                left: 0;
-                right: 0;
-                bottom: 31%;
-                margin: auto;
-                z-index: 1;
-              "></div>
+          <div id="lottie6"></div>
         </div>
       </div>
       <div class="swiper-slide">
@@ -102,16 +85,7 @@
         <!-- <img src="assets/card3_8.png" /> -->
         <div class="content-wrapper">
           <img class="" src="assets/card_3_draw8.png" />
-          <div id="lottie7" class="" style="
-                position: absolute;
-                width: 100%;
-                height: auto;
-                left: 0;
-                right: 0;
-                bottom: 31%;
-                margin: auto;
-                z-index: 1;
-              "></div>
+          <div id="lottie7"></div>
         </div>
       </div>
       <div class="swiper-slide">
@@ -120,13 +94,13 @@
         <div class="content-wrapper">
           <img class="" src="assets/card_3_draw9.png" />
         </div>
-        <button class="btn-link">투자 상품 확인하기</button>
+        <button class="btn-link" onclick="appLinkFunc('my', 1)">투자 상품 확인하기</button>
       </div>
     </div>
-    <div class="slider-wrapper page-slide" style="opacity: 0;">
+    <div class="slider-wrapper page-slide">
       <div class="swiper-container js-slider--nav">
         <div class="swiper-wrapper">
-          <div class="swiper-slide nav-slide" style="opacity: 0;">01</div>
+          <div class="swiper-slide nav-slide">01</div>
           <div class="swiper-slide nav-slide">02</div>
           <div class="swiper-slide nav-slide">03</div>
           <div class="swiper-slide nav-slide">04</div>
@@ -140,17 +114,18 @@
       <div class="rectangle"></div>
       <div class="page-font-b">09</div>
     </div>
-    <!-- <div class="swiper-pagination d-none"></div> -->
-    <div class="footer d-none">
-      <img id="imgHeart" class="" src="assets/card_foot_heart.png" style="width: 50%; height: auto" />
-      <img class="" src="assets/card_foot_share.png" style="width: 50%; height: auto" />
+    <div class="footer basic_foot pineApp">
+      <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()"></button>
+      <button type="button" id="shareImg" class="img_share"onclick="sharedContents()"></button>
     </div>
   </div>
 
   <!-- Swiper JS -->
-  <script defer src="vendor/lottie.min.js"></script>
-  <script defer src="vendor/swiper-bundle.min.js"></script>
-  <script defer type="text/javascript" src="index.js"></script>
+  <script src="../common/vendor/lottie.min.js"></script>
+  <script src="../common/vendor/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../common/common.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
 </body>
 
 </html>

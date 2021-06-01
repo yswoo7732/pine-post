@@ -1,162 +1,138 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>재간접 펀드</title>
+        <!-- Link Swiper's CSS -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="title" content="재간접 펀드" />
+        <meta name="description" content="펀드에 투자하는 펀드" />
+        <meta property="og:site_name" content="재간접 펀드" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="재간접 펀드" />
+        <meta property="og:description" content="펀드에 투자하는 펀드" />
+        <meta property="og:url" content="https://contents.pine.fund/0A0012/" />
+        <meta property="og:image" content="https://contents.pine.fund/0A0012/assets/cast_thumbnail.png" />
+        <meta property="og:image:width" content="610" />
+        <meta property="og:image:height" content="319" />
 
-<head>
-    <meta charset="utf-8" />
-    <title>재간접 펀드</title>
-    <!-- Link Swiper's CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
+        <link rel="stylesheet" type="text/css" href="../common/common.css" />
+        <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
+        <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
+        <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
+        <script type="text/javascript" src="../common/common.js"></script>
+        <script type="text/javascript" src="../common/scrollContents.js"></script>
+    </head>
 
-    <!-- Demo styles -->
-    <style></style>
-</head>
-
-<body>
-    <!-- Swiper -->
-    <!-- <div> -->
-    <div class="wrap_cover">
-        <div class="cover_item" id="cover_full">
-            <div class="cover_image" id="intro_img" style="background-image: url('assets/6_fund_of_funds_intro.png')">
+    <body>
+        <!-- Swiper -->
+        <!-- <div> -->
+        <div class="wrap_cover">
+            <div class="cover_item" id="cover_full" style="background-image: url('assets/6_fund_of_funds_intro.jpg')"></div>
+            <div class="contents_1_1">
+                <h1>펀드에 투자하는 펀드가 있다?</h1>
+                <p style="font-weight: 500; line-height: 1.5">재간접 펀드</p>
+            </div>
+            <div class="tip_cell">
+                <p class="tip_contents">Skill & Tip</p>
+            </div>
+            <div class="sub-tag-cell">
+                <p class="sub-tag-contents">#펀드</p>
+                <p class="sub-tag-contents">#재간접펀드</p>
+                <p class="sub-tag-contents">#간접투자</p>
+            </div>
+            <div class="sub-date-cell">
+                <p class="sub-date-contents">May.2021</p>
             </div>
         </div>
-        <div class="contents_1_1">
-            <p>펀드에 투자하는 펀드가 있다?</p>
-            <p style="font-weight: 500; line-height: 1.5">재간접 펀드</p>
+
+        <div class="wrap_body_frame" id="body_frame">
+            <div class="basic_foot pineApp">
+                <div class="progress-indicator">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()">좋아요</button>
+                <button type="button" id="shareImg" class="img_share" onclick="sharedContents()">컨텐츠 공유</button>
+            </div>
+            <div class="wrap_body">
+                <div class="contents_title_1">
+                    <span>#재간접 펀드</span>
+                    <span></span>
+                </div>
+                <div class="contents_banner_1">
+                    <img class="img_round" src="assets/drawable_image_main1.jpg" />
+                </div>
+
+                <div class="contents text_basic">
+                    <span class="box-shadow">펀드의 가장 큰 특징은 간접 투자</span>
+                    <span
+                        >입니다. 내가 직접 투자할 때보다 다양한 자산에 분산 투자할 수 있고, 전문가의 관리를 받고, 가격이 높은 자산에도 접근할 수
+                        있어요. 여기서 한발 더 나아가
+                    </span>
+                    <span class="box-shadow">펀드에 투자하는 펀드가 있다는 사실,</span>
+                    <span>알고 있었나요?</span>
+                </div>
+
+                <div class="contents_banner_2">
+                    <img class="img_round" src="assets/drawable_image_main2.jpg" />
+                </div>
+
+                <div class="contents_title_2">
+                    <span class="text_bold">재간접 펀드가 알고 싶다</span>
+                </div>
+
+                <div class="contents text_basic">
+                    <span>펀드에 투자하는 펀드를 </span>
+                    <span class="box-shadow">바로 재간접 펀드</span>
+                    <span>라고 부르는데요. 일반 펀드가 주식/채권/부동산 등 다양한 자산에 투자하는 것처럼 재간접 펀드는 </span>
+                    <span class="box-shadow">여러 펀드에 분산해서 투자</span>
+                    <span>한답니다.</span>
+                </div>
+
+                <div class="contents_banner_3">
+                    <img class="img_round" src="assets/drawable_image_main3.jpg" />
+                </div>
+
+                <div class="contents_title_2">
+                    <span class="text_bold">재간접 펀드, 뭐가 좋은데?</span>
+                </div>
+
+                <div class="contents text_basic">
+                    <span
+                        >그렇다면 왜 재간접 펀드를 선택할까요? 성과가 우수한 펀드만 골라서 나누어 투자할 수 있고, 일반 투자자가 접근하기 어려운 사모
+                        펀드나 해외 펀드에도 재간접 펀드를 통해 접근할 수 있기 때문이에요. 즉,
+                    </span>
+                    <span class="box-shadow">재간접 펀드는 보다 다양한 투자의 기회를 제공하는 셈</span>
+                    <span>이지요. </span>
+                </div>
+
+                <div class="contents_banner_4">
+                    <img class="img_round" src="assets/drawable_image_main4.jpg" />
+                </div>
+
+                <div class="contents_title_4">
+                    <span class="text_bold">재간접 펀드의 유의 사항은?</span>
+                </div>
+
+                <div class="contents text_basic">
+                    <span>펀드에 투자하는 펀드라는</span>
+                    <span class="box-shadow">이중 구조이기 때문에 펀드 보수도 이중으로 지불</span>
+                    <span> 해야 해요. 따라서 일반 펀드에 비해 보수가 높은 편입니다. 투자 설명서의 </span>
+                    <span class="box-shadow">투자 보수를 꼼꼼하게 확인해야</span>
+                    <span>당황하는 일이 없겠죠?</span>
+                </div>
+                <div class="contents text_basic">
+                    <span class="box-shadow">투자와 수익의 기회를 넓혀 주는 재간접 펀드!</span>
+                    <span> 펀드 오브 펀드(Fund of Funds, FoF)라고 부르기도 하는 만큼, 검증된 펀드들에 한번에 투자할 수 있으니 고려해보세요! </span>
+                </div>
+            </div>
         </div>
-        <div class="tip_cell">
-            <p class="tip_contents">Skill & Tip</p>
+
+        <div class="link_item" id="link_cover_full">
+            <div class="cover_image" id="link_img" style="background-image: url('assets/6_fund_of_funds_end.jpg'); height: 100%"></div>
+            <a class="stroke_link" id="link_title" onclick="appLinkFunc('web', '0A0008');">
+                <p style="text-align: center">간접 투자<br />알아보기</p>
+            </a>
         </div>
-        <div class="sub-tag-cell">
-            <p class="sub-tag-contents">#펀드</p>
-            <p class="sub-tag-contents">#재간접펀드</p>
-            <p class="sub-tag-contents">#간접투자</p>
-        </div>
-        <div class="sub-date-cell">
-            <p class="sub-date-contents">Nov.2020</p>
-        </div>
-    </div>
-    </div>
-
-    <div class="wrap_body_frame" id="body_frame">
-        <div class="basic_foot">
-            <div class="progress-indicator">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="assets/basic_foot_heart.png" />
-            </div>
-            <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="assets/basic_foot_share.png" />
-            </div>
-        </div>
-        <div class="wrap_body">
-            <div class="contents_title_1">
-                <span>#재간접 펀드</span>
-                <span></span>
-            </div>
-            <div class="contents_banner_1">
-                <img class="img_round" src="assets/drawable_image_main1.png" />
-            </div>
-
-            <div class="contents text_basic">
-                <span class="box-shadow">펀드의 가장 큰 특징은 간접 투자</span>
-                <span>입니다. 내가 직접 투자할 때보다 다양한 자산에 분산 투자할 수
-                    있고, 전문가의 관리를 받고, 가격이 높은 자산에도 접근할 수 있어요.
-                    여기서 한발 더 나아가
-                </span>
-                <span class="box-shadow">펀드에 투자하는 펀드가 있다는 사실,</span>
-                <span>알고 있었나요?</span>
-            </div>
-
-            <div class="contents_banner_2">
-                <img class="img_round" src="assets/drawable_image_main2.png" />
-            </div>
-
-            <div class="contents_title_2">
-                <span class="text_bold">재간접 펀드가 알고 싶다</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span>펀드에 투자하는 펀드를 </span>
-                <span class="box-shadow">바로 재간접 펀드</span>
-                <span>라고 부르는데요. 일반 펀드가 주식/채권/부동산 등 다양한 자산에
-                    투자하는 것처럼 재간접 펀드는
-                </span>
-                <span class="box-shadow">여러 펀드에 분산해서 투자</span>
-                <span>한답니다.</span>
-            </div>
-
-            <div class="contents_banner_3">
-                <img class="img_round" src="assets/drawable_image_main3.png" />
-            </div>
-
-            <div class="contents_title_2">
-                <span class="text_bold">재간접 펀드, 뭐가 좋은데?</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span>그렇다면 왜 재간접 펀드를 선택할까요? 성과가 우수한 펀드만 골라서
-                    나누어 투자할 수 있고, 일반 투자자가 접근하기 어려운 사모 펀드나
-                    해외 펀드에도 재간접 펀드를 통해 접근할 수 있기 때문이에요. 즉,
-                </span>
-                <span class="box-shadow">재간접 펀드는 보다 다양한 투자의 기회를 제공하는 셈</span>
-                <span>이지요. </span>
-            </div>
-
-            <div class="contents_banner_4">
-                <img class="img_round" src="assets/drawable_image_main4.png" />
-            </div>
-
-            <div class="contents_title_4">
-                <span class="text_bold">재간접 펀드의 유의 사항은?</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span>펀드에 투자하는 펀드라는</span>
-                <span class="box-shadow">이중 구조이기 때문에 펀드 보수도 이중으로 지불</span>
-                <span>
-                    해야 해요. 따라서 일반 펀드에 비해 보수가 높은 편입니다. 투자
-                    설명서의
-                </span>
-                <span class="box-shadow">투자 보수를 꼼꼼하게 확인해야</span>
-                <span>당황하는 일이 없겠죠?</span>
-            </div>
-            <div class="contents text_basic">
-                <span class="box-shadow">투자와 수익의 기회를 넓혀 주는 재간접 펀드!</span>
-                <span>
-                    펀드 오브 펀드(Fund of Funds, FoF)라고 부르기도 하는 만큼, 검증된 펀드들에 한번에 투자할
-                    수 있으니 고려해보세요!
-                </span>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="link_item" id="link_cover_full">
-        <div class="cover_image" id="link_img"
-            style="background-image: url('assets/6_fund_of_funds_end.png'); height: 100%"></div>
-        <a class="stroke_link" id="link_title">
-            <p style="text-align: center">다른 펀드도<br />알아보기</p>
-        </a>
-    </div>
-
-
-    <div class="basic_link_foot sticky">
-        <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" />
-        </div>
-        <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="assets/card_foot_share.png" />
-        </div>
-    </div>
-    <!-- </div> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
-
-    <script type="text/javascript" src="index.js"></script>
-
-</body>
-
+    </body>
 </html>

@@ -1,0 +1,778 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  word-wrap: break-word;
+  word-break: keep-all;
+  font-family: LIFEPLUS;
+  background: #eee;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+body article {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background: #fff;
+  }
+  body article {
+    height: auto;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+  }
+}
+
+.hidden {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden !important;
+}
+
+.centerWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+header {
+  width: 600px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  background: none;
+  background: #222;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    width: 100%;
+  }
+}
+
+main {
+  display: block;
+}
+
+main.start .startPage {
+  display: block;
+}
+
+main.start .quizPage {
+  display: none;
+}
+
+main.start .loadingPage {
+  display: none;
+}
+
+main.start .resultPage {
+  display: none;
+}
+
+main.quiz .startPage {
+  display: none;
+}
+
+main.quiz .quizPage {
+  display: block;
+}
+
+main.quiz .loadingPage {
+  display: none;
+}
+
+main.quiz .resultPage {
+  display: none;
+}
+
+main.loading .startPage {
+  display: none;
+}
+
+main.loading .quizPage {
+  display: none;
+}
+
+main.loading .loadingPage {
+  display: block;
+}
+
+main.loading .resultPage {
+  display: none;
+}
+
+main.result .startPage {
+  display: none;
+}
+
+main.result .quizPage {
+  display: none;
+}
+
+main.result .loadingPage {
+  display: none;
+}
+
+main.result .resultPage {
+  display: block;
+}
+
+main button.defaultBtn {
+  position: relative;
+  display: block;
+  z-index: 10;
+  background: #000;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.5;
+  border-radius: 100px;
+  padding: 15px 100px;
+  margin: 5px auto;
+  transition: background .3s ease-out;
+}
+
+main button.defaultBtn:hover {
+  background: black;
+}
+
+main section {
+  position: relative;
+  width: 600px;
+  height: inherit;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  main section {
+    width: 100%;
+  }
+}
+
+main section p {
+  color: #fff;
+}
+
+main section button.startBtn.dimd {
+  cursor: default;
+  background-color: #606060;
+  color: #A5A5A5;
+}
+
+main section.startPage {
+  background: #57b876;
+}
+
+main section.startPage .titleWrap {
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+
+main section.startPage .titleWrap .tag {
+  width: 60px;
+}
+
+main section.startPage .titleWrap h1 {
+  font-size: 40px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin: 16px 0;
+}
+
+main section.startPage .titleWrap .imageWrap {
+  position: relative;
+  height: 480px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.startPage .titleWrap .imageWrap {
+    height: 80vw;
+  }
+}
+
+main section.startPage .titleWrap .imageWrap img {
+  width: 80%;
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+main section.quizPage {
+  position: relative;
+}
+
+main section.quizPage .pageNumWrap {
+  position: absolute;
+  width: 600px;
+  background: #333;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .pageNumWrap {
+    width: 100%;
+  }
+}
+
+main section.quizPage .pageNumWrap .bar {
+  width: 0%;
+  background: #57b876;
+  position: absolute;
+  height: 100%;
+  transition: width .4s ease-out;
+}
+
+main section.quizPage .pageNumWrap p {
+  position: relative;
+  padding: 18px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .pageNumWrap p {
+    padding: 20px 0;
+    font-size: 14px;
+  }
+}
+
+main section.quizPage .questionWrap {
+  position: relative;
+}
+
+main section.quizPage .questionWrap .question {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  width: 500px;
+  padding: 12vh 0 0;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  transition-delay: 0s;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .questionWrap .question {
+    width: 100%;
+    padding: 18vh 5vw 0;
+  }
+}
+
+main section.quizPage .questionWrap .question.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+
+main section.quizPage .questionWrap .question .index {
+  display: inline;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  background-color: #57b876;
+  padding: 2px 10px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+main section.quizPage .questionWrap .question .title {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 0 2px;
+  margin-top: 14px;
+  color: #000;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .questionWrap .question .title {
+    font-size: 22px;
+    line-height: 1.3;
+    text-align: center;
+  }
+}
+
+main section.quizPage .questionWrap .question .optionWrap {
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .questionWrap .question .optionWrap {
+    margin-top: 32px;
+  }
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option {
+  position: relative;
+  display: inline-block;
+  padding: 22px;
+  font-size: 15px;
+  line-height: 1.5rem;
+  text-align: center;
+  background-color: #f3f3f3;
+  border-radius: 33px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 100%;
+  color: #000;
+  transition: background .2s ease, color .3s ease;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.quizPage .questionWrap .question .optionWrap button.option {
+    padding: 5vw 10vw 5vw;
+  }
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option:after {
+  content: "";
+  width: 15px;
+  height: 12px;
+  position: absolute;
+  top: calc(50% - 6px);
+  right: 22px;
+  z-index: 2;
+  background: url(../image/icon-investment-check.svg) center center/cover no-repeat;
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option.on {
+  color: #fff;
+  font-weight: bold;
+  background: #000;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option.on:after {
+  opacity: 1;
+}
+
+main section.quizPage .questionWrap .question .optionWrap button.option.dimd {
+  color: #555;
+}
+
+main section.loadingPage {
+  background: #57b876;
+}
+
+main section.loadingPage .titleWrap {
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+
+main section.loadingPage .titleWrap h2 {
+  font-size: 40px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: loadingAni 1s ease-in-out infinite;
+}
+
+@keyframes loadingAni {
+  from {
+    opacity: .1;
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: .1;
+  }
+}
+
+main section.loadingPage .titleWrap .imageWrap {
+  position: relative;
+  height: 520px;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.loadingPage .titleWrap .imageWrap {
+    height: 85vw;
+  }
+}
+
+main section.loadingPage .titleWrap .imageWrap img {
+  width: 70%;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.resultPage {
+  padding: 0;
+  overflow: auto;
+}
+
+.resultPage .titleWrap {
+  position: relative;
+  padding: 11vh 0 10px;
+  z-index: 2;
+  color: #000;
+}
+
+.resultPage .titleWrap .tag {
+  width: 76px;
+}
+
+.resultPage .titleWrap h4 {
+  margin: 0;
+  padding: 17px 0 8px;
+}
+
+.resultPage .titleWrap h2 {
+  font-size: 35px;
+  color: #000;
+  letter-spacing: 1px;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.resultPage .titleWrap img.carImage {
+  width: 60%;
+  padding: 30px 0 38px;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .titleWrap img.carImage {
+    width: 70%;
+  }
+}
+
+.resultPage .infoWrap {
+  background-color: #57b876;
+}
+
+.resultPage .infoWrap .infoInnerWrap {
+  padding: 30px 80px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap {
+    padding: 30px 28px 0;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap h5 {
+  font-size: 15px;
+  padding: 0 5px 4px;
+  margin: 20px 0 30px;
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(transparent 45%, #6ec74e 0);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 24px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap {
+    padding: 22px 20px;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap h4 {
+  margin: 0;
+  padding: 6px 0 8px;
+  color: #000;
+  font-size: 13px;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap h2 {
+  font-size: 24px;
+  color: #000;
+  letter-spacing: 1px;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap h2 {
+    margin: 0;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap ul {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap ul li {
+  color: #57b876;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+  line-height: 2;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap p {
+  font-size: 13px;
+  color: #000;
+  line-height: 2;
+  font-weight: bold;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap p span {
+  font-style: none;
+  color: #57b876;
+  border-bottom: 1px;
+  text-decoration: underline;
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap em.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultPage .infoWrap .infoInnerWrap .textWrap em.bg {
+    top: 48%;
+  }
+}
+
+.resultPage .infoWrap .infoInnerWrap .textWrap img.car {
+  position: relative;
+  width: 80%;
+  z-index: 10;
+  padding: 30px 0 2px;
+}
+
+.investBtn {
+  position: relative;
+  display: inline-block;
+  margin: 20px auto 10px;
+  font-size: 15px;
+  border: 1px solid #fff;
+  padding: 14px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
+
+.resultBtnWrap {
+  position: relative;
+  padding: 50px 0;
+}
+
+.resultBtnWrap .resultAllBtn {
+  position: relative;
+  display: inline-block;
+  font-size: 17px;
+  background: none;
+  padding: 15px 40px;
+  border-radius: 100px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  margin-right: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultBtnWrap .resultAllBtn {
+    padding: 15px 7vw;
+    margin-right: 1.5vw;
+  }
+}
+
+.resultBtnWrap .restartBtn {
+  position: relative;
+  display: inline-block;
+  font-size: 17px;
+  background: none;
+  border: 1px solid #fff;
+  padding: 15px 60px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .resultBtnWrap .restartBtn {
+    padding: 15px 10vw;
+  }
+}
+
+.resultBtnWrap .restartBtn:-webkit-any-link {
+  color: #fff;
+}
+
+.resultBtnWrap .restartBtn em {
+  top: 3px;
+  position: relative;
+  left: 10px;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background: url(../image/refresh.svg) no-repeat;
+  transition: all .3s ease-in-out;
+}
+
+.resultBtnWrap .restartBtn:hover em {
+  transform: rotate(180deg);
+}
+
+.shareBtnWrap {
+  background-color: #464646;
+}
+
+.shareBtnWrap p {
+  padding: 45px 0 0;
+  font-size: 15px;
+}
+
+.shareBtnWrap .ico_sns {
+  margin: 0 auto;
+  padding: 30px 0 60px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.shareBtnWrap .ico_sns li {
+  color: #fff;
+  font-size: 9px;
+  line-height: 26px;
+}
+
+.shareBtnWrap .ico_sns li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 15px;
+  background: url(../image/snsicon.png) 0 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.facebook {
+  background: url(../image/snsicon.png) -40px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.twitter {
+  background: url(../image/snsicon.png) -80px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a.url {
+  background: url(../image/snsicon.png) -120px 0/cover no-repeat;
+}
+
+.shareBtnWrap .ico_sns li a input {
+  position: absolute;
+  left: -200%;
+}
+
+.allResultLayer {
+  position: fixed;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.allResultLayer.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.allResultLayer .innerLayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 156px);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .allResultLayer .innerLayer {
+    width: calc(100% - 56px);
+  }
+}
+
+.allResultLayer .innerLayer .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+}
+
+.allResultLayer .innerLayer h4 {
+  font-size: 16px;
+  color: #fff;
+  background-color: black;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.allResultLayer .innerLayer ul {
+  padding: 0 25px 10px;
+}
+
+.allResultLayer .innerLayer ul li {
+  display: inline-block;
+  width: 49%;
+  margin: 18px 0;
+  font-size: 12px;
+  text-align: center;
+  color: #000;
+}
+
+.allResultLayer .innerLayer ul li a {
+  display: block;
+}
+
+.allResultLayer .innerLayer ul li a img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.allResultLayer .innerLayer .confirmBtn {
+  width: 100%;
+  background-color: #000;
+  font-size: 18px;
+  padding: 18px 0;
+}

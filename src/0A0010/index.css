@@ -6,21 +6,6 @@ body {
     overflow: hidden;
 }
 
-* {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-body {
-    background: #252629;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-}
-
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -59,14 +44,26 @@ body {
     overflow: hidden;
 }
 
-div,
-img {
-    border: 0px white solid;
-}
-
 .mmf-bg {
     width: 100%;
     height: 100%;
+}
+
+.sound_on {
+    content: url("../common/assets/sound_on_white.svg");
+}
+
+.sound_on_off:active {
+    transform: scale(0.95, 0.95);
+}
+
+.sound_on_off {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    width: 6%;
+    height: auto;
+    z-index: 20;
 }
 
 .outer-cloud {
@@ -91,8 +88,6 @@ img {
 .cloud2 {
     background: url("assets/cast_special_mmf_4_cloud2.png") repeat-x left center;
     background-size: 416px 84px;
-    /* width: 832px; */
-    /* height: 84px; */
     top: 26%;
     left: 0;
     position: absolute;
@@ -127,6 +122,13 @@ img {
     width: 86%;
     opacity: 0.8;
     animation: ani-cloud1 7s infinite ease-in-out;
+}
+
+.page4-cloud2 {
+    position: absolute;
+    top: 26%;
+    left: 0;
+    width: 111%;
 }
 
 .page4-cloud2-active {
@@ -178,7 +180,6 @@ img {
     }
 }
 .first-coin-active {
-    /* animation: slide-in-fwd-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
     animation: ani-coin 0.5s linear both;
 }
 
@@ -187,27 +188,22 @@ img {
 }
 
 .first-coin-active:nth-of-type(3) {
-    /* animation-delay: 0.2s; */
     animation-delay: 0.4s;
 }
 
 .first-coin-active:nth-of-type(4) {
-    /* animation-delay: 0.3s; */
     animation-delay: 0.5s;
 }
 
 .first-coin-active:nth-of-type(5) {
-    /* animation-delay: 0.4s; */
     animation-delay: 0.6s;
 }
 
 .first-coin-active:nth-of-type(6) {
     animation-delay: 0.2s;
-    /* animation-delay: 1s; */
 }
 
 .first-coin-active:nth-of-type(7) {
-    /* animation-delay: 0.2s; */
     animation-delay: 0.4s;
 }
 
@@ -267,6 +263,9 @@ img {
 }
 
 .mmf-finish-btn {
+    display: none;
+    bottom: 12%;
+    width: 79%;
     animation: pulse 1.3s infinite ease;
 }
 
@@ -292,6 +291,18 @@ img {
     100% {
         box-shadow: 0 0 0 0 rgba(88, 120, 243, 0);
     }
+}
+
+.content-wrapper.video_back {
+    background-color: #efcd56;
+}
+
+#mmf_video {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 3;
 }
 
 .start-game-txt {
@@ -327,11 +338,6 @@ img {
 
 .mmf-arrow-move {
     animation: ani-mmf-arrow 0.8s ease 0.3s forwards;
-    /* animation-name: ani-mmf-arrow;
-    animation-timing-function: ease;
-    animation-delay: 0.2s;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards; */
 }
 
 @keyframes ani-mmf-arrow {
@@ -347,11 +353,7 @@ img {
 }
 
 .blinking {
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    /* animation-delay: 0.5s; */
-    animation-iteration-count: 2;
+    animation: blink 0.5s ease-in-out 2;
 }
 
 @keyframes blink {
@@ -370,69 +372,47 @@ img {
     display: none;
 }
 
-@media (min-aspect-ratio: 200/500) {
-    .content-wrapper {
-        width: 100%;
-        /* margin-top: 20%; */
-    }
+.btn_game_sound {
+    top: 14%;
+    right: 10%;
 }
 
-@media (min-aspect-ratio: 250/500) {
-    .content-wrapper {
-        width: 90%;
-        margin-top: 0%;
-    }
+.btn_skip {
+    z-index: 20;
+    width: 66px;
+    height: 25px;
+    position: absolute;
+    top: 8.2%;
+    right: 6%;
+    background-image: url("assets/__cast_special_mmf_skip.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-@media (min-aspect-ratio: 300/500) {
-    .content-wrapper {
-        width: 90%;
-        margin-top: 0%;
-    }
+.btn_skip_active {
+    content: url("assets/__cast_special_mmf_skip2.png");
 }
 
-@media (min-aspect-ratio: 330/500) {
-    .content-wrapper {
-        width: 80%;
-        margin-top: 0%;
-    }
+.heart_active {
+    content: url("../common/assets/card_foot_heart_fill.png");
 }
 
-@media (min-aspect-ratio: 370/500) {
-    .content-wrapper {
-        width: 70%;
-        margin-top: 0%;
-    }
+.img_heart {
+    position: absolute;
+    bottom: 4%;
+    width: 50%;
+    left: 0;
 }
 
-@media (min-aspect-ratio: 430/500) {
-    .content-wrapper {
-        width: 60%;
-        margin-top: 0%;
-    }
+.img_share {
+    position: absolute;
+    bottom: 4%;
+    width: 50%;
+    right: 0;
 }
 
-@media (min-aspect-ratio: 500/500) {
-    .content-wrapper {
-        width: 50%;
-        margin-top: 0%;
-    }
-}
-
-@media (orientation: landscape) {
-    .content-wrapper {
-        width: 40%;
-        margin-top: 0;
-    }
-}
-
-@media (min-width: 1025px) {
+@media (min-width: 468px) {
     .swiper-container {
         width: 375px;
-        height: 812px;
-    }
-    .content-wrapper {
-        width: 100%;
-        margin-top: 20%;
     }
 }

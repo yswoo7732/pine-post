@@ -1,15 +1,7 @@
 window.onload = function () {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        if (/iPhone/i.test(navigator.userAgent)) {
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".basic_foot").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(constant(safe-area-inset-bottom) + 20px)";
-            document.querySelector(".sticky").style.paddingBottom = "calc(env(safe-area-inset-bottom) + 20px)";
-        }
-    } else {
-        console.log("not mobile");
-    }
-
+     // 로드시, 좋아요 여부 호출
+     getLike();
+     
     const basicFoot = document.getElementsByClassName("basic_foot")[0];
     const basicLinkFoot = document.getElementsByClassName("basic_link_foot")[0];
     const boxShadows = document.getElementsByClassName("box-shadow");
@@ -168,19 +160,6 @@ window.onload = function () {
         this.classList.remove("stroke_link-active");
     });
     
-    // 좋아요 이벤트
-    var heartClickEvent = document.querySelector("#imgHeart");
-    heartClickEvent.addEventListener("click", function () {
-        this.classList.toggle("heart_active");
-        document.querySelector("#imgWhiteHeart").classList.toggle("heart_white_active");
-    });
-
-    var whiteHeartClickEvent = document.querySelector("#imgWhiteHeart");
-    whiteHeartClickEvent.addEventListener("click", function () {
-        this.classList.toggle("heart_white_active");
-        document.querySelector("#imgHeart").classList.toggle("heart_active");
-    });
-
     function tweenScrollTo() {
         stopper = false;
         let domScroll = linkCoverFull.offsetTop + 10;

@@ -1,165 +1,145 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>펀드 위험 등급 알기</title>
+        <!-- Link Swiper's CSS -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="title" content="펀드 위험 등급 알기" />
+        <meta name="description" content="주식형 펀드는 무조건 위험할까" />
+        <meta property="og:site_name" content="펀드 위험 등급 알기" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="펀드 위험 등급 알기" />
+        <meta property="og:description" content="주식형 펀드는 무조건 위험할까" />
+        <meta property="og:url" content="https://contents.pine.fund/0A0007/" />
+        <meta property="og:image" content="https://contents.pine.fund/0A0007/assets/cast_thumbnail.png" />
+        <meta property="og:image:width" content="610" />
+        <meta property="og:image:height" content="319" />
 
-<head>
-    <meta charset="utf-8" />
-    <title>펀드 위험 등급 알기</title>
-    <!-- Link Swiper's CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
+        <link rel="stylesheet" type="text/css" href="../common/common.css" />
+        <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
+        <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
+        <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
+        <script type="text/javascript" src="../common/common.js"></script>
+        <script type="text/javascript" src="../common/scrollContents.js"></script>
+    </head>
 
-    <!-- Demo styles -->
-    <style></style>
-</head>
-
-<body>
-    <!-- Swiper -->
-    <!-- <div> -->
-    <div class="wrap_cover">
-        <div class="cover_item" id="cover_full">
-            <div class="cover_image" id="intro_img" style="background-image: url('assets/3_risk_intro.png')"></div>
-        </div>
-        <div class="contents_1_1">
-            <p>주식형 펀드는 전부 위험한가요?</p>
-            <p style="font-weight: 500; line-height: 1.5">펀드 위험 등급 알기</p>
-        </div>
-        <div class="tip_cell">
-            <p class="tip_contents">Skill & Tip</p>
-        </div>
-        <div class="sub-tag-cell">
-            <p class="sub-tag-contents">#펀드</p>
-            <p class="sub-tag-contents">#위험등급</p>
-            <p class="sub-tag-contents">#투자성향</p>
-        </div>
-        <div class="sub-date-cell">
-            <p class="sub-date-contents">Nov.2020</p>
-        </div>
-    </div>
-    </div>
-
-    <div class="wrap_body_frame" id="body_frame">
-        <div class="basic_foot">
-            <div class="progress-indicator">
-                <div class="progress-bar" id="progressBar"></div>
+    <body>
+        <!-- Swiper -->
+        <!-- <div> -->
+        <div class="wrap_cover">
+            <div class="cover_item" id="cover_full" style="background-image: url('assets/3_risk_intro.jpg')"></div>
+            <div class="contents_1_1">
+                <h1>주식형 펀드는 전부 위험한가요?</h1>
+                <p style="font-weight: 500; line-height: 1.5">펀드 위험 등급 알기</p>
             </div>
-            <div style="width: 50%" id="heartDiv">
-                <img id="imgHeart" src="assets/basic_foot_heart.png" />
+            <div class="tip_cell">
+                <p class="tip_contents">Skill & Tip</p>
             </div>
-            <div style="width: 50%" id="shareDiv">
-                <img id="shareImg" src="assets/basic_foot_share.png" />
+            <div class="sub-tag-cell">
+                <p class="sub-tag-contents">#펀드</p>
+                <p class="sub-tag-contents">#위험등급</p>
+                <p class="sub-tag-contents">#투자성향</p>
+            </div>
+            <div class="sub-date-cell">
+                <p class="sub-date-contents">May.2021</p>
             </div>
         </div>
-        <div class="wrap_body">
-            <div class="contents_title_1">
-                <span class=body-title>#펀드 위험 등급</span>
-                <span></span>
-            </div>
-            <div class="contents_banner_1">
-                <img class="img_round" src="assets/drawable_image_main1.png" />
-            </div>
 
-            <div class="contents text_basic">
-                <span>가전제품을 살 때도 등급을 확인하는 것처럼, 금융 상품을 선택할 때도
-                    등급은 선택의 기준을 제시해줍니다.
-                </span>
-                <span class="box-shadow">특히 금융 상품의 위험 등급은 손실 가능성과 직결되기 때문에 반드시
-                    확인해야 하는 정보입니다.</span>
-                <span>그러면 펀드의 위험등급은 어떤 기준으로 정해질까요?</span>
+        <div class="wrap_body_frame" id="body_frame">
+            <div class="basic_foot pineApp">
+                <div class="progress-indicator">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <button type="button" id="imgHeart" class="img_heart" onclick="clickLike()">좋아요</button>
+                <button type="button" id="shareImg" class="img_share" onclick="sharedContents()">컨텐츠 공유</button>
             </div>
+            <div class="wrap_body">
+                <div class="contents_title_1">
+                    <span class="body-title">#펀드 위험 등급</span>
+                    <span></span>
+                </div>
+                <div class="contents_banner_1">
+                    <img class="img_round" src="assets/drawable_image_main1.jpg" />
+                </div>
 
-            <div class="contents_banner_2">
-                <img class="img_round" src="assets/image-20200804-052442.png" />
-            </div>
+                <div class="contents text_basic">
+                    <span>가전제품을 살 때도 등급을 확인하는 것처럼, 금융 상품을 선택할 때도 등급은 선택의 기준을 제시해줍니다. </span>
+                    <span class="box-shadow">특히 금융 상품의 위험 등급은 손실 가능성과 직결되기 때문에 반드시 확인해야 하는 정보입니다.</span>
+                    <span>그러면 펀드의 위험등급은 어떤 기준으로 정해질까요?</span>
+                </div>
 
-            <div class="contents_title_2">
-                <span class="text_bold">위험 등급은 고정적인 게 아니다!</span>
-            </div>
+                <div class="contents_banner_2">
+                    <img class="img_round" src="assets/drawable_image_main3_2.png" />
+                </div>
 
-            <div class="contents text_basic">
-                <span>펀드는 </span>
-                <span class="box-shadow">최근 3년(156주) 간의 수익률 변동성으로 위험 등급을 정합니다.</span>
-                <span> 그래서 </span>
-                <span class="box-shadow">매년 등급을 다시 설정</span>
-                <span>하게 되는데요. 그래야 펀드가 어떻게 관리되는지 투자자가 알 수 있기
-                    때문이에요.</span>
-            </div>
-            <div class="contents text_basic">
-                <span>수익률 변동성이란 수익률이 평균에서 얼마나 크게 움직였는지를 확인하는
-                    지표예요. 변동성이 클수록 수익을 얻을 가능성도 크지만 손실 위험도도
-                    크겠지요?</span>
-            </div>
+                <div class="contents_title_2">
+                    <span class="text_bold">위험 등급은 고정적인 게 아니다!</span>
+                </div>
 
-            <div class="contents_banner_3">
-                <img class="img_round" src="assets/drawable_image_main3.png" />
-            </div>
+                <div class="contents text_basic">
+                    <span>펀드는 </span>
+                    <span class="box-shadow">최근 3년(156주) 간의 수익률 변동성으로 위험 등급을 정합니다.</span>
+                    <span> 그래서 </span>
+                    <span class="box-shadow">매년 등급을 다시 설정</span>
+                    <span>하게 되는데요. 그래야 펀드가 어떻게 관리되는지 투자자가 알 수 있기 때문이에요.</span>
+                </div>
+                <div class="contents text_basic">
+                    <span
+                        >수익률 변동성이란 수익률이 평균에서 얼마나 크게 움직였는지를 확인하는 지표예요. 변동성이 클수록 수익을 얻을 가능성도 크지만
+                        손실 위험도도 크겠지요?</span
+                    >
+                </div>
 
-            <div class="contents_title_2">
-                <span class="text_bold">정보가 부족한 펀드의 등급은? </span>
-            </div>
+                <div class="contents_banner_3">
+                    <img class="img_round" src="assets/drawable_image_main3.jpg" />
+                </div>
 
-            <div class="contents text_basic">
-                <span>그렇다면 </span>
-                <span class="box-shadow">아직 만든 지 3년이 안 된 펀드</span>
-                <span>
-                    의 위험 등급은 어떻게 결정할까요? 아직 수익률 변동성에 대한 정보가
-                    부족하기 때문에
-                </span>
-                <span class="box-shadow">투자 자산에 따라 위험 등급을 결정</span>
-                <span>합니다.</span>
-            </div>
-            <div class="contents text_basic">
-                <span>그렇지만</span>
-                <span class="box-shadow">주식형이라고 위험하고 채권형이라고 무조건 안전한 게 아니에요.</span>
-                <span>주식형 펀드라도 안정적인 우량주라면 위험 등급이 낮을 수 있고, 채권형 펀드라도 개발 단계인 국가나 신용도가 낮은 기업의 채권에 투자한다면
-                    위험 등급이 높을 수 있습니다.</span>
-            </div>
+                <div class="contents_title_2">
+                    <span class="text_bold">정보가 부족한 펀드의 등급은? </span>
+                </div>
 
-            <div class="contents_banner_4">
-                <img class="img_round" src="assets/drawable_image_main4.png" />
-            </div>
+                <div class="contents text_basic">
+                    <span>그렇다면 </span>
+                    <span class="box-shadow">아직 만든 지 3년이 안 된 펀드</span>
+                    <span> 의 위험 등급은 어떻게 결정할까요? 아직 수익률 변동성에 대한 정보가 부족하기 때문에 </span>
+                    <span class="box-shadow">투자 자산에 따라 위험 등급을 결정</span>
+                    <span>합니다.</span>
+                </div>
+                <div class="contents text_basic">
+                    <span>그렇지만</span>
+                    <span class="box-shadow">주식형이라고 위험하고 채권형이라고 무조건 안전한 게 아니에요.</span>
+                    <span
+                        >주식형 펀드라도 안정적인 우량주라면 위험 등급이 낮을 수 있고, 채권형 펀드라도 개발 단계인 국가나 신용도가 낮은 기업의 채권에
+                        투자한다면 위험 등급이 높을 수 있습니다.</span
+                    >
+                </div>
 
-            <div class="contents_title_4">
-                <span class="text_bold">안전한 펀드가 무조건 좋을까요?</span>
-            </div>
+                <div class="contents_banner_4">
+                    <img class="img_round" src="assets/drawable_image_main4.jpg" />
+                </div>
 
-            <div class="contents text_basic">
-                <span>위험 등급이 낮은 펀드는 손실 가능성이 적은 만큼 수익률도 낮은
-                    편입니다. 공격적인 성향의 투자자가 이런 상품에 투자하면 지루하게 느낄
-                    수 있어요. 반대로 안정성을 추구하는 투자자가 위험도가 높은 상품에
-                    투자하면 스트레스를 받을 거고요.
-                </span>
-            </div>
-            <div class="contents text_basic">
-                <span class="box-shadow">따라서 나의 투자 성향과 목적에 맞는 투자 상품을 고르는 것이 가장
-                    중요하다는 점을 명심하세요!</span>
-            </div>
+                <div class="contents_title_4">
+                    <span class="text_bold">안전한 펀드가 무조건 좋을까요?</span>
+                </div>
 
+                <div class="contents text_basic">
+                    <span
+                        >위험 등급이 낮은 펀드는 손실 가능성이 적은 만큼 수익률도 낮은 편입니다. 공격적인 성향의 투자자가 이런 상품에 투자하면
+                        지루하게 느낄 수 있어요. 반대로 안정성을 추구하는 투자자가 위험도가 높은 상품에 투자하면 스트레스를 받을 거고요.
+                    </span>
+                </div>
+                <div class="contents text_basic">
+                    <span class="box-shadow">따라서 나의 투자 성향과 목적에 맞는 투자 상품을 고르는 것이 가장 중요하다는 점을 명심하세요!</span>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="link_item" id="link_cover_full">
-        <div class="cover_image" id="link_img" style="background-image: url('assets/3_risk_end.png'); height: 100%">
+        <div class="link_item" id="link_cover_full">
+            <div class="cover_image" id="link_img" style="background-image: url('assets/3_risk_end.jpg'); height: 100%"></div>
+            <a class="stroke_link" id="link_title" onclick="appLinkFunc('investType');">
+                <p style="text-align: center">투자 성향<br />확인하기</p>
+            </a>
         </div>
-        <a class="stroke_link" id="link_title">
-            <p style="text-align: center">투자 성향<br />확인하기</p>
-        </a>
-    </div>
-
-    <div class="basic_link_foot sticky">
-        <div style="width: 50%" id="whiteHeartDiv">
-            <img id="imgWhiteHeart" src="assets/card_foot_heart.png" />
-        </div>
-        <div style="width: 50%" id="whiteShareDiv">
-            <img id="whiteShareImg" src="assets/card_foot_share.png" />
-        </div>
-    </div>
-    <!-- </div> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
-
-    <script type="text/javascript" src="index.js"></script>
-
-</body>
-
+    </body>
 </html>
