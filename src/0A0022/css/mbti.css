@@ -143,7 +143,7 @@ main button.defaultBtn {
   border-radius: 100px;
   padding: 15px 100px;
   margin: 5px auto;
-  transition: background .3s ease-out;
+  transition: background 0.3s ease-out;
 }
 
 main button.defaultBtn:hover {
@@ -173,7 +173,7 @@ main section p {
 main section button.startBtn.dimd {
   cursor: default;
   background-color: #606060;
-  color: #A5A5A5;
+  color: #a5a5a5;
 }
 
 main section.startPage {
@@ -240,7 +240,7 @@ main section.quizPage .pageNumWrap .bar {
   background: #57b876;
   position: absolute;
   height: 100%;
-  transition: width .4s ease-out;
+  transition: width 0.4s ease-out;
 }
 
 main section.quizPage .pageNumWrap p {
@@ -339,7 +339,7 @@ main section.quizPage .questionWrap .question .optionWrap button.option {
   cursor: pointer;
   width: 100%;
   color: #000;
-  transition: background .2s ease, color .3s ease;
+  transition: background 0.2s ease, color 0.3s ease;
   font-weight: 500;
 }
 
@@ -359,7 +359,7 @@ main section.quizPage .questionWrap .question .optionWrap button.option:after {
   z-index: 2;
   background: url(../image/icon-investment-check.svg) center center/cover no-repeat;
   opacity: 0;
-  transition: opacity .2s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
 main section.quizPage .questionWrap .question .optionWrap button.option.on {
@@ -396,13 +396,13 @@ main section.loadingPage .titleWrap h2 {
 
 @keyframes loadingAni {
   from {
-    opacity: .1;
+    opacity: 0.1;
   }
   40% {
     opacity: 1;
   }
   to {
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 
@@ -644,7 +644,7 @@ main section.loadingPage .titleWrap .imageWrap img {
   height: 17px;
   display: inline-block;
   background: url(../image/refresh.svg) no-repeat;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .resultBtnWrap .restartBtn:hover em {
@@ -694,9 +694,10 @@ main section.loadingPage .titleWrap .imageWrap img {
   background: url(../image/snsicon.png) -120px 0/cover no-repeat;
 }
 
-.shareBtnWrap .ico_sns li a input {
+.shareBtnWrap .ico_sns input {
   position: absolute;
-  left: -200%;
+  left: -9999px;
+  top: -9999px;
 }
 
 .allResultLayer {
@@ -708,7 +709,7 @@ main section.loadingPage .titleWrap .imageWrap img {
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .allResultLayer.active {
