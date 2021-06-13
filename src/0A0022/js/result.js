@@ -1,10 +1,9 @@
-
-function logoClick(){
+function logoClick() {
     var _url = "";
 
     openNewWindow = window.open("about:blank");
     openNewWindow.location.href = _url;
-    
+
     return false;
 }
 
@@ -13,11 +12,12 @@ var height, width;
 var _main;
 var fineApp = false;
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     is_mobile = isMobile();
     fineApp = pineAppChk();
+    document.getElementById("ShareUrl").value = ds_config.url;
 
-    console.log(is_mobile, fineApp)
+    console.log(is_mobile, fineApp);
     //앱 sns 공유 버튼 셋팅
     // var snsBtn = document.querySelector('.ico_sns');
     // snsBtn.querySelectorAll("li")[0].innerHTML = <a href=""></a>
@@ -27,52 +27,47 @@ document.addEventListener("DOMContentLoaded", function(){
     _main = document.querySelector("main");
 
     //레이어
-    var allResultLayer = _main.querySelector('.allResultLayer');
-    
-    _main.querySelector(".resultAllBtn").addEventListener("click", function(){
+    var allResultLayer = _main.querySelector(".allResultLayer");
+
+    _main.querySelector(".resultAllBtn").addEventListener("click", function () {
         allResultLayer.classList.add("active");
     });
 
-    _main.querySelector(".closeBtn").addEventListener("click", function(){
+    _main.querySelector(".closeBtn").addEventListener("click", function () {
         allResultLayer.classList.remove("active");
-    })
-    _main.querySelector(".confirmBtn").addEventListener("click", function(){
+    });
+    _main.querySelector(".confirmBtn").addEventListener("click", function () {
         allResultLayer.classList.remove("active");
-    })
+    });
     //레이어 end
 
-    _main.querySelector(".restartBtn").addEventListener("click", function(){
+    _main.querySelector(".restartBtn").addEventListener("click", function () {
         _main.classList.add("start");
         _main.classList.remove("quiz");
         _main.classList.remove("loading");
         _main.classList.remove("result");
         resetFunc();
-    })
+    });
 
-
-    window.addEventListener("resize", function(){
+    window.addEventListener("resize", function () {
         resizeFunc();
-    })
-    
+    });
+
     resizeFunc();
 });
 
-
-function resizeFunc(){
-    
+function resizeFunc() {
     height = window.innerHeight;
     width = window.innerWidth;
     //console.log(height)
-    if(is_mobile || (!is_mobile && height < 1000)){
-        document.querySelector('article').style.height = height + "px";
+    if (is_mobile || (!is_mobile && height < 1000)) {
+        document.querySelector("article").style.height = height + "px";
     }
 
     // document.querySelectorAll('section').forEach(function(item){
     //     item.style.height = height+"px";
     // })
-    
 }
-
 
 function getParam(sname) {
     var params = location.search.substr(location.search.indexOf("?") + 1);
@@ -87,9 +82,6 @@ function getParam(sname) {
     return sval;
 }
 
-
-
-
 var getMetaValue = (function () {
     var metas = {};
     var metaGetter = function (metaName) {
@@ -97,21 +89,18 @@ var getMetaValue = (function () {
         if (metas[metaName]) {
             wasDOMQueried = false;
         } else {
-            Array.prototype.some.call(
-                document.getElementsByTagName("meta"),
-                function (el) {
-                    if (el.name === metaName) {
-                        metas[metaName] = el.content;
-                        return true;
-                    }
-                    if (el.getAttribute("property") === metaName) {
-                        metas[metaName] = el.content;
-                        return true;
-                    } else {
-                        metas[metaName] = "";
-                    }
+            Array.prototype.some.call(document.getElementsByTagName("meta"), function (el) {
+                if (el.name === metaName) {
+                    metas[metaName] = el.content;
+                    return true;
                 }
-            );
+                if (el.getAttribute("property") === metaName) {
+                    metas[metaName] = el.content;
+                    return true;
+                } else {
+                    metas[metaName] = "";
+                }
+            });
         }
         // console.info("Q:wasDOMQueried? A:" + wasDOMQueried);
         return metas[metaName];
@@ -137,11 +126,10 @@ if (navigator.platform) {
     Kakao.init(ds_config.appkey);
 }
 
-
 function snsFunc(sns) {
     var o = {
-        method: ""
-    }
+        method: "",
+    };
     var _url = encodeURIComponent(ds_config.url);
     var _txt = encodeURIComponent(ds_config.title);
     //    var _br = encodeURIComponent('\r\n');
@@ -158,9 +146,7 @@ function snsFunc(sns) {
         case "twitter":
             o = {
                 method: "popup",
-                url:
-                    "https://twitter.com/intent/tweet?text=" +
-                    _txt +"&url=" + _url,
+                url: "https://twitter.com/intent/tweet?text=" + _txt + "&url=" + _url,
             };
             break;
         case "kakaotalk":
@@ -168,7 +154,7 @@ function snsFunc(sns) {
 
             var result_mo_chk = mo_chk();
 
-            if(fineApp && result_mo_chk == "ios"){
+            if (fineApp && result_mo_chk == "ios") {
                 //아이폰이면 네이티브 공유로
                 sharedContents();
                 return false;
@@ -179,9 +165,7 @@ function snsFunc(sns) {
                 content: {
                     title: ds_config.title,
                     description: ds_config.kakaotalk.text,
-                    imageUrl: getMetaValue("og:image:kakao")
-                        ? getMetaValue("og:image:kakao")
-                        : ds_config.image,
+                    imageUrl: getMetaValue("og:image:kakao") ? getMetaValue("og:image:kakao") : ds_config.image,
                     link: {
                         mobileWebUrl: ds_config.url,
                         webUrl: ds_config.url,
@@ -209,20 +193,15 @@ function snsFunc(sns) {
 
     switch (o.method) {
         case "popup":
-            
             // window.open(
             //     o.url,
             //     o.sns + "",
             //     "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
             // );
-            
-            if (!fineApp) { 
-                window.open(
-                    o.url,
-                    o.sns + "",
-                    "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400"
-                );
-            } else { 
+
+            if (!fineApp) {
+                window.open(o.url, o.sns + "", "scrollbars=yes,toolbar=yes,resizable=yes,width=600,height=400");
+            } else {
                 window.location.href = o.url;
             }
 
@@ -231,22 +210,43 @@ function snsFunc(sns) {
 }
 
 function urlCopyFunc() {
-    var urlbox = document.getElementById("ShareUrl");
-    //console.log(urlbox)
-    //urlbox.value = window.location.href;
-    urlbox.value = ds_config.url;
-    // console.log(urlbox.value)
-    urlbox.select();
-    document.execCommand("Copy");
-    if (!fineApp) { 
-        alert("URL이 복사 되었습니다.");
-    }else {
-        var snsBtn = document.querySelector('.ico_sns');
-        snsBtn.querySelectorAll("li")[3].querySelector("span").innerText = "URL 복사완료";
+    let el = document.getElementById("ShareUrl");
+
+    console.log(el.value);
+    if (document.body.createTextRange) {
+        // IE
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.select();
+        textRange.execCommand("Copy");
+
+        toast("URL이 복사되었습니다");
+    } else if (window.getSelection && document.createRange) {
+        // non-IE
+        var editable = el.contentEditable; // Record contentEditable status of element
+        var readOnly = el.readOnly; // Record readOnly status of element
+        el.contentEditable = true; // iOS will only select text on non-form elements if contentEditable = true;
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range); // Does not work for Firefox if a textarea or input
+        if (el.nodeName == "TEXTAREA" || el.nodeName == "INPUT") {
+            el.select(); // Firefox will only select a form element with select()
+        }
+        if (el.setSelectionRange && navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+            el.setSelectionRange(0, 999999); // iOS only selects "form" elements with SelectionRange
+        }
+        el.contentEditable = editable; // Restore previous contentEditable status
+        el.readOnly = readOnly; // Restore previous readOnly status
+        if (document.queryCommandSupported("copy")) {
+            var successful = document.execCommand("copy");
+            if (successful) {
+                toast("URL이 복사되었습니다");
+            }
+        }
     }
 }
-
-
 
 function isInstalledApp() {
     if (isMobile()) {
@@ -262,4 +262,20 @@ function isInstalledApp() {
             location.href = "https://play.google.com/store/apps/details?id=com.hamc.android.pine";
         }
     }
+}
+
+let removeToast;
+
+function toast(string) {
+    const toast = document.getElementById("toast");
+
+    toast.classList.contains("reveal")
+        ? (clearTimeout(removeToast),
+          (removeToast = setTimeout(function () {
+              document.getElementById("toast").classList.remove("reveal");
+          }, 1000)))
+        : (removeToast = setTimeout(function () {
+              document.getElementById("toast").classList.remove("reveal");
+          }, 1000));
+    toast.classList.add("reveal"), (toast.innerText = string);
 }
