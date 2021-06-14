@@ -153,11 +153,11 @@ function snsFunc(sns) {
 
             var result_mo_chk = mo_chk();
 
-            if (fineApp && result_mo_chk == "ios") {
-                //아이폰이면 네이티브 공유로
-                sharedContents();
-                return false;
-            }
+            // if (fineApp && result_mo_chk == "ios") {
+            //     //아이폰이면 네이티브 공유로
+            //     sharedContents();
+            //     return false;
+            // }
 
             Kakao.Link.sendDefault({
                 objectType: "feed",
