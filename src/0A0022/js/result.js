@@ -15,7 +15,6 @@ var fineApp = false;
 document.addEventListener("DOMContentLoaded", function () {
     is_mobile = isMobile();
     fineApp = pineAppChk();
-    document.getElementById("ShareUrl").value = ds_config.url;
 
     console.log(is_mobile, fineApp);
     //앱 sns 공유 버튼 셋팅
@@ -211,6 +210,7 @@ function snsFunc(sns) {
 
 function urlCopyFunc() {
     let el = document.getElementById("ShareUrl");
+    el.value = document.location.href;
 
     console.log(el.value);
     if (document.body.createTextRange) {
