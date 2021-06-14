@@ -151,7 +151,7 @@ function snsFunc(sns) {
         case "kakaotalk":
             // console.log("ds_config.title : " + ds_config.title + " : ds_config.kakaotalk.text : " + ds_config.kakaotalk.text + " _ " + ds_config.url);
 
-            var result_mo_chk = mo_chk();
+            // var result_mo_chk = mo_chk();
 
             // if (fineApp && result_mo_chk == "ios") {
             //     //아이폰이면 네이티브 공유로
