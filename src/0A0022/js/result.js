@@ -220,7 +220,7 @@ function urlCopyFunc() {
         textRange.select();
         textRange.execCommand("Copy");
 
-        toast("URL이 복사되었습니다");
+        toast("URL이 복사되었습니다.");
     } else if (window.getSelection && document.createRange) {
         // non-IE
         var editable = el.contentEditable; // Record contentEditable status of element
@@ -242,7 +242,7 @@ function urlCopyFunc() {
         if (document.queryCommandSupported("copy")) {
             var successful = document.execCommand("copy");
             if (successful) {
-                toast("URL이 복사되었습니다");
+                toast("URL이 복사되었습니다.");
             }
         }
     }
