@@ -254,8 +254,8 @@ main section.quizPage .pageNumWrap {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
 }
 
 @media only screen and (max-width: 600px) {
@@ -979,10 +979,10 @@ main section.loadingPage .titleWrap .imageWrap img {
   transform: translate(-50%, -50%);
   border-radius: 30px;
   overflow: hidden;
-  font-size: .8rem;
+  font-size: 0.8rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .5s, visibility .5s, transform .5s;
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
   z-index: 10000;
