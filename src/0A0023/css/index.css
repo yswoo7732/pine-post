@@ -254,8 +254,8 @@ main section.quizPage .pageNumWrap {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 15px);
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 15px);
 }
 
 @media only screen and (max-width: 600px) {
@@ -507,7 +507,7 @@ main section.loadingPage .titleWrap .imageWrap img {
 .resultPage .titleWrap {
   background-color: #f7f7f7;
   position: relative;
-  padding: 0;
+  padding: 20% 0 0;
   z-index: 2;
   color: #000;
   display: block;
@@ -524,7 +524,7 @@ main section.loadingPage .titleWrap .imageWrap img {
 
 .resultPage .titleWrap h2 {
   position: absolute;
-  top: 5%;
+  top: 20%;
   left: 50%;
   z-index: 3;
   transform: translate(-50%, -50%);

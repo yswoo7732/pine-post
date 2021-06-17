@@ -227,8 +227,8 @@ main section.quizPage .pageNumWrap {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 15px);
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 15px);
 }
 
 @media only screen and (max-width: 600px) {
