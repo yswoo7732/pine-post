@@ -1,0 +1,151 @@
+$mobile: "only screen and (max-width: 600px)"; //529
+
+.swiper-slide {
+    font-family: LIFEPLUS;
+    color: #ffffff;
+
+    .content-wrapper {
+        margin: 0 auto 20%;
+        position: relative;
+
+        &.first {
+            margin: 0 auto;
+        }
+
+        .title {
+            width: 60%;
+        }
+
+        .title-img {
+            margin-top: 30%;
+            width: 80%;
+        }
+
+        h3 {
+            color: #d8c67a;
+            font-weight: 500;
+            margin: 13% auto;
+        }
+
+        h5 {
+            font-size: 30px;
+            font-weight: 500;
+            margin: 0;
+
+            @media #{$mobile} {
+                font-size: 5vw;
+            }
+        }
+
+        h6 {
+            font-size: 33px;
+            font-weight: bold;
+            line-height: 1.33;
+            margin: 3% auto 20%;
+            color: #98ab61;
+
+            @media #{$mobile} {
+                font-size: 6vw;
+            }
+
+            &.yellow {
+                color: #d8c67a;
+                margin-bottom: 40%;
+            }
+        }
+
+        p {
+            font-size: 22px;
+            color: #ffffff;
+            font-family: LIFEPLUS;
+            font-weight: 500;
+            line-height: 1.61;
+
+            @media #{$mobile} {
+                font-size: 4.5vw;
+            }
+
+            &.cf {
+                font-size: 12px;
+                text-align: initial;
+                
+                @media #{$mobile} {
+                    font-size: 3vw;
+                }
+                
+                &.org {
+                    text-align: right;
+                    margin-bottom: 20%;
+                }
+
+                &.ast {
+                    padding: 0 8%;
+                }
+            }
+        }
+
+        span {
+            color: #d8c67a;
+
+            &.green {
+                color: #98ab61;
+            }
+        }
+
+        .img-2 {
+            width: 85%;
+        }
+
+        .img-3 {
+            width: 85%;
+            margin: 0 auto 17%;
+        }
+
+        .img-4 {
+            width: 80%;
+            margin: 0 auto 10%;
+        }
+
+        .img-5 {
+            width: 70%;
+            margin: 0% auto 10%;
+        }
+
+        .img-6 {
+            width: 50%;
+            margin: 0% auto 10%;
+
+            &.sec {
+                width: 70%;
+            }
+        }
+
+        .img-7 {
+            margin: 10% auto 0;
+        }
+
+        .img-8 {
+            margin: 13% auto 25%;
+            width: 85%;
+        }
+
+        hr {
+            margin: 13% auto 5%;
+            width: 85%;
+        }
+
+        button {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: initial;
+            padding: 8px;
+            height: auto;
+            width: 75%;
+            margin: 30% auto 0;
+        }
+    }
+}
