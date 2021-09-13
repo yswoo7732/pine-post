@@ -1,0 +1,117 @@
+.swiper-slide {
+  font-family: LIFEPLUS;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.swiper-slide .content-wrapper {
+  margin: 0 auto 20%;
+}
+
+.swiper-slide .content-wrapper h1 {
+  font-size: 3em;
+  margin: 0 auto;
+  color: transparent;
+}
+
+.swiper-slide .content-wrapper h3 {
+  font-weight: 500;
+}
+
+.swiper-slide .content-wrapper.first {
+  margin: 0 auto;
+}
+
+.swiper-slide .content-wrapper.first h1:nth-of-type(1) {
+  -webkit-text-stroke: 1px #dcc46d;
+}
+
+.swiper-slide .content-wrapper.first h1:nth-of-type(2) {
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.swiper-slide .content-wrapper.first h1:nth-of-type(3) {
+  -webkit-text-stroke: 1px #94ac57;
+}
+
+.swiper-slide .content-wrapper.first img {
+  width: 50%;
+  margin-top: 25%;
+}
+
+.swiper-slide .content-wrapper .frame {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20% 0;
+}
+
+.swiper-slide .content-wrapper .frame p {
+  color: #000000;
+}
+
+.swiper-slide .content-wrapper .frame img {
+  width: 60%;
+  margin-top: 20%;
+}
+
+.swiper-slide .content-wrapper .frame.last {
+  padding: 20% 5%;
+}
+
+.swiper-slide .content-wrapper .frame.last img {
+  width: 80%;
+  margin: 0 auto 10%;
+}
+
+.swiper-slide .content-wrapper .frame.last .cf {
+  color: #898989;
+  font-size: 8px;
+  text-align: initial;
+}
+
+.swiper-slide .content-wrapper .udl {
+  text-decoration: underline;
+}
+
+.swiper-slide .content-wrapper .img3 {
+  margin: 20% auto;
+}
+
+.swiper-slide .content-wrapper.back h1 {
+  -webkit-text-stroke: 1px #dcc46d;
+}
+
+.swiper-slide .content-wrapper.back p {
+  line-height: 2.18;
+}
+
+.swiper-slide .content-wrapper.back.kd h1 {
+  -webkit-text-stroke: 1px #94ac57;
+}
+
+.swiper-slide .content-wrapper.back.kd p {
+  line-height: 1.09;
+}
+
+.swiper-slide .content-wrapper .img4-5 {
+  margin-top: 20%;
+  width: 70%;
+}
+
+.swiper-slide .content-wrapper .img4-7 {
+  width: 100%;
+  margin: 10% auto 0%;
+}
+
+.swiper-slide .content-wrapper .img4-7:nth-of-type(2) {
+  width: 90%;
+}
+
+.swiper-slide .content-wrapper button {
+  background-color: #252629;
+  color: #ffffff;
+  padding: 8px;
+  height: auto;
+  width: 100%;
+  margin: 20% auto 5%;
+}
