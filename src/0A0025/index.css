@@ -92,6 +92,11 @@
   padding: 0 8%;
 }
 
+.swiper-slide .content-wrapper p.cf.rq {
+  color: #898989;
+  font-size: 10px;
+}
+
 .swiper-slide .content-wrapper span {
   color: #d8c67a;
 }
@@ -139,8 +144,16 @@
 }
 
 .swiper-slide .content-wrapper hr {
+  background-color: #ffffff;
   margin: 13% auto 5%;
   width: 85%;
+  border: 0;
+  height: 1px;
+}
+
+.swiper-slide .content-wrapper hr.hr-g {
+  margin: 5% auto;
+  background-color: #898989;
 }
 
 .swiper-slide .content-wrapper button {

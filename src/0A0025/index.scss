@@ -68,11 +68,11 @@ $mobile: "only screen and (max-width: 600px)"; //529
             &.cf {
                 font-size: 12px;
                 text-align: initial;
-                
+
                 @media #{$mobile} {
                     font-size: 3vw;
                 }
-                
+
                 &.org {
                     text-align: right;
                     margin-bottom: 20%;
@@ -80,6 +80,11 @@ $mobile: "only screen and (max-width: 600px)"; //529
 
                 &.ast {
                     padding: 0 8%;
+                }
+
+                &.rq {
+                    color: #898989;
+                    font-size: 10px;
                 }
             }
         }
@@ -131,8 +136,15 @@ $mobile: "only screen and (max-width: 600px)"; //529
         }
 
         hr {
+            background-color: #ffffff;
             margin: 13% auto 5%;
             width: 85%;
+            border: 0;
+            height: 1px;
+            &.hr-g {
+                margin: 5% auto;
+                background-color: #898989;
+            }
         }
 
         button {
