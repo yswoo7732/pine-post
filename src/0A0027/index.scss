@@ -18,6 +18,7 @@ $basicColor: #ffffff;
         }
 
         h2 {
+            margin-top: 0;
             font-weight: 500;
             &.pointy {
                 color: $pointColorY;
