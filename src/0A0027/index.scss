@@ -10,6 +10,7 @@ $basicColor: #ffffff;
 
     .content-wrapper {
         margin: 0 auto 20%;
+        position: relative;
 
         h1 {
             font-size: 3em;
@@ -18,7 +19,8 @@ $basicColor: #ffffff;
         }
 
         h2 {
-            margin-top: 0;
+            margin: 0 auto;
+            line-height: 1.65;
             font-weight: 500;
             &.pointy {
                 color: $pointColorY;
@@ -58,7 +60,7 @@ $basicColor: #ffffff;
         }
 
         .contents {
-            margin: 40% auto;
+            margin: 38% auto;
 
             h2 {
                 margin: 0 auto;
@@ -92,6 +94,21 @@ $basicColor: #ffffff;
         .img5-6 {
             margin: 35% auto;
             width: 75%;
+        }
+
+        &.back {
+            margin: 0 auto;
+            background-size: 100% 100%;
+            height: 100%;
+            align-items: center;
+            display: flex;
+        }
+
+        .back-d {
+            height: auto;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto 20%;
         }
 
         .frame {

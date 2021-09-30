@@ -34,7 +34,7 @@
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="../common/vendor/swiper-bundle.min.css" />
         <link rel="stylesheet" type="text/css" href="../common/card.css" />
-        <link rel="stylesheet" type="text/css" href="index.css" />
+        <link rel="stylesheet" type="text/css" href="index.css?ver=20210930" />
     </head>
 
     <body>
@@ -130,45 +130,53 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img class="back" src="assets/5-7img@2x.png" />
-                    <div class="content-wrapper">
-                        <h2>여기서 드는 생각!</h2>
-                        <h2 class="pointg">TDF 상품명 뒤 숫자는 뭘까?</h2>
-                        <div class="frame">
-                            <p>당신이 선택한</p>
-                            <p>
-                                LIFEPLUS TDF
-                                <span class="half-highlight">2030</span>
-                            </p>
-                            <p>은퇴까지 막판 10년 스퍼트</p>
+                    <div
+                        class="content-wrapper back"
+                        style="background-image: url('assets/5-7img@2x.png')"
+                    >
+                        <div class="back-d">
+                            <h2>여기서 드는 생각!</h2>
+                            <h2 class="pointg">TDF 상품명 뒤 숫자는 뭘까?</h2>
+                            <div class="frame">
+                                <p>당신이 선택한</p>
+                                <p>
+                                    LIFEPLUS TDF
+                                    <span class="half-highlight">2030</span>
+                                </p>
+                                <p>은퇴까지 막판 10년 스퍼트</p>
+                                <br />
+                                <p>당신이 선택한</p>
+                                <p>
+                                    LIFEPLUS TDF
+                                    <span class="half-highlight">2040</span>
+                                </p>
+                                <p>은퇴와 세계 경제에 눈 뜨기</p>
+                            </div>
+                            <p>TDF 상품명 뒤의 숫자가</p>
+                            <p>바로 내 은퇴시점(Target Date)입니다.</p>
                             <br />
-                            <p>당신이 선택한</p>
-                            <p>
-                                LIFEPLUS TDF
-                                <span class="half-highlight">2040</span>
-                            </p>
-                            <p>은퇴와 세계 경제에 눈 뜨기</p>
+                            <p>TDF는 일반적으로</p>
+                            <p>5년 단위로 구분되어 있습니다.</p>
                         </div>
-                        <p>TDF 상품명 뒤의 숫자가</p>
-                        <p>바로 내 은퇴시점(Target Date)입니다.</p>
-                        <br />
-                        <p>TDF는 일반적으로</p>
-                        <p>5년 단위로 구분되어 있습니다.</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img class="back" src="assets/5-8img@2x.png" />
-                    <div class="content-wrapper">
-                        <h2>여기서 드는 생각!</h2>
-                        <h2 class="pointg">나의 은퇴시점에 적합한</h2>
-                        <h2 class="pointg">TDF를 모르겠어요.</h2>
-                        <div class="contents">
-                            <h2>추천 타겟 연도</h2>
-                            <h2>=출생년도 + 60년</h2>
+                    <div
+                        class="content-wrapper back"
+                        style="background-image: url('assets/5-8img@2x.png')"
+                    >
+                        <div class="back-d">
+                            <h2>여기서 드는 생각!</h2>
+                            <h2 class="pointg">나의 은퇴시점에 적합한</h2>
+                            <h2 class="pointg">TDF를 모르겠어요.</h2>
+                            <div class="contents">
+                                <h2>추천 타겟 연도</h2>
+                                <h2>=출생년도 + 60년</h2>
+                            </div>
+                            <br />
+                            <p>이와 가장 가까운 숫자의</p>
+                            <p>TDF를 선택하면 됩니다.</p>
                         </div>
-                        <br />
-                        <p>이와 가장 가까운 숫자의</p>
-                        <p>TDF를 선택하면 됩니다.</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
@@ -187,7 +195,9 @@
                             </p>
                             <p>구경해보세요!</p>
                         </div>
-                        <a onclick="appLinkFunc('tdf', 8);">TDF 펀드 보러가기</a>
+                        <a onclick="appLinkFunc('tdf', 8);"
+                            >TDF 펀드 보러가기</a
+                        >
                     </div>
                 </div>
             </div>
