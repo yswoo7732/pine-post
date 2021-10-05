@@ -24,6 +24,7 @@
 
 .swiper-slide .content-wrapper h1 span {
   color: #dcc46d;
+  font-size: 36px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -97,7 +98,7 @@
 }
 
 .swiper-slide .content-wrapper span.cf {
-  display: inline-block;
+  display: block;
   font-size: 12px;
 }
 
@@ -149,7 +150,7 @@
 }
 
 .swiper-slide .content-wrapper.first .img-wrapper img {
-  width: 85%;
+  width: 65%;
   height: auto;
   position: absolute;
   left: 0;
@@ -158,103 +159,35 @@
 .swiper-slide .content-wrapper .img-c {
   margin: 10% auto;
   position: relative;
-  width: 90%;
+  width: 65%;
 }
 
 .swiper-slide .content-wrapper .img-b {
   margin: 10% auto 0;
   position: relative;
-  width: 90%;
+  width: 65%;
 }
 
 .swiper-slide .content-wrapper .img-t {
   margin: 15% auto;
   position: relative;
-  width: 65%;
+  width: 60%;
 }
 
 .swiper-slide .content-wrapper .img-m {
   margin: 25% auto;
   position: relative;
-  width: 70%;
+  width: 60%;
 }
 
 .swiper-slide .content-wrapper .img-tn {
   margin: 0 auto 10%;
-  width: 70%;
+  width: 60%;
 }
 
 .swiper-slide .content-wrapper .img-tnb {
   margin: 0 auto 10%;
-  width: 80%;
-}
-
-.swiper-slide .content-wrapper .contents {
-  margin: 38% auto;
-}
-
-.swiper-slide .content-wrapper .contents h2 {
-  margin: 0 auto;
-}
-
-.swiper-slide .content-wrapper .contents2 {
-  margin: 18% auto;
-}
-
-.swiper-slide .content-wrapper .img5-2 {
-  width: 60%;
-  margin-bottom: 20%;
-}
-
-.swiper-slide .content-wrapper .img5-3 {
-  margin: 20% auto;
   width: 65%;
-}
-
-.swiper-slide .content-wrapper .img5-4 {
-  margin: 20% auto;
-  width: 90%;
-}
-
-.swiper-slide .content-wrapper .img5-5 {
-  margin: 10% auto;
-  width: 75%;
-}
-
-.swiper-slide .content-wrapper .img5-6 {
-  margin: 35% auto;
-  width: 75%;
-}
-
-.swiper-slide .content-wrapper.back {
-  margin: 0 auto;
-  background-size: 100% 100%;
-  height: 100%;
-  align-items: center;
-  display: flex;
-}
-
-.swiper-slide .content-wrapper .back-d {
-  height: auto;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto 20%;
-}
-
-.swiper-slide .content-wrapper .frame {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 6% 0;
-  margin: 15% auto;
-}
-
-.swiper-slide .content-wrapper .frame p {
-  color: #000000;
-}
-
-.swiper-slide .content-wrapper .frame .half-highlight {
-  color: #000000;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #9fad6e 50%);
 }
 
 .swiper-slide .content-wrapper a {
