@@ -1,0 +1,255 @@
+$mobile: "only screen and (max-width: 600px)"; //529
+$pointColorG: #94ac57;
+$pointColorY: #dcc46d;
+$basicColor: #ffffff;
+
+.swiper-slide {
+    font-family: LIFEPLUS;
+    color: $basicColor;
+    font-weight: 500;
+
+    .content-wrapper {
+        margin: 0 auto 20%;
+        position: relative;
+
+        h1 {
+            font-size: 48px;
+            margin: 0 auto;
+            color: transparent;
+            font-size: 36px;
+
+            @media #{$mobile} {
+                font-size: 11vw;
+            }
+
+            span {
+                color: $pointColorY;
+
+                @media #{$mobile} {
+                    font-size: 11vw;
+                }
+            }
+        }
+
+        h2 {
+            margin: 0 auto;
+            line-height: 1.65;
+            font-weight: 500;
+            font-size: 24px;
+
+            @media #{$mobile} {
+                font-size: 7vw;
+            }
+
+            &.big {
+                font-size: 38px;
+                @media #{$mobile} {
+                    font-size: 8vw;
+                }
+            }
+        }
+
+        h3 {
+            font-weight: 500;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        p {
+            line-height: 1.61;
+            font-size: 16px;
+
+            @media #{$mobile} {
+                font-size: 4vw;
+            }
+
+            &.qt {
+                font-size: 20px;
+
+                @media #{$mobile} {
+                    font-size: 6vw;
+                }
+
+                span {
+                    font-size: 20px;
+
+                    @media #{$mobile} {
+                        font-size: 6vw;
+                    }
+                }
+            }
+        }
+
+        span {
+            font-size: 16px;
+
+            &.cf {
+                display: inline-block;
+                font-size: 12px;
+                @media #{$mobile} {
+                    font-size: 3vw;
+                }
+            }
+
+            @media #{$mobile} {
+                font-size: 4vw;
+            }
+        }
+
+        .pointY {
+            color: $pointColorY;
+        }
+        .pointG {
+            color: $pointColorG;
+        }
+
+        &.first {
+            margin: 0 auto;
+            padding: 0;
+
+            .sub {
+                position: relative;
+                margin-bottom: 3%;
+            }
+
+            h1 {
+                -webkit-text-stroke: 1px $pointColorY;
+            }
+            .img-wrapper {
+                position: relative;
+                left: 0;
+                width: 100%;
+                height: 200px;
+                margin: 5% 0;
+                padding: 34px 0;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                display: flex;
+
+                img {
+                    width: 85%;
+                    height: auto;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+
+        .img-c {
+            margin: 10% auto;
+            position: relative;
+            width: 90%;
+        }
+
+        .img-b {
+            margin: 10% auto 0;
+            position: relative;
+            width: 90%;
+        }
+
+        .img-t {
+            margin: 15% auto;
+            position: relative;
+            width: 65%;
+        }
+
+        .img-m {
+            margin: 25% auto;
+            position: relative;
+            width: 70%;
+        }
+
+        .img-tn {
+            margin: 0 auto 10%;
+            width: 70%;
+        }
+
+        .img-tnb {
+            margin: 0 auto 10%;
+            width: 80%;
+        }
+        
+        .contents {
+            margin: 38% auto;
+
+            h2 {
+                margin: 0 auto;
+            }
+        }
+
+        .contents2 {
+            margin: 18% auto;
+        }
+
+        .img5-2 {
+            width: 60%;
+            margin-bottom: 20%;
+        }
+
+        .img5-3 {
+            margin: 20% auto;
+            width: 65%;
+        }
+
+        .img5-4 {
+            margin: 20% auto;
+            width: 90%;
+        }
+
+        .img5-5 {
+            margin: 10% auto;
+            width: 75%;
+        }
+
+        .img5-6 {
+            margin: 35% auto;
+            width: 75%;
+        }
+
+        &.back {
+            margin: 0 auto;
+            background-size: 100% 100%;
+            height: 100%;
+            align-items: center;
+            display: flex;
+        }
+
+        .back-d {
+            height: auto;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto 20%;
+        }
+
+        .frame {
+            background-color: $basicColor;
+            border-radius: 20px;
+            padding: 6% 0;
+            margin: 15% auto;
+
+            p {
+                color: #000000;
+            }
+
+            .half-highlight {
+                color: #000000;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #9fad6e 50%);
+            }
+        }
+
+        a {
+            background-color: #fff;
+            color: #000;
+            font-size: 20px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            display: flex;
+            font-weight: bold;
+        }
+    }
+}
