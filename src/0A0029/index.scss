@@ -1,0 +1,222 @@
+$mobile: "only screen and (max-width: 600px)"; //529
+$pointColorG: #94ac57;
+$pointColorY: #dcc46d;
+$basicColor: #ffffff;
+
+.box-shadow {
+    background-image: linear-gradient(transparent 0%, #94ac57 0%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.pointY {
+    color: $pointColorY;
+}
+.pointG {
+    color: $pointColorG;
+}
+
+hr {
+    background-color: #ffffff;
+    margin: 13% auto 5%;
+    width: 100%;
+    border: 0;
+    height: 1px;
+}
+
+.swiper-slide {
+    font-family: LIFEPLUS;
+    color: $basicColor;
+    font-weight: 500;
+
+    .content-wrapper {
+        margin: 0 auto 20%;
+        position: relative;
+
+        h1 {
+            font-size: 48px;
+            margin: 0 auto;
+            color: transparent;
+            font-size: 36px;
+
+            @media #{$mobile} {
+                font-size: 11vw;
+            }
+        }
+
+        h2 {
+            margin: 0 auto;
+            font-weight: 500;
+            font-size: 24px;
+
+            @media #{$mobile} {
+                font-size: 7vw;
+            }
+
+            &.big {
+                font-size: 38px;
+                @media #{$mobile} {
+                    font-size: 8vw;
+                }
+            }
+        }
+
+        h3 {
+            font-weight: 500;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        p {
+            line-height: 1.61;
+            font-size: 16px;
+
+            @media #{$mobile} {
+                font-size: 4vw;
+            }
+
+            &.qt {
+                font-size: 20px;
+
+                @media #{$mobile} {
+                    font-size: 6vw;
+                }
+
+                span {
+                    font-size: 20px;
+
+                    @media #{$mobile} {
+                        font-size: 6vw;
+                    }
+                }
+            }
+        }
+
+        span {
+            font-size: 16px;
+
+            &.cf {
+                display: block;
+                font-size: 12px;
+                @media #{$mobile} {
+                    font-size: 2vw;
+                }
+            }
+
+            @media #{$mobile} {
+                font-size: 4vw;
+            }
+        }
+
+        &.first {
+            margin: 0 auto;
+            padding: 0;
+
+            .sub {
+                position: relative;
+                margin-bottom: 3%;
+            }
+
+            h3 {
+                margin-bottom: 5%;
+            }
+            h1 {
+                -webkit-text-stroke: 1px $pointColorY;
+            }
+
+            .img-wrapper {
+                width: 100%;
+                margin: 25% auto 0;
+
+                img {
+                    width: 70%;
+                    height: auto;
+                }
+            }
+        }
+
+        .frm {
+            width: auto;
+            height: 100%;
+            padding: 40% 20px;
+            text-align: initial;
+
+            &.bk1 {
+                background-image: url(../0A0029/assets/3-2frame@2x.png);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .des {
+                padding: 0 20px;
+            }
+        }
+
+        &.cw2 {
+            span {
+                color: #000;
+                font-weight: bold;
+            }
+        }
+
+        &.back {
+            margin: 0 auto;
+            background-size: 100% 100%;
+            height: 100%;
+            align-items: center;
+            display: flex;
+
+            .back-d {
+                height: auto;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto 20%;
+            }
+        }
+
+        .bx {
+            border: 1px solid #fff;
+            margin: 7% auto;
+            width: 85%;
+            padding: 5px;
+        }
+
+        .img-c {
+            margin: 10% auto;
+            position: relative;
+            width: 85%;
+        }
+
+        .img-b {
+            margin: 10% auto;
+            position: relative;
+            width: 25%;
+        }
+
+        .img-t {
+            margin: 10% auto;
+            position: relative;
+            width: 35%;
+        }
+
+        .img-m {
+            margin: 15% auto;
+            position: relative;
+            width: 50%;
+        }
+
+        a {
+            background-color: #fff;
+            color: #000;
+            font-size: 20px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            display: flex;
+            font-weight: bold;
+        }
+    }
+}
