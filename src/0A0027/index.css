@@ -1,3 +1,9 @@
+@media only screen and (max-width: 360px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
 .swiper-slide {
   font-family: LIFEPLUS;
   color: #ffffff;
@@ -37,6 +43,11 @@
 
 .swiper-slide .content-wrapper p {
   line-height: 1.61;
+}
+
+.swiper-slide .content-wrapper p.cf {
+  font-size: 0.5rem;
+  color: #898989;
 }
 
 .swiper-slide .content-wrapper span {
