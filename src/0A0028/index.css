@@ -1,11 +1,10 @@
 .swiper-slide {
-  font-family: LIFEPLUS;
   color: #ffffff;
   font-weight: 500;
 }
 
 .swiper-slide .content-wrapper {
-  margin: 0 auto 20%;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -129,7 +128,6 @@
 
 .swiper-slide .content-wrapper.first .sub {
   position: relative;
-  margin-bottom: 3%;
 }
 
 .swiper-slide .content-wrapper.first h1 {
@@ -137,11 +135,11 @@
 }
 
 .swiper-slide .content-wrapper.first .img-wrapper {
+  margin: 0;
   position: relative;
   left: 0;
   width: 100%;
   height: 200px;
-  margin: 5% 0;
   padding: 34px 0;
   justify-content: center;
   align-items: center;
@@ -150,6 +148,7 @@
 }
 
 .swiper-slide .content-wrapper.first .img-wrapper img {
+  margin: 0;
   width: 85%;
   height: auto;
   position: absolute;
@@ -157,7 +156,7 @@
 }
 
 .swiper-slide .content-wrapper .img-c {
-  margin: 10% auto;
+  margin: 5% auto;
   position: relative;
   width: 65%;
 }
@@ -169,7 +168,7 @@
 }
 
 .swiper-slide .content-wrapper .img-t {
-  margin: 15% auto;
+  margin: 5% auto;
   position: relative;
   width: 60%;
 }

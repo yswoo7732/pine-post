@@ -1,139 +1,186 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>펀드 거래 시점 알기</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="title" content="펀드 거래 시점 알기">
-    <meta name="description" content="펀드 오늘 사도 내일 받는 이유">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="title" content="펀드 거래 시점 알기" />
+    <meta name="description" content="펀드 오늘 사도 내일 받는 이유" />
     <meta property="og:site_name" content="펀드 거래 시점 알기" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="펀드 거래 시점 알기" />
     <meta property="og:description" content="펀드 오늘 사도 내일 받는 이유" />
     <meta property="og:url" content="https://contents.pine.fund/0A0019/" />
-    <meta property="og:image" content="https://contents.pine.fund/0A0019/assets/cast_thumbnail.png" />
+    <meta
+      property="og:image"
+      content="https://contents.pine.fund/0A0019/assets/cast_thumbnail.png"
+    />
     <meta property="og:image:width" content="610" />
     <meta property="og:image:height" content="319" />
-
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
     <link rel="stylesheet" type="text/css" href="../common/common.css" />
-    <link rel="stylesheet" type="text/css" href="../common/scrollContents.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../common/scrollContents.css"
+    />
     <script type="text/javascript" src="../common/vendor/gsap.min.js"></script>
-    <script type="text/javascript" src="../common/vendor/ScrollToPlugin.min.js"></script>
-    <script type="text/javascript"; src="../common/common.js"></script>
+    <script
+      type="text/javascript"
+      src="../common/vendor/ScrollToPlugin.min.js"
+    ></script>
+    <script type="text/javascript" ; src="../common/common.js"></script>
     <script type="text/javascript" src="../common/scrollContents.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="title-bar" onclick="goBack();">
+      <img src="./../common/assets/btn_top_icon_back_b-3.svg" />
+    </div>
     <div class="wrap_cover">
-        <div class="cover_item" id="cover_full" style="background-image:url(./assets/12_timing_intro.jpg)"></div>
-        <div class="contents_1_1">
-            <h1>펀드 오늘 사도 내일 받는 이유</h1>
-            <p style="font-weight: 500; line-height: 1.5">펀드 거래 시점 알기</p>
-        </div>
-        <div class="tip_cell">
-            <p class="tip_contents">Skill & Tip</p>
-        </div>
-        <div class="sub-tag-cell">
-            <p class="sub-tag-contents">#펀드</p>
-            <p class="sub-tag-contents">#투자</p>
-            <p class="sub-tag-contents">#기준가</p>
-        </div>
-        <div class="sub-date-cell">
-            <p class="sub-date-contents">May.2021</p>
-        </div>
+      <div
+        class="cover_item"
+        id="cover_full"
+        style="background-image: url(./assets/12_timing_intro.jpg)"
+      ></div>
+      <div class="contents_1_1">
+        <h1>펀드 오늘 사도 내일 받는 이유</h1>
+        <p style="font-weight: 500; line-height: 1.5">펀드 거래 시점 알기</p>
+      </div>
+      <div class="tip_cell">
+        <p class="tip_contents">Skill & Tip</p>
+      </div>
+      <div class="sub-tag-cell">
+        <p class="sub-tag-contents">#펀드</p>
+        <p class="sub-tag-contents">#투자</p>
+        <p class="sub-tag-contents">#기준가</p>
+      </div>
+      <div class="sub-date-cell">
+        <p class="sub-date-contents">May.2021</p>
+      </div>
     </div>
 
     <div class="wrap_body_frame" id="body_frame">
-
-        <div class="basic_foot pineApp">
-            <div class="progress-indicator"><div class="progress-bar" id="progressBar"></div></div>
-            <button type="button" id="imgHeart" class="img_heart"  onclick="clickLike()">좋아요</button>
-            <button type="button" id="shareImg" class="img_share" onclick="sharedContents()">컨텐츠 공유</button>
+      <div class="wrap_body">
+        <div class="contents_title_1">
+          <span class="body-title">#펀드 거래 시점</span>
+          <span></span>
+        </div>
+        <div class="contents_banner_1">
+          <img class="img_round" src="assets/12_main1.jpg" />
         </div>
 
-        <div class="wrap_body">
-            <div class="contents_title_1">
-                <span class=body-title>#펀드 거래 시점</span>
-                <span></span>
-            </div>
-            <div class="contents_banner_1">
-                <img class="img_round" src="assets/12_main1.jpg" />
-            </div>
-
-            <div class="contents text_basic">
-                <span>펀드에 투자하려고 보니 가입하자마자 바로 투자되는 게 아니라 하루 이틀의 시간이 더 소요되어 당황한 경험이 있나요?
-                    펀드 거래는 왜 당일 기준가가 아니라 며칠 후의 가격이 적용될까요?
-                    하루 뒤에 결정되는 펀드와 이틀 뒤에 결정되는 펀드의 차이점은 무엇일까요?
-                    답이 궁금하다면 아래 내용을 주목해주세요!</span>
-            </div>
-
-            <div class="contents_banner_2">
-                <img class="img_round" src="assets/12_main2.jpg" />
-            </div>
-
-            <div class="contents_title_2">
-                <span class="text_bold">날짜만큼 시간도 중요해요!</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span class="box-shadow">펀드를 거래할 때는 신청하는 날의 기준가가 아니라 다음날이나 다다음날의 기준가가 적용</span>
-                <span>됩니다. 해외 펀드는 국내 펀드보다 시간이 더 소요되고요. 때문에 정확한 금액을 예측하기가 어려워지는데요.</span>
-            </div>
-            <div class="contents text_basic">
-                <span>주식형 펀드는</span>
-                <span class="box-shadow">주식 거래가 끝나는 15시 30분을 기준으로 기준가의 적용일이 하루씩 달라지는데요.</span>
-                <span>때문에 하루의 시간 차이도 크게 작용할 수 있는 펀드라면 이 시간까지 유의해야 합니다.</span>
-            </div>
-
-            <div class="contents_banner_3">
-                <img class="img_round" src="assets/12_main3.jpg" />
-            </div>
-
-            <div class="contents_title_3">
-                <span class="text_bold">왜 시간에 따라 달라질까요?</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span>펀드의 기준가는 펀드가 가진 주식, 채권 등의 자산 가격 변동에 따라 매일 변화합니다.
-                    그렇다면 가장 낮을 때 투자하는 것이 유리하겠지요? 하지만 시간에 관계없이 기준가를 결정한다면</span>
-                <span class="box-shadow">거래 시간에 따른 정보 격차로 인해 불공정 거래가 발생할 수 있습니다.</span>
-            </div>
-            <div class="contents text_basic">
-                <span>시장 마감 후 이루어지는 거래가 마감 전에 이루어진 거래와 동일한 기준을 가진다면
-                    다른 투자자의 이해관계까지 영향을 줄 수 있어</span>
-                <span class="box-shadow">펀드 투자는 증시 마감 전후를 기준으로 적용일이 달라지는 거예요!</span>
-            </div>
-
-            <div class="contents_banner_4">
-                <img class="img_round" src="assets/12_main4.jpg" />
-            </div>
-
-            <div class="contents_title_4">
-                <span class="text_bold">현명하게 대처하는 투자 방법</span>
-            </div>
-
-            <div class="contents text_basic">
-                <span>현명하게 투자하려면 어떻게 해야 할까요? 펀드에 투자를 시작할 때, 환매할 때</span>
-                <span class="box-shadow">투자설명서를 한번 더 확인</span>
-                <span>해서 기준가 적용일이나 거래 예상 시점을 살펴봐야겠죠?</span>
-            </div>
-            <div class="contents text_basic">
-                <span>그리고</span>
-                <span class="box-shadow">처음부터 장기투자로 시작해서 하루 이틀 정도의 투자/환매 시점에 연연하지 않는 것</span>
-                <span>도 하나의 방법이 될 수 있으니 참고하세요!</span>
-            </div>
+        <div class="contents text_basic">
+          <span
+            >펀드에 투자하려고 보니 가입하자마자 바로 투자되는 게 아니라 하루
+            이틀의 시간이 더 소요되어 당황한 경험이 있나요? 펀드 거래는 왜 당일
+            기준가가 아니라 며칠 후의 가격이 적용될까요? 하루 뒤에 결정되는
+            펀드와 이틀 뒤에 결정되는 펀드의 차이점은 무엇일까요? 답이
+            궁금하다면 아래 내용을 주목해주세요!</span
+          >
         </div>
+
+        <div class="contents_banner_2">
+          <img class="img_round" src="assets/12_main2.jpg" />
+        </div>
+
+        <div class="contents_title_2">
+          <span class="text_bold">날짜만큼 시간도 중요해요!</span>
+        </div>
+
+        <div class="contents text_basic">
+          <span class="box-shadow"
+            >펀드를 거래할 때는 신청하는 날의 기준가가 아니라 다음날이나
+            다다음날의 기준가가 적용</span
+          >
+          <span
+            >됩니다. 해외 펀드는 국내 펀드보다 시간이 더 소요되고요. 때문에
+            정확한 금액을 예측하기가 어려워지는데요.</span
+          >
+        </div>
+        <div class="contents text_basic">
+          <span>주식형 펀드는</span>
+          <span class="box-shadow"
+            >주식 거래가 끝나는 15시 30분을 기준으로 기준가의 적용일이 하루씩
+            달라지는데요.</span
+          >
+          <span
+            >때문에 하루의 시간 차이도 크게 작용할 수 있는 펀드라면 이 시간까지
+            유의해야 합니다.</span
+          >
+        </div>
+
+        <div class="contents_banner_3">
+          <img class="img_round" src="assets/12_main3.jpg" />
+        </div>
+
+        <div class="contents_title_3">
+          <span class="text_bold">왜 시간에 따라 달라질까요?</span>
+        </div>
+
+        <div class="contents text_basic">
+          <span
+            >펀드의 기준가는 펀드가 가진 주식, 채권 등의 자산 가격 변동에 따라
+            매일 변화합니다. 그렇다면 가장 낮을 때 투자하는 것이 유리하겠지요?
+            하지만 시간에 관계없이 기준가를 결정한다면</span
+          >
+          <span class="box-shadow"
+            >거래 시간에 따른 정보 격차로 인해 불공정 거래가 발생할 수
+            있습니다.</span
+          >
+        </div>
+        <div class="contents text_basic">
+          <span
+            >시장 마감 후 이루어지는 거래가 마감 전에 이루어진 거래와 동일한
+            기준을 가진다면 다른 투자자의 이해관계까지 영향을 줄 수 있어</span
+          >
+          <span class="box-shadow"
+            >펀드 투자는 증시 마감 전후를 기준으로 적용일이 달라지는
+            거예요!</span
+          >
+        </div>
+
+        <div class="contents_banner_4">
+          <img class="img_round" src="assets/12_main4.jpg" />
+        </div>
+
+        <div class="contents_title_4">
+          <span class="text_bold">현명하게 대처하는 투자 방법</span>
+        </div>
+
+        <div class="contents text_basic">
+          <span
+            >현명하게 투자하려면 어떻게 해야 할까요? 펀드에 투자를 시작할 때,
+            환매할 때</span
+          >
+          <span class="box-shadow">투자설명서를 한번 더 확인</span>
+          <span>해서 기준가 적용일이나 거래 예상 시점을 살펴봐야겠죠?</span>
+        </div>
+        <div class="contents text_basic">
+          <span>그리고</span>
+          <span class="box-shadow"
+            >처음부터 장기투자로 시작해서 하루 이틀 정도의 투자/환매 시점에
+            연연하지 않는 것</span
+          >
+          <span>도 하나의 방법이 될 수 있으니 참고하세요!</span>
+        </div>
+      </div>
     </div>
 
     <div class="link_item" id="link_cover_full">
-        <div class="cover_image" id="link_img" style="background-image: url('assets/12_timing_end.jpg'); height: 100%">
-        </div>
-        <a class="stroke_link" id="link_title" onclick="appLinkFunc('home')">
-            <p style="text-align: center">펀드<br />투자하기</p>
-        </a>
+      <div
+        class="cover_image"
+        id="link_img"
+        style="background-image: url('assets/12_timing_end.jpg'); height: 100%"
+      ></div>
+      <a class="stroke_link" id="link_title" onclick="appLinkFunc('home')">
+        <p style="text-align: center">펀드<br />투자하기</p>
+      </a>
     </div>
-
-</body>
-
+  </body>
 </html>

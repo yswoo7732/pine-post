@@ -1,123 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>머스크처럼 마이웨이</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <meta name="title" content="머스크처럼 마이웨이" />
-        <meta name="description" content="나와 어울리는 자동차 찾기!" />
-        <meta property="og:site_name" content="머스크처럼 마이웨이" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="머스크처럼 마이웨이" />
-        <meta property="og:description" content="나와 어울리는 자동차 찾기!" />
-        <meta property="og:url" content="https://contents.pine.fund/0A0022/result2.html" />
-        <meta property="og:image" content="https://contents.pine.fund/0A0022/image/share/1200x630_share_03.png" />
-        <meta property="og:image:kakao" content="https://contents.pine.fund/0A0022/image/share/800x800_kakao_03.png" />
-        <link rel=" shortcut icon" href="https://pine.fund/assets/pine.ico" />
-        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>머스크처럼 마이웨이</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta name="title" content="머스크처럼 마이웨이" />
+    <meta name="description" content="나와 어울리는 자동차 찾기!" />
+    <meta property="og:site_name" content="머스크처럼 마이웨이" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="머스크처럼 마이웨이" />
+    <meta property="og:description" content="나와 어울리는 자동차 찾기!" />
+    <meta
+      property="og:url"
+      content="https://contents.pine.fund/0A0022/result2.html"
+    />
+    <meta
+      property="og:image"
+      content="https://contents.pine.fund/0A0022/image/share/1200x630_share_03.png"
+    />
+    <meta
+      property="og:image:kakao"
+      content="https://contents.pine.fund/0A0022/image/share/800x800_kakao_03.png"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link rel=" shortcut icon" href="https://pine.fund/assets/pine.ico" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="../common/common.css" />
-        <link rel="stylesheet" type="text/css" href="./css/mbti.css" />
-        <script type="text/javascript" src="../common/common.js"></script>
-        <script type="text/javascript" src="./js/result.min.js"></script>
-    </head>
-    <body>
-        <main class="result">
-            <article>
-                <section class="resultPage">
-                    <div class="titleWrap">
-                        <img class="tag" src="./image/tag_result.png" alt="result" />
-                        <h4>머스크처럼 마이웨이</h4>
-                        <h2>테슬라</h2>
-                        <img class="carImage" src="./image/cast_special_car_03.png" alt="테슬라" />
-                    </div>
-                    <div class="infoWrap">
-                        <div class="infoInnerWrap">
-                            <h5>내 맘대로 살 거야 말리지 마</h5>
-                            <div class="textWrap">
-                                <ul>
-                                    <li>의외로 내 밥그릇은 알아서 챙겨요</li>
-                                    <li>나를 위한 투자를 아끼지 않아요</li>
-                                    <li>생각보다 기분에 영향을 많이 받는 편이에요</li>
-                                </ul>
-                            </div>
-                        </div>
+    <link rel="stylesheet" type="text/css" href="../common/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/mbti.css" />
+    <script type="text/javascript" src="../common/common.js?time=221201"></script>
+    <script type="text/javascript" src="./js/result.min.js"></script>
+  </head>
+  <body>
+    <div class="title-bar" onclick="goBack();">
+      <img src="./../common/assets/btn_top_icon_back_b-3.svg" />
+    </div>
+    <main class="result">
+      <article>
+        <section class="resultPage">
+          <div class="titleWrap">
+            <img class="tag" src="./image/tag_result.png" alt="result" />
+            <h4>머스크처럼 마이웨이</h4>
+            <h2>테슬라</h2>
+            <img
+              class="carImage"
+              src="./image/cast_special_car_03.png"
+              alt="테슬라"
+            />
+          </div>
+          <div class="infoWrap">
+            <div class="infoInnerWrap">
+              <h5>내 맘대로 살 거야 말리지 마</h5>
+              <div class="textWrap">
+                <ul>
+                  <li>의외로 내 밥그릇은 알아서 챙겨요</li>
+                  <li>나를 위한 투자를 아끼지 않아요</li>
+                  <li>생각보다 기분에 영향을 많이 받는 편이에요</li>
+                </ul>
+              </div>
+            </div>
 
-                        <div class="infoInnerWrap">
-                            <h5>추진력은 좋은데 결말을 못 낸다면</h5>
-                            <div class="textWrap">
-                                <p>
-                                    야심차게 시작했는데 못 끝낸 프로젝트들이 있나요? 포기하지 않고 꾸준히 하는 마인드가 필요합니다.
-                                    <span>투자가 어렵다면 소액부터 꾸준하게 적립식 투자를 시도해봐도 좋아요!</span>
-                                </p>
-                                <a class="investBtn" onclick="appLinkFunc('home');">투자하기</a>
-                            </div>
-                        </div>
+            <div class="infoInnerWrap">
+              <h5>추진력은 좋은데 결말을 못 낸다면</h5>
+              <div class="textWrap">
+                <p>
+                  야심차게 시작했는데 못 끝낸 프로젝트들이 있나요? 포기하지 않고
+                  꾸준히 하는 마인드가 필요합니다.
+                  <span
+                    >투자가 어렵다면 소액부터 꾸준하게 적립식 투자를 시도해봐도
+                    좋아요!</span
+                  >
+                </p>
+                <a class="investBtn" onclick="appLinkFunc('home');">투자하기</a>
+              </div>
+            </div>
 
-                        <div class="infoInnerWrap">
-                            <h5>같이 드라이브 하면 좋은 친구</h5>
-                            <div class="textWrap">
-                                <h4>2인분 같은 1인분</h4>
-                                <h2>아우디</h2>
-                                <em class="bg"></em>
-                                <img class="car" src="./image/cast_special_car_04.png" alt="아우디" />
-                            </div>
-                            <div class="resultBtnWrap">
-                                <a class="resultAllBtn" href="#">전체 유형 보기</a>
-                                <a class="restartBtn" href="index.html">다시하기<em></em></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="shareBtnWrap">
-                        <p>결과 공유하기</p>
-                        <ul class="ico_sns">
-                            <li><a href="#" onclick="snsFunc('kakaotalk'); return false;" class="kakao" title="카카오톡 공유"></a>카카오톡</li>
-                            <li><a href="#" onclick="snsFunc('facebook'); return false;" class="facebook" title="페이스북 공유"></a>페이스북</li>
-                            <li><a href="#" onclick="snsFunc('twitter'); return false;" class="twitter" title="트위터 공유"></a>트위터</li>
-                            <li>
-                                <a href="#" onclick="urlCopyFunc(); return false;" class="url" title="주소 복사"
-                                    ><div id="toast"></div>
-                                    <input type="text" id="ShareUrl" tabindex="-1" aria-hidden="true" readonly="readonly" name="ShareUrl" /></a
-                                ><span>URL 복사</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="allResultLayer">
-                        <div class="innerLayer">
-                            <button type="button" class="closeBtn"><img src="./image/btn-top-icon-closed-b@2x.png" alt="레이어닫기" /></button>
-                            <h4>모든 자동차 구경하기</h4>
-                            <ul>
-                                <li>
-                                    <a href="result0.html"><img src="./image/cast_special_car_01.png" style="width: 92px" alt="벤틀리" /></a>벤틀리
-                                </li>
-                                <li>
-                                    <a href="result1.html"><img src="./image/cast_special_car_02.png" style="width: 84px" alt="포르쉐" /></a>포르쉐
-                                </li>
-                                <li>
-                                    <a href="result2.html"><img src="./image/cast_special_car_03.png" style="width: 92px" alt="테슬라" /></a>테슬라
-                                </li>
-                                <li>
-                                    <a href="result3.html"><img src="./image/cast_special_car_04.png" style="width: 102px" alt="아우디" /></a>아우디
-                                </li>
-                                <li>
-                                    <a href="result4.html"><img src="./image/cast_special_car_05.png" style="width: 92px" alt="람보르기니" /></a>람보르기니
-                                </li>
-                                <li>
-                                    <a href="result5.html"><img src="./image/cast_special_car_06.png" style="width: 70px" alt="지프" /></a>지프
-                                </li>
-                                <li>
-                                    <a href="result6.html"><img src="./image/cast_special_car_07.png" style="width: 71px" alt="허머" /></a>허머
-                                </li>
-                                <li>
-                                    <a href="result7.html"><img src="./image/cast_special_car_08.png" style="width: 101px" alt="벤츠" /></a>벤츠
-                                </li>
-                            </ul>
-                            <button type="button" class="confirmBtn">확인</button>
-                        </div>
-                    </div>
-                </section>
-            </article>
-        </main>
-    </body>
+            <div class="infoInnerWrap">
+              <h5>같이 드라이브 하면 좋은 친구</h5>
+              <div class="textWrap">
+                <h4>2인분 같은 1인분</h4>
+                <h2>아우디</h2>
+                <em class="bg"></em>
+                <img
+                  class="car"
+                  src="./image/cast_special_car_04.png"
+                  alt="아우디"
+                />
+              </div>
+              <div class="resultBtnWrap">
+                <a class="resultAllBtn" href="#">전체 유형 보기</a>
+                <a class="restartBtn" href="index.html">다시하기<em></em></a>
+              </div>
+            </div>
+          </div>
+          <div class="shareBtnWrap">
+            <p>결과 공유하기</p>
+            <ul class="ico_sns">
+              <li>
+                <a
+                  href="#"
+                  onclick="snsFunc('kakaotalk'); return false;"
+                  class="kakao"
+                  title="카카오톡 공유"
+                ></a
+                >카카오톡
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="snsFunc('facebook'); return false;"
+                  class="facebook"
+                  title="페이스북 공유"
+                ></a
+                >페이스북
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="snsFunc('twitter'); return false;"
+                  class="twitter"
+                  title="트위터 공유"
+                ></a
+                >트위터
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="urlCopyFunc(); return false;"
+                  class="url"
+                  title="주소 복사"
+                  ><div id="toast"></div>
+                  <input
+                    type="text"
+                    id="ShareUrl"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    readonly="readonly"
+                    name="ShareUrl" /></a
+                ><span>URL 복사</span>
+              </li>
+            </ul>
+          </div>
+          <div class="allResultLayer">
+            <div class="innerLayer">
+              <button type="button" class="closeBtn">
+                <img
+                  src="./image/btn-top-icon-closed-b@2x.png"
+                  alt="레이어닫기"
+                />
+              </button>
+              <h4>모든 자동차 구경하기</h4>
+              <ul>
+                <li>
+                  <a href="result0.html"
+                    ><img
+                      src="./image/cast_special_car_01.png"
+                      style="width: 92px"
+                      alt="벤틀리" /></a
+                  >벤틀리
+                </li>
+                <li>
+                  <a href="result1.html"
+                    ><img
+                      src="./image/cast_special_car_02.png"
+                      style="width: 84px"
+                      alt="포르쉐" /></a
+                  >포르쉐
+                </li>
+                <li>
+                  <a href="result2.html"
+                    ><img
+                      src="./image/cast_special_car_03.png"
+                      style="width: 92px"
+                      alt="테슬라" /></a
+                  >테슬라
+                </li>
+                <li>
+                  <a href="result3.html"
+                    ><img
+                      src="./image/cast_special_car_04.png"
+                      style="width: 102px"
+                      alt="아우디" /></a
+                  >아우디
+                </li>
+                <li>
+                  <a href="result4.html"
+                    ><img
+                      src="./image/cast_special_car_05.png"
+                      style="width: 92px"
+                      alt="람보르기니" /></a
+                  >람보르기니
+                </li>
+                <li>
+                  <a href="result5.html"
+                    ><img
+                      src="./image/cast_special_car_06.png"
+                      style="width: 70px"
+                      alt="지프" /></a
+                  >지프
+                </li>
+                <li>
+                  <a href="result6.html"
+                    ><img
+                      src="./image/cast_special_car_07.png"
+                      style="width: 71px"
+                      alt="허머" /></a
+                  >허머
+                </li>
+                <li>
+                  <a href="result7.html"
+                    ><img
+                      src="./image/cast_special_car_08.png"
+                      style="width: 101px"
+                      alt="벤츠" /></a
+                  >벤츠
+                </li>
+              </ul>
+              <button type="button" class="confirmBtn">확인</button>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
 </html>

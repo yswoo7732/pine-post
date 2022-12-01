@@ -25,12 +25,11 @@ hr {
 }
 
 .swiper-slide {
-    font-family: LIFEPLUS;
     color: $basicColor;
     font-weight: 500;
 
     .content-wrapper {
-        margin: 0 auto 20%;
+        margin: 0 auto;
         position: relative;
 
         h1 {
@@ -138,7 +137,7 @@ hr {
         .frm {
             width: auto;
             height: 100%;
-            padding: 40% 20px;
+            padding: 30% 20px;
             text-align: initial;
 
             &.bk1 {
@@ -182,25 +181,25 @@ hr {
         }
 
         .img-c {
-            margin: 10% auto;
+            margin: 5% auto;
             position: relative;
             width: 85%;
         }
 
         .img-b {
-            margin: 10% auto;
+            margin: 5% auto;
             position: relative;
             width: 25%;
         }
 
         .img-t {
-            margin: 10% auto;
+            margin: 5% auto;
             position: relative;
             width: 35%;
         }
 
         .img-m {
-            margin: 15% auto;
+            margin: 5% auto;
             position: relative;
             width: 50%;
         }

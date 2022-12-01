@@ -1,5 +1,5 @@
 .swiper-slide .content-wrapper {
-  margin: 0 auto 20%;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .swiper-slide .content-wrapper h6 {
-  font-size: 33px;
+  font-size: 2rem;
   font-weight: bold;
   font-family: LIFEPLUS;
   color: #ffffff;
@@ -51,15 +51,15 @@
 
 .swiper-slide .content-wrapper .img-2 {
   width: 85%;
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 .swiper-slide .content-wrapper .img-3 {
-  width: 85%;
-  margin: 15% auto 10%;
+  width: 70%;
+  margin: 10% auto;
 }
 
 .swiper-slide .content-wrapper .img-4 {
   width: 50%;
-  margin: 20% auto 10%;
+  margin: 10% auto;
 }

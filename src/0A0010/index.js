@@ -158,7 +158,7 @@ window.onload = function () {
 
     mmfVideo.addEventListener("ended", () => {
         if (swiper_h.activeIndex == 2) {
-            swiper_h.slideTo(3);
+            // swiper_h.slideTo(3);
         }
     });
 

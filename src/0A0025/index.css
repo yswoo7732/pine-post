@@ -4,7 +4,7 @@
 }
 
 .swiper-slide .content-wrapper {
-  margin: 0 auto 20%;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -17,7 +17,6 @@
 }
 
 .swiper-slide .content-wrapper .title-img {
-  margin-top: 30%;
   width: 80%;
 }
 
@@ -43,7 +42,7 @@
   font-size: 33px;
   font-weight: bold;
   line-height: 1.33;
-  margin: 3% auto 20%;
+  margin: 3% auto 5%;
   color: #98ab61;
 }
 
@@ -55,7 +54,7 @@
 
 .swiper-slide .content-wrapper h6.yellow {
   color: #d8c67a;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
 }
 
 .swiper-slide .content-wrapper p {
@@ -111,12 +110,12 @@
 
 .swiper-slide .content-wrapper .img-3 {
   width: 85%;
-  margin: 0 auto 17%;
+  margin: 0 auto 10%;
 }
 
 .swiper-slide .content-wrapper .img-4 {
   width: 80%;
-  margin: 0 auto 10%;
+  margin: 0 auto 5%;
 }
 
 .swiper-slide .content-wrapper .img-5 {

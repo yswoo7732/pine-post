@@ -16,7 +16,9 @@
   <meta property="og:image" content="https://contents.pine.fund/0A0003/assets/cast_thumbnail.png" />
   <meta property="og:image:width" content="610" />
   <meta property="og:image:height" content="319" />
-
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
   <link rel="stylesheet" href="../common/vendor/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="index.css" />
 
@@ -26,6 +28,9 @@
 
 <body>
   <!-- Swiper -->
+  <div class="title-bar" onclick="goBack();">
+    <img src="./../common/assets/btn_top_icon_back_b-3.svg" />
+  </div>
   <div class="swiper-container swiper-container-v">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -50,8 +55,6 @@
                 <img class="fund4_2_text" src="assets/cast_special_fund4-2_text.png" />
                 <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
                 <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" onclick="appLinkFunc('home');"/>
-                <img class="img_heart" src="../common/assets/basic_foot_heart.png" onclick="clickLike();" />
-                <img class="img_share" src="../common/assets/card_foot_share.png" onclick="sharedContents();" />
               </div>
             </div>
             <div class="swiper-slide">
@@ -59,7 +62,6 @@
               <img src="assets/cast_special_fund3_bg.png" class="game_bg" />
               <div class="content-wrapper samo-wrapper">
                 <img class="fund3_2_text mode_text" src="assets/cast_special_fund3-2_text.png" />
-                <img id="smSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" />
                 <div class="fund3_game">
                   <div class="fund3_game_overay_back game_overay_back d-none"></div>
                   <video id="samo_vidio" class="game_video" autoplay playsinline>
@@ -85,7 +87,6 @@
               <img src="assets/cast_special_fund3_bg.png" class="game_bg" />
               <div class="content-wrapper gongmo-wrapper">
                 <img class="fund3_text mode_text" src="assets/cast_special_fund3_text.png" />
-                <img id="gmSoundOnOff" class="sound_on_off" src="assets/sound_off.svg" />
                 <div class="fund3_game">
                   <div class="fund4_game_overay_back game_overay_back d-none"></div>
                   <video id="gongmo_vidio" class="game_video" autoplay playsinline>
@@ -103,8 +104,6 @@
                 <img class="fund4_2_text" src="assets/cast_special_fund4_text.png" />
                 <img class="fund4_replay" src="assets/cast_special_fund4_replay.png" />
                 <img class="fund4_2_result" src="assets/cast_special_fund4_result.png" onclick="appLinkFunc('home');"/>
-                <img class="img_heart" src="../common/assets/basic_foot_heart.png" onclick="clickLike();" />
-                <img class="img_share" src="../common/assets/card_foot_share.png" onclick="sharedContents();" />
               </div>
             </div>
           </div>
@@ -116,7 +115,7 @@
   <!-- Swiper JS -->
   <script src="../common/vendor/lottie.min.js"></script>
   <script src="../common/vendor/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="../common/common.js"></script>
+  <script type="text/javascript" src="../common/common.js?time=221201"></script>
   <script type="text/javascript" src="index.js"></script>
 
 </body>
