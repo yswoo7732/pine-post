@@ -1,5 +1,6 @@
 @charset "UTF-8";
 body {
+  font-size: 16px;
   font-family: LIFEPLUS;
   background-color: #e7e7e7;
 }
@@ -11,7 +12,7 @@ body {
 }
 
 body main {
-  width: 650px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
@@ -35,11 +36,17 @@ img {
 }
 
 .title_wrap h1 {
-  font-size: 28px;
+  font-size: 1.7rem;
   font-weight: 700;
   line-height: 1.4;
   color: #000000;
   text-align: center;
+}
+
+@media only screen and (max-width: 360px) {
+  .title_wrap h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .description {
@@ -48,17 +55,23 @@ img {
 
 @media only screen and (max-width: 650px) {
   .description {
-    margin: 4vh 0 2vh;
+    margin: 2vh 0;
   }
 }
 
 .description p {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
   color: #666666;
   margin: 0 auto;
   text-align: center;
+}
+
+@media only screen and (max-width: 360px) {
+  .description p {
+    font-size: 0.8rem;
+  }
 }
 
 .main_section {
@@ -67,20 +80,21 @@ img {
   background-color: #fff;
   min-height: 100vh;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 @media only screen and (max-width: 650px) {
-  .main_section {
-    padding: 3vh 20px 3vh;
-  }
   .main_section .innerContWrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 3vh 20px 3vh;
-    transform: translate(-50%, -50%);
+    overflow-y: auto;
     width: 100%;
     box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 650px) and (max-width: 360px) {
+  .main_section {
+    padding: 0;
+    padding-top: 70px;
   }
 }
 
@@ -91,6 +105,13 @@ img {
 @media only screen and (max-width: 650px) {
   .range_container {
     padding: 7% 30px 5%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .range_container {
+    width: 65%;
+    margin: 0 auto;
   }
 }
 
@@ -282,7 +303,7 @@ img {
 
 #per_tax,
 #tax_deduction_amt {
-  color: #2D418A;
+  color: #2d418a;
 }
 
 .result_section p {
@@ -302,7 +323,7 @@ img {
 
 .result_section p strong {
   font-weight: bold;
-  color: #2D418A;
+  color: #2d418a;
   letter-spacing: 2px;
 }
 
@@ -353,6 +374,12 @@ img {
   align-items: center;
   margin: 0 auto;
   border: 0;
+}
+
+@media only screen and (max-width: 360px) {
+  .btn_confirm {
+    width: 80%;
+  }
 }
 
 .swiper-plus-slide {
@@ -517,7 +544,7 @@ p span {
 .square_wrapper .add_square {
   height: 90px;
   border-radius: 6px;
-  background-color: #2D418A;
+  background-color: #2d418a;
   font-size: 13px;
   font-weight: bold;
   line-height: 1.56;
@@ -532,7 +559,7 @@ p span {
   width: 0;
   left: 0;
   transition: all 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
-  transition-delay: .3s;
+  transition-delay: 0.3s;
 }
 
 .square_wrapper .add_square.active {
@@ -552,8 +579,8 @@ p span {
   display: flex;
   padding: 15px 0;
   opacity: 0;
-  transition: all .5s ease-in-out;
-  transition-delay: .8s;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.8s;
 }
 
 .square_tip.active {
@@ -648,11 +675,11 @@ p span {
   background: #57b876;
   overflow: hidden;
   cursor: pointer;
-  transition: background .4s ease-out;
+  transition: background 0.4s ease-out;
 }
 
 .toggleBtnWrap .toggle-btn.active {
-  background-color: #2D418A;
+  background-color: #2d418a;
 }
 
 .toggleBtnWrap .toggle-btn.active .round-btn {
@@ -685,7 +712,7 @@ p span {
 }
 
 .toggleBtnWrap .toggle-btn .round-btn:before, .toggleBtnWrap .toggle-btn .round-btn:after {
-  content: '채권형 펀드에 투자';
+  content: "채권형 펀드에 투자";
   display: block;
   position: absolute;
   color: #fff;
@@ -698,7 +725,7 @@ p span {
 }
 
 .toggleBtnWrap .toggle-btn .round-btn:after {
-  content: '주식형 펀드에 투자';
+  content: "주식형 펀드에 투자";
   left: 68px;
   text-align: left;
 }
@@ -712,7 +739,7 @@ p span {
 
 .toggleBtnWrap .textWrap .textBox {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition-delay: .3s;
+  transition-delay: 0.3s;
   position: absolute;
   left: 50%;
   width: 90%;
@@ -749,7 +776,7 @@ p span {
 }
 
 .toggleBtnWrap .textWrap .textBox:nth-child(2) p {
-  color: #2D418A;
+  color: #2d418a;
 }
 
 .toggleBtnWrap .textWrap.active .textBox:nth-child(1) {
@@ -777,11 +804,13 @@ p span {
   background-color: #fff;
 }
 
-.graph_description, .graph_description_360 {
+.graph_description,
+.graph_description_360 {
   padding: 50px 28px 20px 28px;
 }
 
-.graph_description span, .graph_description_360 span {
+.graph_description span,
+.graph_description_360 span {
   font-weight: bold;
 }
 
@@ -793,7 +822,8 @@ p span {
   margin: 0;
 }
 
-.graph_title, .graph_title_360 {
+.graph_title,
+.graph_title_360 {
   font-size: 21px;
   font-weight: bold;
   margin-bottom: 20px;

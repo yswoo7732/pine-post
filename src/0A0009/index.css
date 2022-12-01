@@ -1,4 +1,4 @@
-#lottie4 {
+/* #lottie4 {
     position: absolute;
     width: 95%;
     height: auto;
@@ -19,17 +19,6 @@
     margin: auto;
 }
 
-#lottie6 {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    left: 0;
-    right: 0;
-    bottom: 31%;
-    margin: auto;
-    z-index: 1;
-}
-
 #lottie7 {
     position: absolute;
     width: 100%;
@@ -39,4 +28,10 @@
     bottom: 31%;
     margin: auto;
     z-index: 1;
+} */
+
+#lottie6, #lottie7 {
+    width: 80%;
+    height: auto;
+    margin: 0;
 }

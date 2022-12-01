@@ -21,13 +21,12 @@ hr {
 }
 
 .swiper-slide {
-  font-family: LIFEPLUS;
   color: #ffffff;
   font-weight: 500;
 }
 
 .swiper-slide .content-wrapper {
-  margin: 0 auto 20%;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -155,7 +154,7 @@ hr {
 .swiper-slide .content-wrapper .frm {
   width: auto;
   height: 100%;
-  padding: 40% 20px;
+  padding: 30% 20px;
   text-align: initial;
 }
 
@@ -197,25 +196,25 @@ hr {
 }
 
 .swiper-slide .content-wrapper .img-c {
-  margin: 10% auto;
+  margin: 5% auto;
   position: relative;
   width: 85%;
 }
 
 .swiper-slide .content-wrapper .img-b {
-  margin: 10% auto;
+  margin: 5% auto;
   position: relative;
   width: 25%;
 }
 
 .swiper-slide .content-wrapper .img-t {
-  margin: 10% auto;
+  margin: 5% auto;
   position: relative;
   width: 35%;
 }
 
 .swiper-slide .content-wrapper .img-m {
-  margin: 15% auto;
+  margin: 5% auto;
   position: relative;
   width: 50%;
 }

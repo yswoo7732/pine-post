@@ -1,14 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   word-wrap: break-word;
   word-break: keep-all;
   font-family: LIFEPLUS;
   background: #eee;
   font-size: 16px;
-  box-sizing: border-box;
   color: #fff;
 }
 
@@ -45,6 +40,7 @@ body article {
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
+  padding-top: 70px;
 }
 
 header {
@@ -66,6 +62,7 @@ header {
 
 main {
   display: block;
+  box-sizing: border-box;
 }
 
 main.start .startPage {
@@ -158,6 +155,7 @@ main section {
   background: #fff;
   overflow: hidden;
   text-align: center;
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 600px) {
@@ -195,6 +193,12 @@ main section.startPage .titleWrap h1 {
   color: #fff;
   letter-spacing: 1px;
   margin: 16px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  main section.startPage .titleWrap h1 {
+    font-size: 30px;
+  }
 }
 
 main section.startPage .titleWrap .imageWrap {
@@ -281,6 +285,7 @@ main section.quizPage .questionWrap .question {
   main section.quizPage .questionWrap .question {
     width: 100%;
     padding: 18vh 5vw 0;
+    box-sizing: border-box;
   }
 }
 
@@ -595,6 +600,7 @@ main section.loadingPage .titleWrap .imageWrap img {
 .resultBtnWrap {
   position: relative;
   padding: 50px 0;
+  display: flex;
 }
 
 .resultBtnWrap .resultAllBtn {

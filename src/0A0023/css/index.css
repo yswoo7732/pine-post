@@ -1,14 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   word-wrap: break-word;
   word-break: keep-all;
   font-family: LIFEPLUS;
   background: #eee;
   font-size: 16px;
-  box-sizing: border-box;
   color: #000;
 }
 
@@ -45,6 +40,7 @@ body article {
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
+  padding-top: 70px;
 }
 
 header {
@@ -66,6 +62,7 @@ header {
 
 main {
   display: block;
+  box-sizing: border-box;
 }
 
 main.start .startPage {
@@ -151,6 +148,7 @@ main button.defaultBtn:hover {
 }
 
 main section {
+  box-sizing: border-box;
   position: relative;
   width: 600px;
   height: inherit;
@@ -223,6 +221,7 @@ main section.startPage .startBtn {
   width: 100%;
   padding: 0 8%;
   display: block;
+  box-sizing: border-box;
 }
 
 main section.quizPage {
@@ -292,6 +291,7 @@ main section.quizPage .questionWrap {
 }
 
 main section.quizPage .questionWrap .question {
+  box-sizing: border-box;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
