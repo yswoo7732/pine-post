@@ -711,7 +711,7 @@ p span {
 
 .toggleBtnWrap .toggle-btn.active .round-btn {
   background: url(./assets/prevBtn.png) center center/100% no-repeat;
-  left: 80%;
+  left: 78%;
 }
 
 @media only screen and (max-width: 360px) {
@@ -751,7 +751,7 @@ p span {
   color: #fff;
   font-weight: 500;
   font-size: 1.1rem;
-  top: 8px;
+  top: 11px;
   right: 65px;
   width: 300px;
   text-align: right;

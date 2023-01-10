@@ -745,16 +745,6 @@ p {
   }
 }
 
-// .pine-slider-wrapper {
-//     -webkit-box-align: center;
-//     -webkit-align-items: center;
-//     -moz-box-align: center;
-//     -ms-flex-align: center;
-//     align-items: center;
-//     padding-top: 50px;
-//     overflow: hidden;
-// }
-
 .swiper-banner-container {
   overflow: visible;
 }
@@ -792,7 +782,6 @@ p {
 //토글
 .toggleBtnWrap {
   margin: 42px auto 0px;
-  // min-height: 300px;
   display: table;
   text-align: center;
   width: 100%;
@@ -817,7 +806,7 @@ p {
       background-color: $pointColor2;
       .round-btn {
         background: url(./assets/prevBtn.png) center center / 100% no-repeat;
-        left: 80%;
+        left: 78%;
 
         @media #{$sm-mobile} {
           left: 75%;
@@ -856,7 +845,7 @@ p {
         color: #fff;
         font-weight: 500;
         font-size: 1.1rem;
-        top: 8px;
+        top: 11px;
         right: 65px;
         width: 300px;
         text-align: right;
