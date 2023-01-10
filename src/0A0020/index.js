@@ -4,307 +4,255 @@ const minHeight = window.matchMedia("(min-height: 800px)");
 const minWidth = window.matchMedia("(min-width: 450px)");
 const swiperVW = minWidth.matches ? 3 : 6;
 
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener("DOMContentLoaded", function () {
+  getLike();
 
-    getLike();
-    
-    const btnOK = document.getElementById("btnOK");
-    const contentsContainer = document.getElementsByClassName("contents_container")[0];
+  const btnOK = document.getElementById("btnOK");
+  const contentsContainer =
+    document.getElementsByClassName("contents_container")[0];
 
-    const salaryInput = document.getElementsByClassName("slider")[0];
-    const depositInput = document.getElementsByClassName("slider")[1];
+  const salaryInputBelow = document.getElementById("below");
+  const depositInput = document.getElementsByClassName("slider")[0];
 
-    btnOK.addEventListener("click", () => {
-        // if (salaryInput.value == 0) {
-        //     modal("main_modal", "연봉을 선택해주세요.");
-        //     return false;
-        // }
-
-        // if (depositInput.value == 0) {
-        //     console.log(depositInput);
-
-        //     modal("main_modal", "연금저축액을 선택해주세요.");
-        //     return false;
-        // }
-
-        contentsContainer.style.display = "";
-        gsap.to(window, 1.2, { scrollTo: { y: ".result_wrapper" } , ease: Power4.easeInOut });
-
-        document.querySelector(".main_section").classList.add("result_container_active");
-        document.querySelector(".result_container").classList.add("result_container_active");
-        document.querySelector(".result_section_tip").classList.add("result_container_active");
-
-        // 확인 클릭시 animation
-        ScrollTrigger.create({
-            trigger: ".benefit_section",
-            start: "top center",
-            once: true,
-            // toggleClass: { targets: ".add_square", className: "add_square_active" },
-            toggleClass: { targets: ".add_square", className: "active" }
-        });
-
-        ScrollTrigger.create({
-            trigger: ".benefit_section",
-            start: "top center",
-            once: true,
-            // toggleClass: { targets: ".square_tip", className: "square_tip_active" },
-            toggleClass: { targets: ".square_tip", className: "active" }
-        });
-
-        // ScrollTrigger.create({
-        //     trigger: ".square_wrapper",
-        //     start: "top center",
-        //     end: "top center",
-        //     // markers: true,
-        //     onEnter: () => showBtn("onEnter"),
-        //     onEnterBack: () => showBtn("onEnterBack"),
-        // });
-
-        // 세액공제율
-        const perTax = document.getElementById("per_tax");
-        // 공제 금액
-        const taxDeductionAmt = document.getElementById("tax_deduction_amt");
-        // 최대 공제 한도
-        const taxCreditLimit = document.getElementById("tax_credit_limit");
-        // 최대 공제 금액
-        const maxDeductionAmt = document.getElementById("max_deduction_amt");
-
-        let newLine = "";
-
-        // 연봉 5500만원 이하
-        if (salaryInput.value >= 0 && salaryInput.value <= 100) {
-            let taxDeductionRate = "16.5";
-            let taxCreditLimitTxt = "400만원";
-            let maxDeductionAmtTxt = "66만원";
-            let taxDeductionAmtTxt = "";
-
-            // 연금저축액 100만원일때
-            if (depositInput.value <= 100) {
-                taxDeductionAmtTxt = "16만 5천원";
-            }
-            // 연금저축액 200만원일때
-            else if (depositInput.value <= 200) {
-                taxDeductionAmtTxt = "33만원";
-            }
-            // 연금저축액 300만원일때
-            else if (depositInput.value <= 300) {
-                taxDeductionAmtTxt = "49만 5천원";
-            }
-            // 연금저축액 400만원일때
-            else if (depositInput.value <= 400) {
-                taxDeductionAmtTxt = "66만원";
-            }
-
-            // perTax.innerText = taxDeductionRate;
-            animateValue(perTax, 0, taxDeductionRate, 1500);
-
-            newLine = mql375.matches ? "\n" : "";
-
-            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
-            taxCreditLimit.innerText = taxCreditLimitTxt;
-            maxDeductionAmt.innerText = maxDeductionAmtTxt;
-        } else if (salaryInput.value > 100 && salaryInput.value <= 200) {
-            // 연봉 5500만원 ~ 1억2천만원
-            let taxDeductionRate = "13.2";
-            let taxCreditLimitTxt = "400만원";
-            let maxDeductionAmtTxt = "52만 8천원";
-            let taxDeductionAmtTxt = "";
-
-            // 연금저축액 100만원일때
-            if (depositInput.value <= 100) {
-                taxDeductionAmtTxt = "13만 2천원";
-            }
-            // 연금저축액 200만원일때
-            else if (depositInput.value <= 200) {
-                taxDeductionAmtTxt = "26만 4천원";
-            }
-            // 연금저축액 300만원일때
-            else if (depositInput.value <= 300) {
-                taxDeductionAmtTxt = "39만 6천원";
-            }
-            // 연금저축액 400만원일때
-            else if (depositInput.value <= 400) {
-                taxDeductionAmtTxt = "52만 8천원";
-            }
-
-            animateValue(perTax, 0, taxDeductionRate, 1500);
-
-            newLine = mql375.matches ? "\n" : "";
-
-            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
-            taxCreditLimit.innerText = taxCreditLimitTxt;
-            maxDeductionAmt.innerText = maxDeductionAmtTxt;
-        } else {
-            // 1억 2천만원 초과
-            let taxDeductionRate = "13.2";
-            let taxCreditLimitTxt = "300만원";
-            let maxDeductionAmtTxt = "39만 6천원";
-            let taxDeductionAmtTxt = "";
-// console.log(depositInput.value)
-            // 연금저축액 100만원일때
-            if (depositInput.value <= 100) {
-                taxDeductionAmtTxt = "13만 2천원";
-            }
-            // 연금저축액 200만원일때
-            else if (depositInput.value <= 200) {
-                taxDeductionAmtTxt = "26만 4천원";
-            }
-            // 연금저축액 300만원일때
-            else if (depositInput.value <= 300) {
-                taxDeductionAmtTxt = "39만 6천원";
-            }
-            // 연금저축액 400만원일때
-            else if (depositInput.value <= 400) {
-                taxDeductionAmtTxt = "39만 6천원";
-            }
-
-            // perTax.innerText = taxDeductionRate;
-            animateValue(perTax, 0, taxDeductionRate, 1500);
-
-            newLine = mql375.matches ? "\n" : "";
-
-            taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
-            taxCreditLimit.innerText = taxCreditLimitTxt;
-            maxDeductionAmt.innerText = maxDeductionAmtTxt;
-        }
-
-        let resultSwiper = new Swiper("#result_swiper", {
-            direction: "horizontal",
-            slidesPerView: 1,
-            spaceBetween: 0,
-            initialSlide: 0,
-            centeredSlides: true,
-            on: {
-                // slideChangeTransitionStart: function slideChangeTransitionStart() {
-                //     var idx = this.realIndex + 1;
-                //     gsap.set("#result_swiper", { x: "0" });
-                //     if (idx == 2) {
-                //         gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
-                //     } else {
-                //         gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
-                //     }
-                // },
-            },
-        });
-
-
-        //연금 저축펀드 
-        const bannerWrap = document.querySelectorAll(".bannerWrap")[0];
-        const bannerAll = bannerWrap.querySelectorAll("img");
-
-        const totalBannerNum = bannerAll.length; 
-        const bannerSize = bannerAll[0].clientWidth;
-        const wrapWidth = totalBannerNum * bannerSize;
-        bannerWrap.style.width = wrapWidth +"px";
-        // alert(wrapWidth)
-        let sliderXnum = 0;
-        const sliderFunc = () => {
-            sliderXnum += .5;
-            bannerWrap.style.transform = "translateX("+ -sliderXnum+"px)";
-            if(sliderXnum > bannerSize * totalBannerNum/2 ){
-                sliderXnum = 0; 
-            }
-            window.requestAnimationFrame(sliderFunc);
-        };
-        sliderFunc();
-
-
-        const toggleBtn = document.querySelectorAll('.toggle-btn')[0];
-        const textWrap = document.querySelectorAll('.textWrap')[0];
-        toggleBtn.addEventListener("click", function(){
-
-            toggleBtn.classList.toggle("active");
-            textWrap.classList.toggle("active");
-        })
-
-        // let bannerSwiper = new Swiper("#banner_swiper", {
-        //     direction: "horizontal",
-        //     loop: true,
-        //     autoplay: {
-        //         delay: 1000,
-        //         disableOnInteraction: false,
-        //     },
-        //     paginationClickable: false,
-        //     centeredSlides: true,
-        //     slidesPerView: 3,
-        //     spaceBetween: 20,
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //         clickable: true,
-        //     },
-        // });
-
-        // document.querySelector(".left-direction").addEventListener("click", function () {
-        //     resultSwiper.slideTo(0);
-        // });
-
-        // document.querySelector(".right-direction").addEventListener("click", function () {
-        //     resultSwiper.slideTo(1);
-        // });
-
-        // ScrollTrigger.create({
-        //     trigger: ".graph_title",
-        //     start: "top center",
-        //     once: true,
-        //     // markers: true,
-        //     onEnter: () => createLineChart(),
-        // });
+  btnOK.addEventListener("click", () => {
+    contentsContainer.style.display = "";
+    gsap.to(window, 1.2, {
+      scrollTo: { y: ".result_wrapper" },
+      ease: Power4.easeInOut,
     });
 
-    // 구글차트
-    // google.charts.load("45", { packages: ["corechart"] });
-    // google.charts.setOnLoadCallback(drawChart);
+    document
+      .querySelector(".main_section")
+      .classList.add("result_container_active");
+    document
+      .querySelector(".result_container")
+      .classList.add("result_container_active");
+    document
+      .querySelector(".result_section_tip")
+      .classList.add("result_container_active");
+
+    // 확인 클릭시 animation
+    ScrollTrigger.create({
+      trigger: ".benefit_section",
+      start: "top center",
+      once: true,
+      toggleClass: { targets: ".add_square", className: "active" },
+    });
+
+    ScrollTrigger.create({
+      trigger: ".benefit_section",
+      start: "top center",
+      once: true,
+      toggleClass: { targets: ".square_tip", className: "active" },
+    });
+
+    // 세액공제율
+    const perTax = document.getElementById("per_tax");
+    // 공제 금액
+    const taxDeductionAmt = document.getElementById("tax_deduction_amt");
+    // 최대 공제 한도
+    const taxCreditLimit = document.getElementById("tax_credit_limit");
+    // 최대 공제 금액
+    const maxDeductionAmt = document.getElementById("max_deduction_amt");
+
+    let newLine = "";
+
+    // 연봉 5500만원 이하
+    if (salaryInputBelow.checked) {
+      let taxDeductionRate = "16.5";
+      let taxCreditLimitTxt = "600만원";
+      let maxDeductionAmtTxt = "99만원";
+      let taxDeductionAmtTxt = "";
+
+      if (depositInput.value <= 100) {
+        taxDeductionAmtTxt = "16만 5천원";
+      } else if (depositInput.value <= 200) {
+        taxDeductionAmtTxt = "33만원";
+      } else if (depositInput.value <= 300) {
+        taxDeductionAmtTxt = "49만 5천원";
+      } else if (depositInput.value <= 400) {
+        taxDeductionAmtTxt = "66만원";
+      } else if (depositInput.value <= 500) {
+        taxDeductionAmtTxt = "82만 5천원";
+      } else if (depositInput.value <= 600) {
+        taxDeductionAmtTxt = "99만원";
+      }
+
+      // perTax.innerText = taxDeductionRate;
+      animateValue(perTax, 0, taxDeductionRate, 1500);
+
+      newLine = mql375.matches ? "\n" : "";
+
+      taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
+      taxCreditLimit.innerText = taxCreditLimitTxt;
+      maxDeductionAmt.innerText = maxDeductionAmtTxt;
+    } else {
+      // 5500만원 초과
+      let taxDeductionRate = "13.2";
+      let taxCreditLimitTxt = "600만원";
+      let maxDeductionAmtTxt = "79만 2천원";
+      let taxDeductionAmtTxt = "";
+
+      if (depositInput.value <= 100) {
+        taxDeductionAmtTxt = "13만 2천원";
+      } else if (depositInput.value <= 200) {
+        taxDeductionAmtTxt = "26만 4천원";
+      } else if (depositInput.value <= 300) {
+        taxDeductionAmtTxt = "39만 6천원";
+      } else if (depositInput.value <= 400) {
+        taxDeductionAmtTxt = "52만 8천원";
+      } else if (depositInput.value <= 500) {
+        taxDeductionAmtTxt = "66만원";
+      } else if (depositInput.value <= 600) {
+        taxDeductionAmtTxt = "79만 2천원";
+      }
+
+      // perTax.innerText = taxDeductionRate;
+      animateValue(perTax, 0, taxDeductionRate, 1500);
+
+      newLine = mql375.matches ? "\n" : "";
+
+      taxDeductionAmt.innerText = newLine + taxDeductionAmtTxt;
+      taxCreditLimit.innerText = taxCreditLimitTxt;
+      maxDeductionAmt.innerText = maxDeductionAmtTxt;
+    }
+
+    let resultSwiper = new Swiper("#result_swiper", {
+      direction: "horizontal",
+      slidesPerView: 1,
+      spaceBetween: 0,
+      initialSlide: 0,
+      centeredSlides: true,
+      on: {
+        // slideChangeTransitionStart: function slideChangeTransitionStart() {
+        //     var idx = this.realIndex + 1;
+        //     gsap.set("#result_swiper", { x: "0" });
+        //     if (idx == 2) {
+        //         gsap.to("#result_swiper", 0.8, { x: swiperVW + "vw", delay: 0.8 });
+        //     } else {
+        //         gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.8 });
+        //     }
+        // },
+      },
+    });
+
+    //연금 저축펀드
+    const bannerWrap = document.querySelectorAll(".bannerWrap")[0];
+    const bannerAll = bannerWrap.querySelectorAll("img");
+
+    const totalBannerNum = bannerAll.length;
+    const bannerSize = bannerAll[0].clientWidth;
+    const wrapWidth = totalBannerNum * bannerSize;
+    bannerWrap.style.width = wrapWidth + "px";
+    // alert(wrapWidth)
+    let sliderXnum = 0;
+    const sliderFunc = () => {
+      sliderXnum += 0.5;
+      bannerWrap.style.transform = "translateX(" + -sliderXnum + "px)";
+      if (sliderXnum > (bannerSize * totalBannerNum) / 2) {
+        sliderXnum = 0;
+      }
+      window.requestAnimationFrame(sliderFunc);
+    };
+    sliderFunc();
+
+    const toggleBtn = document.querySelectorAll(".toggle-btn")[0];
+    const textWrap = document.querySelectorAll(".textWrap")[0];
+    toggleBtn.addEventListener("click", function () {
+      toggleBtn.classList.toggle("active");
+      textWrap.classList.toggle("active");
+    });
+
+    // let bannerSwiper = new Swiper("#banner_swiper", {
+    //     direction: "horizontal",
+    //     loop: true,
+    //     autoplay: {
+    //         delay: 1000,
+    //         disableOnInteraction: false,
+    //     },
+    //     paginationClickable: false,
+    //     centeredSlides: true,
+    //     slidesPerView: 3,
+    //     spaceBetween: 20,
+    //     pagination: {
+    //         el: ".swiper-pagination",
+    //         clickable: true,
+    //     },
+    // });
+
+    // document.querySelector(".left-direction").addEventListener("click", function () {
+    //     resultSwiper.slideTo(0);
+    // });
+
+    // document.querySelector(".right-direction").addEventListener("click", function () {
+    //     resultSwiper.slideTo(1);
+    // });
+
+    // ScrollTrigger.create({
+    //     trigger: ".graph_title",
+    //     start: "top center",
+    //     once: true,
+    //     // markers: true,
+    //     onEnter: () => createLineChart(),
+    // });
+  });
+
+  // 구글차트
+  // google.charts.load("45", { packages: ["corechart"] });
+  // google.charts.setOnLoadCallback(drawChart);
 });
 // createLineChart();
 
 function modal(id, modalTxt) {
-    var zIndex = 9999;
-    var modal = document.getElementById(id);
+  var zIndex = 9999;
+  var modal = document.getElementById(id);
 
-    // 모달 div 뒤에 희끄무레한 레이어
-    var bg = document.createElement("div");
-    bg.setStyle({
-        position: "fixed",
-        zIndex: zIndex,
-        left: "0px",
-        top: "0px",
-        width: "100%",
-        height: "100%",
-        overflow: "auto",
-        // 레이어 색갈은 여기서 바꾸면 됨
-        backgroundColor: "rgba(0,0,0,0.6)",
-    });
-    document.body.append(bg);
+  // 모달 div 뒤에 희끄무레한 레이어
+  var bg = document.createElement("div");
+  bg.setStyle({
+    position: "fixed",
+    zIndex: zIndex,
+    left: "0px",
+    top: "0px",
+    width: "100%",
+    height: "100%",
+    overflow: "auto",
+    // 레이어 색갈은 여기서 바꾸면 됨
+    backgroundColor: "rgba(0,0,0,0.6)",
+  });
+  document.body.append(bg);
 
-    // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
-    modal.querySelector(".modal_close_btn").addEventListener("click", function () {
-        bg.remove();
-        modal.style.display = "none";
-    });
-
-    modal.setStyle({
-        position: "fixed",
-        display: "block",
-        // boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-
-        // 시꺼먼 레이어 보다 한칸 위에 보이기
-        zIndex: zIndex + 1,
-
-        // div center 정렬
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        msTransform: "translate(-50%, -50%)",
-        webkitTransform: "translate(-50%, -50%)",
+  // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+  modal
+    .querySelector(".modal_close_btn")
+    .addEventListener("click", function () {
+      bg.remove();
+      modal.style.display = "none";
     });
 
-    document.querySelector(".modal_txt").innerText = modalTxt;
+  modal.setStyle({
+    position: "fixed",
+    display: "block",
+    // boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+
+    // 시꺼먼 레이어 보다 한칸 위에 보이기
+    zIndex: zIndex + 1,
+
+    // div center 정렬
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    msTransform: "translate(-50%, -50%)",
+    webkitTransform: "translate(-50%, -50%)",
+  });
+
+  document.querySelector(".modal_txt").innerText = modalTxt;
 }
 
 // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
 Element.prototype.setStyle = function (styles) {
-    for (var k in styles) this.style[k] = styles[k];
-    return this;
+  for (var k in styles) this.style[k] = styles[k];
+  return this;
 };
 
 // 연금저축펀드 투자하기 버튼 보이기
@@ -322,81 +270,86 @@ Element.prototype.setStyle = function (styles) {
 
 // 연봉 범위에 따른 tooltip 텍스트 및 위치조정
 function handleSalarySliderValuePosition(input) {
-    const rangeTip = document.getElementsByClassName("__range-output-square")[0];
-    // const slider = document.getElementsByClassName("slider")[0];
-    const max = parseInt(input.max);
-    const value = parseInt(input.value);
-    let thumbSize = 33;
-// console.log(input)
+  const rangeTip = document.getElementsByClassName("__range-output-square")[0];
+  // const slider = document.getElementsByClassName("slider")[0];
+  const max = parseInt(input.max);
+  const value = parseInt(input.value);
+  let thumbSize = 33;
+  // console.log(input)
 
-    if(value <= 100) {
-        // if (mql.matches) {
-        //     rangeTip.style.width = "73px";
-        // } else {
-            rangeTip.style.width = "76px";
-        // }
-        rangeTip.innerText = "5,500만원 이하";
-    } else if (value > 100 && value <= 200) {
-        // if (mql.matches) {
-        //     rangeTip.style.width = "115px";
-        // } else {
-            rangeTip.style.width = "122px";
-        // }
-        rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
-    } else {
-        // if (mql.matches) {
-        //     rangeTip.style.width = "76px";
-        // } else {
-            rangeTip.style.width = "80px";
-        // }
-        rangeTip.innerText = "1억 2천만원 초과";
-    }
+  if (value <= 100) {
+    // if (mql.matches) {
+    //     rangeTip.style.width = "73px";
+    // } else {
+    rangeTip.style.width = "76px";
+    // }
+    rangeTip.innerText = "5,500만원 이하";
+  } else if (value > 100 && value <= 200) {
+    // if (mql.matches) {
+    //     rangeTip.style.width = "115px";
+    // } else {
+    rangeTip.style.width = "122px";
+    // }
+    rangeTip.innerText = "5,500만원 ~ 1억 2천만원";
+  } else {
+    // if (mql.matches) {
+    //     rangeTip.style.width = "76px";
+    // } else {
+    rangeTip.style.width = "80px";
+    // }
+    rangeTip.innerText = "1억 2천만원 초과";
+  }
 
-    const perNum = value / max;
-    const leftNum = perNum * (input.offsetWidth - 26);
-    rangeTip.style.left = leftNum +26/2+ "px";
+  const perNum = value / max;
+  const leftNum = perNum * (input.offsetWidth - 26);
+  rangeTip.style.left = leftNum + 26 / 2 + "px";
 }
 
 // 연금 저축액 범위에 따른 tooltip 텍스트 및 위치조정
 function handleDepositSliderValuePosition(input) {
-    const rangeTip = document.getElementsByClassName("__range-output-square")[1];
-    // const thumbSize = 35;
+  const rangeTip = document.getElementsByClassName("__range-output-square")[0];
+  // const thumbSize = 35;
 
+  console.log(rangeTip);
+  const max = parseInt(input.max) - 100;
+  const value = parseInt(input.value) - 100;
 
-    const max = parseInt(input.max)-100;
-    const value = parseInt(input.value)-100;
+  const perNum = value / max;
 
-    const perNum = value / max;
+  // const thumbOffset = thumbSize * multiplier;
+  rangeTip.innerText = input.value + "만원";
+  // rangeTip.innerText += input.value == 0 ? "원" : "만원";
 
-    // const thumbOffset = thumbSize * multiplier;
-    rangeTip.innerText = input.value + "만원";
-    // rangeTip.innerText += input.value == 0 ? "원" : "만원";
-
-    const leftNum = perNum * (input.offsetWidth - 26);
-    rangeTip.style.left = leftNum +26/2+ "px";
-    rangeTip.style.width = "45px";
-    // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
-    // console.log(input.value);
-
+  const leftNum = perNum * (input.offsetWidth - 26);
+  rangeTip.style.left = leftNum + 26 / 2 + "px";
+  rangeTip.style.width = "45px";
+  // rangeTip.style.left = input.clientWidth * multiplier - thumbOffset + thumbSize + "px";
+  // console.log(input.value);
 }
 
 // 연봉/연금저축액 결과 세액 공제율 countUp animation
 function animateValue(obj, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerText = (progress * (end - start) + start).toFixed(1);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    obj.innerText = (progress * (end - start) + start).toFixed(1);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
 
-        if (progress == 1) {
-            // gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
-            gsap.to("#result_swiper", .6, { x: "-" + swiperVW + "vw", delay: 0.3 , yoyo: 2, repeat : true, ease: Power2.easeOut});
-        }
-    };
-    window.requestAnimationFrame(step);
+    if (progress == 1) {
+      // gsap.to("#result_swiper", 0.8, { x: "-" + swiperVW + "vw", delay: 0.3 });
+      gsap.to("#result_swiper", 0.6, {
+        x: "-" + swiperVW + "vw",
+        delay: 0.3,
+        yoyo: 2,
+        repeat: true,
+        ease: Power2.easeOut,
+      });
+    }
+  };
+  window.requestAnimationFrame(step);
 }
 
 // function drawChart() {
@@ -488,7 +441,7 @@ function animateValue(obj, start, end, duration) {
 //                 [3, 2420, 2509, ""],
 //                 [3.2, 2500, 2542, ""],
 //                 [3.4, 2598, 2575, ""],
-              
+
 //             ];
 
 //             var data = new google.visualization.DataTable({
@@ -614,7 +567,7 @@ function animateValue(obj, start, end, duration) {
 //                         }
 //                         chart.draw(data, options);
 //                     }
-                    
+
 //                     var interface = chart.getChartLayoutInterface();
 //                     var cli = chart.getChartLayoutInterface();
 
@@ -662,7 +615,7 @@ function animateValue(obj, start, end, duration) {
 
 //                         }
 //                     });
-                    
+
 //                 }
 //             }
 //         },

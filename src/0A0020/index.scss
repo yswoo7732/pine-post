@@ -5,19 +5,25 @@ $pointColor2: #2d418a;
 $slideColor: #888888;
 // $content-width: 450px;
 
-body {
+:root {
+  font-family: LIFEPLUSOTF;
   font-size: 16px;
   font-family: LIFEPLUS;
   background-color: #e7e7e7;
   @media #{$mobile} {
     background-color: #fff;
   }
-  main {
-    max-width: 650px;
-    margin: 0 auto;
-    @media #{$mobile} {
-      width: 100%;
-    }
+
+  @media #{$sm-mobile} {
+    font-size: 14px;
+  }
+}
+
+main {
+  max-width: 650px;
+  margin: 0 auto;
+  @media #{$mobile} {
+    width: 100%;
   }
 }
 
@@ -34,14 +40,14 @@ img {
   margin: 0 auto;
 
   h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.4;
     color: #000000;
     text-align: center;
 
     @media #{$sm-mobile} {
-      font-size: 1.5rem;
+      margin: 0 auto;
     }
   }
 }
@@ -49,7 +55,7 @@ img {
 .description {
   margin: 10% 0 1%;
   @media #{$mobile} {
-    margin: 2vh 0;
+    margin: 2rem 0;
   }
   p {
     font-size: 1rem;
@@ -61,12 +67,13 @@ img {
 
     @media #{$sm-mobile} {
       font-size: 0.8rem;
+      padding: 0 1.5rem;
     }
   }
 }
 
 .main_section {
-  padding: 15% 40px 10%;
+  padding: 15% 20px 10%;
   margin: auto;
   background-color: #fff;
   min-height: 100vh;
@@ -99,25 +106,26 @@ img {
 }
 
 .range_container {
-  padding: 9% 30px 6%;
+  padding: 5% 15% 6%;
   @media #{$mobile} {
-    padding: 7% 30px 5%;
+    padding: 5% 15% 5%;
   }
 
   @media #{$sm-mobile} {
     width: 65%;
+    padding: 0 15%;
     margin: 0 auto;
   }
 }
 
 .range_title {
-  font-size: 16px;
+  font-size: 1.125rem;
   font-weight: bold;
   color: #000;
 
-  // @media #{$mobile}{
-  //     font-size: 16px;
-  // }
+  @media #{$sm-mobile} {
+    font-size: 14px;
+  }
 }
 
 .slider_container {
@@ -188,16 +196,22 @@ img {
   }
   @media #{$mobile} {
     .mark_tip:nth-of-type(1) {
-      left: 13px;
+      left: 0;
     }
     .mark_tip:nth-of-type(2) {
-      left: 35%;
+      left: 20%;
     }
     .mark_tip:nth-of-type(3) {
-      left: 65%;
+      left: 40%;
     }
     .mark_tip:nth-of-type(4) {
-      left: 95%;
+      left: 60%;
+    }
+    .mark_tip:nth-of-type(5) {
+      left: 80%;
+    }
+    .mark_tip:nth-of-type(6) {
+      left: 100%;
     }
   }
 }
@@ -345,7 +359,7 @@ img {
   padding: 50px 20px;
   border-radius: 6px;
   // padding: 20px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.56;
   color: #ffffff;
@@ -362,9 +376,9 @@ img {
 .result_section {
   p {
     color: #fff;
-    font-size: 17px;
-    @media #{$mobile} {
-      font-size: 16px;
+    font-size: 1rem;
+    @media #{$sm-mobile} {
+      font-size: 1rem;
     }
     span {
       font-weight: bold;
@@ -386,7 +400,7 @@ img {
 }
 
 .result_section_tip {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 200;
   line-height: 1.8;
   color: #000000;
@@ -549,10 +563,10 @@ th {
 
 h3.subTitle {
   font-weight: bold;
-  font-size: 21px;
+  font-size: 1.1rem;
   margin-bottom: 30px;
   text-align: center;
-  line-height: 30px;
+  line-height: 1.5;
 }
 
 p {
@@ -785,8 +799,8 @@ p {
   cursor: pointer;
 
   .toggle-btn {
-    width: 260px;
-    padding: 30px 0;
+    width: 80%;
+    padding: 2rem 0;
     border-radius: 50px;
     display: inline-block;
     position: relative;
@@ -795,11 +809,19 @@ p {
     cursor: pointer;
     transition: background 0.4s ease-out;
 
+    @media #{$sm-mobile} {
+      width: 90%;
+    }
+
     &.active {
       background-color: $pointColor2;
       .round-btn {
         background: url(./assets/prevBtn.png) center center / 100% no-repeat;
-        left: 205px;
+        left: 80%;
+
+        @media #{$sm-mobile} {
+          left: 75%;
+        }
       }
     }
 
@@ -833,7 +855,7 @@ p {
         position: absolute;
         color: #fff;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 1.1rem;
         top: 8px;
         right: 65px;
         width: 300px;
@@ -1145,4 +1167,38 @@ p {
     justify-content: center;
     align-items: center;
   }
+}
+
+.radio_container {
+  width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-evenly;
+
+  @media #{$mobile} {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 1rem auto 2rem;
+  }
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #dddddd;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+
+input[type="radio"]:checked {
+  border: 4px solid white;
+  background-color: black;
+  outline: 1px solid #dddddd;
 }
