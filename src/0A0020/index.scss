@@ -1164,7 +1164,7 @@ p {
   display: flex;
   justify-content: space-evenly;
 
-  @media #{$mobile} {
+  @media #{$sm-mobile} {
     display: block;
     text-align: center;
     font-size: 0.9rem;

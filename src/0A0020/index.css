@@ -1057,7 +1057,7 @@ p span {
   justify-content: space-evenly;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 360px) {
   .radio_container {
     display: block;
     text-align: center;
