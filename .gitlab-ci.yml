@@ -11,7 +11,7 @@ archive:
     - zip -r ${CI_PROJECT_NAME}.zip ./src > /dev/null 2>&1
   artifacts:
     paths:
-      - ./${CI_PROJECT_NAME}.zip
+      - ${CI_PROJECT_NAME}.zip
     expire_in: 1h
     when: on_success
 
@@ -22,12 +22,6 @@ upload:
   image: 
     name: amazon/aws-cli:2.10.0
     entrypoint: [""]
-  variables:
-    STAGE_NAME: "dev"
-  rules:
-    - if: $CI_COMMIT_BRANCH == "master"
-      variables:
-        STAGE_NAME: "pro"
   script:
-    - aws --version
-    - aws --endpoint-url=${NCP_S3_URL} s3 cp ${CI_PROJECT_NAME}.zip s3://build-result/${STAGE_NAME}/${CI_PROJECT_NAME}.zip > /dev/null 2>&1
+    - if [ ${CI_COMMIT_BRANCH} == "master" ]; then STAGE="pro"; else STAGE="dev"; fi
+    - aws --endpoint-url=${NCP_S3_URL} s3 cp ${CI_PROJECT_NAME}.zip s3://build-result/${STAGE}/${CI_PROJECT_NAME}.zip
