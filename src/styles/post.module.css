@@ -1,0 +1,131 @@
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container figcaption {
+  opacity: 0.6;
+}
+
+.name {
+  font-size: 36px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  background-color: rgb(31, 226, 155);
+  padding: 2px 4px;
+  border-radius: 2px;
+  height: 70px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pre {
+  background-color: rgb(242, 242, 242);
+  padding: 10px 20px;
+  margin: 20px 0;
+  line-height: 1.625rem;
+  border-radius: 8px;
+  overflow: auto;
+  white-space: break-spaces;
+}
+
+.code_block {
+  padding: 20px;
+  font-family: monospace;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file {
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  background: rgba(55, 53, 47, 0.08);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bookmark {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.table {
+  border: 1px solid currentColor;
+  border-collapse: collapse;
+}
+.table th {
+  border: 1px solid currentColor;
+  background-color: rgb(242, 242, 242);
+  padding: 6px 12px;
+}
+.table td {
+  border: 1px solid currentColor;
+  padding: 6px 12px;
+}
+
+.row {
+  display: flex;
+}
+
+.row > div {
+  flex: 1;
+}
+
+.childPage {
+  border: 1px solid currentColor;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.callout {
+	position: relative!important;
+}
+
+.callout .callout__content .semantic-string span .callout-link {
+	position: absolute!important;
+	height: 100%!important;
+	width: 100%!important;
+	top: 0!important;
+	left: 0!important;
+	right: 0!important;
+	bottom: 0!important;
+	padding: 15px!important;
+	padding-left: 50px!important;
+	border: none!important;
+}

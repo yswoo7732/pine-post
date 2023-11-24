@@ -9,6 +9,7 @@ archive:
   before_script:
     - apk add zip
   script:
+    - chmod -R o-w ./src
     - zip -r ${CI_PROJECT_NAME}.zip ./src > /dev/null 2>&1
   artifacts:
     paths:
