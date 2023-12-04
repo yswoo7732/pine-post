@@ -9,7 +9,7 @@ import useTagsByPostsQuery from '@/hooks/useTagsByPostsQuery';
 import { useRouter } from 'next/router';
 import { APP_LINK_WEB } from '@/constants';
 
-const PostList = ({ id, property }) => {
+const PostList = ({ id, property, name }) => {
   const router = useRouter();
   const { data, hasNextPage, isFetching, fetchNextPage } =
     property === 'Tags' ? useTagsByPostsQuery(id) : useCategoryByPostsQuery(id);
@@ -26,13 +26,13 @@ const PostList = ({ id, property }) => {
             af_content_id: href,
           });
         }
-        sessionStorage.setItem(
-          `__next_scroll_${window.history.state.idx}`,
-          JSON.stringify({
-            x: window.pageXOffset,
-            y: window.pageYOffset,
-          })
-        );
+        // sessionStorage.setItem(
+        //   `__next_scroll_${window.history.state.idx}`,
+        //   JSON.stringify({
+        //     x: window.pageXOffset,
+        //     y: window.pageYOffset,
+        //   })
+        // );
         setIsClickDisabled(true);
         setTimeout(() => {
           setIsClickDisabled(false);
@@ -41,20 +41,6 @@ const PostList = ({ id, property }) => {
     };
 
     return (
-      // <div
-      //   onClick={() =>
-      //     window.open(
-      //       `${APP_LINK_WEB}${document.location.origin}${pathname}?id=${query.id}`
-      //     )
-      //   }
-      // >
-      //   <div
-      //     className="flex items-center gap-4 px-7 py-3 mb-4 active:bg-neutral-10"
-      //     onClick={handleClick}
-      //   >
-      //     {children}
-      //   </div>
-      // </div>
       <Link href={href}>
         <div
           className="flex items-center gap-4 px-7 py-3 mb-4 active:bg-neutral-10"
@@ -66,28 +52,32 @@ const PostList = ({ id, property }) => {
     );
   }
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-    };
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-    };
-  }, [router.events]);
+  // 스크롤 위치 처리
+  // useEffect(() => {
+  //   const handleRouteChange = () => {
+  //     sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+  //   };
+  //   router.events.on('routeChangeStart', handleRouteChange);
+  //   return () => {
+  //     router.events.off('routeChangeStart', handleRouteChange);
+  //   };
+  // }, [router.events]);
 
-  useEffect(() => {
-    if ('scrollPosition' in sessionStorage) {
-      window.scrollTo(0, Number(sessionStorage.getItem('scrollPosition')));
-      sessionStorage.removeItem('scrollPosition');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if ('scrollPosition' in sessionStorage) {
+  //     window.scrollTo(0, Number(sessionStorage.getItem('scrollPosition')));
+  //     sessionStorage.removeItem('scrollPosition');
+  //   }
+  // }, []);
 
   return (
     <article className="p-container">
       {data && (
-        <ul>
+        <ul className="pb-7">
           {property === 'Tags' && <h4 className="mx-7 py-4">#{id}</h4>}
+          {property === 'category' && !isPine() && (
+            <h4 className="mx-7 py-4">{name}</h4>
+          )}
           {data.pages.map(
             page =>
               page.results?.map((block: any, index: number) => (

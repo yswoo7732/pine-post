@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from './ThemeProvider';
 import Scripts from './Scripts';
 import { useRouter } from 'next/router';
+import { isPine } from '@/lib/utils';
 
 type Props = {
   children: ReactNode;
@@ -17,13 +18,14 @@ interface mainProps {
 const RootLayout = ({ children, title }: Props) => {
   const router = useRouter();
   const { referrer } = router.query;
-  console.log(referrer);
 
   return (
     <ThemeProvider>
       {/* <Scripts /> */}
-      {referrer !== 'share' && <Header fullWidth={false} title={title} />}
-      <StyledMain margin={referrer !== 'share' ? '70px' : '0'}>
+      {referrer !== 'share' && isPine() && (
+        <Header fullWidth={false} title={title} />
+      )}
+      <StyledMain margin={referrer !== 'share' && isPine() ? '70px' : '0'}>
         {children}
       </StyledMain>
     </ThemeProvider>

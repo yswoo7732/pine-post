@@ -27,7 +27,6 @@ const Header: React.FC<Props> = ({ fullWidth, title }) => {
         ? (performance.now() - startTime) / 1000
         : 'N/A';
       const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
-      console.log(startTime, performance.now(), elapsedTime);
 
       if (ogUrlMetaTag) {
         // 이벤트 트래킹

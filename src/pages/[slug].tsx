@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next/types';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { queryClient } from '@/lib/react-query';
 import { queryKey } from '@/constants/queryKey';
@@ -54,7 +54,9 @@ const Post: NextPageWithLayout = () => {
   const meta = {
     title: post?.properties.Name.title[0].plain_text || '',
     image: post?.properties.thumbnail.files?.[0]?.file?.url || image,
-    description: CONFIG.blog.description || '',
+    description:
+      post?.properties.description.rich_text[0]?.plain_text ||
+      CONFIG.blog.description,
     type: 'website',
     url: `${CONFIG.link}/${post?.properties.slug.rich_text[0].plain_text}?id=${post.id}`,
   };
@@ -77,7 +79,7 @@ const Post: NextPageWithLayout = () => {
           </section>
           <section className="pb-32">
             {isPine() && (
-              <div className="flex gap-2 mb-8">
+              <div className="flex gap-2 mb-8 flex-wrap">
                 {tags?.map((tag, idx) => (
                   <div
                     className="font-medium text-neutral-60 border-neutral-20 border rounded-2xl py-1 px-3 active:bg-neutral-100 active:text-neutral-10"

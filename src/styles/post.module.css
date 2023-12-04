@@ -114,18 +114,77 @@
 }
 
 .callout {
-	position: relative!important;
+  position: relative !important;
 }
 
 .callout .callout__content .semantic-string span .callout-link {
-	position: absolute!important;
-	height: 100%!important;
-	width: 100%!important;
-	top: 0!important;
-	left: 0!important;
-	right: 0!important;
-	bottom: 0!important;
-	padding: 15px!important;
-	padding-left: 50px!important;
-	border: none!important;
+  position: absolute !important;
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 15px !important;
+  padding-left: 50px !important;
+  border: none !important;
+}
+
+.blue {
+  color: theme('colors.skyblue.100');
+}
+.blue_background {
+  background-color: theme('colors.skyblue.10');
+}
+.brown {
+  color: theme('colors.orange.160');
+}
+.brown_background {
+  background-color: theme('colors.opium.10');
+}
+.gray {
+  color: theme('colors.neutral.70');
+}
+.gray_background {
+  background-color: theme('colors.skyblue.10');
+}
+.green {
+  color: theme('colors.green.100');
+}
+.green_background {
+  background-color: theme('colors.green.10');
+}
+.orange {
+  color: theme('colors.orange.100');
+}
+.orange_background {
+  background-color: theme('colors.orange.10');
+}
+.pink {
+  color: theme('colors.pink.100');
+}
+.pink_background {
+  background-color: theme('colors.pink.10');
+}
+.purple {
+  color: theme('colors.skyblue.100');
+}
+.purple_background {
+  background-color: theme('colors.skyblue.10');
+}
+.red {
+  color: theme('colors.pink.100');
+}
+.red_background {
+  background-color: theme('colors.pink.10');
+}
+.yellow {
+  color: theme('colors.yellow.100');
+}
+.yellow_background {
+  background-color: theme('colors.yellow.10');
+}
+
+.code {
+  color: theme('colors.neutral.70');
 }

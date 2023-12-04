@@ -17,7 +17,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
           color={'#00C851'}
           startPosition={0.3}
           stopDelayMs={200}
-          height={5}
+          height={1}
           showOnShallow={true}
           options={{ showSpinner: false }}
         />

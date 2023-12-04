@@ -1,5 +1,5 @@
-import { NextPage } from 'next';
 import { AppProps } from 'next/app';
+import { NextPage } from 'next/types';
 import { ReactElement, ReactNode } from 'react';
 
 // TODO: refactor types

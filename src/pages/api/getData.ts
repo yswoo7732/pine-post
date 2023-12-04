@@ -1,4 +1,5 @@
-import { getDatabasesPages, getFilteredDatabases } from '@/lib/notion';
+import { getDatabasesPages } from '@/lib/notion';
+import { logger } from '@/logger';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -7,13 +8,13 @@ export default async function handler(
 ) {
   const { cursor } = req.query;
   const jsonData = req.body;
-  // console.log('getData!!', req.body, cursor, typeof cursor, jsonData);
 
-  if (cursor !== 'undefined') {
+  try {
     const response = await getDatabasesPages(cursor as string, jsonData);
     res.status(200).json(response);
-  } else {
-    const response = await getFilteredDatabases(jsonData);
-    res.status(200).json(response);
+    logger.info('getData: ', response);
+  } catch (e: unknown) {
+    logger.error('getData Error: ', e);
+    res.status(500).json(e);
   }
 }

@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client';
 import { HttpsProxyAgent } from 'https-proxy-agent';
+// import logger from '@/winston';
 
 // 환경 변수를 통해 프록시 설정 적용
 const httpsProxy = process.env.HTTPS_PROXY || '';
@@ -11,91 +12,98 @@ const client = new Client({
 });
 
 async function getCategoryDatabases() {
-  console.log('getCategoryDatabases');
-  const myPosts = await client.databases.query({
-    database_id: `${process.env.NOTION_CATEGORY_DB}`,
-    page_size: 100,
-  });
-  return myPosts;
+  try {
+    const res = await client.databases.query({
+      database_id: `${process.env.NOTION_CATEGORY_DB}`,
+      page_size: 100,
+    });
+    return res;
+  } catch (error) {
+    // logger.error(error);
+  }
 }
 
 async function getDatabases() {
-  console.log('getDatabases');
-  const myPosts = await client.databases.query({
-    database_id: `${process.env.NOTION_DATABASE}`,
-    filter: {
-      property: 'Status',
-      status: {
-        equals: 'Published',
+  try {
+    const res = await client.databases.query({
+      database_id: `${process.env.NOTION_DATABASE}`,
+      filter: {
+        property: 'Status',
+        status: {
+          equals: 'Published',
+        },
       },
-    },
-    page_size: 3,
-  });
-  return myPosts;
+      page_size: 10,
+    });
+    return res;
+  } catch (error) {
+    // logger.error(error);
+  }
 }
 
 async function getFilteredDatabases(filter) {
-  console.log('getFilteredDatabases', filter);
-  const filteredRows = await client.databases.query({
-    database_id: `${process.env.NOTION_DATABASE}`,
-    filter: {
-      and: [
-        filter,
-        {
-          property: 'Status',
-          status: {
-            equals: 'Published',
+  try {
+    const filteredRows = await client.databases.query({
+      database_id: `${process.env.NOTION_DATABASE}`,
+      filter: {
+        and: [
+          filter,
+          {
+            property: 'Status',
+            status: {
+              equals: 'Published',
+            },
           },
-        },
-      ],
-    },
-    page_size: 3,
-  });
-
-  // console.log('getFilteredDatabases-------', filter, filteredRows);
-  return filteredRows;
+        ],
+      },
+      page_size: 10,
+    });
+    return filteredRows;
+  } catch (error) {
+    // logger.error(error);
+  }
 }
 
 async function getDatabasesPages(cursor: string, filter: any) {
-  console.log('getDatabasesPages', filter);
-
-  const myPosts = await client.databases.query({
-    database_id: `${process.env.NOTION_DATABASE}`,
-    filter: {
-      and: [
-        filter,
-        {
-          property: 'Status',
-          status: {
-            equals: 'Published',
+  try {
+    const res = await client.databases.query({
+      database_id: `${process.env.NOTION_DATABASE}`,
+      filter: {
+        and: [
+          filter,
+          {
+            property: 'Status',
+            status: {
+              equals: 'Published',
+            },
           },
-        },
-      ],
-    },
-    page_size: 3,
-    start_cursor: cursor,
-  });
-  // console.log("bbbb", myPosts)
-
-  return myPosts;
+        ],
+      },
+      page_size: 10,
+      start_cursor: cursor,
+    });
+    return res;
+  } catch (error) {
+    // logger.error(error);
+  }
 }
 
 async function getPages(id: string) {
-  const myPost = await client.pages.retrieve({
-    page_id: id,
-  });
-  // console.log('getPage', myPost);
-  return myPost;
+  try {
+    const res = await client.pages.retrieve({
+      page_id: id,
+    });
+    return res;
+  } catch (error) {
+    // logger.error(error);
+  }
 }
 
 async function getBlocks(id: string) {
   id = id.replaceAll('-', '');
-
   const myBlocks = await client.blocks.children.list({
     block_id: id,
   });
-  // console.log('myBlocks', myBlocks);
-
   return myBlocks;
 }
 

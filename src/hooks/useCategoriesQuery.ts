@@ -1,4 +1,4 @@
-import { getCategory } from '@/api';
+import { getCategory } from '@/pages/api';
 import { queryKey } from '@/constants/queryKey';
 import { useQuery } from '@tanstack/react-query';
 

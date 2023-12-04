@@ -4,6 +4,19 @@ import Image from 'next/image';
 import styles from '@/styles/post.module.css';
 import { isPine } from '@/lib/utils';
 import { nativeConnector } from '@/lib/native';
+import styled from '@emotion/styled';
+
+const Container = styled.figure`
+padding: 1rem 0;
+width: 100%;
+  & > span {
+    position: unset !important;
+    & .autoImage {
+      object-fit: contain !important;
+      position: relative !important;
+      height: auto !important;
+    }
+`;
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -17,7 +30,7 @@ export const Text = ({ text }) => {
     return (
       <span
         className={[
-          bold ? 'font-bold' : '',
+          bold ? 'font-bold' : 'font-medium',
           code ? styles.code : '',
           italic ? 'italic' : '',
           strikethrough ? 'strikethrough' : '',
@@ -49,15 +62,14 @@ export const renderBlock = (block: any) => {
   const { type, id } = block;
   const value = block[type];
 
-  if (type === 'code') {
-    console.log(value);
-  }
   switch (type) {
     case 'paragraph':
-      return (
-        <p className="mb-5 text-base font-medium">
+      return value.rich_text.length > 0 ? (
+        <p className="mb-2 text-base font-medium">
           <Text text={value.rich_text} />
         </p>
+      ) : (
+        <br></br>
       );
     case 'heading_1':
       return (
@@ -67,13 +79,13 @@ export const renderBlock = (block: any) => {
       );
     case 'heading_2':
       return (
-        <h2 className="mb-5">
+        <h2 className="mt-1 mb-2">
           <Text text={value.rich_text} />
         </h2>
       );
     case 'heading_3':
       return (
-        <h3 className="mb-5">
+        <h3 className="mt-1 mb-2">
           <Text text={value.rich_text} />
         </h3>
       );
@@ -123,30 +135,32 @@ export const renderBlock = (block: any) => {
         value.type === 'external' ? value.external.url : value.file.url;
       const caption = value.caption ? value.caption[0]?.plain_text : '';
       return (
-        <figure>
+        <Container>
           <Image
             src={src}
             alt={caption}
-            width={960}
-            height={600}
-            layout="responsive"
+            className="autoImage"
+            layout="fill"
             unoptimized={true}
             priority
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAFUCAQAAAAJsv8dAAABs0lEQVR42u3QMREAAAgEIL9/RrNoCDcPIpCe4iACBQoUKBCBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUKBAgQIFChSIQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFChQoECBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUCACBQoUKFCgQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFPjFAtP2eaPnAr3uAAAAAElFTkSuQmCC"
           />
           {caption && (
-            <figcaption className="text-sm font-normal text-neutral-60">
+            <figcaption className="text-sm font-normal text-neutral-70">
               {caption}
             </figcaption>
           )}
-        </figure>
+        </Container>
       );
     case 'divider':
-      return <hr key={id} className="my-12" />;
+      return <hr key={id} className="mt-2 mb-7 h-[2px] bg-neutral-30" />;
     case 'quote':
       return (
-        <blockquote className="border-l-4 border-l-black pl-2" key={id}>
+        <blockquote
+          className="border-l-4 border-l-black pl-2 font-medium"
+          key={id}
+        >
           <Text text={value.rich_text?.map((child: any) => child)}></Text>
         </blockquote>
       );
@@ -228,7 +242,44 @@ export const renderBlock = (block: any) => {
         <div>{block.children?.map((child: any) => renderBlock(child))}</div>
       );
     }
+    case 'video':
+      const vsrc =
+        value.type === 'external' ? value.external.url : value.file.url;
+      const vcaption = value.caption ? value.caption[0]?.plain_text : '';
+
+      return (
+        <div className="mb-5 text-base font-medium min-w-full min-h-0 pb-[56.25%] relative">
+          <iframe
+            src={vsrc}
+            title={vcaption}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              border: 0,
+            }}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      );
+    case 'code':
+      return (
+        <div className="my-5">
+          <span className="font-medium text-xs text-neutral-70">
+            {value.rich_text?.map(text => {
+              console.log(text);
+              return text.plain_text;
+            })}
+          </span>
+        </div>
+      );
     default:
       return;
   }
 };
+
+export const classes = (classes: (string | undefined)[]): string =>
+  classes.join(' ').trim();

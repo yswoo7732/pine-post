@@ -60,7 +60,6 @@ const NativeConnector = () => {
 
   // response 공통 에러 처리
   function onResponseError(_param) {
-    console.log(_param);
     let param = JSON.stringify(_param);
 
     if (/Android/i.test(window.navigator.userAgent)) {
