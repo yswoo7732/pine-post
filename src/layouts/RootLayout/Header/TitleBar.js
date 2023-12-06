@@ -15,7 +15,6 @@ export default function TitleBar(props) {
 
     if (ogUrlMetaTag) {
       const ogUrl = ogUrlMetaTag.getAttribute('content');
-      console.log(ogUrl + '&referrer=share');
 
       if (isPine()) {
         // 공유하기 이벤트 트래킹

@@ -270,7 +270,6 @@ export const renderBlock = (block: any) => {
         <div className="my-5">
           <span className="font-medium text-xs text-neutral-70">
             {value.rich_text?.map(text => {
-              console.log(text);
               return text.plain_text;
             })}
           </span>

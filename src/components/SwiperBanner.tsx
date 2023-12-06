@@ -15,10 +15,10 @@ const SwiperBanner = ({ data, title }) => {
 
   // console.log('SwiperBanner', data);
   return (
-    <article key={data} className="bg-[#fff] pb-5 mb-3 min-h-[300px]">
+    <article key={data} className="bg-[#fff] pb-5 pt-3 mb-3 min-h-[300px]">
       {data && data.length > 0 && (
         <section className="p-container mx-container mb-4">
-          <span className=" bg-pink-20 text-pink-100 px-3 rounded-xl">
+          <span className=" bg-pink-20 text-pink-100 px-3 rounded-xl text-sm">
             {title}
           </span>
           <Swiper
@@ -48,7 +48,10 @@ const SwiperBanner = ({ data, title }) => {
                 >
                   <div className="h-52 slide-img">
                     <Image
-                      src={content.properties?.thumbnail.files?.[0].file?.url}
+                      src={
+                        content.properties?.thumbnail.files?.[0]?.file?.url ??
+                        '/banner_df_img.webp'
+                      }
                       height={160}
                       width={304}
                       className="rounded-[10px]"

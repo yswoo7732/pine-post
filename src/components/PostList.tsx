@@ -80,41 +80,44 @@ const PostList = ({ id, property, name }) => {
           )}
           {data.pages.map(
             page =>
-              page.results?.map((block: any, index: number) => (
-                <DebouncedLink
-                  href={{
-                    pathname: `/${block.properties.slug.rich_text[0].plain_text}`,
-                    query: { id: block.id },
-                  }}
-                  index={index}
-                  key={block.id}
-                >
-                  <div className="flex-shrink-0">
-                    {block.properties.Icon?.files?.[0] ? (
-                      <div className="bg-neutral-10 w-[50px] h-[50px] text-center rounded-full flex items-center justify-center">
-                        <Image
-                          alt="아이콘"
-                          src={block.properties.Icon.files[0].file.url}
-                          width={32}
-                          height={32}
-                          unoptimized={true}
-                        />
+              page.results?.map(
+                (block: any, index: number) =>
+                  block.properties.slug.rich_text.length > 0 && (
+                    <DebouncedLink
+                      href={{
+                        pathname: `/${block.properties.slug.rich_text[0].plain_text}`,
+                        query: { id: block.id },
+                      }}
+                      index={index}
+                      key={block.id}
+                    >
+                      <div className="flex-shrink-0">
+                        {block.properties.Icon?.files?.[0] ? (
+                          <div className="bg-neutral-10 w-[50px] h-[50px] text-center rounded-full flex items-center justify-center">
+                            <Image
+                              alt="아이콘"
+                              src={block.properties.Icon.files[0].file.url}
+                              width={32}
+                              height={32}
+                              unoptimized={true}
+                            />
+                          </div>
+                        ) : (
+                          <Image
+                            alt="아이콘"
+                            src={'/icon-bg.png'}
+                            width={50}
+                            height={50}
+                          />
+                        )}
                       </div>
-                    ) : (
-                      <Image
-                        alt="아이콘"
-                        src={'/icon-bg.png'}
-                        width={50}
-                        height={50}
-                      />
-                    )}
-                  </div>
 
-                  <h5 className=" line-clamp-2">
-                    {block.properties?.Name.title[0].plain_text}
-                  </h5>
-                </DebouncedLink>
-              ))
+                      <h5 className=" line-clamp-2">
+                        {block.properties?.Name.title[0].plain_text}
+                      </h5>
+                    </DebouncedLink>
+                  )
+              )
           )}
           {hasNextPage && (
             <div className="p-container mx-container pb-8">

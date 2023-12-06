@@ -16,6 +16,7 @@ import { isPine } from '@/lib/utils';
 import { getBlocks, getPages } from '@/lib/notion';
 import dayjs from 'dayjs';
 import { nativeConnector } from '@/lib/native';
+import { WEB_LINK } from '@/constants';
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const id = context.query?.id;
@@ -104,10 +105,10 @@ const Post: NextPageWithLayout = () => {
                 ))}
               </div>
             )}
-            {post.properties.button_link.rich_text.length > 0 && (
-              <OnelinkButton
-                onClick={() => {
-                  if (isPine()) {
+            {isPine() ? (
+              post.properties.button_link.rich_text.length > 0 && (
+                <OnelinkButton
+                  onClick={() => {
                     // PV 트래킹
                     nativeConnector.sendAppsFlyerLog('af_content_view', {
                       af_action_type: 'button',
@@ -116,10 +117,14 @@ const Post: NextPageWithLayout = () => {
                     });
                     window.location.href =
                       post.properties.button_link.rich_text[0].plain_text;
-                  } else {
-                    window.location.href =
-                      'https://pine.onelink.me/vnSX/zp4sz8vu';
-                  }
+                  }}
+                  text={post.properties.button_name.rich_text[0]?.plain_text}
+                />
+              )
+            ) : (
+              <OnelinkButton
+                onClick={() => {
+                  window.location.href = WEB_LINK;
                 }}
                 text={post.properties.button_name.rich_text[0]?.plain_text}
               />
