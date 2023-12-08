@@ -26,12 +26,15 @@ const Header: React.FC<Props> = ({ fullWidth, title }) => {
       const elapsedTime = startTime
         ? (performance.now() - startTime) / 1000
         : 'N/A';
-      const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
+      const ogUrlMetaTag = document
+        .querySelector('meta[property="og:url"]')
+        ?.getAttribute('content');
 
       if (ogUrlMetaTag) {
         // 이벤트 트래킹
         nativeConnector.sendAppsFlyerLog('af_content_view', {
           af_content_id: ogUrlMetaTag,
+          af_action_type: 'view',
           af_elapsed_time: elapsedTime,
         });
       }

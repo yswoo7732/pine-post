@@ -54,7 +54,10 @@ const Post: NextPageWithLayout = () => {
 
   const meta = {
     title: post?.properties.Name.title[0].plain_text || '',
-    image: post?.properties.thumbnail.files?.[0]?.file?.url || image,
+    image:
+      post?.properties.thumbnail.files?.[0]?.file?.url ||
+      post?.properties.thumbnail.files?.[0]?.name ||
+      image,
     description:
       post?.properties.description.rich_text[0]?.plain_text ||
       CONFIG.blog.description,
@@ -90,13 +93,12 @@ const Post: NextPageWithLayout = () => {
                         router.push(
                           `/feed?id=${tag.name}&property=Tags&title=${tag.name}`
                         );
-                        if (isPine()) {
-                          // PV 트래킹
-                          nativeConnector.sendAppsFlyerLog('af_content_view', {
-                            af_action_type: 'tag',
-                            af_content_id: `${tag.name}`,
-                          });
-                        }
+
+                        // PV 트래킹
+                        nativeConnector.sendAppsFlyerLog('af_content_view', {
+                          af_action_type: 'tag',
+                          af_content_id: `${tag.name}`,
+                        });
                       }
                     }}
                   >

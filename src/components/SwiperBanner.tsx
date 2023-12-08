@@ -50,6 +50,7 @@ const SwiperBanner = ({ data, title }) => {
                     <Image
                       src={
                         content.properties?.thumbnail.files?.[0]?.file?.url ??
+                        content.properties?.thumbnail.files?.[0]?.name ??
                         '/banner_df_img.webp'
                       }
                       height={160}

@@ -19,13 +19,6 @@ const PostList = ({ id, property, name }) => {
 
     const handleClick = () => {
       if (!isClickDisabled) {
-        if (isPine()) {
-          // PV 트래킹
-          nativeConnector.sendAppsFlyerLog('af_content_view', {
-            af_action_type: 'view',
-            af_content_id: href,
-          });
-        }
         // sessionStorage.setItem(
         //   `__next_scroll_${window.history.state.idx}`,
         //   JSON.stringify({
