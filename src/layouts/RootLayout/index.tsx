@@ -22,21 +22,17 @@ const RootLayout = ({ children, title }: Props) => {
   return (
     <ThemeProvider>
       {/* <Scripts /> */}
-      {referrer !== 'share' && isPine() && (
-        <Header fullWidth={false} title={title} />
-      )}
-      <StyledMain margin={referrer !== 'share' && isPine() ? '70px' : '0'}>
-        {children}
-      </StyledMain>
+      {referrer !== 'share' && <Header fullWidth={false} title={title} />}
+      <StyledMain>{children}</StyledMain>
     </ThemeProvider>
   );
 };
 
 export default RootLayout;
 
-const StyledMain = styled.main<mainProps>`
+const StyledMain = styled.main`
   margin: 0 auto;
   width: 100%;
   max-width: 840px;
-  margin-top: ${props => props.margin || '0'};
+  margin-top: 70px;
 `;

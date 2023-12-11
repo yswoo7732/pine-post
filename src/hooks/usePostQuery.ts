@@ -1,14 +1,14 @@
 import { queryKey } from '@/constants/queryKey';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
-import { Page } from '@/types';
+import { getPagesData } from '@/pages/api';
 
 const usePostQuery = () => {
   const router = useRouter();
-  const { id } = router.query;
-  const { data } = useQuery<Page>({
-    queryKey: queryKey.post(`${id}`),
-    enabled: false,
+  const id = router.query.id;
+  const { data } = useQuery({
+    queryKey: queryKey.post(id as string),
+    queryFn: () => getPagesData(id as string),
   });
 
   return data;

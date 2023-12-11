@@ -1,4 +1,4 @@
-import { getCategoryDatabases } from '@/lib/notion';
+import { getPages } from '@/lib/notion';
 import { logger } from '@/logger';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
@@ -7,10 +7,11 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const response = await getCategoryDatabases();
+    const { id } = req.query;
+    const response = await getPages(`${id}`);
     res.status(200).json(response);
-    logger.info('getCategoryData: ', response);
+    logger.info('getPagesData: ', response);
   } catch (error) {
-    logger.error('getCategoryData Error: ', error);
+    logger.error('getPagesData Error: ', error);
   }
 }

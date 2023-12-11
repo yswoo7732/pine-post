@@ -7,6 +7,8 @@ import SwiperPrevButton from '@/component/SwiperPrevButton';
 import 'swiper/swiper-bundle.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { isPine } from '@/lib/utils';
+import { APP_LINK_WEB } from '@/constants';
 
 const SwiperBanner = ({ data, title }) => {
   SwiperCore.use([Navigation, Pagination]);
@@ -45,24 +47,38 @@ const SwiperBanner = ({ data, title }) => {
                     pathname: `/${content.properties.slug.rich_text[0].plain_text}`,
                     query: { id: content.id },
                   }}
+                  legacyBehavior
                 >
-                  <div className="h-52 slide-img">
-                    <Image
-                      src={
-                        content.properties?.thumbnail.files?.[0]?.file?.url ??
-                        content.properties?.thumbnail.files?.[0]?.name ??
-                        '/banner_df_img.webp'
+                  <a
+                    onClick={e => {
+                      e.preventDefault();
+                      if (isPine()) {
+                        window.open(
+                          `${APP_LINK_WEB}/${content.properties.slug?.rich_text[0]?.plain_text}?id=${content.id}`
+                        );
+                      } else {
+                        window.location.href = `/${content.properties.slug?.rich_text[0]?.plain_text}?id=${content.id}`;
                       }
-                      height={160}
-                      width={304}
-                      className="rounded-[10px]"
-                      layout="responsive"
-                      unoptimized={true}
-                      priority
-                      placeholder="blur"
-                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAFUCAQAAAAJsv8dAAABs0lEQVR42u3QMREAAAgEIL9/RrNoCDcPIpCe4iACBQoUKBCBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUKBAgQIFChSIQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFChQoECBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUCACBQoUKFCgQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFPjFAtP2eaPnAr3uAAAAAElFTkSuQmCC"
-                    />
-                  </div>
+                    }}
+                  >
+                    <div className="h-52 slide-img">
+                      <Image
+                        src={
+                          content.properties?.thumbnail.files?.[0]?.file?.url ??
+                          content.properties?.thumbnail.files?.[0]?.name ??
+                          '/banner_df_img.webp'
+                        }
+                        height={160}
+                        width={304}
+                        className="rounded-[10px]"
+                        layout="responsive"
+                        unoptimized={true}
+                        priority
+                        placeholder="blur"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAFUCAQAAAAJsv8dAAABs0lEQVR42u3QMREAAAgEIL9/RrNoCDcPIpCe4iACBQoUKBCBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUKBAgQIFChSIQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFChQoECBAgUKRKBAgQIRKFCgQAQKFCgQgQIFCkSgQIECEShQoEAEChQoEIECBQpEoECBAhEoUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQIAIFChSIQIECBSJQoECBCBQoUCACBQoUKFCgQIECBSJQoECBCBQoUCACBQoUiECBAgUiUKBAgQgUKFAgAgUKFIhAgQIFIlCgQIEIFChQoEAEChQoEIECBQpEoECBAhEoUKBABAoUKBCBAgUKRKBAgQIRKFCgQAQKFPjFAtP2eaPnAr3uAAAAAElFTkSuQmCC"
+                      />
+                    </div>
+                  </a>
                 </Link>
               </SwiperSlide>
             ))}

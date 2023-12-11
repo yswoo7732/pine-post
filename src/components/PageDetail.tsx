@@ -7,8 +7,10 @@ import { nativeConnector } from '@/lib/native';
 import styled from '@emotion/styled';
 
 const Container = styled.figure`
+position: relative;
 padding: 1rem 0;
 width: 100%;
+height: 100%;
   & > span {
     position: unset !important;
     & .autoImage {

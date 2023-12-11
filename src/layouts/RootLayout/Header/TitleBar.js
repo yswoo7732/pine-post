@@ -12,10 +12,10 @@ export default function TitleBar(props) {
 
   const handleShare = () => {
     const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
+    console.log(ogUrlMetaTag);
 
     if (ogUrlMetaTag) {
       const ogUrl = ogUrlMetaTag.getAttribute('content');
-
       if (isPine()) {
         // 공유하기 이벤트 트래킹
         nativeConnector.sendAppsFlyerLog('af_content_view', {
@@ -58,13 +58,13 @@ export default function TitleBar(props) {
             </Typography>
           </div>
           {props.share === 'y' && (
-            <div className=" w-[24px] h-[24px] active:bg-neutral-50">
+            <div className=" w-[24px] h-[24px] cursor-pointer">
               <Image
                 src={shareIcon}
                 alt="공유하기 아이콘"
                 width={24}
                 height={24}
-                className=""
+                className=" active:"
                 onClick={handleShare}
               />
             </div>

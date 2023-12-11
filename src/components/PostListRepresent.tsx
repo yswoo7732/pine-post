@@ -117,8 +117,12 @@ function PostListRepresent() {
                         legacyBehavior
                       >
                         <a
-                          onClick={() => {
+                          onClick={e => {
+                            e.preventDefault();
                             if (isPine()) {
+                              window.open(
+                                `${APP_LINK_WEB}/${content.properties.slug?.rich_text[0]?.plain_text}?id=${content.id}`
+                              );
                               // PV 트래킹
                               nativeConnector.sendAppsFlyerLog(
                                 'af_content_view',
@@ -127,6 +131,8 @@ function PostListRepresent() {
                                   af_content_id: `${content.properties.slug.rich_text[0].plain_text}`,
                                 }
                               );
+                            } else {
+                              window.location.href = `/${content.properties.slug?.rich_text[0]?.plain_text}?id=${content.id}`;
                             }
                           }}
                         >

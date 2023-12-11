@@ -39,7 +39,12 @@ const Header: React.FC<Props> = ({ fullWidth, title }) => {
         });
       }
     }
-    router.back();
+
+    if (router.pathname === '/[slug]') {
+      nativeConnector.requestExitMenu();
+    } else {
+      router.back();
+    }
   };
 
   // console.log(title);

@@ -17,7 +17,8 @@ const PostList = ({ id, property, name }) => {
   function DebouncedLink({ href, index, children }) {
     const [isClickDisabled, setIsClickDisabled] = useState(false);
 
-    const handleClick = () => {
+    const handleClick = e => {
+      e.preventDefault();
       if (!isClickDisabled) {
         // sessionStorage.setItem(
         //   `__next_scroll_${window.history.state.idx}`,
@@ -30,17 +31,21 @@ const PostList = ({ id, property, name }) => {
         setTimeout(() => {
           setIsClickDisabled(false);
         }, 1000);
+
+        if (isPine()) {
+          window.open(`${APP_LINK_WEB}${href.pathname}?id=${href.query.id}`);
+        }
       }
     };
 
     return (
-      <Link href={href}>
-        <div
+      <Link href={href} legacyBehavior>
+        <a
           className="flex items-center gap-4 px-7 py-3 mb-4 active:bg-neutral-10"
           onClick={handleClick}
         >
           {children}
-        </div>
+        </a>
       </Link>
     );
   }
