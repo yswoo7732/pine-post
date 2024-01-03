@@ -5,7 +5,6 @@ import usePostQuery from '@/hooks/usePostQuery';
 import useBlockQuery from '@/hooks/useBlockQuery';
 import MetaConfig from '@/components/MetaConfig';
 import { CONFIG } from '@/site.config';
-import { NextPageWithLayout } from '@/types';
 import { renderBlock } from '@/components/PageDetail';
 import OnelinkButton from '@/components/OnelinkButton';
 import { isPine } from '@/lib/utils';
@@ -14,17 +13,19 @@ import { nativeConnector } from '@/lib/native';
 import { WEB_LINK } from '@/constants';
 
 export const getServerSideProps: GetServerSideProps = async context => {
+  const id = context.query.id;
   return {
     props: {
       title: {
         text: '',
         props: { share: 'y' },
       },
+      pid: id,
     },
   };
 };
 
-const Post: NextPageWithLayout = () => {
+const Post = ({ pid }) => {
   const post = usePostQuery();
   const blocks = useBlockQuery();
   const router = useRouter();
@@ -36,21 +37,18 @@ const Post: NextPageWithLayout = () => {
     CONFIG.ogImageGenerateURL ??
     `${CONFIG.ogImageGenerateURL}/${encodeURIComponent('')}.png`;
 
-  let meta;
-  if (post?.properties) {
-    meta = {
-      title: post?.properties.Name.title[0].plain_text || '',
-      image:
-        post?.properties.thumbnail.files?.[0]?.file?.url ||
-        post?.properties.thumbnail.files?.[0]?.name ||
-        image,
-      description:
-        post?.properties.description.rich_text[0]?.plain_text ||
-        CONFIG.blog.description,
-      type: 'website',
-      url: `${CONFIG.link}/${post?.properties.slug.rich_text[0].plain_text}?id=${post.id}`,
-    };
-  }
+  const meta = {
+    title: post?.properties.Name.title[0].plain_text || '',
+    image:
+      post?.properties.thumbnail.files?.[0]?.file?.url ||
+      post?.properties.thumbnail.files?.[0]?.name ||
+      image,
+    description:
+      post?.properties.description.rich_text[0]?.plain_text ||
+      CONFIG.blog.description,
+    type: 'website',
+    url: `${CONFIG.link}/${post?.properties.slug.rich_text[0].plain_text}?id=${pid}`,
+  };
 
   return (
     <>
@@ -68,7 +66,7 @@ const Post: NextPageWithLayout = () => {
             </p>
             <section>
               {blocks &&
-                blocks?.results?.map(block => (
+                blocks?.results?.map((block: any) => (
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
             </section>

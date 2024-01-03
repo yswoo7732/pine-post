@@ -1,10 +1,11 @@
+import { logger } from '@/logger';
 import { Client } from '@notionhq/client';
 import { HttpsProxyAgent } from 'https-proxy-agent';
-// import logger from '@/winston';
 
 // 환경 변수를 통해 프록시 설정 적용
 const httpsProxy = process.env.HTTPS_PROXY || '';
 const agent = new HttpsProxyAgent(httpsProxy);
+// logger.info('env check', process.env);
 
 const client = new Client({
   auth: process.env.NOTION_KEY,
@@ -19,7 +20,7 @@ async function getCategoryDatabases() {
     });
     return res;
   } catch (error) {
-    // logger.error(error);
+    logger.error(error);
   }
 }
 
@@ -37,7 +38,7 @@ async function getDatabases() {
     });
     return res;
   } catch (error) {
-    // logger.error(error);
+    logger.error(error);
   }
 }
 
@@ -60,7 +61,7 @@ async function getFilteredDatabases(filter) {
     });
     return filteredRows;
   } catch (error) {
-    // logger.error(error);
+    logger.error(error);
   }
 }
 
@@ -84,7 +85,7 @@ async function getDatabasesPages(cursor: string, filter: any) {
     });
     return res;
   } catch (error) {
-    // logger.error(error);
+    logger.error(error);
   }
 }
 
@@ -95,7 +96,7 @@ async function getPages(id: string) {
     });
     return res;
   } catch (error) {
-    // logger.error(error);
+    logger.error(error);
   }
 }
 

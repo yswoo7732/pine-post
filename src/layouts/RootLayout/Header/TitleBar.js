@@ -64,8 +64,8 @@ export default function TitleBar(props) {
                 alt="공유하기 아이콘"
                 width={24}
                 height={24}
-                className=" active:"
                 onClick={handleShare}
+                priority
               />
             </div>
           )}

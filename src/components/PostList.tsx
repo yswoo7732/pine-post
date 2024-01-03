@@ -2,31 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { nativeConnector } from '@/lib/native';
 import { isPine } from '@/lib/utils';
 import useCategoryByPostsQuery from '@/hooks/useCategoryByPostsQuery';
 import useTagsByPostsQuery from '@/hooks/useTagsByPostsQuery';
-import { useRouter } from 'next/router';
 import { APP_LINK_WEB } from '@/constants';
 
 const PostList = ({ id, property, name }) => {
-  const router = useRouter();
   const { data, hasNextPage, isFetching, fetchNextPage } =
     property === 'Tags' ? useTagsByPostsQuery(id) : useCategoryByPostsQuery(id);
 
-  function DebouncedLink({ href, index, children }) {
+  function DebouncedLink({ href, children }) {
     const [isClickDisabled, setIsClickDisabled] = useState(false);
 
     const handleClick = e => {
+      console.log(href);
       e.preventDefault();
       if (!isClickDisabled) {
-        // sessionStorage.setItem(
-        //   `__next_scroll_${window.history.state.idx}`,
-        //   JSON.stringify({
-        //     x: window.pageXOffset,
-        //     y: window.pageYOffset,
-        //   })
-        // );
         setIsClickDisabled(true);
         setTimeout(() => {
           setIsClickDisabled(false);
@@ -34,6 +25,8 @@ const PostList = ({ id, property, name }) => {
 
         if (isPine()) {
           window.open(`${APP_LINK_WEB}${href.pathname}?id=${href.query.id}`);
+        } else {
+          window.location.href = `${href.pathname}?id=${href.query.id}`;
         }
       }
     };
@@ -49,24 +42,6 @@ const PostList = ({ id, property, name }) => {
       </Link>
     );
   }
-
-  // 스크롤 위치 처리
-  // useEffect(() => {
-  //   const handleRouteChange = () => {
-  //     sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-  //   };
-  //   router.events.on('routeChangeStart', handleRouteChange);
-  //   return () => {
-  //     router.events.off('routeChangeStart', handleRouteChange);
-  //   };
-  // }, [router.events]);
-
-  // useEffect(() => {
-  //   if ('scrollPosition' in sessionStorage) {
-  //     window.scrollTo(0, Number(sessionStorage.getItem('scrollPosition')));
-  //     sessionStorage.removeItem('scrollPosition');
-  //   }
-  // }, []);
 
   return (
     <article className="p-container">
@@ -86,7 +61,6 @@ const PostList = ({ id, property, name }) => {
                         pathname: `/${block.properties.slug.rich_text[0].plain_text}`,
                         query: { id: block.id },
                       }}
-                      index={index}
                       key={block.id}
                     >
                       <div className="flex-shrink-0">

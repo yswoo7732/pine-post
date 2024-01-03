@@ -27,63 +27,7 @@ function PostListRepresent() {
   const posts = filteredCategoryData.map(cateData => {
     return { data: cateIdByPosts[cateData.id], ...cateData };
   });
-
-  // const [cateByDatas, setCateByDatas] = useState<any>([]); // 카테고리별 콘텐츠 조회
-  // const [posts, setPosts] = useState<any>([]); // 카테고리별 콘텐츠 조회
-
-  // useEffect(() => {
-  //   // 클라이언트 측에서만 데이터를 가져오도록 처리
-  //   const fetchData = async () => {
-  //     const newData = await Promise.all(
-  //       data?.results?.map(async (item: { id: string }) => {
-  //         // useCategoryByPostsQuery 훅을 직접 호출하지 말고, 해당 훅의 로직을 직접 수행
-  //         const filter = {
-  //           property: 'category',
-  //           relation: {
-  //             contains: item.id,
-  //           },
-  //         };
-
-  //         const response = await fetch(`/api/getFilteredData`, {
-  //           method: 'POST',
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //           },
-  //           body: JSON.stringify(filter),
-  //         });
-  //         const cateByPostsData = await response.json();
-
-  //         return { id: item.id, data: cateByPostsData?.results };
-  //       })
-  //     );
-
-  //     setCateByDatas(newData);
-  //   };
-
-  //   fetchData();
-  // }, [data]);
-
-  // useEffect(() => {
-  //   const cateIdByPosts = cateByDatas.reduce(
-  //     (acc: { [x: string]: any }, item: { id: string | number; data: any }) => {
-  //       acc[item.id] = item.data;
-  //       return acc;
-  //     },
-  //     {}
-  //   ); // 카테고리 id를 키로 하는 콘텐츠 객체
-
-  //   const posts = filteredCategoryData.map(cateData => {
-  //     return { data: cateIdByPosts[cateData.id], ...cateData };
-  //   });
-
-  //   setPosts(posts);
-  // }, [cateByDatas]);
-
-  // const cateByDatas = data?.results?.map((item: { id: string; }) => {
-  //   const { data: cateByPostsData } = useCategoryByPostsQuery(item.id);
-  //   return { id: item.id, data: cateByPostsData?.pages[0].results };
-  // });
-
+  
   return (
     <article className="bg-neutral-20">
       {posts.map(
