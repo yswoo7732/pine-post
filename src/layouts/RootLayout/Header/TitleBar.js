@@ -9,6 +9,7 @@ import { isPine } from '@/lib/utils';
 
 export default function TitleBar(props) {
   const { title } = props;
+  console.log('titlebar index');
 
   const handleShare = () => {
     const ogUrlMetaTag = document.querySelector('meta[property="og:url"]');

@@ -152,3 +152,11 @@ export type RecommendSwiperProps = {
   spaceBetween: string;
   slidesPerView: number;
 };
+
+export type Posts = {
+  data: [];
+  id: string;
+  slug: string;
+  title: string;
+  banner: boolean;
+};

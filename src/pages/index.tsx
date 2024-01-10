@@ -10,7 +10,7 @@ import { queryKey } from '@/constants/queryKey';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   await queryClient.prefetchQuery(queryKey.categories(), getCategoryDatabases);
-
+  console.log('getServerSideProps index');
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),

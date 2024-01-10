@@ -32,7 +32,7 @@ const useCategoryByPostsQuery = (id: string) => {
         },
         body: JSON.stringify(filter),
       });
-      logger.info('useCategoryByPostsQuery: ', filter);
+      // logger.info('useCategoryByPostsQuery: ', filter);
       return res.json();
     },
     {
