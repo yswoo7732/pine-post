@@ -9,12 +9,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const response = getFilteredDatabases(jsonData);
     res.status(200).json(response);
-    // logger.info('getFilteredDatabases', response);
+    console.log('getFilteredDatabases', response);
   } catch (error) {
-    if (isNotionClientError(error)) {
-      console.log('notion client error');
-    }
-    console.log(error.code);
+    console.error('getFilteredData Error', error);
     res.status(500).json(error);
   }
 };
