@@ -1,5 +1,5 @@
 import { logger } from '@/logger';
-import { Client } from '@notionhq/client';
+import { APIErrorCode, Client } from '@notionhq/client';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // 환경 변수를 통해 프록시 설정 적용
@@ -20,7 +20,22 @@ async function getCategoryDatabases() {
     });
     return res;
   } catch (error) {
-    logger.error(error);
+    if (error instanceof Error && 'code' in error) {
+      // Notion API specific error handling
+      switch (error.code) {
+        case APIErrorCode.RateLimited:
+          console.log('Rate limited. Please try again later.');
+          break;
+        case APIErrorCode.ObjectNotFound:
+          console.log('Not found. The resource may not exist.');
+          break;
+        default:
+          console.error('Unhandled Notion API error:', error.message);
+      }
+    } else {
+      // Generic error handling
+      console.error('Unexpected error:', error.message);
+    }
   }
 }
 
@@ -38,7 +53,22 @@ async function getDatabases() {
     });
     return res;
   } catch (error) {
-    logger.error(error);
+    if (error instanceof Error && 'code' in error) {
+      // Notion API specific error handling
+      switch (error.code) {
+        case APIErrorCode.RateLimited:
+          console.log('Rate limited. Please try again later.');
+          break;
+        case APIErrorCode.ObjectNotFound:
+          console.log('Not found. The resource may not exist.');
+          break;
+        default:
+          console.error('Unhandled Notion API error:', error.message);
+      }
+    } else {
+      // Generic error handling
+      console.error('Unexpected error:', error.message);
+    }
   }
 }
 
@@ -61,7 +91,22 @@ async function getFilteredDatabases(filter) {
     });
     return filteredRows;
   } catch (error) {
-    logger.error(error);
+    if (error instanceof Error && 'code' in error) {
+      // Notion API specific error handling
+      switch (error.code) {
+        case APIErrorCode.RateLimited:
+          console.log('Rate limited. Please try again later.');
+          break;
+        case APIErrorCode.ObjectNotFound:
+          console.log('Not found. The resource may not exist.');
+          break;
+        default:
+          console.error('Unhandled Notion API error:', error.message);
+      }
+    } else {
+      // Generic error handling
+      console.error('Unexpected error:', error.message);
+    }
   }
 }
 
@@ -85,7 +130,22 @@ async function getDatabasesPages(cursor: string, filter: any) {
     });
     return res;
   } catch (error) {
-    logger.error(error);
+    if (error instanceof Error && 'code' in error) {
+      // Notion API specific error handling
+      switch (error.code) {
+        case APIErrorCode.RateLimited:
+          console.log('Rate limited. Please try again later.');
+          break;
+        case APIErrorCode.ObjectNotFound:
+          console.log('Not found. The resource may not exist.');
+          break;
+        default:
+          console.error('Unhandled Notion API error:', error.message);
+      }
+    } else {
+      // Generic error handling
+      console.error('Unexpected error:', error.message);
+    }
   }
 }
 
@@ -96,7 +156,22 @@ async function getPages(id: string) {
     });
     return res;
   } catch (error) {
-    logger.error(error);
+    if (error instanceof Error && 'code' in error) {
+      // Notion API specific error handling
+      switch (error.code) {
+        case APIErrorCode.RateLimited:
+          console.log('Rate limited. Please try again later.');
+          break;
+        case APIErrorCode.ObjectNotFound:
+          console.log('Not found. The resource may not exist.');
+          break;
+        default:
+          console.error('Unhandled Notion API error:', error.message);
+      }
+    } else {
+      // Generic error handling
+      console.error('Unexpected error:', error.message);
+    }
   }
 }
 
