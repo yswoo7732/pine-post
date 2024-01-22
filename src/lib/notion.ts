@@ -11,6 +11,8 @@ const client = new Client({
 });
 
 async function getCategoryDatabases() {
+  console.log('notion getCategoryDatabases req:');
+
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_CATEGORY_DB}`,
@@ -38,6 +40,8 @@ async function getCategoryDatabases() {
 }
 
 async function getDatabases() {
+  console.log('notion getDatabases req:');
+
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -71,6 +75,7 @@ async function getDatabases() {
 }
 
 async function getFilteredDatabases(filter) {
+  console.log('notion getFilteredDatabases req:', filter);
   try {
     const filteredRows = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -109,6 +114,8 @@ async function getFilteredDatabases(filter) {
 }
 
 async function getDatabasesPages(cursor: string, filter: any) {
+  console.log('notion getDatabasesPages req:', cursor, filter);
+
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -148,6 +155,8 @@ async function getDatabasesPages(cursor: string, filter: any) {
 }
 
 async function getPages(id: string) {
+  console.log('notion getPages req:', id);
+
   try {
     const res = await client.pages.retrieve({
       page_id: id,
@@ -174,6 +183,8 @@ async function getPages(id: string) {
 }
 
 async function getBlocks(id: string) {
+  console.log('notion getBlocks req:', id);
+
   id = id.replaceAll('-', '');
   const myBlocks = await client.blocks.children.list({
     block_id: id,
