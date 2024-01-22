@@ -1,7 +1,5 @@
 import { getFilteredDatabases } from '@/lib/notion';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { logger } from '@/logger'; // our logger import
-import { isNotionClientError } from '@notionhq/client';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const jsonData = req.body;

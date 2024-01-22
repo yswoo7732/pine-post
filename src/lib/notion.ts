@@ -1,11 +1,9 @@
-import { logger } from '@/logger';
 import { APIErrorCode, Client } from '@notionhq/client';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // 환경 변수를 통해 프록시 설정 적용
 const httpsProxy = process.env.HTTPS_PROXY || '';
 const agent = new HttpsProxyAgent(httpsProxy);
-// logger.info('env check', process.env);
 
 const client = new Client({
   auth: process.env.NOTION_KEY,

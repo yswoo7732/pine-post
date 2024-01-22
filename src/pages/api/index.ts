@@ -1,5 +1,3 @@
-import { logger } from '@/logger';
-
 export const getPagesData = async (id: string) => {
   try {
     const response = await fetch(`/api/getPagesData?id=${id}`);
@@ -8,7 +6,7 @@ export const getPagesData = async (id: string) => {
     }
     return await response.json();
   } catch (error) {
-    logger.error('Error in getPagesData:', error);
+    console.error('Error in getPagesData:', error);
   }
 };
 
@@ -20,7 +18,7 @@ export const getBlocksData = async (id: string) => {
     }
     return await response.json();
   } catch (error) {
-    logger.error('Error in getBlocksData:', error);
+    console.error('Error in getBlocksData:', error);
   }
 };
 
@@ -32,6 +30,6 @@ export const getCategory = async () => {
     }
     return await response.json();
   } catch (error) {
-    logger.error('Error in getCategory:', error);
+    console.error('Error in getCategory:', error);
   }
 };

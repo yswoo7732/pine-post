@@ -29,7 +29,7 @@ const PostListRepresent = () => {
     return <p>Error loading categories</p>;
   }
 
-  console.log('categories', categories);
+  // console.log('categories', categories);
   return (
     <div>
       <h1>Categories:</h1>
@@ -52,7 +52,7 @@ const PostListRepresent = () => {
 };
 
 const ContentList = ({ categoryId, slug, title, banner }) => {
-  console.log('contentlist', categoryId);
+  // console.log('contentlist', categoryId);
   const {
     data: contents,
     isLoading: contentsLoading,
@@ -67,7 +67,7 @@ const ContentList = ({ categoryId, slug, title, banner }) => {
     return <p>Error loading contents for category {categoryId}</p>;
   }
 
-  console.log('contents: ', contents, categoryId, slug);
+  // console.log('contents: ', contents, categoryId, slug);
   return (
     <ul>
       {banner && <SwiperContents data={contents} title={title} />}

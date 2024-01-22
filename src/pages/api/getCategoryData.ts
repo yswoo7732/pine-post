@@ -1,5 +1,4 @@
 import { getCategoryDatabases } from '@/lib/notion';
-import { logger } from '@/logger';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(
@@ -9,8 +8,8 @@ export default async function handler(
   try {
     const response = await getCategoryDatabases();
     res.status(200).json(response);
-    logger.info('getCategoryData: ', response);
+    console.info('getCategoryData: ', response);
   } catch (error) {
-    logger.error('getCategoryData Error: ', error);
+    console.error('getCategoryData Error: ', error);
   }
 }

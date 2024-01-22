@@ -1,5 +1,4 @@
 import { getDatabasesPages } from '@/lib/notion';
-import { logger } from '@/logger';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -12,9 +11,9 @@ export default async function handler(
   try {
     const response = await getDatabasesPages(cursor as string, jsonData);
     res.status(200).json(response);
-    logger.info('getData: ', response);
+    console.info('getData: ', response);
   } catch (e: unknown) {
-    logger.error('getData Error: ', e);
+    console.error('getData Error: ', e);
     res.status(500).json(e);
   }
 }

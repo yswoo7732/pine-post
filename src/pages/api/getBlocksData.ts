@@ -1,5 +1,4 @@
 import { getBlocks } from '@/lib/notion';
-import { logger } from '@/logger';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(
@@ -10,8 +9,8 @@ export default async function handler(
     const { id } = req.query;
     const response = await getBlocks(`${id}`);
     res.status(200).json(response);
-    logger.info('getBlocksData: ', response);
+    // logger.info('getBlocksData: ', response);
   } catch (error) {
-    logger.error('getBlocksData Error: ', error);
+    console.error('getBlocksData Error: ', error);
   }
 }

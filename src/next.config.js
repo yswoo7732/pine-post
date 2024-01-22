@@ -27,6 +27,13 @@ const nextConfig = withTwin({
   env: {
     HTTPS_PROXY: process.env.HTTPS_PROXY,
   },
+  // serverMiddleware: [
+  //   (req, res, next) => {
+  //     // Log the incoming request
+  //     logger.info(`ddddd${req.method} ${req.url}`);
+  //     next();
+  //   },
+  // ],
 });
 
 module.exports = nextConfig;

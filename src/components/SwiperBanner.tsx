@@ -11,7 +11,7 @@ import { isPine } from '@/lib/utils';
 import { APP_LINK_WEB } from '@/constants';
 
 const SwiperBanner = ({ data, title }) => {
-  console.log(data);
+  // console.log(data);
   SwiperCore.use([Navigation, Pagination]);
 
   const swiperRef = useRef<SwiperCore>();

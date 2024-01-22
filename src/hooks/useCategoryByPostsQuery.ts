@@ -1,6 +1,4 @@
 import { queryKey } from '@/constants/queryKey';
-import { logger } from '@/logger';
-// import logger from '@/winston';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 const useCategoryByPostsQuery = (id: string) => {
