@@ -6,6 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
+    console.log('getCategory');
     const response = await getCategoryDatabases();
     res.status(200).json(response);
     console.info('getCategoryData: ', response);

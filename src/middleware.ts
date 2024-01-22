@@ -8,9 +8,9 @@ export function middleware(request: NextRequest) {
   // if (response.ok) {
     // console.log(`[${new Date().toISOString()}] Response Status: ${response}`);
   // }
-  return console.log(
-    `[${new Date().toISOString()}] Request Method: ${request.method}, URL: ${
-      request.url
-    }`
-  );
+  // return console.log(
+  //   `[${new Date().toISOString()}] Request Method: ${request.method}, URL: ${
+  //     request.url
+  //   }`
+  // );
 }

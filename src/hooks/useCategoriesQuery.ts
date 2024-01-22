@@ -3,6 +3,8 @@ import { queryKey } from '@/constants/queryKey';
 import { useQuery } from '@tanstack/react-query';
 
 const useCategoriesQuery = () => {
+  console.log('getCategory index');
+
   const data = useQuery({
     queryKey: queryKey.categories(),
     queryFn: () => getCategory(),

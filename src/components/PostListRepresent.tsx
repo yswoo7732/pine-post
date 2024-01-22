@@ -21,6 +21,7 @@ const PostListRepresent = () => {
     isError: categoriesError,
   } = useCategoriesQuery();
 
+  // console.log(categories);
   if (categoriesLoading) {
     return <p>Loading categories...</p>;
   }

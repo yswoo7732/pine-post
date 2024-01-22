@@ -23,8 +23,11 @@ export const getBlocksData = async (id: string) => {
 };
 
 export const getCategory = async () => {
+  console.log('getCategory index');
+
   try {
     const response = await fetch(`/api/getCategoryData`);
+    console.log(response);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
