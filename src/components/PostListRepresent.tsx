@@ -10,8 +10,40 @@ import { APP_LINK_WEB } from '@/constants';
 import { isPine } from '@/lib/utils';
 import { nativeConnector } from '@/lib/native';
 import { Posts } from '@/types';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import {
+  QueryFunctionContext,
+  useInfiniteQuery,
+  useQuery,
+} from '@tanstack/react-query';
 import { queryKey } from '@/constants/queryKey';
+
+const fetchInfiniteData = async (context: {
+  queryKey?: any;
+  pageParam?: any;
+}) => {
+  // 사용자의 id를 API 호출에 포함시킴
+  const { pageParam = 1 } = context;
+  const id = context.queryKey[1]?.id; // queryKey에서 id 추출
+  const filter = {
+    property: 'category',
+    relation: {
+      contains: id,
+    },
+  };
+
+  const response = await fetch(
+    `/api/getFilteredData?page=${pageParam}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(filter),
+    }
+  );
+  const data = await response.json();
+  return data;
+};
 
 const PostListRepresent = () => {
   // 카테고리 DB 조회
@@ -53,12 +85,14 @@ const PostListRepresent = () => {
 };
 
 const ContentList = ({ categoryId, slug, title, banner }) => {
-  // console.log('contentlist', categoryId);
+  console.log('contentlist', categoryId);
   const {
     data: contents,
     isLoading: contentsLoading,
     isError: contentsError,
-  } = useCategoryByPostsQuery(categoryId);
+  } = useInfiniteQuery(['categoryId', { id: categoryId }], fetchInfiniteData, {
+    getNextPageParam: lastPage => lastPage.next_cursor,
+  });
 
   if (contentsLoading) {
     return <p>Loading contents...</p>;

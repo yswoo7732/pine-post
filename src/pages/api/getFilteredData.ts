@@ -5,7 +5,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const jsonData = req.body;
 
   try {
-    console.log('getFilteredDatabases req:', req);
+    console.log('getFilteredDatabases req:');
     const response = await getFilteredDatabases(jsonData);
     res.status(200).json(response);
     console.log('getFilteredDatabases', response);
@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     console.error('getFilteredData Error', error);
     res.status(500).json(error);
   } finally {
-    console.log('api/getFilteredDatabases', req, res);
+    console.log('api/getFilteredDatabases');
   }
 };
 
