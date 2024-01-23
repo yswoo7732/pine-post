@@ -31,16 +31,13 @@ const fetchInfiniteData = async (context: {
     },
   };
 
-  const response = await fetch(
-    `/api/getFilteredData?page=${pageParam}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(filter),
-    }
-  );
+  const response = await fetch(`/api/getFilteredData?page=${pageParam}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(filter),
+  });
   const data = await response.json();
   return data;
 };

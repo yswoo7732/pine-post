@@ -21,9 +21,9 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
           showOnShallow={true}
           options={{ showSpinner: false }}
         />
-        <RootLayout title={title}>
-          {getLayout(<Component {...pageProps} />)}
-        </RootLayout>
+        {getLayout(<Component {...pageProps} />)}
+        {/* <RootLayout title={title}> */}
+        {/* </RootLayout> */}
       </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>

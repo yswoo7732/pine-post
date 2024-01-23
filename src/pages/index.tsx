@@ -16,10 +16,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     );
 
     // 만약 data가 빈 응답이면 캐시에서 해당 데이터를 제거
-    // if (!data?.length) {
-    //   queryClient.invalidateQueries(queryKey.categories());
-    // }
     const data = queryClient.getQueryData(queryKey.categories());
+    console.log(data, 'queryClient');
     if (!data) {
       queryClient.invalidateQueries(queryKey.categories());
     }
@@ -30,7 +28,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-      title: { text: '파인 톡톡' },
     },
   };
 };

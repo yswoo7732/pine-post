@@ -1,7 +1,7 @@
 import { queryKey } from '@/constants/queryKey';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-const useCategoryByPostsQuery = (id: string) => {
+const useCategoryByPostsQuery = async (id: string) => {
   const data = useInfiniteQuery(
     queryKey.filter(id),
     async ({ pageParam = undefined }) => {
@@ -40,7 +40,6 @@ const useCategoryByPostsQuery = (id: string) => {
 
   if (!data) {
     throw new Error('Posts data is not found');
-  } else {
   }
   return data;
 };

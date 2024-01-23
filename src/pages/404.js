@@ -1,11 +1,6 @@
 import { CONFIG } from '@/site.config';
-import { NextPageWithLayout, Page } from '../types';
 import CustomError from '@/component/Error';
 import MetaConfig from '@/components/MetaConfig';
-
-type Props = {
-  posts: Page;
-};
 
 export async function getStaticProps() {
   // 여기에서 데이터 가져오기
@@ -16,7 +11,7 @@ export async function getStaticProps() {
   };
 }
 
-const NotFoundPage: NextPageWithLayout<Props> = () => {
+const NotFoundPage = () => {
   return <CustomError />;
 };
 
