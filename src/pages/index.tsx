@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
-    revalidate: CONFIG.revalidateTime,
+    // revalidate: CONFIG.revalidateTime,
   };
 };
 

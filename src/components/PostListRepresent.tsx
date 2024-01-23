@@ -61,7 +61,7 @@ const PostListRepresent: React.FC = () => {
     return <p>Error loading categories</p>;
   }
 
-  // console.log('categories', categories);
+  console.log('categories', categories);
   return (
     <div>
       <h1>Categories:</h1>
