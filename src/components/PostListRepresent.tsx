@@ -44,7 +44,9 @@ const fetchInfiniteData = async (context: {
   return data;
 };
 
-const PostListRepresent: React.FC = () => {
+const PostListRepresent = ({ data }) => {
+  console.log(data);
+  return;
   // 카테고리 DB 조회
   const {
     data: categories,
