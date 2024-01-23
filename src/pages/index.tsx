@@ -8,7 +8,7 @@ import PostListRepresent from '@/components/PostListRepresent';
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     await queryClient.prefetchQuery(
       queryKey.categories(),
