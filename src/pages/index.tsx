@@ -5,10 +5,10 @@ import { CONFIG } from '@/site.config';
 import MetaConfig from '@/components/MetaConfig';
 import { getCategoryDatabases } from '@/lib/notion';
 import PostListRepresent from '@/components/PostListRepresent';
-import { GetServerSideProps, NextPage } from 'next/types';
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     await queryClient.prefetchQuery(
       queryKey.categories(),
@@ -29,6 +29,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
+    revalidate: CONFIG.revalidateTime,
   };
 };
 

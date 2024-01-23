@@ -39,7 +39,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx", "atom/index.js", "lib/utils/index.js",
+    "**/*.tsx", "atom/index.js", "lib/utils/index.js", "pages/404.js",
   ],
   "exclude": ["node_modules"],
   "types": ["types"]

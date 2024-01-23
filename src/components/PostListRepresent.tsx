@@ -16,6 +16,8 @@ import {
   useQuery,
 } from '@tanstack/react-query';
 import { queryKey } from '@/constants/queryKey';
+import { queryClient } from '@/lib/react-query';
+import { getCategoryDatabases } from '@/lib/notion';
 
 const fetchInfiniteData = async (context: {
   queryKey?: any;
@@ -42,15 +44,15 @@ const fetchInfiniteData = async (context: {
   return data;
 };
 
-const PostListRepresent = () => {
+const PostListRepresent: React.FC = () => {
   // 카테고리 DB 조회
   const {
     data: categories,
     isLoading: categoriesLoading,
     isError: categoriesError,
-  } = useCategoriesQuery();
-
+  } = useQuery(queryKey.categories(), getCategoryDatabases);
   // console.log(categories);
+
   if (categoriesLoading) {
     return <p>Loading categories...</p>;
   }
