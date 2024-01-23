@@ -44,7 +44,7 @@ const fetchInfiniteData = async (context: {
   return data;
 };
 
-const PostListRepresent = ({ data }) => {
+const PostListRepresent = () => {
   // console.log(data);
   // return;
   // 카테고리 DB 조회
