@@ -51,6 +51,12 @@ import { queryKey } from '@/constants/queryKey';
 //   }
 // };
 
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+  };
+};
+
 // 각 페이지의 url을 받아와서 추가 데이터를 가져오는 비동기 함수
 // async function fetchAdditionalData(categoryId: string) {
 //   const filter = {
@@ -67,8 +73,8 @@ import { queryKey } from '@/constants/queryKey';
 // }
 
 const Home = () => {
-  return (<></>)
-}// const Home: NextPage<IndexPageProps> = data => {
+  return <></>;
+}; // const Home: NextPage<IndexPageProps> = data => {
 //   const meta = {
 //     title: CONFIG.blog.title,
 //     description: CONFIG.blog.description,
