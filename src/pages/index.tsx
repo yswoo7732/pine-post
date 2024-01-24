@@ -3,35 +3,70 @@ import { dehydrate } from '@tanstack/react-query';
 import { queryClient } from '@/lib/react-query';
 import { CONFIG } from '@/site.config';
 import MetaConfig from '@/components/MetaConfig';
-import { getCategoryDatabases } from '@/lib/notion';
+import { getCategoryDatabases, getFilteredDatabases } from '@/lib/notion';
 import PostListRepresent from '@/components/PostListRepresent';
-import { GetServerSideProps, NextPage } from 'next/types';
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
-    await queryClient.prefetchQuery(
-      queryKey.categories(),
-      getCategoryDatabases
-    );
+    // 데이터를 가져오는 비동기 함수 호출
+    const data = await getCategoryDatabases();
 
-    // 만약 data가 빈 응답이면 캐시에서 해당 데이터를 제거
-    const data = queryClient.getQueryData(queryKey.categories());
     if (!data) {
-      queryClient.invalidateQueries(queryKey.categories());
+      // 데이터가 없으면 에러 발생
+      throw new Error('Failed to fetch data');
     }
+
+    // 각 페이지의 url을 사용하여 추가 데이터를 가져오기
+    const additionalDataPromises = data.results.map(async category => {
+      const categoryId = category.id;
+      const additionalData = await fetchAdditionalData(categoryId);
+      return { categoryId, additionalData, category };
+    });
+
+    // Promise.all을 사용하여 모든 페이지의 추가 데이터를 기다림
+    const pagesWithData = await Promise.all(additionalDataPromises);
+
+    return {
+      props: {
+        data: {
+          ...data,
+          results: pagesWithData,
+        },
+      },
+      revalidate: CONFIG.revalidateTime,
+    };
   } catch (error) {
-    // 에러 처리
-    console.error('Error prefetching data:', error);
+    // 데이터를 가져오는 중에 오류가 발생하면 에러를 콘솔에 출력
+    console.error('Error fetching data:', error.message);
+
+    // 빈 데이터로 반환 또는 에러 처리에 따라 적절히 조치
+    return {
+      props: {
+        data: {},
+      },
+      revalidate: CONFIG.revalidateTime,
+    };
   }
-  return {
-    props: {
-      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-    },
-  };
 };
 
-const Home: NextPage<IndexPageProps> = () => {
+// 각 페이지의 url을 받아와서 추가 데이터를 가져오는 비동기 함수
+async function fetchAdditionalData(categoryId: string) {
+  const filter = {
+    property: 'category',
+    relation: {
+      contains: categoryId,
+    },
+  };
+  const additionalData = await getFilteredDatabases(filter);
+
+  if (additionalData?.results) {
+    return additionalData.results;
+  }
+}
+
+const Home: NextPage<IndexPageProps> = data => {
   const meta = {
     title: CONFIG.blog.title,
     description: CONFIG.blog.description,
@@ -39,10 +74,11 @@ const Home: NextPage<IndexPageProps> = () => {
     url: CONFIG.link,
   };
 
+  console.log(data);
   return (
     <>
       <MetaConfig {...meta} />
-      {/* <PostListRepresent /> */}
+      <PostListRepresent data={data} />
     </>
   );
 };

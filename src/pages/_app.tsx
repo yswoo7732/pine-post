@@ -21,7 +21,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
           showOnShallow={true}
           options={{ showSpinner: false }}
         />
-        {getLayout(<Component {...pageProps} />)}
+          {getLayout(<Component {...pageProps} />)}
         {/* <RootLayout title={title}> */}
         {/* </RootLayout> */}
       </Hydrate>
