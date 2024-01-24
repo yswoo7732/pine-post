@@ -42,7 +42,7 @@ const Home: NextPage<IndexPageProps> = () => {
   return (
     <>
       <MetaConfig {...meta} />
-      <PostListRepresent />
+      {/* <PostListRepresent /> */}
     </>
   );
 };
