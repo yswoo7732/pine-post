@@ -16,31 +16,6 @@ import { queryKey } from '@/constants/queryKey';
 import { queryClient } from '@/lib/react-query';
 import { getCategoryDatabases } from '@/lib/notion';
 
-// const fetchInfiniteData = async (context: {
-//   queryKey?: any;
-//   pageParam?: any;
-// }) => {
-//   // 사용자의 id를 API 호출에 포함시킴
-//   const { pageParam = 1 } = context;
-//   const id = context.queryKey[1]?.id; // queryKey에서 id 추출
-//   const filter = {
-//     property: 'category',
-//     relation: {
-//       contains: id,
-//     },
-//   };
-
-//   const response = await fetch(`/api/getFilteredData?page=${pageParam}`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(filter),
-//   });
-//   const data = await response.json();
-//   return data;
-// };
-
 const PostListRepresent = ({ data }) => {
   console.log(data);
   // return <></>;
@@ -73,7 +48,6 @@ const PostListRepresent = ({ data }) => {
                 {contents.category.properties.title.rich_text[0]?.plain_text}
               </h3>
               <li key={contents.categoryId}>
-                {/* 각 카테고리별 콘텐츠 조회 */}
                 <ContentList
                   key={contents.categoryId}
                   categoryId={contents.categoryId}

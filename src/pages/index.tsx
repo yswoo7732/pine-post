@@ -7,6 +7,7 @@ import { getCategoryDatabases, getFilteredDatabases } from '@/lib/notion';
 import PostListRepresent from '@/components/PostListRepresent';
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
+import getConfig from 'next/config';
 
 // export const getStaticProps: GetStaticProps = async () => {
 //   try {
@@ -50,13 +51,6 @@ import { queryKey } from '@/constants/queryKey';
 //     };
 //   }
 // };
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {},
-  };
-};
-
 // 각 페이지의 url을 받아와서 추가 데이터를 가져오는 비동기 함수
 // async function fetchAdditionalData(categoryId: string) {
 //   const filter = {
@@ -72,9 +66,7 @@ export const getStaticProps: GetStaticProps = async () => {
 //   }
 // }
 
-const Home = () => {
-  return <></>;
-}; // const Home: NextPage<IndexPageProps> = data => {
+// const Home: NextPage<IndexPageProps> = data => {
 //   const meta = {
 //     title: CONFIG.blog.title,
 //     description: CONFIG.blog.description,
@@ -91,4 +83,34 @@ const Home = () => {
 //   );
 // };
 
-export default Home;
+// export default Home;
+// pages/index.js
+import { v4 as uuidv4 } from 'uuid'; // UUID 생성을 위한 라이브러리 사용
+
+export default function Home() {
+  const requestId = uuidv4(); // 요청 ID 생성
+
+  const fetchNotionAPI = async () => {
+    try {
+      // 클라이언트 측에서 Notion API 호출 전 로그 출력
+      console.log(`Client: [${requestId}] Calling Notion API`);
+
+      // Notion API 호출
+      const response = await fetch('/api/hello'); // 서버 측 API 호출
+
+      const data = await response.json();
+
+      // 클라이언트 측에서 Notion API 호출 후 로그 출력
+      console.log(`Client: [${requestId}] Notion API response:`, data);
+    } catch (error) {
+      console.error(`Client: [${requestId}] Error calling Notion API`, error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Hello</h1>
+      <button onClick={fetchNotionAPI}>Fetch Notion API</button>
+    </div>
+  );
+}
