@@ -1,4 +1,5 @@
 import { AppPropsWithLayout } from '@/types';
+import { v4 as uuidv4 } from 'uuid'; // UUID 생성을 위한 라이브러리 사용
 
 // function App({ Component, pageProps }: AppPropsWithLayout) {
 //   const getLayout = Component.getLayout || (page => page);
@@ -24,6 +25,8 @@ import { AppPropsWithLayout } from '@/types';
 //   // );
 // }
 function App({ Component, pageProps }: AppPropsWithLayout) {
+  const requestId = uuidv4(); // 요청 ID 생성
+  console.log(`Next.js: [${requestId}] Load`);
   return <Component {...pageProps} />;
 }
 
