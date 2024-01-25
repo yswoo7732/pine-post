@@ -89,6 +89,7 @@ import { v4 as uuidv4 } from 'uuid'; // UUID 생성을 위한 라이브러리 �
 
 export default function Home() {
   const requestId = uuidv4(); // 요청 ID 생성
+  console.log(`Client: [${requestId}] Load`);
 
   const fetchNotionAPI = async () => {
     try {
