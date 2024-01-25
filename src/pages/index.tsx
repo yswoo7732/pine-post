@@ -87,9 +87,9 @@ import getConfig from 'next/config';
 // pages/index.js
 import { v4 as uuidv4 } from 'uuid'; // UUID 생성을 위한 라이브러리 사용
 
-export default function Home() {
+export default function Home({ data }) {
   const requestId = uuidv4(); // 요청 ID 생성
-  console.log(`Client: [${requestId}] Load`);
+  console.log(`Client: [${requestId}] Load - `, data);
 
   const fetchNotionAPI = async () => {
     try {
@@ -114,4 +114,17 @@ export default function Home() {
       <button onClick={fetchNotionAPI}>Fetch Notion API</button>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  // 처음 요청일 때 로그 출력
+  console.log('First request received.');
+
+  // 여기서 데이터를 가져와서 props로 반환
+  const data = 'Some data from the server.';
+  return {
+    props: {
+      data,
+    },
+  };
 }
