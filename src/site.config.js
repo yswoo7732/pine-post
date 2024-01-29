@@ -10,7 +10,7 @@ const CONFIG = {
   lang: 'ko-KR', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL:
     'https://kr.object.fin-ncloudstorage.com/mkt/pine_toktok_og_1200.png', // The link to generate OG image, don't end with a slash
-  revalidateTime: 1800, // revalidate time 30분
+  revalidateTime: 1200, // revalidate time 30분
 };
 
 module.exports = { CONFIG };

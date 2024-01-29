@@ -8,6 +8,7 @@ import PostListRepresent from '@/components/PostListRepresent';
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
 import getConfig from 'next/config';
+import { generateUniqueTransactionId } from '@/constants';
 
 // export const getStaticProps: GetStaticProps = async () => {
 //   try {
@@ -85,26 +86,22 @@ import getConfig from 'next/config';
 
 // export default Home;
 // pages/index.js
-import { v4 as uuidv4 } from 'uuid'; // UUID 생성을 위한 라이브러리 사용
 
+const requestId = generateUniqueTransactionId();
 export default function Home({ data }) {
-  const requestId = uuidv4(); // 요청 ID 생성
-  console.log(`Client: [${requestId}] Load - `, data);
-
   const fetchNotionAPI = async () => {
     try {
-      // 클라이언트 측에서 Notion API 호출 전 로그 출력
-      console.log(`Client: [${requestId}] Calling Notion API`);
-
       // Notion API 호출
       const response = await fetch('/api/hello'); // 서버 측 API 호출
 
       const data = await response.json();
 
       // 클라이언트 측에서 Notion API 호출 후 로그 출력
-      console.log(`Client: [${requestId}] Notion API response:`, data);
+      setTimeout(() => {
+        console.log(`[${requestId}] Notion API response:`, data);
+      }, 3000);
     } catch (error) {
-      console.error(`Client: [${requestId}] Error calling Notion API`, error);
+      console.error(`[${requestId}] Error calling Notion API`, error);
     }
   };
 
@@ -118,7 +115,9 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // 처음 요청일 때 로그 출력
-  console.log('First request received.');
+  setTimeout(() => {
+    console.log('First request received.', requestId);
+  }, 3000);
 
   // 여기서 데이터를 가져와서 props로 반환
   const data = 'Some data from the server.';
