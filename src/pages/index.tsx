@@ -8,8 +8,7 @@ import PostListRepresent from '@/components/PostListRepresent';
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
 import { queryKey } from '@/constants/queryKey';
 import getConfig from 'next/config';
-import { generateUniqueTransactionId } from '@/constants';
-
+import { generateUniqueTransactionId } from '@/transactionId';
 // export const getStaticProps: GetStaticProps = async () => {
 //   try {
 //     // 데이터를 가져오는 비동기 함수 호출
@@ -88,7 +87,7 @@ import { generateUniqueTransactionId } from '@/constants';
 // pages/index.js
 
 const requestId = generateUniqueTransactionId();
-export default function Home({ data }) {
+export default function Home({ requestId }) {
   const fetchNotionAPI = async () => {
     try {
       // Notion API 호출
@@ -123,7 +122,7 @@ export async function getServerSideProps() {
   const data = 'Some data from the server.';
   return {
     props: {
-      data,
+      requestId,
     },
   };
 }

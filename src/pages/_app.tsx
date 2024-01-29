@@ -1,4 +1,3 @@
-import { generateUniqueTransactionId } from '@/constants';
 import { queryClient } from '@/lib/react-query';
 import { AppPropsWithLayout } from '@/types';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
