@@ -91,7 +91,11 @@ export default function Home({ requestId }) {
   const fetchNotionAPI = async () => {
     try {
       // Notion API 호출
-      const response = await fetch('/api/hello'); // 서버 측 API 호출
+      const response = await fetch('/api/hello', {
+        headers: {
+          'X-Request-Id': requestId,
+        },
+      }); // 서버 측 API 호출
 
       const data = await response.json();
 

@@ -1,6 +1,7 @@
 // pages/api/hello.js
 import { APIErrorCode, Client } from '@notionhq/client';
 import { HttpsProxyAgent } from 'https-proxy-agent';
+import { generateUniqueTransactionId } from '@/transactionId';
 
 // 환경 변수를 통해 프록시 설정 적용
 const httpsProxy = process.env.HTTPS_PROXY || '';
@@ -11,7 +12,8 @@ const client = new Client({
   agent: agent,
 });
 export default async function handler(req, res) {
-  const requestId = req.headers['x-request-id'];
+  const requestId =
+    req.headers['X-Request-Id'] || generateUniqueTransactionId();
   try {
     // 서버 측에서 Notion API 호출 전 로그 출력
     setTimeout(() => {
