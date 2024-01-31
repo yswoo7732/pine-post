@@ -91,7 +91,7 @@ export default function Home({ requestId }) {
   const fetchNotionAPI = async () => {
     try {
       setTimeout(() => {
-        console.log(`[${requestId}] Calling Notion API`);
+        console.log(`[${requestId}] Before Calling Notion API`);
       }, 3000);
       // Notion API 호출
       const response = await fetch('/api/hello'); // 서버 측 API 호출
