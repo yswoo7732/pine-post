@@ -27,14 +27,6 @@ const nextConfig = withTwin({
   env: {
     HTTPS_PROXY: process.env.HTTPS_PROXY,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/static/:path*',
-        destination: '/public/:path*',
-      },
-    ];
-  },
   // serverMiddleware: [
   //   (req, res, next) => {
   //     // Log the incoming request
