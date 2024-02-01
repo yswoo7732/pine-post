@@ -1,4 +1,14 @@
 const withTwin = require('./withTwin');
+const { execSync } = require('child_process');
+
+const getGitHead = () => {
+  try {
+    return execSync('git rev-parse HEAD').toString().trim();
+  } catch (error) {
+    console.error('Error getting Git HEAD:', error);
+    return 'unknown-git-head';
+  }
+};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withTwin({
@@ -27,13 +37,14 @@ const nextConfig = withTwin({
   env: {
     HTTPS_PROXY: process.env.HTTPS_PROXY,
   },
-  // serverMiddleware: [
-  //   (req, res, next) => {
-  //     // Log the incoming request
-  //     logger.info(`ddddd${req.method} ${req.url}`);
-  //     next();
-  //   },
-  // ],
+  // 고정된 빌드 ID 설정
+  generateBuildId: async () => {
+    // Git의 HEAD 값 가져오기
+    const gitHead = getGitHead();
+
+    // Git의 HEAD 값을 빌드 ID로 사용
+    return gitHead;
+  },
 });
 
 module.exports = nextConfig;
