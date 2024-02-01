@@ -15,50 +15,37 @@ import {
 import { queryKey } from '@/constants/queryKey';
 import { queryClient } from '@/lib/react-query';
 import { getCategoryDatabases } from '@/lib/notion';
+import SwiperBanner from './SwiperBanner';
 
 const PostListRepresent = ({ data }) => {
   console.log(data);
-  // return <></>;
-  // 카테고리 DB 조회
-  // const {
-  //   data: categories,
-  //   isLoading: categoriesLoading,
-  //   isError: categoriesError,
-  // } = useQuery(queryKey.categories(), getCategoryDatabases);
-  // // console.log(categories);
-
-  // if (categoriesLoading) {
-  //   return <p>Loading categories...</p>;
-  // }
-
-  // if (categoriesError) {
-  //   return <p>Error loading categories</p>;
-  // }
-
   // console.log('categories', categories);
-  return (
-    <div>
-      <h1>Categories:</h1>
-      <ul>
-        {data.data?.results
-          ?.filter((contents: any) => contents.additionalData.length > 0)
-          .map((contents: any) => (
-            <>
-              <h3>
-                {contents.category.properties.title.rich_text[0]?.plain_text}
-              </h3>
-              <li key={contents.categoryId}>
-                <ContentList
-                  key={contents.categoryId}
-                  categoryId={contents.categoryId}
-                  contents={contents.additionalData}
-                />
-              </li>
-            </>
-          ))}
-      </ul>
-    </div>
-  );
+  return data.data?.results
+    ?.filter((contents: any) => contents.additionalData.length > 0)
+    .map((contents: any, index: number) => (
+      <div key={index}>
+        {contents.category.properties.banner.checkbox && (
+          <SwiperBanner
+            data={contents.additionalData}
+            title={contents.category.properties.title.rich_text[0]?.plain_text}
+          />
+        )}
+        <>
+          <h3>{contents.category.properties.title.rich_text[0]?.plain_text}</h3>
+          <div key={contents.categoryId}>
+            <h4>{contents.category.properties.banner.checkbox}</h4>
+            <ContentList
+              key={contents.categoryId}
+              categoryId={contents.categoryId}
+              contents={contents.additionalData}
+            />
+            {/* {!contents.category.properties.banner.checkbox && (
+
+          )} */}
+          </div>
+        </>
+      </div>
+    ));
 };
 
 const ContentList = ({ categoryId, contents }) => {
@@ -66,13 +53,11 @@ const ContentList = ({ categoryId, contents }) => {
 
   // console.log('contents: ', contents, categoryId, slug);
   return (
-    <ul>
-      {/* {banner && <SwiperContents data={contents} title={title} />} */}
+    <>
       <section
         className="bg-[#fff] mb-3 min-w-full inline-block"
         key={categoryId}
       >
-        {/* {title && <h4 className="mx-7 pt-5 line-clamp-2">{title}</h4>} */}
         {contents.map((content: any) => (
           <ul className="mt-3" key={content.id}>
             {content.properties.slug.rich_text.length > 0 && (
@@ -142,7 +127,7 @@ const ContentList = ({ categoryId, contents }) => {
           />
         )} */}
       </section>
-    </ul>
+    </>
   );
 };
 

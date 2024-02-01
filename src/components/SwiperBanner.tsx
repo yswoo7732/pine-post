@@ -11,7 +11,7 @@ import { isPine } from '@/lib/utils';
 import { APP_LINK_WEB } from '@/constants';
 
 const SwiperBanner = ({ data, title }) => {
-  // console.log(data);
+  console.log(data);
   SwiperCore.use([Navigation, Pagination]);
 
   const swiperRef = useRef<SwiperCore>();
@@ -19,7 +19,7 @@ const SwiperBanner = ({ data, title }) => {
   // console.log('SwiperBanner', data);
   return (
     <article key={data} className="bg-[#fff] pb-5 pt-3 mb-3 min-h-[300px]">
-      {data && data.pages[0]?.results?.length > 0 && (
+      {data && data.length > 0 && (
         <section className="p-container mx-container mb-4">
           <span className=" bg-pink-20 text-pink-100 px-3 rounded-xl text-sm">
             {title}
@@ -38,7 +38,7 @@ const SwiperBanner = ({ data, title }) => {
               prevEl: '.swiper-button-prev',
             }}
           >
-            {data.pages[0]?.results?.map((content: any) => (
+            {data?.map((content: any) => (
               <SwiperSlide key={content.id}>
                 <h5 className="line-clamp-2">
                   {content.properties?.Name.title?.[0].plain_text}

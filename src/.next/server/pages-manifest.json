@@ -1,17 +1,5 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/api/getBlocksData": "pages/api/getBlocksData.js",
-  "/api/getCategoryData": "pages/api/getCategoryData.js",
-  "/api/getData": "pages/api/getData.js",
-  "/api/getDatabases": "pages/api/getDatabases.js",
-  "/api/getFilteredData": "pages/api/getFilteredData.js",
-  "/api/getPagesData": "pages/api/getPagesData.js",
-  "/api": "pages/api.js",
-  "/api/hello": "pages/api/hello.js",
   "/_error": "pages/_error.js",
-  "/feed": "pages/feed.js",
-  "/": "pages/index.js",
-  "/[slug]": "pages/[slug].js",
-  "/404": "pages/404.js"
+  "/_document": "pages/_document.js"
 }
