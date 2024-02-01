@@ -70,6 +70,9 @@ async function fetchAdditionalData(categoryId: string) {
 }
 
 const Home: NextPage<IndexPageProps> = data => {
+  const gitHead = process.env.GIT_HEAD || 'unknown-git-head';
+  console.log('Git HEAD in index page:', gitHead);
+
   const meta = {
     title: CONFIG.blog.title,
     description: CONFIG.blog.description,
