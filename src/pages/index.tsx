@@ -1,13 +1,9 @@
 import { IndexPageProps } from '@/types';
-import { dehydrate } from '@tanstack/react-query';
-import { queryClient } from '@/lib/react-query';
 import { CONFIG } from '@/site.config';
 import MetaConfig from '@/components/MetaConfig';
 import { getCategoryDatabases, getFilteredDatabases } from '@/lib/notion';
 import PostListRepresent from '@/components/PostListRepresent';
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next/types';
-import { queryKey } from '@/constants/queryKey';
-import getConfig from 'next/config';
 import { generateUniqueTransactionId } from '@/transactionId';
 
 const requestId = generateUniqueTransactionId();
@@ -15,7 +11,9 @@ const requestId = generateUniqueTransactionId();
 export const getStaticProps: GetStaticProps = async () => {
   try {
     // 데이터를 가져오는 비동기 함수 호출
+    console.log(`[${requestId}] Before Fetching data for getStaticProps:`);
     const data = await getCategoryDatabases();
+    console.log(`[${requestId}] Fetching data for getStaticProps:`, data);
 
     if (!data) {
       // 데이터가 없으면 에러 발생
@@ -62,7 +60,9 @@ async function fetchAdditionalData(categoryId: string) {
       contains: categoryId,
     },
   };
+  console.log(`[${requestId}] Before Fetching filtered data`);
   const additionalData = await getFilteredDatabases(filter);
+  console.log(`[${requestId}] Fetching filtered data`);
 
   if (additionalData?.results) {
     return additionalData.results;
@@ -70,8 +70,7 @@ async function fetchAdditionalData(categoryId: string) {
 }
 
 const Home: NextPage<IndexPageProps> = data => {
-  const gitHead = process.env.GIT_HEAD || 'unknown-git-head';
-  console.log('Git HEAD in index page:', gitHead);
+  console.log(`[${requestId}] Home`);
 
   const meta = {
     title: CONFIG.blog.title,
@@ -80,7 +79,6 @@ const Home: NextPage<IndexPageProps> = data => {
     url: CONFIG.link,
   };
 
-  console.log(data);
   return (
     <>
       <MetaConfig {...meta} />
