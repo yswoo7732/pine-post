@@ -9,7 +9,7 @@ const agent = new HttpsProxyAgent(httpsProxy);
 
 const client = new Client({
   auth: process.env.NOTION_KEY,
-  // agent: agent,
+  agent: agent,
 });
 export default async function handler(req, res) {
   // const requestId = generateUniqueTransactionId();
