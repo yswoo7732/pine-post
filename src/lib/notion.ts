@@ -10,24 +10,24 @@ const client = new Client({
   agent: agent,
 });
 
+// 카테고리 DB 조회
 async function getCategoryDatabases() {
-  console.log('notion getCategoryDatabases req:');
-
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_CATEGORY_DB}`,
       page_size: 100,
     });
+
     return res;
   } catch (error) {
     if (error instanceof Error && 'code' in error) {
       // Notion API specific error handling
       switch (error.code) {
         case APIErrorCode.RateLimited:
-          console.log('Rate limited. Please try again later.');
+          console.error('Rate limited. Please try again later.');
           break;
         case APIErrorCode.ObjectNotFound:
-          console.log('Not found. The resource may not exist.');
+          console.error('Not found. The resource may not exist.');
           break;
         default:
           console.error('Unhandled Notion API error:', error.message);
@@ -39,9 +39,8 @@ async function getCategoryDatabases() {
   }
 }
 
+// 컨텐츠 DB 조회
 async function getDatabases() {
-  console.log('notion getDatabases req:');
-
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -59,10 +58,10 @@ async function getDatabases() {
       // Notion API specific error handling
       switch (error.code) {
         case APIErrorCode.RateLimited:
-          console.log('Rate limited. Please try again later.');
+          console.error('Rate limited. Please try again later.');
           break;
         case APIErrorCode.ObjectNotFound:
-          console.log('Not found. The resource may not exist.');
+          console.error('Not found. The resource may not exist.');
           break;
         default:
           console.error('Unhandled Notion API error:', error.message);
@@ -75,7 +74,6 @@ async function getDatabases() {
 }
 
 async function getFilteredDatabases(filter) {
-  console.log('notion getFilteredDatabases req:', filter);
   try {
     const filteredRows = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -98,10 +96,10 @@ async function getFilteredDatabases(filter) {
       // Notion API specific error handling
       switch (error.code) {
         case APIErrorCode.RateLimited:
-          console.log('Rate limited. Please try again later.');
+          console.error('Rate limited. Please try again later.');
           break;
         case APIErrorCode.ObjectNotFound:
-          console.log('Not found. The resource may not exist.');
+          console.error('Not found. The resource may not exist.');
           break;
         default:
           console.error('Unhandled Notion API error:', error.message);
@@ -114,8 +112,6 @@ async function getFilteredDatabases(filter) {
 }
 
 async function getDatabasesPages(cursor: string, filter: any) {
-  console.log('notion getDatabasesPages req:', cursor, filter);
-
   try {
     const res = await client.databases.query({
       database_id: `${process.env.NOTION_DATABASE}`,
@@ -139,10 +135,10 @@ async function getDatabasesPages(cursor: string, filter: any) {
       // Notion API specific error handling
       switch (error.code) {
         case APIErrorCode.RateLimited:
-          console.log('Rate limited. Please try again later.');
+          console.error('Rate limited. Please try again later.');
           break;
         case APIErrorCode.ObjectNotFound:
-          console.log('Not found. The resource may not exist.');
+          console.error('Not found. The resource may not exist.');
           break;
         default:
           console.error('Unhandled Notion API error:', error.message);
@@ -155,8 +151,6 @@ async function getDatabasesPages(cursor: string, filter: any) {
 }
 
 async function getPages(id: string) {
-  console.log('notion getPages req:', id);
-
   try {
     const res = await client.pages.retrieve({
       page_id: id,
@@ -167,10 +161,10 @@ async function getPages(id: string) {
       // Notion API specific error handling
       switch (error.code) {
         case APIErrorCode.RateLimited:
-          console.log('Rate limited. Please try again later.');
+          console.error('Rate limited. Please try again later.');
           break;
         case APIErrorCode.ObjectNotFound:
-          console.log('Not found. The resource may not exist.');
+          console.error('Not found. The resource may not exist.');
           break;
         default:
           console.error('Unhandled Notion API error:', error.message);
@@ -183,8 +177,6 @@ async function getPages(id: string) {
 }
 
 async function getBlocks(id: string) {
-  console.log('notion getBlocks req:', id);
-
   id = id.replaceAll('-', '');
   const myBlocks = await client.blocks.children.list({
     block_id: id,

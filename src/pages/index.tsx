@@ -19,11 +19,12 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 const requestId = generateUniqueTransactionId();
 
 export const getStaticProps: GetStaticProps = async () => {
+  console.log(`[${requestId}] getStaticProps1`);
   try {
     // 데이터를 가져오는 비동기 함수 호출
-    console.log(`[${requestId}] Before Fetching data for getStaticProps:`);
+    console.log(`[${requestId}] getStaticProps2`);
     const data = await getCategoryDatabases();
-    console.log(`[${requestId}] Fetching data for getStaticProps:`, data);
+    console.log(`[${requestId}] getStaticProps3`);
 
     if (!data) {
       // 데이터가 없으면 에러 발생
@@ -39,6 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     // Promise.all을 사용하여 모든 페이지의 추가 데이터를 기다림
     const pagesWithData = await Promise.all(additionalDataPromises);
+    console.log(`[${requestId}] getStaticProps4`);
 
     return {
       props: {
@@ -71,9 +73,9 @@ async function fetchAdditionalData(categoryId: string) {
     },
   };
 
-  console.log(`[${requestId}] Before Fetching filtered data`);
+  // console.log(`[${requestId}] Before Fetching filtered data`);
   const additionalData = await getFilteredDatabases(filter);
-  console.log(`[${requestId}] Fetching filtered data`);
+  // console.log(`[${requestId}] Fetching filtered data`);
 
   if (additionalData?.results) {
     return additionalData.results;
@@ -81,7 +83,7 @@ async function fetchAdditionalData(categoryId: string) {
 }
 
 const Home: NextPage<IndexPageProps> = data => {
-  console.log(`[${requestId}] Home`);
+  console.log(`[${requestId}] getStaticProps5`);
 
   const meta = {
     title: CONFIG.blog.title,
