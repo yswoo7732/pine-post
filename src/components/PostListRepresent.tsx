@@ -19,7 +19,6 @@ import SwiperBanner from './SwiperBanner';
 
 const PostListRepresent = ({ data }) => {
   console.log(data);
-  // console.log('categories', categories);
   return data.data?.results
     ?.filter((contents: any) => contents.additionalData.length > 0)
     .map((contents: any, index: number) => (
@@ -49,9 +48,6 @@ const PostListRepresent = ({ data }) => {
 };
 
 const ContentList = ({ categoryId, contents }) => {
-  console.log('contentlist', categoryId);
-
-  // console.log('contents: ', contents, categoryId, slug);
   return (
     <>
       <section
