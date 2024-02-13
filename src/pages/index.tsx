@@ -18,7 +18,7 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 // });
 const requestId = generateUniqueTransactionId();
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   console.log(`[${requestId}] getStaticProps1`);
   try {
     // 데이터를 가져오는 비동기 함수 호출
@@ -49,7 +49,6 @@ export const getStaticProps: GetStaticProps = async () => {
           results: pagesWithData,
         },
       },
-      revalidate: CONFIG.revalidateTime,
     };
   } catch (error) {
     // 데이터를 가져오는 중에 오류가 발생하면 에러를 콘솔에 출력
